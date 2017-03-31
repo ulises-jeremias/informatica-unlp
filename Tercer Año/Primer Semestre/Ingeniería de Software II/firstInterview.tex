@@ -1,0 +1,147 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Primer Entrevista}
+\author{ COD-Project }
+\date{Marzo 2017}
+
+\begin{document}
+
+% \maketitle
+
+
+\section{Temas Abarcados}
+% En esta sección se escribe cada una de las respuestas 
+% luego de cada una de las preguntas con un previo salto de linea
+% \\
+\subsection{Blog y Favores}
+\begin{enumerate}
+    \item ¿Cuál es el \textbf{nombre del blog}?
+    \item ¿Qué \textbf{tipo de favores} se solicitan en el blog?
+    \begin{enumerate}
+        \item ¿La \textbf{solicitud es paga}? $\Rightarrow$ ¿Qué medio se utiliza para efectuar el pago?
+        \item ¿Deben demostrar los colaboradores su desempeño en el campo a contribuir? 
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Manejo de Usuarios}
+\begin{enumerate}
+    \item ¿Cuenta el blog con un \textbf{registro de usuarios}?
+    \begin{enumerate}
+        \item ¿Este registro es \textbf{obligatorio}? 
+        \item ¿Qué tipo de \textbf{información} se necesita conocer de cada usuario?
+    \end{enumerate}
+    \item ¿Qué funciones me permite a mi como usuario realizar el blog?
+    \begin{enumerate}
+        \item Se solicita diferenciar entre usuario Registrado, Logeado e invitado.
+        \subitem $\hookrightarrow{}$añadir favores, comunicarme con otros usuarios, agregar amigos, eliminar favores, comentar y evaluar la atención recibida por otro usuario $\ldots$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Desarrollo de Sistema}
+$\hookrightarrow{}$Se comienza a hablar del desarrollo en concreto del Sistema
+\begin{enumerate}
+    \item ¿Cuenta con conocimientos en el campo de informática?
+    \begin{enumerate}
+        \item ¿Desea aplicar algún concepto en particular en el desarrollo del sistema?
+        \item ¿Ha participado en desarrollos previos de otros proyectos?
+        \begin{enumerate}
+            \item ¿Cuenta con documentación de los mismos? 
+            \subitem $\hookrightarrow{}$ minutas de reunión, organigramas $\ldots$
+        \end{enumerate}
+        \item ¿El blog fue desarrollado con gestores como blogspot, wordpress, $\ldots$? 
+    \end{enumerate}
+    \item ¿El blog fue un desarrollo individual o realizado por alguna compañía? 
+    \begin{enumerate}
+        \item ¿Cuenta usted con la documentación de dicho desarrollo?
+        \subitem $\hookrightarrow{}$ Esta se puede utilizar para una más clara visión del blog y el futuro sistema
+    \end{enumerate}
+    \item ¿Qué utilidades planea agregar con este nuevo sistema?
+    \begin{enumerate}
+        \item Este sistema ¿va a ser complementario al blog?
+    \end{enumerate}
+    \item ¿Cuales son sus objetivos con este nuevo sistema?
+\end{enumerate}
+
+
+\subsection{Preguntas Complementarias}
+$\hookrightarrow{}$en base a respuestas del cliente en cuanto a registro de usuarios y desarrollo previo del blog se realizaran las preguntas correspondientes
+\begin{enumerate}
+    \item ¿Lo favores tienen un \textbf{limite de tiempo} a ser realizados?
+    \begin{enumerate}
+        \item Vencido este plazo, ¿son eliminados?
+    \end{enumerate}
+    \item ¿Se valorizan dichos favores? 
+    \item ¿Puede un usuario pedir y/o brindar \textbf{más de un favor a la vez}?
+    \item ¿Se \textbf{bloqueara a un usuario} que hayan recibido calificaciones negativas?
+    \item ¿Puede una \textbf{empresa ser usuario}?
+    \subitem $\hookrightarrow{}$ en referencia a si una organización puede solicitar o brindar algún tipo de favor
+\end{enumerate}
+
+
+\subsection{Preguntas Administrativas}
+\begin{enumerate}
+    \item ¿Es usted quien administra el blog?
+    \subitem $\hookrightarrow{}$ Se solicita contacto con el administrador del blog.
+    \begin{enumerate}
+        \item ¿Cuenta con permisos adicionales dentro del blog?
+    \end{enumerate}
+    \item ¿Qué otras personas participan o intervienen en el blog?
+    \begin{enumerate}
+        \item ¿Estos contribuidores operan desde un establecimiento o mediante la red?
+        \subitem $\hookrightarrow{}$ Distribución geográfica.
+        \begin{enumerate}
+            \item ¿Se puede ir a conocer y a analizar dicho establecimiento?
+        \end{enumerate}
+    \end{enumerate}
+    \item ¿Trabajan como una organización individual o forman parte de un grupo de organizaciones?
+    \item Los datos almacenados, ¿son de dominio propio o cuenta con servicios prestados?
+    \subitem $\hookrightarrow{}$ Se pregunta quien administra el uso de servidores.
+\end{enumerate}
+
+
+\section{Formalidades y Asuntos}
+$\hookrightarrow{}$ Presentación de la entrevista y la estructura de la misma. \\
+$\hookrightarrow{}$ Se lleva a cabo desarrollo de preguntas. \\
+$\hookrightarrow{}$ Se dialoga tiempo de desarrollo del sistema y precio del mismo. \\
+$\hookrightarrow{}$ Se pide información de contacto, se pauta la siguiente reunión y contenido de la misma. \\
+
+\end{document}

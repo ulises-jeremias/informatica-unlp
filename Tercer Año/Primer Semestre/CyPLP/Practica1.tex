@@ -1,0 +1,197 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{CyPLP}
+\author{Ulises J. Cornejo Fandos}
+\date{Marzo 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Practica 1}
+\subsection{Respuestas}
+    \begin{enumerate}
+        \item \textbf{Ejercicio 1}
+        \item \textbf{Ejercicio 2} \\
+        Los lenguajes que elegí en la encuesta son los siguiente:
+        \begin{itemize}
+            \item C
+            \item PHP
+            \item JavaScript
+        \end{itemize}
+        A continuación se describe brevemente la historia de cada uno de ellos: \\ \\
+        \begin{tabular}{r|l}
+            \textsc{C} 
+                & Es un lenguaje de programación originalmente desarrollado por Dennis Ritchie \\ 
+                & entre 1969 y 1972 en los Laboratorios Bell,2 como evolución del anterior lenguaje B, \\
+                & a su vez basado en BCPL. \\
+                
+                & Al igual que B, es un lenguaje orientado a la implementación de Sistemas Operativos, \\
+                & concretamente Unix. C es apreciado por la eficiencia del código que produce \\ 
+                & y es el lenguaje de programación más popular para crear software de sistemas,\\ 
+                & aunque también se utiliza para crear aplicaciones. \\
+        
+                & Se trata de un lenguaje de tipos de datos estáticos, débilmente tipificado, de medio \\ 
+                & nivel, ya que dispone de las estructuras típicas de los lenguajes de alto nivel pero, \\ 
+                & a su vez, dispone de construcciones del lenguaje que permiten un control a muy \\ 
+                & bajo nivel. \\ 
+                & Los compiladores suelen ofrecer extensiones al lenguaje que posibilitan mezclar código\\ 
+                & en ensamblador con código C o acceder directamente a memoria o dispositivos \\ 
+                & periféricos. \\
+        
+                & La primera estandarización del lenguaje C fue en ANSI, con el estándar X3.159-1989. \\ 
+                & El lenguaje que define este estándar fue conocido vulgarmente como ANSI C. \\ 
+                & Posteriormente, en 1990, fue ratificado como estándar ISO (ISO/IEC 9899:1990). \\ 
+                & La adopción de este estándar es muy amplia por lo que, si los programas creados \\ 
+                & lo siguen, el código es portable entre plataformas y/o arquitecturas. \\
+        \end{tabular}
+        
+        \begin{tabular}{r|l}
+            \textsc{PHP}
+                & Es un lenguaje de programación de uso general de código del lado del servidor \\ 
+                & originalmente diseñado para el desarrollo web de contenido dinámico. \\ 
+                & Fue originalmente diseñado en Perl, con base en la escritura de un grupo de CGI \\ 
+                & binarios escritos en el lenguaje C por el programador danés-canadiense \\ 
+                & Rasmus Lerdorf en el año 1994 para mostrar su currículum vítae y guardar ciertos \\ 
+                & datos, como la cantidad de tráfico que su página web recibía. \\ 
+                & El 8 de junio de 1995 fue publicado "Personal Home Page Tools" después de que \\ 
+                & Lerdorf lo combinara con su propio Form Interpreter para crear PHP/FI. \\
+                & Dos programadores israelíes del Technion, Zeev Suraski y Andi Gutmans, \\
+                & reescribieron el analizador sintáctico (parser, en inglés) en 1997 y crearon la base del \\ 
+                & PHP3, y cambiaron el nombre del lenguaje por PHP: Hypertext Preprocessor. \\ 
+                & Inmediatamente comenzaron experimentaciones públicas de PHP3, y se publicó \\ 
+                & oficialmente en junio de 1998. Para 1999, Suraski y Gutmans reescribieron \\ 
+                & el código de PHP, y produjeron lo que hoy se conoce como motor Zend. \\
+                & También fundaron Zend Technologies en Ramat Gan, Israel. \\ 
+                & En mayo del 2000, PHP 4 se lanzó bajo el poder del motor Zend 1.0. \\
+                & El 13 de julio del 2007 se anunció la suspensión del soporte y desarrollo de la versión 4 \\
+                & de PHP,11 y, a pesar de lo anunciado, se ha liberado una nueva versión con \\
+                & mejoras de seguridad, la 4.4.8, publicada el 13 de enero del 2008, y posteriormente \\ 
+                & la versión 4.4.9, publicada el 7 de agosto del 2008. \\ 
+                & Según esta noticia, se le dio soporte a fallos críticos hasta el 9 de agosto del 2008. \\
+                & El 13 de julio del 2004, se lanzó PHP 5, utilizando el motor Zend Engine 2.0.\\
+                & Actualmente, se encuentra la versión 7 de PHP.\\ & \\
+                
+            \textsc{JS}
+                & \href{https://en.wikipedia.org/wiki/JavaScript}{en.wikipedia.org/wiki/JavaScript} \\ 
+        \end{tabular}
+    
+        \item \textbf{Ejercicio 3} \\ 
+        Atributos de un buen lenguaje de programación:
+            \begin{itemize}
+                \item \textbf{Claridad, sencillez y unidad (legibilidad):} La sintaxis del lenguaje afecta la facilidad con laque un programa se puede escribir, por a prueba, y más tarde entender y modificar.
+                \item \textbf{Ortogonalidad:} Capacidad para combinar varias características de un lenguaje en todas lascombinaciones posibles, de manera que todas ellas tengan significado.
+                \item \textbf{Naturalidad para la aplicación:} La sintaxis del programa debe permitir que la estructuradel programa refleje la estructura lógica subyacente.
+                \item \textbf{Apoyo para la abstracción:} Una parte importante de la tarea del programador es proyectar las abstracciones adecuadas para la solución del problema y luego implementar esas abstracciones empleando las capacidades más primitivas que provee el lenguaje de programación mismo.
+                \item \textbf{Facilidad para verificar programas:} La sencillez de la estructura semántica y sintáctica ayuda a simplificar la verificación de programas.
+                \item \textbf{Entorno de programación:} Facilita el trabajo con un lenguaje técnicamente débil encomparación con un lenguaje más fuerte con poco apoyo externo.
+                \item \textbf{Portabilidad de programas.}
+                \item \textbf{Costo de uso:} 
+                    \begin{itemize}
+                        \item Costo de ejecución del programa.
+                        \item Costo de traducción de programas.
+                        \item Costo de creación, prueba y uso de programas.
+                        \item Costo de mantenimiento de los programas. \\
+                        $\hookrightarrow{}$ Costo total del ciclo de vida.
+                    \end{itemize} 
+            \end{itemize}
+    
+    \newpage
+    
+        \item \textbf{Ejercicio 4}
+            \begin{itemize}
+                \item 
+                \item
+                \item 
+            \end{itemize}    
+    \end{enumerate}
+
+\subsection{Lenguajes}
+    \begin{tabular}{r|l}
+        \textbf{ADA} 
+            & Es un lenguaje de programación orientado a objetos y fuertemente tipado de forma \\ 
+            & estática.  \\
+            & \\
+        \textbf{Java}
+            & Es un lenguaje de programación de propósito general, concurrente, orientado a \\ 
+            & objetos que fue diseñado específicamente para tener tan pocas dependencias de \\ 
+            & implementación como fuera posible. Su intención es permitir que los desarrolladores \\ 
+            & de aplicaciones escriban el programa una vez y lo ejecuten en cualquier dispositivo \\ 
+            & (conocido en inglés como WORA, o "write once, run anywhere"), lo que quiere decir \\
+            & que el código que es ejecutado en una plataforma no tiene que ser recompilado para \\ 
+            & correr en otra. Java es, a partir de 2012, uno de los lenguajes de programación más \\ 
+            & populares en uso, particularmente para aplicaciones de cliente-servidor de web, con \\ 
+            & unos 10 millones de usuarios reportados. \\ & \\
+            & Influido por Pascal, C++ y Objective-C. \\ & \\
+            & \textbf{Definiciones:} \\
+            & $\hookrightarrow{}$ \textbf{Applets:} Las applet Java son programas incrustados en otras aplicaciones, \\ 
+            & normalmente una página Web que se muestra en un navegador. \\
+            & $\hookrightarrow{}$ \textbf{Servlets:} Los servlets son componentes de la parte del servidor de Java EE, \\
+            & encargados de generar respuestas a las peticiones recibidas de los clientes. \\
+            & \\
+        \textbf{C}
+            & Todo programa escrito en C consta de una o más funciones, una de las cuales se llama \\
+            & \textbf{main}. El programa siempre comenzará por la ejecución de la función main. \\ 
+            & Cada función debe contener: \\
+            & $\hookrightarrow{}$ Una cabecera de la función, que consta del nombre de la función, seguido de una \\
+            & lista opcional de argumentos encerrados con paréntesis. \\
+            & $\hookrightarrow{}$ Una lista de declaración de argumentos, si se incluyen estos en la cabecera. \\
+            & $\hookrightarrow{}$ Una sentencia compuesta, que contiene el resto de la función. \\
+            & \\
+            & No existe el anidamiento de funciones en C. \\
+            & \\
+        \textbf{Python} 
+            & \\
+        \textbf{Ruby}
+            & \\
+        \textbf{PHP}
+            & \\
+        
+    \end{tabular}
+
+\end{document}

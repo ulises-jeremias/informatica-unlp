@@ -1,0 +1,128 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Redes y Comunicaciones}
+\author{Ulises J. Cornejo Fandos}
+\date{Marzo 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Practica-1}
+\begin{enumerate}
+    \item \textbf{¿Qué es una red? ¿Cuál es el principal objetivo para construir una red?}
+    
+    Definimos una red como un conjunto de Computadores u otros dispositivos con placa de red y su correspondiente software interconectados por medio de dispositivos físicos con el objetivo de compartir recursos tales como archivos, dispositivos, servicios, etc. \\
+    
+    \item \textbf{¿Qué es internet? Describa los principales componentes que permiten su funcionamiento.}
+    
+    El o la internet es un conjunto descentralizado de redes de comunicación, en otras palabras una red de redes de computadoras, las cuales, interconectadas mediante la familia de protocolos TCP/IP logran formar una red lógica de alcance mundial y publico.
+
+	El hecho de que internet sea descentralizado y publico refiere a que su filosofía es la de una red que no dependa de servidores controlados por empresas privadas o hasta gobiernos inclusive. \\
+	
+	\item \textbf{¿Qué son las RFCs?}
+	
+	Request For Comment (mas conocido como RFC o Petición De Comentarios, en español) son una familia de publicaciones realizadas por el grupo de trabajo de ingeniería de internet que describen diversos aspectos del funcionamiento de internet y otras rede de computadoras, como protocolos, procedimientos, etc. Además cuentan con comentarios o ideas sobre los mismos.
+
+	Cada RFC constituye un monográfico o memorando que ingenieros o expertos en la materia han enviado al IETF (consorcio de colaboración técnica mas importante de internet) para que el mismo sea evaluado y valorado por el resto de la comunidad. \\
+	
+	\item \textbf{¿Qué es un protocolo?}
+	
+	Un protocolo es un conjunto de conductas y normas a conocer, respetar y cumplir no solo en el medio oficial ya establecido sino también en el medio social, laboral \ldots
+	
+	Define el formato y orden de los mensajes enviados y acciones a realizar.
+	
+	Un \textbf{protocolo de red} es un conjunto de reglas las cuales permiten que dos o mas dispositivos que dispongan de una placa de red y el software necesario se comuniquen entre si para transmitir información por medio de cualquier tipo de variación de una magnitud física. Se trata de las reglas o el estándar que define la sintaxis, semántica, y sincronización de la comunicación, así como los posibles métodos de recuperación de errores. 
+
+	Cabe aclarar que estos protocolos pueden estar implementados tanto mediante Hardware, Software o ambos y que los mismos protocolos pueden ser combinables. \\
+	
+	\item \textbf{¿Por qué dos máquinas con distintos sistemas operativos pueden formar parte de una misma red?}
+	
+	El hecho de que dos o mas dispositivos con distintos sistemas operativos puedan formar parte de una misma red es debido a que estos sistemas operativos respetan los mismos protocolos (tanto de Hardware como de Software) y saben comunicarse mediante ellos independientemente de como funcione el resto del sistema. \\
+	
+	\item \textbf{¿Cuáles son las 2 categorías en las que pueden clasificarse a los sistemas finales o End Systems? Dé un ejemplo del rol de cada uno en alguna aplicación distribuida que corra sobre Internet.} \\
+	
+	\item \textbf{¿Cuál es la diferencia entre una red conmutada de paquetes de una red conmutada de circuitos?}
+	
+	Tanto los métodos de conmutación de circuitos como de paquetes son distintos métodos que puede utilizar una red para la transmisión de la información. La mayor diferencia entre ambos es el hecho de que utilizando el \textbf{método de conmutación de circuitos} se establece un canal de comunicación dedicado entre dos dispositivos el cual va a reservar recursos de transmisión y de conmutación de la red para su uso exclusivo en el circuito durante la conexión, mientras que utilizando el \textbf{método de conmutación de paquetes} estos son “enviados” por diferentes canales durante la conexión dependiendo su prioridad y tamaño (se va buscando siempre el mejor camino posible para el envío de los mismos). \\
+	
+	\item \textbf{Analice qué tipo de red es una red de telefonía y qué tipo de red es Internet.} \\
+	
+	Una \textbf{red de telefónica} es una red de circuitos conmutados mientras que \textbf{Internet} es una red de conmutación de paquetes.
+	
+	\item \textbf{Describa brevemente las distintas alternativas que conoce para acceder a internet en su hogar.}
+	
+	Dentro de mi hogar se pueden realizar accesos a internet mediante un cable Ethernet, redes de telefonía móvil y redes WiFi. \\
+	
+	\item \textbf{¿Qué ventajas tiene una implementación basada en capas o niveles?}
+	
+	El hecho de realizar una implementación basada en capaz o niveles tiene sus ventajas en el punto en el que se puede descomponer el problema a resolver en pequeños módulos los cuales serán resueltos por capas especificas de forma independiente, esto permite que cada capa o nivel se encargue de resolver una pequeña parte del problema y la abstrae del dominio completo del mismo, es a su vez una buena táctica a a hora de realizar modificaciones y o resolver errores del sistema, ya que cada capa es independiente, la modificación de la misma no debería de afectar el resto del sistema. \\
+	
+	\item \textbf{¿Cómo se llama la PDU de cada una de las siguientes capas: Aplicación, Transporte, Red y Enlace?}
+	
+	La \textbf{PDU} (Protocol Data Unit) es utilizada para el intercambio de información entre unidades disparejas entre las distintas capas de modelos tales como OSI o TCP/IP.
+
+	En la capa de Aplicación la PDU son los datos, los cuales se encapsulan en un segmento a la hora de utilizarse en la capa de transporte (siendo el segmento la PDU de esta capa), en el segmento se agregan registros de control, luego, la capa de red encapsula los segmentos en su PDU, el paquete, añadiendo sus propios registros de control y por ultimo en la capa de enlace se vuelven a encapsular junto a registros de control generando layers (o tramas, la PDU de la capa de enlace). En la capa física estos layers se interpretan como bits. \\
+	
+	\item \textbf{¿Qué es la encapsulación? Si una capa realiza la encapsulación de datos, ¿qué capa del nodo receptor realizará el proceso inverso?}
+	
+	En las capas de redes se realizan encapsulamientos de la información recibida para resguardar cierta información y hacer mas sencillo la manipulación de la misma (brindando cierto nivel de abstracción).
+	
+	Este tipo de comunicación se llama peer-to-peer debido al hecho de que quien debe interpretar un PDU encapsulado por una capa del emisor y realizar el proceso inverso es la misma capa la cual encapsulo la PDU, pero del ldo del receptor.  \\
+	
+	\item \textbf{Describa cuáles son las funciones de cada una de las capas del stack TCP/IP o protocolo de Internet.}
+	
+	La \textbf{Capa de Aplicación} es la que se encarga de mantener y controlar el enlace establecido entre dos dispositivos que están transmitiendo datos de cualquier índole, la representación de la información, de manera que aunque distintos dispositivos puedan tener diferentes representaciones internas de caracteres los datos lleguen de manera reconocible y además de ofrecer  las aplicaciones la posibilidad de acceder a los servicios de las demás capas y definir los protocolos que utilizan las aplicaciones para intercambiar los datos. Cabe aclarar que estas funciones no son mas que los servicios que ofrecen las capas de aplicación, presentación y sesión del modelo OSI. 
+
+	La \textbf{Capa de Transporte} es la encargada de efectuar el transporte de los datos (que se encuentran dentro del paquete) del dispositivo origen al destino, independizandolo del tipo de red física que este utilizando.
+
+	La \textbf{Capa de Red} es la encargada de identificar el enrutamiento existente entre una o mas redes. El objetivo de la misma es que los datos lleguen del dispositivo origen al destino aun si estos no están conectados directamente.
+
+	La \textbf{Capa de Acceso Medio} se ocupa del direccionamiento físico de los datos, del acceso al medio, de la distribución ordenada de layers y el control del flujo, además de la detección de errores de cada uno de estos procesos. Cumple la función de la capa física del modelo OSI al encargarse de transmitir el flujo de bits a través del medio. \\
+	
+	\item \textbf{Compare el modelo OSI con la implementación TCP/IP.}
+	
+	Las principales diferencias entre el modelo OSI y su implementación TCP/IP se deben a la abstracción que esta implementación realiza sobre las capas del modelo OSI, esto puede notarse en la capa de aplicación (modelo TCP/IP) la cual abarca todos los servicios y datos utilizados por la capa de aplicación, presentación y sesión del modelo OSI; y su capa de acceso medio (modelo TCP/IP) la cual abarca la capa de enlace de datos y la física del modelo OSI. \\
+	
+\end{enumerate}
+
+\end{document}

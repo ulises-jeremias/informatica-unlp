@@ -1,0 +1,81 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Segunda Entrevista}
+\author{ COD-Project }
+\date{Marzo 2017}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Temas Abarcados}
+\subsection{Preguntas sobre Favores}
+
+\begin{enumerate}
+    \item Los favores, ¿tienen algún tipo de \textbf{privacidad}?
+        \subitem $\hookrightarrow{}$ Se explica la posible necesidad de privacidad en los favores.
+    \item ¿Cuales \textbf{categorías} pueden tener los favores?
+    \item ¿Pueden reportarse \textbf{peticiones inapropiadas}?
+        \subitem$\hookrightarrow{}$ Sugerir que los reportes están dados por los usuarios
+        \begin{enumerate}
+            \item ¿Quien administra dicho reportes?
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Users}
+\begin{enumerate}
+    \item ¿Cuál es la edad mínima?
+    \item ¿Qué funcionalidades extra van a tener los usuarios con privilegios tales como los admin?
+    \item ¿Qué funcionalidades extra van a tener los usuarios con privilegios tales como los users que pagan?
+\end{enumerate}
+
+
+\section{Formalidades y Asuntos}
+$\hookrightarrow{}$ Presentación de la entrevista y la estructura de la misma. \\
+$\hookrightarrow{}$ Se lleva a cabo desarrollo de preguntas. \\
+$\hookrightarrow{}$ Se dialoga tiempo de desarrollo del sistema y precio del mismo. Se plantea bien Scrum \\
+$\hookrightarrow{}$ Plantear que no todos los users cuentan con teléfono. \\
+$\hookrightarrow{}$ Muestra de diferentes diseños para el sistema.
+
+
+\end{document}

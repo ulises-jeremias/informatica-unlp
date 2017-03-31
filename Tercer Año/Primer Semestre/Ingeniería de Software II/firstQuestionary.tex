@@ -1,0 +1,142 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Primer Cuestionario}
+\author{COD-Project}
+\date{Marzo 2017}
+
+\begin{document}
+
+\maketitle
+
+\renewcommand{\labelitemi}{$\bigcirc$}
+
+\section{Cuestionario}
+% En esta sección se escribe cada una de las respuestas 
+% luego de cada una de las preguntas con un previo salto de linea
+% \\
+$\hookrightarrow{}$ Para contestar cada pregunta, indique su respuesta rellenando el circulo correspondiente a la opción que desea elegir. Marque solo una opción.
+\begin{enumerate}
+    \item ¿Qué tan conforme estás con el blog?
+    \begin{itemize}
+        \item Muy conforme
+        \item Conforme
+        \item Satisfecho
+        \item Poco satisfecho
+        \item Inconforme
+        \item Muy inconforme
+    \end{itemize}
+    
+    \item ¿Qué edad tenés?
+    \begin{itemize}
+        \item Mayor de 65
+        \item Entre 31 y 65
+        \item Entre 18 y 30
+        \item Menor de 18
+    \end{itemize}
+    
+    \item ¿Cuántos favores has recibido?
+    \begin{itemize}
+        \item Muchos (más de 10)
+        \item Bastante (más de 6)
+        \item Algunos (más de 3)
+        \item Pocos (1 ó 2)
+        \item Ninguno
+    \end{itemize}
+    
+    \item ¿Cuántos favores realizaste?
+    \begin{itemize}
+        \item Muchos (más de 10)
+        \item Bastante (más de 6)
+        \item Algunos (más de 3)
+        \item Pocos (1 ó 2)
+        \item Ninguno
+    \end{itemize}
+    
+    \item ¿Con cuanta frecuencia visitás el blog?
+    \begin{itemize}
+        \item Todo los días
+        \item Día por medio
+        \item Una vez a la semana
+        \item Una vez al mes
+    \end{itemize}
+    
+    \item ¿Te gustaría tener un perfil para mostrarle a la gente más datos personales?
+    \begin{itemize}
+        \item Si
+        \item No
+    \end{itemize}
+    
+    \item ¿Te gustaría conocer más información sobre los gauchos? (Experiencia, favores realizados, $\ldots$)
+    \begin{itemize}
+        \item Si
+        \begin{itemize}
+            \item ¿Qué información te gustaría conocer de los gauchos? 
+            
+            \rule{100mm}{0.1mm} \\
+            \rule{100mm}{0.1mm} \\
+            \rule{100mm}{0.1mm}
+        \end{itemize}
+        \item No
+    \end{itemize}
+    
+    \item ¿Te gustaría valorar a los gauchos que te hayan realizado algún favor?
+    \begin{itemize}
+        \item Si
+        \item No
+    \end{itemize}
+    
+    \item ¿Recomendarías el blog?
+    \begin{itemize}
+        \item Si
+        \item No
+        \begin{itemize}
+            \item ¿Por qué no lo recomendarías?
+            
+            \rule{100mm}{0.1mm} \\
+            \rule{100mm}{0.1mm} \\
+            \rule{100mm}{0.1mm}
+        \end{itemize}
+    \end{itemize}
+    
+\end{enumerate}
+
+\end{document}

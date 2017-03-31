@@ -1,0 +1,150 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Primer Entrevista}
+\author{ COD-Project }
+\date{Marzo 2017}
+
+\begin{document}
+
+% \maketitle
+
+
+\section{Datos}
+\begin{tabular}{rl}
+    %Inserte datos del entrevistado aquí:
+    \emph{Entrevistado} & \textsc{Se consultan datos del entrevistado.} \\
+    \emph{Entrevistadores} & \textsc{Cornejo Fandos}, Ulises J. \\
+    & \textsc{Di Cunzolo}, Lucas \\
+    & \textsc{Ocampos}, Juan Cruz
+\end{tabular}
+
+
+\section{Temas Abarcados}
+% En esta sección se escribe cada una de las respuestas 
+% luego de cada una de las preguntas con un previo salto de linea
+% \\
+\subsection{Blog y Favores}
+\begin{enumerate}
+    \item 
+    \item 
+    \begin{enumerate}
+        \item 
+        \item 
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Manejo de Usuarios}
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item 
+        \item 
+    \end{enumerate}
+    \item \hspace{1cm}
+    \begin{enumerate}
+        \item
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Desarrollo de Sistema}
+$\hookrightarrow{}$Se comienza a hablar del desarrollo en concreto del Sistema
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item
+        \item 
+        \begin{enumerate}
+            \item  
+        \end{enumerate}
+        \item 
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    \item 
+\end{enumerate}
+
+
+\subsection{Preguntas Complementarias}
+$\hookrightarrow{}$en base a respuestas del cliente en cuanto a registro de usuarios y desarrollo previo del blog se realizaran las preguntas correspondientes
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    \item 
+    \item 
+    \item 
+    \item 
+\end{enumerate}
+
+
+\subsection{Preguntas Administrativas}
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item 
+        \begin{enumerate}
+            \item 
+        \end{enumerate}
+    \end{enumerate}
+    \item 
+    \item 
+\end{enumerate}
+
+
+\section{Formalidades y Asuntos}
+$\hookrightarrow{}$ Presentación de la entrevista y la estructura de la misma. \\
+$\hookrightarrow{}$ Se lleva a cabo desarrollo de preguntas. \\
+$\hookrightarrow{}$ Se dialoga tiempo de desarrollo del sistema y precio del mismo. \\
+$\hookrightarrow{}$ Se pide información de contacto, se pauta la siguiente reunión y contenido de la misma. \\
+
+\end{document}

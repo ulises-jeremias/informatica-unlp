@@ -1,0 +1,158 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Redes y Comunicaciones}
+\author{Ulises J. Cornejo Fandos}
+\date{Marzo 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Practica 2}
+\subsection{Introducción}
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item \textbf{¿Cuál es la función de la capa de aplicación?}
+    
+    La capa de aplicación del modelo TCP/IP maneja protocolos de alto nivel, aspectos de representación, codificación y control de diálogo. El modelo TCP/IP combina todos los aspectos relacionados con las aplicaciones en una sola capa y asegura que estos datos estén correctamente empaquetados antes de que pasen a la capa siguiente. TCP/IP incluye no sólo las especificaciones de Internet y de la capa de transporte, tales como IP y TCP, sino también las especificaciones para aplicaciones comunes. TCP/IP tiene protocolos que soportan la transferencia de archivos, e-mail, y conexión remota, además de los siguientes:
+        \begin{itemize}
+            \item \textbf{FTP(Protocolo de transferencia de archivos):}
+            
+            Es un servicio confiable orientado a conexión que utiliza TCP para transferir archivos entre sistemas que admiten la transferencia FTP.
+            
+            \item \textbf{TFTP (Protocolo trivial de transferencia de archivos:}
+            
+            Es un servicio no orientado a conexión que utiliza el Protocolo de datagramaos   usuario(UDP).
+            
+            \item \textbf{NFS (Sistema de archivos de red):}
+            
+            Es un conjunto de protocolos para un sistema de archivos distribuidos, desarrollado por Sun Microsystems.
+            
+            \item \textbf{SMTP (Protocolo simple de transferencia de correo):} 
+            
+            Administra la transmisión de correo electrónico a través de las redes informáticas.
+            
+            \item \textbf{SNMP (Protocolo simple de administración de red):}
+            
+            Es un protocolo que provee una manera de monitorear y controlar los dispositivos de red.
+            
+            \item \textbf{DNS (Sistema de denominación de dominio):}
+            
+            Es un sistema que se utiliza en Internet para convertir los nombres de los dominios y de sus nodos de red publicados abiertamente en direcciones IP.
+            
+        \end{itemize}
+        
+    \item Si dos procesos deben comunicarse:
+    \textbf{¿Cómo podrían hacerlo si están en diferentes máquinas?}
+    
+    Para comunicarse con un proceso que se encuentra en otra máquina es necesario conocer la direccion IP de la otra máquina, y el puerto en el que se encuentra ”escuchando” el proceso.
+    
+    \item \textbf{Explique brevemente cómo es el modelo Cliente/Servidor.}
+    
+    El modelo Cliente/Servidor consta de tener una computadora donde se va a realizar la mayor parte de procesamiento, la cual seria el servidor, y una computadora la cual accede al servicio provisto por el servidor, y solo se va a encargar (normalmente) de realizar la parte de visualización de datos. Un ejemplo de sistema Cliente/Servidor en la vida cotidiana puede ser un cliente de mail como es el caso de gmail. Existe otros tipos de modelos, como es el caso del peer-to-peer, modelos híbridos, etc.
+    
+    \item \textbf{Describa la funcionalidad de la entidad genérica “Agente de usuario” o “User agent”.}
+    
+    Su función, es ser una interfaz entre el usuario y la aplicación de red. Implementa los protocolos necesarios para que funcione la capa de aplicación. Un agente de usuario, por ejemplo un navegador, es un proceso que envía/recibe mensajes por medio de un socket.
+        
+\end{enumerate}
+
+\subsection{HTTP}
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item \textbf{¿Qué son y en qué se diferencian HTML y HTTP?}
+    
+    HTML es un lenguaje de marcado, en cambio, HTTP es un protocolo definido en la capa de aplicación que utiliza el lenguaje HTML para realizar las respuestas.
+    
+    \item \textbf{Utilizando la VM, abra una terminal. Investigue sobre el comando curl y analice para qué sirven los siguientes parámetros (-I, -H, -X, -s).}
+    
+    curl  is  a  tool  to  transfer  data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP,  SFTP,  SMB,  SMBS, SMTP, SMTPS, TELNET and TFTP). The command is designed to work without user interaction.
+    
+    Parámetros:
+        \begin{itemize}
+            \item -I: es utilizado para requerir solamente el head de la consulta HTTP.
+            \item -H: es utilizado para agregar un extra header a la consulta HTTP, con el fin de mejorar la eficiencia de la consulta.
+            \item -X: siver para especicar el metodo que se utilizapara para la comunicacion HTTP.
+            \item -s: se utiliza para activar el silent mode. En este modo, todo el procedimiento realizado por el comando y la salida estandar de error es silcenciado.
+        \end{itemize}
+
+    \item \textbf{Ejecute el comando curl sin ningún parámetro adicional y acceda a www.redes.unlp.edu.ar.
+    Luego responda:}
+    
+        \begin{enumerate}
+            \item ¿Cuántos requerimientos realizó y qué recibió? Pruebe redirigiendo la salida del comando curl a un archivo con extensión html y abrirlo con un navegador.
+            
+            Realizó un solo requerimiento GET, y recibió una respuesta HTML.
+            
+            \item ¿Cómo funcionan los atributos href de los tags link e img en html?
+            
+            Funcionan redirigiendo a una nueva página, que puede ser local al servidor (la cual va a requerir un nuevo GET a la aplicación), o externos (requiriendo utilizar el metodo GET, pero esta vez con un servidor distinto al anterior.
+            
+            \item Para visualizar la página completa con imágenes como en un navegador, ¿alcanza con realizar un único requerimiento? ¿Cuántos requerimientos serın necesarios para obtener una página que tiene dos CSS, dos Javascript y tres imágenes? Diferencie como funcionaría un navegador respecto al comando curl ejecutado previamente. 
+            
+            No alcanza con realizar un único requerimiento, para visualizar dicha página serian necesarios 8 requerimientos, uno para cada archivo (la página inicial, los dos CSS, los dos JS y las tres imágenes).
+            
+        \end{enumerate}
+        
+    \item \textbf{Ejecute los siguientes comandos:}
+        \begin{itemize}
+            \item curl -v -s www.redes.unlp.edu.ar ¿ /dev/null
+            \item curl -I -v -s www.redes.unlp.edu.ar
+        \end{itemize}
+        
+        \begin{enumerate}
+            \item ¿Qué diferencia nota entre cada uno?
+            
+            La diferencia es que en el primer comando todo el cuerpo de la respuesta es redireccionado a /dev/null, en cambio en el segundo solo se omite el cuerpo de la respuesta.
+            
+            \item 
+        \end{enumerate}
+        
+\end{enumerate}
+
+\end{document}
