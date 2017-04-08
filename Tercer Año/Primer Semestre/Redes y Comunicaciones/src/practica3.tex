@@ -1,0 +1,87 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Sections inspired by:
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Redes y Comunicaciones}
+\author{Ulises J. Cornejo Fandos}
+\date{Marzo 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Practica 3}
+\subsection{Capa de Aplicación - DNS}
+    \begin{enumerate}
+        \item  Investigue y describa c´omo funciona el DNS. ¿Cu´al es su objetivo?
+        
+        El servidor DNS utiliza una base de datos distribuida y jer´arquica que almacena informaci´on asociada a nombres de dominio en redes como Internet. Aunque como base de datos el DNS es capaz de asociar diferentes tipos de informaci´on a cada nombre, los usos m´as comunes son la asignaci´on de nombres de dominio a direcciones IP y la localizaci´on de los servidores de correo electr´onico de cada dominio. De esta manera, al buscar el IP de una p´agina, se comienza buscando el GTLD(generic top level domain) en los root server, que son servidores DNS encargados de proporcionar la IP de alg´un servidor DNS que contenga el subdominio siguiente (de existir) o la IP de alg´un servidor que contenga la IP de la p´agina completa.
+        
+        \item  ¿Qu´e es un root server? ¿Qu´e es un generic top-level domain (gtld)?
+        
+        Un root server es un servidor DNS encargado de almacenar todas las direcciones IP de los servidores que alojan los GTLD(generic top level domain). Un GTLD es un dominio perteneciente a la jerarqu´ıa m´as alta, es decir, que no lo precede ning´un otro dominio en las direcciones URL de una p´agina.
+        
+        \item  ¿Qu´e es una respuesta del tipo autoritativa?
+        
+        Una respuesta de tipo autoritativa es una respuesta realizada por un servidor de tipo autoritativo.
+        
+        \item  ¿Qu´e diferencia una consulta DNS recursiva de una iterativa?
+        
+        Una respuesta recursiva es aquella que te retorna una respuesta completa, el servidor DNS comprueba la zona de b´usqueda directa y la cach´e para encontrar una respuesta a la consulta. En cambio una respuesta iterativa es aqu´ella efectuada a un servidor DNS en la que el cliente DNS solicita la mejor respuesta que el servidor DNS puede proporcionar sin buscar ayuda adicional de otros servidores DNS. El resultado de una consulta iterativa suele ser una referencia a otro servidor DNS de nivel inferior en el ´arbol DNS Consulta iterativa.
+        En si, una respuesta recursiva utiliza las respuestas iterativas para poder resolver completamente la consulta.
+        
+        \item ¿Qu´e es el resolver?
+        
+        El resolver es un conjunto de rutinas de la biblioteca C, que proporciona acceso al Sistema de Nombres de Dominio de Internet (DNS). El archivo de configuraci´on del resolver contiene informaci´on que es le´ıda por las subrutinas cada vez que un proceso le reclama. El archivo est´a dise˜nado para ser f´acilmente comprensible y contiene una lista de palabras claves con valores que proporcionan diferentes tipos de informaci´on del resolver.
+        
+        \item Describa para qu´e se utilizan los siguientes tipos de registros de DNS:
+        
+        \begin{itemize}
+            \item 
+        \end{itemize}
+    \end{enumerate}
+
+\end{document}

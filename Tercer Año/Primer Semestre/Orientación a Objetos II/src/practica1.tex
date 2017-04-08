@@ -1,0 +1,119 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Sections inspired by:
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Orientación a Objetos II}
+\author{Ulises J. Cornejo Fandos}
+\date{Abril 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Práctica 1}
+\subsection{Resolución}
+
+    \begin{enumerate}
+        \item \textbf{Evaluación del protocolo de una clase}
+        
+            \begin{tabular}{r|l}
+                \textbf{Opción 1} & Permite la creación de un rectángulo, sin embargo no es un protocolo \\
+                & aceptable dado que permite de igual forma crear un polígono cualquiera \\
+                & de 4 vértices, es decir que, el polígono formado por la clase no siempre \\
+                & es un rectángulo por lo que la solución que plantea este protocolo no \\
+                & es aceptable. \\
+                & \\
+            
+                \textbf{Opción 2} & Es un protocolo más correcto que el anterior, en este se define un \\ 
+                & rectángulo a partir de su vértice en la esquina superior izquierda, \\
+                & su ancho y su alto; es decir que, simplemente cambiando la posición del \\
+                & vértice podríamos mover el rectángulo a cualquier posición del plano \\ 
+                & coordenado manteniendo así sus características esenciales (base, altura), \\
+                & y de igual forma, re-dimensionar su ancho y alto sin afectar su condición \\
+                & de rectángulo.  \\
+            \end{tabular}
+            
+            Por estas razones es que elijo la \textbf{opción 2)} como el protocolo más indicado al momento de definir la clase Rectángulo.
+            
+        \item \textbf{Delegación}
+        
+            \begin{tabular}{r|l}
+                \textbf{Opción 1} &  Si bien permite realizar lo solicitado, la opción no es correcta en \\ 
+                & cuanto a delegación de tareas ya que no le delego su tarea a la secretaria \\ 
+                & sino que accedo al fichero con el que ella cuenta para que lo haga el jefe. \\
+                & \\
+                
+                \textbf{Opción 2} & Es correcta en términos de delegación porque el jefe delega \\ 
+                & correctamente la tarea a la secretaria. \\
+            \end{tabular}
+            
+            Por estas razones es que elijo la \textbf{opción 2)} como el protocolo más indicado para la resolución de este problema.
+            
+        \item \textbf{Polimorfismo}
+        
+            \begin{tabular}{r|l}
+                \textbf{Opción 4} &  En términos de Polimorfismo, esta opción es ciertamente la más \\
+                & correcta de todas dado que, es la única opción en la cual se delega \\
+                & únicamente las tareas no comunes de las subclases y se realizan las \\ 
+                & tareas comunes de ambas en la superclase. \\
+            \end{tabular}
+            
+        \item \textbf{Manejo de Colecciones}
+        
+            \begin{tabular}{r|l}
+                \textbf{Opción 1} &  \\
+                 & \\
+                
+                \textbf{Opción 2} &  \\
+                 & \\
+                 
+                \textbf{Opción 3} &  \\
+                 & \\
+                 
+                \textbf{Opción 4} &  \\
+            \end{tabular}
+    \end{enumerate}
+\end{document}
