@@ -1,0 +1,83 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{20pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Conceptos y Paradigmas de Lenguajes de Programación}
+\author{Ulises J. Cornejo Fandos}
+\date{Abril 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Práctica 2}
+    
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+        \item \textbf{¿Cuál es la importancia de la sintaxis para un lenguaje? ¿Cuáles son sus elementos?}
+        
+        La \textbf{sintaxis} describe la forma del lenguaje. Describe por completo la apariencia del mismo: cuáles serán sus palabras claves, cuáles serán los operadores válidos, cómo podrán ser formados los identificadores, cómo se separarán las sentencias, etc. Se encuentra estrechamente ligada a aspectos importantes de los lenguajes como la legibilidad y la facilidad de escritura, ya que una sintaxis diseñada cuidadosamente genera construcciones simples de entender y de escribir.     
+        
+        Los elementos de la sintaxis son:
+        \begin{itemize}
+            \item alfabeto
+            \item identificadores
+            \item operadores
+            \item palabras clave y reservadas
+            \item comentarios y blancos
+        \end{itemize}
+        
+        \item \textbf{Explique, ¿a que se denomina regla lexicográfica y regla sintáctica?}
+        
+            Las \textbf{reglas lexicográficas} determinan, a partir del alfabeto, las \textit{words} que se usarán en el lenguaje.
+    
+            Las \textbf{reglas sintácticas} especifican \textit{cómo} combinar las \textit{words} para formar expresiones y sentencias.
+            
+        \item \textbf{¿En la definición de un lenguaje, a que se llama palabra reservada? ¿A qué son equivalentes en la definición de una gramática?}
+        
+            Las \textbf{palabras reservadas} son palabras que no pueden ser usadas como identificadores. Este concepto se suele confundir con el de palabra clave, que se refiere a palabras que tienen un cierto significado en un cierto contexto. En la definición de una gramática, las palabras reservadas serían G, N, T, S y P.       
+        
+    \end{enumerate}
+\end{document}

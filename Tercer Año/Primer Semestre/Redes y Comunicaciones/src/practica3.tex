@@ -56,32 +56,141 @@
 \section{Practica 3}
 \subsection{Capa de Aplicación - DNS}
     \begin{enumerate}
-        \item  Investigue y describa c´omo funciona el DNS. ¿Cu´al es su objetivo?
+        \item  \textbf{Investigue y describa cómo funciona el DNS. ¿Cuál es su objetivo?}
         
-        El servidor DNS utiliza una base de datos distribuida y jer´arquica que almacena informaci´on asociada a nombres de dominio en redes como Internet. Aunque como base de datos el DNS es capaz de asociar diferentes tipos de informaci´on a cada nombre, los usos m´as comunes son la asignaci´on de nombres de dominio a direcciones IP y la localizaci´on de los servidores de correo electr´onico de cada dominio. De esta manera, al buscar el IP de una p´agina, se comienza buscando el GTLD(generic top level domain) en los root server, que son servidores DNS encargados de proporcionar la IP de alg´un servidor DNS que contenga el subdominio siguiente (de existir) o la IP de alg´un servidor que contenga la IP de la p´agina completa.
+        El servidor DNS utiliza una base de datos distribuida y jerárquica que almacena información asociada a nombres de dominio en redes como Internet. Aunque como base de datos el DNS es capaz de asociar diferentes tipos de información a cada nombre, los usos más comunes son la asignación de nombres de dominio a direcciones IP y la localización de los servidores de correo electrónico de cada dominio. De esta manera, al buscar el IP de una página, se comienza buscando el GTLD(generic top level domain) en los root server, que son servidores DNS encargados de proporcionar la IP de algún servidor DNS que contenga el subdominio siguiente (de existir) o la IP de algún servidor que contenga la IP de la página completa.
         
-        \item  ¿Qu´e es un root server? ¿Qu´e es un generic top-level domain (gtld)?
+        \item \textbf{¿Qué es un root server? ¿Qué es un generic top-level domain (gtld)?}
         
-        Un root server es un servidor DNS encargado de almacenar todas las direcciones IP de los servidores que alojan los GTLD(generic top level domain). Un GTLD es un dominio perteneciente a la jerarqu´ıa m´as alta, es decir, que no lo precede ning´un otro dominio en las direcciones URL de una p´agina.
+        Un root server es un servidor DNS encargado de almacenar todas las direcciones IP de los servidores que alojan los GTLD(generic top level domain). Un GTLD es un dominio perteneciente a la jerarquía más alta, es decir, que no lo precede ningún otro dominio en las direcciones URL de una página.
         
-        \item  ¿Qu´e es una respuesta del tipo autoritativa?
+        \item \textbf{¿Qué es una respuesta del tipo autoritativa?}
         
         Una respuesta de tipo autoritativa es una respuesta realizada por un servidor de tipo autoritativo.
         
-        \item  ¿Qu´e diferencia una consulta DNS recursiva de una iterativa?
+        \item \textbf{¿Qué diferencia una consulta DNS recursiva de una iterativa?}
         
-        Una respuesta recursiva es aquella que te retorna una respuesta completa, el servidor DNS comprueba la zona de b´usqueda directa y la cach´e para encontrar una respuesta a la consulta. En cambio una respuesta iterativa es aqu´ella efectuada a un servidor DNS en la que el cliente DNS solicita la mejor respuesta que el servidor DNS puede proporcionar sin buscar ayuda adicional de otros servidores DNS. El resultado de una consulta iterativa suele ser una referencia a otro servidor DNS de nivel inferior en el ´arbol DNS Consulta iterativa.
+        Una respuesta recursiva es aquella que te retorna una respuesta completa, el servidor DNS comprueba la zona de búsqueda directa y la caché para encontrar una respuesta a la consulta. En cambio una respuesta iterativa es aquélla efectuada a un servidor DNS en la que el cliente DNS solicita la mejor respuesta que el servidor DNS puede proporcionar sin buscar ayuda adicional de otros servidores DNS. El resultado de una consulta iterativa suele ser una referencia a otro servidor DNS de nivel inferior en el árbol DNS Consulta iterativa.
         En si, una respuesta recursiva utiliza las respuestas iterativas para poder resolver completamente la consulta.
         
-        \item ¿Qu´e es el resolver?
+        \item \textbf{¿Qué es el resolver?}
         
-        El resolver es un conjunto de rutinas de la biblioteca C, que proporciona acceso al Sistema de Nombres de Dominio de Internet (DNS). El archivo de configuraci´on del resolver contiene informaci´on que es le´ıda por las subrutinas cada vez que un proceso le reclama. El archivo est´a dise˜nado para ser f´acilmente comprensible y contiene una lista de palabras claves con valores que proporcionan diferentes tipos de informaci´on del resolver.
+        El resolver es un conjunto de rutinas de la biblioteca C, que proporciona acceso al Sistema de Nombres de Dominio de Internet (DNS). El archivo de configuración del resolver contiene información que es leída por las subrutinas cada vez que un proceso le reclama. El archivo está diseñado para ser fácilmente comprensible y contiene una lista de palabras claves con valores que proporcionan diferentes tipos de información del resolver.
         
-        \item Describa para qu´e se utilizan los siguientes tipos de registros de DNS:
+        \item \textbf{Describa para qué se utilizan los siguientes tipos de registros de DNS}
         
-        \begin{itemize}
-            \item 
-        \end{itemize}
+            \begin{itemize}
+                \item \textbf{A:} Dirección (address). Este registro se usa para traducir nombres de servidores de alojamiento a direcciones IPv4. 
+                
+                \item \textbf{MX:} Intercambio de correo (mail exchange). Asocia un nombre de dominio a una lista de servidores de intercambio de correo para ese dominio. Tiene un balanceo de carga y prioridad para el uso de uno o más servicios de correo.
+                
+                \item \textbf{PTR:} Indicador (pointer). También conocido como ’registro inverso’, funciona a la inversa del registro A, traduciendo IPs en nombres de dominio. Se usa en el archivo de configuración de la zona DNS inversa.
+                
+                \item \textbf{AAAA:} Dirección (address). Este registro se usa en IPv6 para traducir nombres de hosts a direcciones IPv6.
+                
+                \item \textbf{SRV:}  Registro de ubicación de servicio generalizado, utilizado para protocolos más nuevos en vez de crear protocolo-registros concretos como MX.
+                
+                \item \textbf{NS:} Servidor de nombres (name server). Define la asociación que existe entre un nombre de dominio y los servidores de nombres que almacenan la información de dicho dominio. Cada dominio se puede asociar a una cantidad cualquiera de servidores de nombres.
+                
+                \item \textbf{CNAME:} Nombre canónico (canonical Name). Se usa para crear nombres de servidores de alojamiento adicionales, o alias, para los servidores de alojamiento de un dominio. Es usado cuando se están corriendo múltiples servicios (como FTP y servidor web) en un servidor con una sola dirección IP. Cada servicio tiene su propia entrada de DNS (como ftp.ejemplo.com. y www.ejemplo.com.). Esto también es usado cuando corres múltiples servidores HTTP, con diferentes nombres, sobre el mismo host. Se escribe primero el alias y luego el nombre real.
+                
+                \item \textbf{SOA:} Autoridad de la zona (start of authority). Proporciona información sobre el servidor DNS primario de la zona.
+                
+                \item \textbf{TXT:} Originalmente para arbitrario humano-texto legible en un DNS registro. Desde el temprano @1990s, aun así, esto graba más a menudo lleva máquina-dato legible, como especificado por RFC 1464, opportunistic encriptación, Sender Marco de Política, DKIM, DMARC, DNS-SD, etc.
+
+            \end{itemize}
+        
+        \item \textbf{En la VM, utilice el comando dig para obtener la dirección IP del host www.redes.unlp.edu.ar. Responda:}
+        
+            \begin{enumerate}
+                \item  \textbf{¿La solicitud fue recursiva? ¿Y la respuesta? ¿Cómo lo sabe?}
+                
+                La solicitud fue recursiva ya que las solicitudes realizadas por un user agent al servidor DNS local son de ese tipo. La respuesta es recursiva.
+                
+                \item \textbf{¿Puede indicar si se trata de una respuesta autoritativa?}
+                
+                Puedo indicarlo ya que existe un flag que se activa cuando se trata de una respuesta autoritativa.
+                
+                \item \textbf{ ¿Cuál es la dirección IP del servidor de DNS al que le realizó la consulta? ¿Cómo lo sabe?}
+                
+                La dirección IP del servidor DNS al que se le realizó la consulta es 127.28.0.29. Esto lo se ya que el comando dig me devuelve esta información en el campo SERVER.
+                
+                \item \textbf{¿Es posible obtener la misma información con el comando host? ¿Cómo?}
+                
+                Es posible ejecutando el siguiente comando:
+                
+                \subitem host -v/d www.redes.unlp.edu.ar
+            
+                Pero este último es mucho menos específico que el comando dig.
+            \end{enumerate}
+            
+        \item \textbf{Usando el comando dig, averigüe la dirección IP de www.google.com. Observe los números que aparecen antes de la palabra IN. Vuelva a ejecutar la misma consulta y observe nuevamente esos números. ¿Qué ocurrió? ¿Por qué? ¿Qué significado cree que tienen dichos números?}
+        
+        \item \textbf{Observe nuevamente las respuestas del paso anterior, ¿el orden de los servidores en la respuesta es siempre el mismo? ¿Por qué piensa que sucede esto?}
+        
+        Deben cambiar su orden dependiendo de cual tiene menor tiempo de respuesta al momento de ejecutar el comando.
+        
+        \item \textbf{Utilizando el comando dig responda (debe tener conexión a Internet para realizar este ejercicio):}
+        
+            \begin{enumerate}
+                \item  \textbf{Cantidad de servidores que aceptan correos para el dominio gmail.com.}
+                
+                Se ejecuta el comando:
+                \subitem \textbf{dig MX gmail.com}
+                
+                Hay 5 servidores que aceptan correos para el dominio gmail.com. Esto puedo saberlo por el campo ANSWER del header, y puedo visualizar los servidores correspondientes en la ANSER SECTION.
+                
+                \item \textbf{Cuándo se envía un correo a una cuenta gmail.com, ¿cuál de los servidores recibirá el correo? Justifique.}
+                
+                Lo va a buscar recibir el servidor cuya prioridad sea mayor(menor número), aunque si el servidor está muy saturado, puede que lo reciba otro (el siguiente siguiendo la prioridad).
+                
+                \item \textbf{ ¿En qué ocasión los demás servidores de correo recibirían correos dirigidos al dominio gmail.com? ¿Qué sucede luego de que uno de estos servidores recibe algún correo para el mencionado dominio?}
+                
+                En el caso que un servidor esté muy saturado, puede que lo reciba el siguiente. Cuando uno de los servidores recibe un correo, lo envía al servidor local del usuario.
+                
+                \item \textbf{Cantidad de servidores de DNS del dominio unlp.edu.ar.}
+                
+                
+                \item \textbf{Dirección IP del host www.info.unlp.edu.ar.}
+                    \begin{itemize}
+                        \item 163.10.5.71
+                    \end{itemize} 
+                Comando utilizado:
+                    \begin{itemize}
+                        \item dig www.info.unlp.edu.ar
+                        \item host www.info.unlp.edu.ar
+                        
+                        $\hookrightarrow{}$ www.info.unlp.edu.ar has address 163.10.5.71 
+                    \end{itemize}                
+            \end{enumerate}
+            
+        \item \textbf{Investigue los comando nslookup y host. ¿Para qué sirven? Intente con ambos comandos obtener:}
+        
+            \begin{enumerate}
+                \item \textbf{Dirección IP de www.redes.unlp.edu.ar.}
+                
+                    Se podría consultar con los siguientes comandos:
+                    \begin{itemize}
+                        \item host www.redes.unlp.edu.ar
+                        \item nslookup www.redes.unlp.edu.ar
+                    \end{itemize}
+                
+                \item \textbf{Servidores de correo del dominio redes.unlp.edu.ar.}
+                
+                    Se podría consultar con los siguientes comandos:
+                    \begin{itemize}
+                        \item host -t mx www.redes.unlp.edu.ar
+                        \item nslookup -querytype=mx www.redes.unlp.edu.ar
+                    \end{itemize}
+                    
+                \item \textbf{Servidores de DNS del dominio redes.unlp.edu.ar}
+            \end{enumerate}
+        
+        \item \textbf{ ¿Qué función cumple en Linux/Unix el archivo /etc/hosts?}
+        
+        Este fichero se utiliza para obtener una relación entre un nombre de máquina y una dirección IP.
+        
+        \item \textbf{Abra el programa Wireshark para comenzar a capturar el tráfico de red en la interfaz con IP 172.28.0.1. Una vez abierto realice una consulta DNS con el comando dig para averiguar el registro MX de redes.unlp.edu.ar y luego, otra para averiguar los registros NS correspondientes al dominio redes.unlp.edu.ar. Analice la información proporcionada por dig y compárelo con la captura.}
     \end{enumerate}
 
 \end{document}
