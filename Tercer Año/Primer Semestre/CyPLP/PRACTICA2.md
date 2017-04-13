@@ -77,7 +77,7 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
 > Defina en EBNF la gramática para la definición de números reales. Inténtelo desarrollar para BNF y explique las diferencias con la utilización de la gramática EBNF.
 
 **BNF**
-*Se me ocurre la siguiente solución aunque no estoy completamente seguro si es viable **¯\_(ツ)_/¯**
+*Se me ocurre la siguiente solución aunque no estoy completamente seguro si es viable **¯\\\_(ツ)_/¯***
 ```
   
 ```
