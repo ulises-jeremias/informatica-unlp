@@ -135,7 +135,8 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
 
 **c**. 1255869
 
-El símbolo inicial es <numero_real>
+El símbolo inicial es <numero_real>.
+
 La derivación del real 1255869 es:
 ```
   <numero_real> => <numero_entero>
@@ -158,7 +159,8 @@ La derivación del real 1255869 es:
 
 **d**. 854,26
 
-El símbolo inicial es <numero_real>
+El símbolo inicial es <numero_real>.
+
 La derivación del real 854,26 es:
 ```
   <numero_real> => <digito><digito><digito><caracter><digito><digito>
