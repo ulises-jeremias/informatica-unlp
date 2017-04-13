@@ -57,6 +57,21 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
 
 **b**. Es ambigua porque dado un número, por ejemplo `10`, se podrían construir dos árboles sintácticos. Para corregir este problema bastaría con eliminar `<digito><numero_entero>` o `<numero_entero><digito>` de la definición del símbolo `<número_entero>`.
 
+*Una posible solución podría ser la siguiente*
+```
+  G = (N, T, S, P)
+  N = {<numero_entero>, <numero_entero_con_signo>, <numero_entero_sin_signo>, <digito>, <signo>}
+  T = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, '-', '+'}
+  S = {<numero_entero>}
+  P = {
+    <numero_entero> ::= <numero_entero_con_signo> | <numero_entero_sin_signo>
+    <numero_entero_con_signo> ::= <signo><numero_entero_sin_signo>
+    <numero_entero_sin_signo> ::= <digito><numero_entero_sin_signo> | <digito>
+    <digito> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+    <signo> ::= + | -
+  }
+```
+
 ## Ejercicio 6
 
 > Defina en BNF (Gramática de contexto libre desarrollada por Backus- Naur) la gramática para la definición de una palabra cualquiera.
