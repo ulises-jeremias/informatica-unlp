@@ -28,7 +28,7 @@ Las **reglas sintácticas** especifican *cómo* combinar las *words* para formar
 
 Las *palabras reservadas* son palabras que no pueden ser usadas como identificadores. Este concepto se suele confundir con el de *palabra clave*, que se refiere a palabras que tienen un cierto significado en un cierto contexto. En la definición de una gramática, las palabras reservadas serían `G`, `N`, `T`, `S` y `P`.
 
-## Ejercicio 4
+## Ejercicio 5
 
 > Dada la siguiente gramática escrita en BNF:
 > 
