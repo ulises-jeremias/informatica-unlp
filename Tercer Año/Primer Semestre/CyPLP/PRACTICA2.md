@@ -125,3 +125,48 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
   }
 ```
 
+## Ejercicio 8
+
+> Utilizando la gramática que desarrolló en los puntos 6 y 7, escriba el árbol sintáctico de:
+
+**a**. Conceptos
+
+**b**. Programación
+
+**c**. 1255869
+
+El símbolo inicial es <numero_entero>
+La derivación del entero 1255869 es:
+```
+  <numero_entero> => <numero_entero_sin_signo>
+                  => <digito><numero_entero_sin_signo>
+                  => <digito><digito><numero_entero_sin_signo>
+                  => <digito><digito><digito><numero_entero_sin_signo>
+                  => <digito><digito><digito><digito><numero_entero_sin_signo>
+                  => <digito><digito><digito><digito><digito><numero_entero_sin_signo>
+                  => <digito><digito><digito><digito><digito><digito><numero_entero_sin_signo>
+                  => <digito><digito><digito><digito><digito><digito><digito>
+                  => 1<digito><digito><digito><digito><digito><digito>
+                  => 12<digito><digito><digito><digito><digito>
+                  => 125<digito><digito><digito><digito>
+                  => 1255<digito><digito><digito>
+                  => 12558<digito><digito>
+                  => 125586<digito>
+                  => 1255869
+```
+
+**d**. 854,26
+
+El símbolo inicial es <numero_real>
+La derivación del real 854,26 es:
+```
+  <numero_real> => <digito><digito><digito><caracter><digito><digito>
+                => 8<digito><digito><caracter><digito><digito>
+                => 85<digito><caracter><digito><digito>
+                => 854<caracter><digito><digito>
+                => 854,<digito><digito>
+                => 854, 2<digito>
+                => 854,26
+```
+  
+**e**. Conceptos de lenguajes
