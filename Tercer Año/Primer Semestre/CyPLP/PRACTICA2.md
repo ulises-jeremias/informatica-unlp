@@ -38,8 +38,8 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
 > T = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 > S = <numero_entero>
 > P = {
-> <numero_entero> ::= <digito><numero_entero> | <numero_entero><digito> | <digito>
-> <digito> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+>   <numero_entero> ::= <digito><numero_entero> | <numero_entero><digito> | <digito>
+>   <digito> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 > }
 > ```
 > 
