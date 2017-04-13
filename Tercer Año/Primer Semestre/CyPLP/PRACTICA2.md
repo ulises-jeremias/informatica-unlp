@@ -119,9 +119,9 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
   S = {<numero_real>}
   P = {
     <numero_real> ::= [<signo>]{<digito>}+[<caracter>{<digito>}+]
-    <digito> ::= 0 (|) 1 (|) 2 (|) 3 (|) 4 (|) 5 (|) 6 (|) 7 (|) 8 (|) 9
-    <signo> ::= + (|) -
-    <caracter> ::= . (|) ,
+    <digito> ::= (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9)
+    <signo> ::= (+ | -)
+    <caracter> ::= (. | ,)
   }
 ```
 
