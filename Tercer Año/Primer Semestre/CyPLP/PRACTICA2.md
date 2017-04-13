@@ -135,24 +135,25 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
 
 **c**. 1255869
 
-El símbolo inicial es <numero_entero>
-La derivación del entero 1255869 es:
+El símbolo inicial es <numero_real>
+La derivación del real 1255869 es:
 ```
-  <numero_entero> => <numero_entero_sin_signo>
-                  => <digito><numero_entero_sin_signo>
-                  => <digito><digito><numero_entero_sin_signo>
-                  => <digito><digito><digito><numero_entero_sin_signo>
-                  => <digito><digito><digito><digito><numero_entero_sin_signo>
-                  => <digito><digito><digito><digito><digito><numero_entero_sin_signo>
-                  => <digito><digito><digito><digito><digito><digito><numero_entero_sin_signo>
-                  => <digito><digito><digito><digito><digito><digito><digito>
-                  => 1<digito><digito><digito><digito><digito><digito>
-                  => 12<digito><digito><digito><digito><digito>
-                  => 125<digito><digito><digito><digito>
-                  => 1255<digito><digito><digito>
-                  => 12558<digito><digito>
-                  => 125586<digito>
-                  => 1255869
+  <numero_real> => <numero_entero>
+                => <numero_entero_sin_signo>
+                => <digito><numero_entero_sin_signo>
+                => <digito><digito><numero_entero_sin_signo>
+                => <digito><digito><digito><numero_entero_sin_signo>
+                => <digito><digito><digito><digito><numero_entero_sin_signo>
+                => <digito><digito><digito><digito><digito><numero_entero_sin_signo>
+                => <digito><digito><digito><digito><digito><digito><numero_entero_sin_signo>
+                => <digito><digito><digito><digito><digito><digito><digito>
+                => 1<digito><digito><digito><digito><digito><digito>
+                => 12<digito><digito><digito><digito><digito>
+                => 125<digito><digito><digito><digito>
+                => 1255<digito><digito><digito>
+                => 12558<digito><digito>
+                => 125586<digito>
+                => 1255869
 ```
 
 **d**. 854,26
