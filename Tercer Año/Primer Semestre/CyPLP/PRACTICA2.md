@@ -93,7 +93,7 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
 
 **BNF**
 
-*Se me ocurre la siguiente solución aunque no estoy completamente seguro si es viable* **¯\\\_(ツ)_/¯**
+*Se me ocurre la siguiente solución aunque no estoy completamente seguro si es la más viable* **¯\\\_(ツ)_/¯**
 ```
   G = (N, T, S, P)
   N = {<numero_real>, <numero_entero>, <numero_entero_con_signo>, <numero_entero_sin_signo>, <digito>, <caracter>, <signo>}
@@ -110,4 +110,18 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
   }
 ```
 
+**EBNF**
+
+```
+  G = (N, T, S, P)
+  N = (<numero_real>, <digito>, <signo>, <caracter>)
+  T = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, '.', ',', '-', '+'}
+  S = {<numero_real>}
+  P = {
+    <numero_real> ::= [<signo>]{<digito>}+[<caracter>{<digito>}+]
+    <digito> ::= 0 (|) 1 (|) 2 (|) 3 (|) 4 (|) 5 (|) 6 (|) 7 (|) 8 (|) 9
+    <signo> ::= + (|) -
+    <caracter> ::= . (|) ,
+  }
+```
 
