@@ -1,0 +1,90 @@
+\documentclass[a4paper,10pt]{article}
+
+
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\usepackage[utf8]{inputenc}
+
+%Sections inspired by:
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+\usepackage{vmargin}
+
+\setpapersize{A4}
+\setmargins{3.5cm}       % margen izquierdo
+{2.0cm}                        % margen superior
+{14.5cm}                      % anchura del texto
+{24.0cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Redes y Comunicaciones}
+\author{Ulises J. Cornejo Fandos}
+\date{Abril 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Practica 4}
+\subsection{Capa de Aplicación - Correo electrónico}
+
+\begin{enumerate}
+    \item \textbf{¿Qué protocolos se utilizan para el envío de mails entre el cliente y su servidor de correo? ¿Y entre servidores del correo?}
+   
+    Para el envió de mails entre el cliente y su servidor se utiliza el protocolo SMTP \textbf{\textit{(Simple Mail Transfer Protocol)}}. \\
+   
+   
+   \item \textbf{¿Qué protocolos se utilizan para la recepción de mails? ¿Incluiría a HTTP en dichos protocolos? Enumere y explique características y diferencias entre las alternativas posibles.}
+   
+   Para la recepción de mails existen dos alternativas posibles: \\ \\
+    \begin{tabular}{r|l}
+        IMAP & Trabaja en modo de conexión permanente, es posible especificar carpetas del \\
+             & lado del sevidor, visualizar mensajes de forma remota. Transmite solo la \\ 
+             & cabecera del mensaje, dándole la posibilidad al usuario de borrarlo \\ 
+             & directamente. El almacenamiento local del mensaje es opcional.\\ \\
+        POP & Se conecta periodicamente al servidor para buscar nuevo correo, en cada \\
+            & conexión se bajan todos los correos nuevos sin importar si se vayan a leer \\ 
+            & o no. Por defecto elimina los mensajes del servidor, no permitiendo el \\
+            & acceso a ellos desde otros dispositivos.
+    \end{tabular}
+   
+   \item \textbf{Utilizando la VM y teniendo en cuenta los siguientes datos, abra el cliente de correo (Icedove) y configure, primero una cuenta de correo POP y luego una cuenta de correo IMAP (al crearlas, ignorar advertencias por uso de conexión sin cifrado y seleccionar Manual config).}
+   
+   \item \textbf{En base a lo observado. ¿Qué protocolo le parece mejor? ¿POP o IMAP? ¿Por qué? ¿Qué protocolo considera que utiliza más recursos del servidor? ¿Por qué?}
+   
+   \item \textbf{Relacione DNS con SMTP. Describa el proceso completo para el envío de un correo desde pepe@yahoo.com a jose@hotmail.com.}
+   
+   
+\end{enumerate}
+
+
+
+\end{document}

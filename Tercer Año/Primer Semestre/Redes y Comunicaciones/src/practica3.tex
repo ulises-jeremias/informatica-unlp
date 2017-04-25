@@ -136,7 +136,7 @@
                 \item  \textbf{Cantidad de servidores que aceptan correos para el dominio gmail.com.}
                 
                 Se ejecuta el comando:
-                \subitem \textbf{dig MX gmail.com}
+                \subitem \textbf{dig -t mx gmail.com}
                 
                 Hay 5 servidores que aceptan correos para el dominio gmail.com. Esto puedo saberlo por el campo ANSWER del header, y puedo visualizar los servidores correspondientes en la ANSER SECTION.
                 
@@ -157,8 +157,8 @@
                     \end{itemize} 
                 Comando utilizado:
                     \begin{itemize}
-                        \item dig www.info.unlp.edu.ar
-                        \item host www.info.unlp.edu.ar
+                        \item dig -t a www.info.unlp.edu.ar
+                        \item host -t a www.info.unlp.edu.ar
                         
                         $\hookrightarrow{}$ www.info.unlp.edu.ar has address 163.10.5.71 
                     \end{itemize}                
@@ -191,6 +191,58 @@
         Este fichero se utiliza para obtener una relación entre un nombre de máquina y una dirección IP.
         
         \item \textbf{Abra el programa Wireshark para comenzar a capturar el tráfico de red en la interfaz con IP 172.28.0.1. Una vez abierto realice una consulta DNS con el comando dig para averiguar el registro MX de redes.unlp.edu.ar y luego, otra para averiguar los registros NS correspondientes al dominio redes.unlp.edu.ar. Analice la información proporcionada por dig y compárelo con la captura.}
+        
+        \item \textbf{Dada la siguiente situación: Una PC en una red determinada, con acceso a Internet, utiliza los servicios de DNS de un servidor de la red". Analice:}
+            \begin{enumerate}
+                \item \textbf{¿Qué tipo de consultas (iterativas o recursivas) realiza la PC a su servidor de DNS?}
+                
+                Realiza ambos tipos de consultas, ya que para conseguir la dirección IP de una página determinada, es necesario realizar una consulta de tipo recursiva (las cuales utilizan consultas iterativas internamente) o muchas consultas iterativas (en dicho caso podrí obviarse el uso de consultas recursivas).
+                
+                \item \textbf{¿Qué tipo de consultas (iterativas o recursivas) realiza el servidor de DNS para resolver requerimientos de usuario como el anterior? ¿A quién le realiza estas consultas?}
+                
+                Realiza consultas iterativas al siguiente servidor de la jerarquía.
+            \end{enumerate}
+        
+        \item \textbf{Relacione DNS con HTTP. ¿Se puede navegar si no hay servicio de DNS?}
+        
+        Se podría llegar a navegar se si conociera la dirección IP de cada página a la que se quiera acceder, aunque la comodidad se vería disminuida notablemente. Tambien se podría optar por utilizar un sistema similar al que se usaba antes de usar DNS, que sería contar con un archivo HOSTS configurado con cada página que se quiera acceder.
+        
+        \item \textbf{Observar el siguiente gráfico y contestar:}
+        
+            \begin{enumerate}
+                \item \textbf{Si desde PC-A se desea obtener la IP de www.unlp.edu.ar, cuales serían y en que orden, los pasos que se ejecutarán para obtener la respuesta.}
+                
+                Como primera instancia se consultaría el servidor DNS local, de no encontrarse en el mismo. \textbf{\textit{Consulta Recursiva}}
+                
+                El servidor DNS local realizaría una consulta a cualquiera de los root-server, el root-server le contestaría con la dirección del servidor que contiene la dirección IP del dominio .ar (a.dns.ar). \textbf{\textit{Consulta Iterativa}}
+                
+                Automaticamente el servidor DNS local consultará al servidor a.dns.ar, cual es la dirección del servidor que contiene información del dominio edu.ar (ns1.riu.edi.ar). \textbf{\textit{Consulta Iterativa}}
+                
+                Nuevamente el servidor DNS local lo consulta al servidor ns1.riu.edu.ar cual es la dirección del servidor que contiene el dominio unlp.edu.ar (unlp.unlp.edu.ar). \textbf{\textit{Consulta Iterativa}}
+                
+                Finalmente, el servidor DNS local consulta cual es la dirección de servidor que contiene la página www.unlp.edu.ar al servidor previamente conseguido. \textbf{\textit{Consulta Iterativa}}
+                
+                \item \textbf{¿Dónde es recursiva la consulta? ¿Y dónde es iterativa?}
+                
+                La consulta es recursiva en primera instancia, luego, todas las consultas son iterativas.
+                
+                \item \textbf{¿Que root-server debería ser elegido para responder?}
+                
+                Debería ser seleccionado el que tenga menor tiempo de respuesta, que seguramente sea el que tenga menos puntos intermedios de redirección. En este caso, sería el que se encuentra en la parte superior izquierda.
+            \end{enumerate}
+            
+        \item \textbf{¿A quién debería consultar para que la respuesta sobre www.google.com sea autoritativa?}
+        
+        A cualquiera de los servidores autoritativos:
+        
+            \begin{itemize}
+                \item ns1.google.com.
+                \item ns2.google.com.
+                \item ns3.google.com.
+                \item ns4.google.com.
+            \end{itemize}
+            
+        \item \textbf{¿Qué sucede si al servidor elegido en el paso anterior se lo consulta por www.info.unlp.edu.ar? >Y si la consulta es al servidor 8.8.8.8?}
     \end{enumerate}
 
 \end{document}

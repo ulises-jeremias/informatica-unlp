@@ -48,7 +48,7 @@
 
 \title{Diseño de Base de Datos - Redictado 2017}
 \author{Cornejo Fandos - Di Cunzolo}
-\date{Marzo 2017}
+\date{Abril 2017}
 
 \begin{document}
 
@@ -57,34 +57,25 @@
 \section{Actividad 1}
     \subsection{Especificación de requerimientos}
     
-    La organización COD Project cuenta con un proyecto que tiene como objetivo el desarrollo de una red social orientada a programadores, donde estos puedan compartir sus proyectos, recientes actividades y poder ver las actividades de su entorno. \\
+    La organización COD Project cuenta con un proyecto que tiene como objetivo el desarrollo de una red social orientada a programadores, donde estos puedan compartir sus proyectos, recientes actividades y poder ver las actividades de su entorno. Ademas, se sabe que dicha organización busca contar con usuarios con privilegios de administración, los cuales tendrán acceso a módulos específicos de la red. \\
     
-    Los usuarios pueden ser, usuarios simples y organizaciones.
-    
-    De cada usuario simple se conocen datos personales, contraseña, email, nombre de usuario, foto de perfil, breve biografía, empresa (en caso de pertenecer a alguna), fecha de ingreso al sistema, nacionalidad, localidad. \\
-    
-   
+    De cada usuario se conocen datos personales, contraseña, email, nombre de usuario, foto de perfil, breve biografía, empresa (en caso de pertenecer a alguna), fecha de ingreso al sistema, nacionalidad, localidad. \\
+    Los usuarios con permisos de administración cuentan con la misma información que los usuarios comunes. \\
     
     Todos los usuarios contarán con un muro donde mostrarán sus proyectos y ultimas actividades. \\
-    De cada proyecto se conoce usuario creador, fecha de comienzo, fecha de finalización (en caso de estar finalizado), última versión estable (en caso contar con alguna), enlace a repositorio y documentación (en caso de contar con alguno), usuarios contribuidores, tags, fecha de última modificación, breve descripción, lenguajes utilizados. \\
+    De cada proyecto se conoce usuario creador, nombre, fecha de comienzo, fecha de finalización (en caso de estar finalizado), última versión estable (en caso contar con alguna), enlace a repositorio y documentación (en caso de contar con alguna), usuarios contribuidores, tags, fecha de última modificación, breve descripción, lenguajes utilizados. \\
     
-    De cada publicación se conoce usuario creador, fecha de publicación, usuario que la publicó, fecha de última modificación y tags. \\
+    De cada publicación se conoce usuario creador, fecha de publicación, fecha de última modificación y tags. \\
     
-    Un usuario podrá modificar sus datos en cualquier momento, como también, eliminar su cuenta. Además, podrá administrar sus proyectos libremente ya sea editando información de los mismos, como también agregar y/o eliminar. \\
+    Un usuario podrá modificar sus datos en cualquier momento, como también, eliminar su cuenta. Además, podrá administrar sus proyectos, y publicaciones, libremente ya sea editando información de los mismos, como también agregar y/o eliminar. \\
     
     Entre usuarios se puede interactuar mediante el envío de mensajes privados. \\
     De cada mensaje se conoce destinatarios, fecha, asunto, cuerpo, adjuntos (imágenes y documentos). \\
-    
 
+    Además, existen agrupaciones de usuarios llamadas \textit{organizaciones}, donde es posible crear nuevos proyectos en nombre de la misma.
     
+    De cada organización se conoce nombre, mail, fecha de creación, un logo, una descripción y eslogan (opcional), equipos, localidad, proyectos, y equipos internos.
     
-
-    
-    
-    
-    
-    
-    de cada proyecto se conocen lenguajes, entonces se listan lenguajes que trabajaron los usuarios armando estadisticas con porcentaje de repositorios en cada lenguaje y usuarios que programaron etc etc etc
-
+    Los equipos internos cuentan con un nombre y la lista de integrantes, y un codigo de equipo que es único dentro de la organización a la cual pertenece.
 
 \end{document}
