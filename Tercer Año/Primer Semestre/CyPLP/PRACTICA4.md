@@ -1,6 +1,7 @@
 # Práctica 4
 
-## __Objetivo:__ Conocer el manejo de identificadores en memoria y como lo definen e implementan los diferentes lenguajes.
+## Objetivo 
+Conocer el manejo de identificadores en memoria y como lo definen e implementan los diferentes lenguajes.
 
 ## Ejercicio 1
 ### a) Tome una de las variables de la línea 3 del siguiente código e indique y defina cuales son sus atributos:
