@@ -67,3 +67,15 @@ tema. Defina la forma en que se implementa en un lenguaje conocido por Ud.
         
 * C++
 	* Al producirse una excepcion, se termina la unidad o rutina, en caso de que la excepción se encuentre se propaga la excepción. Si una excepción es repetidamente propagada y no machea con ningún manejador, entonces una función terminate() es ejecutada automáticamente. En el caso de no haber esperado dicha excepción no se propaga la misma y la función especial unexpected() se ejecuta auntomaticamente, la cual generalemte ejecuta abort(), que provoca el final del programa. Unexpected() puede ser redefinida por el programador.
+
+## Ejercicio 9
+Indique diferencias y similitudes entre Phyton y Java con respecto al manejo de excepciones.
+    
+Ambos hacen uso del try finally y pueden recibir una lista de posibles excepciones, python tiene la facilidad de tener la clausura 'else' que manejaria cualquier excepción la cual no haya sido tratada previamente, mientras que en java hay que especificar dicha excepción.
+
+## Ejercicio 10
+¿Qué modelo de excepciones implementa Ruby?. Qué instrucciones específicas provee el lenguaje para manejo de excepciones y cómo se comportan cada una de ellas?
+    
+Ruby utiliza el modelo terminal para el manejo de sus excepciones, este hace una utilización similar del try catch de java, pero estos se llaman raise rescue, la clausura raise levanta una excepción, si dicha excepción es la que espera la clausura rescue, esta la maneja, hay una 'else' al igual que en python que sirve para manejar cualquier excepción que no haya sido contemplada.
+    
+
