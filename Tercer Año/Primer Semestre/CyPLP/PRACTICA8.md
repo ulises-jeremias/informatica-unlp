@@ -66,7 +66,11 @@ tema. Defina la forma en que se implementa en un lenguaje conocido por Ud.
         En Ada siempre tener en cuenta el alcance, puede convertirse en anónima!
         
 * C++
-	* Al producirse una excepcion, se termina la unidad o rutina, en caso de que la excepción se encuentre se propaga la excepción. Si una excepción es repetidamente propagada y no machea con ningún manejador, entonces una función terminate() es ejecutada automáticamente. En el caso de no haber esperado dicha excepción no se propaga la misma y la función especial unexpected() se ejecuta auntomaticamente, la cual generalemte ejecuta abort(), que provoca el final del programa. Unexpected() puede ser redefinida por el programador.
+	* Al producirse una excepcion, se termina la unidad o rutina, en caso de que la excepción se encuentre se propaga la excepción. Si una excepción es repetidamente propagada y no machea con ningún manejador, entonces una función terminate() es ejecutada automáticamente. En el caso de no haber esperado dicha excepción no se propaga la misma y la función especial unexpected() se ejecuta auntomaticamente, la cual generalmente ejecuta abort(), que provoca el final del programa. Unexpected() puede ser redefinida por el programador.
+	
+## Ejercicio 7
+* a) Cambio el proceso Manejador1 por la instrucción _ON CONDITION Manejador1 begin x := x + 1; end_ y así.
+* b) ADA cuenta con el bloque _declare_ que es una rutina dentro del proceso. Conviene declarar el raise dentro de ese bloque para no matar la ejecución del proceso.
 
 ## Ejercicio 9
 Indique diferencias y similitudes entre Phyton y Java con respecto al manejo de excepciones.
