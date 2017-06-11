@@ -77,5 +77,17 @@ Ambos hacen uso del try finally y pueden recibir una lista de posibles excepcion
 ¿Qué modelo de excepciones implementa Ruby?. Qué instrucciones específicas provee el lenguaje para manejo de excepciones y cómo se comportan cada una de ellas?
     
 Ruby utiliza el modelo terminal para el manejo de sus excepciones, este hace una utilización similar del try catch de java, pero estos se llaman raise rescue, la clausura raise levanta una excepción, si dicha excepción es la que espera la clausura rescue, esta la maneja, hay una 'else' al igual que en python que sirve para manejar cualquier excepción que no haya sido contemplada.
-    
 
+## Ejercicio 11
+~~Dado que el manejo de excepciones de ADA es por terminación a nivel de bloque, entonces el lanzamiento de una excepción en la definición de un _if else_ termina con la ejecución de este bloque, y pasa la excepción al manejador mas cercano. En este punto x == 11 y se lanza una expceción anónima. Como no hay manejador en el bloque manejador de _e_, entonces propaga al del proceso. Tampoco hay manejador en el bloque del proceso y propaga afuera del mismo, es decir, al ambito del procedure main. En este ambito hay un manejador  de excepciones y siendo una anónima, entra al _when other_, donde x pasa a ser x == 13. Luego, x queda con 13 al finalizar la ejecución del programa.~~
+
+No pasa a ser anónima dado que el alcance de la excepción en ADA estará determinado por el alcance de la variable declarada. Siendo que _e: exception_ está declarado en el main, entonces tiene alcance global, por lo tanto, al ser propagada en el raise del proceso _UNO_, el manejador del main sabe cual es la excepcion y ejecuta el _when e_. Sin embargo, suponiendo que se ejecuta el proceso _DOS_, este proceso redefine _e_, por lo tanto, cuando se propaga el raise, entra en el manejador de _when other_ del proceso main.
+
+## Ejercicio 12
+Tenemos el lanzamiento de la excepción _error1_ en la definición del proceso _UNO_. Al ser levantada esta excepción, termina la ejecución del procedimiento, ignorando la existencia de manejadores dentro del mismo. Posteriormente, pasa a ser ejecutado el manejajor existente en la linea siguiente a la llamada del proceso: 
+
+	exception when error1 -> 
+		x := x+1; 
+		y := y + 1; 
+	end;
+	
