@@ -30,8 +30,8 @@ Las formas de inicializar una variables son:
 ### a) Explique los siguientes conceptos asociados al atributo l-valor de una:
 * Variable estática: Su tiempo de vida se extiende durante la ejecución completa del programa. La asignación de memoria se hace en tiempo de compilación.
 * Variable automáticas: Son variables locales a un bloque de sentencias de código. Su tiempo de vida está definido por el bloque donde pertenece.
-* Variables dinámicas: 
-* Variables semi-dinámicas: 
+* Variables dinámicas: Las variables dinámicas son aquellas en donde la ligadura de su l-valor se define durante la ejecución del programa.
+* Variables semi-dinámicas: Son variables que se alocan y desalocan por desición del programador.
 
 ## Ejercicio 4
 ### a) ¿A qué se denomina variable local y a qué se denomina variable global?
