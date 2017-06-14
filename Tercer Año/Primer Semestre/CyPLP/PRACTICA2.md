@@ -130,6 +130,30 @@ Las *palabras reservadas* son palabras que no pueden ser usadas como identificad
 > Utilizando la gramática que desarrolló en los puntos 6 y 7, escriba el árbol sintáctico de:
 
 **a**. Conceptos
+El símbolo inicial es <palabra>
+
+La derivación del real Conceptos es:
+```
+  <palabra> => <letra><palabra>
+            => <letra><letra><palabra>
+            => <letra><letra><letra><palabra>
+            => <letra><letra><letra><letra><palabra>
+            => <letra><letra><letra><letra><letra><palabra>
+            => <letra><letra><letra><letra><letra><letra><palabra>
+            => <letra><letra><letra><letra><letra><letra><letra><palabra>
+            => <letra><letra><letra><letra><letra><letra><letra><letra><palabra>
+            => <letra><letra><letra><letra><letra><letra><letra><letra><letra>
+            => C<letra><letra><letra><letra><letra><letra><letra><letra>
+            => Co<letra><letra><letra><letra><letra><letra><letra>
+            => Con<letra><letra><letra><letra><letra><letra>
+            => Conc<letra><letra><letra><letra><letra>
+            => Conce<letra><letra><letra><letra>
+            => Concep<letra><letra><letra>
+            => Concept<letra><letra>
+            => Concepto<letra>
+            => Conceptos
+  
+```
 
 **b**. Programación
 
