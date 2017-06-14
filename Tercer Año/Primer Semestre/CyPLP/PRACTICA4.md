@@ -62,12 +62,12 @@ Las variables locales son aquellas declaradas dentro del ambito de un método y 
     h: [5-15]
 
 ### c) Indique si el programa anterior presenta un error al intentar escribir el valor de h. Justifique
-No presenta error, dado que mipuntero es una referencia a i, osea, mipuntero := ^i, luego, mipuntero^ := i.
+No presenta error, dado que mipuntero es una referencia a i, osea, mipuntero := ^i, luego, ^mipuntero := i.
     
 ### d) Indique si el programa anterior presenta un error al intentar asignar a i la resta de h con mipuntero. Justifique
 
 
 ### e) Determine si existe otra entidad que necesite ligar los atributos de alcance y tiempo de vida para justificar las respuestas anteriores. En ese caso indique cuál es la entidad y especifique su tiempo de vida y alcance.
-    mipuntero^ es la entidad faltante de tipo dinámico de alcance 6-15 y tiempo de vida 9-12.
+    ^mipuntero es la entidad faltante de tipo dinámico de alcance 6-15 y tiempo de vida 9-12.
 
 ### f) Especifique el tipo de variable de acuerdo a la ligadura con el l-valor de las variables que encontró en el ejercicio.
