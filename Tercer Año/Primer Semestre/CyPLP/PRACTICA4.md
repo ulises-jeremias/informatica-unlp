@@ -12,7 +12,7 @@ __variable I__
     Alcance: desde la linea 3 a la 16
     Tipo: Integer, predefinido
     L-value: Tiempo de ejecución del programa, automático
-    R-value:  Espacio de memoria alocada de 4 bytes, sin inicialización por defecto.
+    R-value:  Espacio de memoria alocada de 4 bytes,inicialización por defecto en cero.
         
 ### b) Compare los atributos de la variable del punto a) con los atributos de la variable de la línea 4. Que dato contiene esta variable?, que otra variable hay en este código?
 
