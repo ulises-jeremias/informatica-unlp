@@ -16,7 +16,7 @@ __variable I__
         
 ### b) Compare los atributos de la variable del punto a) con los atributos de la variable de la línea 4. Que dato contiene esta variable?, que otra variable hay en este código?
 
-    La variable _p_ contiene una referencia de la variable _i_. Luego, la variable anónima ^p contiene el valor de la variable _i_.
+   La variable _p_ contiene una referencia de la variable _i_. Luego, la variable anónima ^p contiene el valor de la variable _i_.
     
 ## Ejercicio 2
 ### a) Indique cuales son las diferentes formas de inicializar una variable en el momento de la declaración de la misma.
