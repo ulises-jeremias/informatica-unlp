@@ -192,7 +192,7 @@ La derivación del real 854,26 es:
                 => 85<digito><caracter><digito><digito>
                 => 854<caracter><digito><digito>
                 => 854,<digito><digito>
-                => 854, 2<digito>
+                => 854,2<digito>
                 => 854,26
 ```
   
