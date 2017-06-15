@@ -82,3 +82,40 @@ VR -----
 
 
 b) Siguiendo la cadena dinámica
+
+Registro de Activación _Main_
+Punto de Retorno *1
+a(1) = ~~1~~ 2
+a(2) = 2
+a(3) = 3
+a(4) = 4
+a(5) = 5
+a(6) = 6
+a(7) = 7
+a(8) = 8
+a(9) = 9
+a(10) = 10
+x = ~~1..10~~ 5
+y = 1
+z = ~~10~~ 11
+Procedure A
+Function t
+Procedure B
+VR -----
+
+Registro de Activación _A_
+Punto de Retorno *2
+EE(*1)
+ED(*1)
+t = 1
+y = 2
+VR -----
+
+Registro de Activación _B_
+Punto de Retorno *3
+EE(*1)
+ED(*2)
+VR -----
+
+Registro de Activación _I_
+Punto de Retorno *4
