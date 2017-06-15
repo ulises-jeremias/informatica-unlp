@@ -119,3 +119,61 @@ VR -----
 
 Registro de Activación _I_
 Punto de Retorno *4
+
+
+## Ejercicio 5
+
+a) Siguiendo la cadena estática
+
+
+Registro de Activación _Main_
+Punto de Retorno *1
+x = ~~1~~ ~~2~~ 11
+y = ~~2~~ 4
+a(1) = 1
+a(2) = ~~2~~ ~~14~~ 21
+a(3) = 3
+a(4) = ~~4~~ 23
+a(5) = 5
+a(6) = 6
+b(1) = ~~3~~ 4
+b(2) = 4
+b(3) = 5
+b(4) = 6
+b(5) = 7
+b(6) = 8
+z = ~~1..6~~ 1..6
+Procedure B
+Procedure D
+Function C
+VR -----
+IMPRIME el array a y b
+
+Registro de Activación _B_
+Punto de Retorno *2
+EE(*1)
+ED(*1)
+x = ~~2~~ 3
+y = ~~5~~ 7
+Procedure C
+VR -----
+IMPRIME 3,7
+
+Registro de Activación _C_
+Punto de Retorno *3
+EE(*2)
+ED(*2)
+c = 2
+VR -----
+
+Registro de Activación _D_
+Punto de Retorno *4
+EE(*1)
+ED(*3)
+VR 4  __NOTA__ Es lo que me retornan, no lo que retorno
+
+Registro de Activación _C_
+Punto de Retorno *5
+EE(*1)
+ED(*2)
+VR -----
