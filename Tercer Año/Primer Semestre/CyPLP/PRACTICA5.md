@@ -81,4 +81,4 @@ ED(*3)
 VR -----
 
 
-
+b) Siguiendo la cadena dinámica
