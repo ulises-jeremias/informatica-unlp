@@ -178,3 +178,6 @@ En Ada las funciones admiten sólo pasaje de parámetros por valor, lo cual impi
 
 * Tipos primitivos: pasaje de parámetros por **valor-resultado**
 * Tipos no primitivos/compuestos: pasaje de parámetros por **referencia**
+
+## Ejercicio 4
+
