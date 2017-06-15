@@ -179,5 +179,18 @@ En Ada las funciones admiten sólo pasaje de parámetros por valor, lo cual impi
 * Tipos primitivos: pasaje de parámetros por **valor-resultado**
 * Tipos no primitivos/compuestos: pasaje de parámetros por **referencia**
 
-## Ejercicio 4
+## Ejercicio 5
+
+	(4, 6, 7), (4, 6, 7), 2, 2
+		vector -> referencia
+		a -> referencia
+
+	(3, 5, 6), (4, 6, 7), 2, 2
+		vector -> valor
+		a -> referencia
+
+	(3, 5, 6), (5, 5, 6), 0, -1
+		vector -> valor
+		a -> valor
+	
 
