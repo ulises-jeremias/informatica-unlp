@@ -38,7 +38,7 @@ Procedure A
 Function t
 Procedure B
 VR -----
-IMPRIME 2,1 5,2 3,3 4,4 5,5 6,6 7,7 8,8 9,9 10,1
+IMPRIME 2,1 5,2 3,3 4,4 5,5 6,6 7,7 8,8 9,9 10,10
 
 Registro de Activación _A_
 Punto de Retorno *2
@@ -86,40 +86,57 @@ b) Siguiendo la cadena dinámica
 Registro de Activación _Main_
 Punto de Retorno *1
 a(1) = ~~1~~ 2
-a(2) = 2
+a(2) = ~~2~~ 5
 a(3) = 3
-a(4) = 4
+a(4) = ~~4~~ 9
 a(5) = 5
 a(6) = 6
 a(7) = 7
 a(8) = 8
 a(9) = 9
-a(10) = 10
-x = ~~1..10~~ 5
+a(10) = ~~10~~ 12
+x = ~~1~~ ~~2~~ ~~0~~ ~~6~~ ~~5~~ ~~0~~ ~~6~~ ~~5~~ ~~0~~ ~~6~~ ~~5~~ 1..10
 y = 1
-z = ~~10~~ 11
+z = ~~10~~ ~~11~~ 7
 Procedure A
 Function t
 Procedure B
 VR -----
+IMPRIME 2,1 5,2 3,3 4,9 5,5 6,6 7,7 8,8 9,9 10,12
 
 Registro de Activación _A_
 Punto de Retorno *2
 EE(*1)
 ED(*1)
 t = 1
-y = 2
+y = ~~2~~ 3
 VR -----
 
 Registro de Activación _B_
 Punto de Retorno *3
 EE(*1)
 ED(*2)
+d = ~~0~~ ~~2~~ ~~4~~ 6
+Procedure I
 VR -----
 
 Registro de Activación _I_
 Punto de Retorno *4
+EE(*3)
+ED(*3)
+VR -----
 
+Registro de Activación _I_
+Punto de Retorno *5
+EE(*3)
+ED(*3)
+VR -----
+
+Registro de Activación _I_
+Punto de Retorno *6
+EE(*3)
+ED(*3)
+VR -----
 
 ## Ejercicio 5
 
