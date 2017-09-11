@@ -1,6 +1,6 @@
 sem semaphore = 3;
 
-Process pasajero[i = 1 to N]
+Process pasajero[i = 1..N]
 {
         P(semaphore);
         // detector
