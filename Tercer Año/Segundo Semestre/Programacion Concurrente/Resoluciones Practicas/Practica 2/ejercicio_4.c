@@ -25,8 +25,10 @@ Process maestra
                 if(empty(entregas)) {
                         continue;
                 }
+                
                 int id = desencolar(entregas);
                 P(tareas[id]);
+                
                 if(//tarea es correcta){
                         cant--;
                         correcciones[id] = true;
