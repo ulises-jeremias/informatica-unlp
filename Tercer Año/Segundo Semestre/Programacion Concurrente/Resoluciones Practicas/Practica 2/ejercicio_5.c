@@ -37,6 +37,9 @@ Process Maestra
                 for (int i = 1; i <= 5; i++) {
                         int alumno = desencolar(tareas[tarea]);
                         // dar puntaje
+                }
+                
+                for (int i = 1; i <= 5; i++) {
                         V(maestra[tarea]);
                 }
 
