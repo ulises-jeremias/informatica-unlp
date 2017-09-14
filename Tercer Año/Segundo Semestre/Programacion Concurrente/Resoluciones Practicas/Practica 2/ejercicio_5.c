@@ -1,5 +1,6 @@
 sem choise = 1;
-sem maestra[50] = ([50] 1);
+sem entrega[10] = ([10] 1);
+sem maestra[10] = ([10] 5);
 cola entregas;
 cola tareas[10];
 int alumnos[50];
@@ -12,9 +13,11 @@ Process Alumno[i = 1..50]
         alumnos[i] = tarea = elegir();
         V(choise);
         // hacer tarea
+        P(entrega[tarea]);
         encolar(entregas, i);
         encolar(tareas[tarea], i);
-        P(maestra[i]);
+        V(entrega[tarea]);
+        P(maestra[tarea]);
 }
 
 Process Maestra
@@ -34,6 +37,7 @@ Process Maestra
                 for (int i = 1; i <= 5; i++) {
                         int alumno = desencolar(tareas[tarea]);
                         // dar puntaje
+                        V(maestra[tarea]);
                 }
 
                 cant--;
