@@ -19,7 +19,7 @@ Process Timer[i = 1..P]
 
 Process Persona[i = 1..P]
 {
-        int stado;
+        int my_state;
         P(s_access);
         encolar(personas, i);
         V(s_access);
@@ -27,9 +27,9 @@ Process Persona[i = 1..P]
         V(s_llega_cliente);
         P(s_espera[i]);
         P(s_state_mod[i]);
-        stado = state[i];
+        my_state = state[i];
         V(s_state_mod[i]);
-        if (!state) {
+        if (!my_state) {
                 P(s_access);
                 desencolar(personas);
                 V(s_access);
@@ -40,7 +40,7 @@ Process Persona[i = 1..P]
 
 Process Empleado
 {
-        int id, state;
+        int id, person_state;
 
         while (true) {
                 P(s_llega_cliente);
@@ -48,9 +48,9 @@ Process Empleado
                 id = desencolar(personas);
                 V(s_access);
                 P(s_state_mod[id]);
-                state = state[id];
+                person_state = state[id];
                 V(s_state_mod[id]);
-                if (state) {
+                if (person_state) {
                         V(s_espera[id]);
                         // atender persona
                         V(s_atender);
