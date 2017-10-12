@@ -6,11 +6,11 @@ monitor Business
 
         arrive(int i)
         {
+                group[actual]--;
                 if (!group[actual]) {
                         actual++;
                         signal_all(wattingGroup);
                 } else {
-                        group[actual]--;
                         wait(cond|);
                 }
         }
