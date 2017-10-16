@@ -14,10 +14,16 @@ monitor Training
                                 wait(waittingTeam[team]);
                         } else {
                                 signal_all(team);
-                                signal_all(desencolar(next(teams));
+                                signal_all(desencolar(teams);
                         }
                 } else {
                         wait(waittingTeam[team]);
                 }
         }
+}
+
+process Player()[ i = 1..20 ]
+{
+        int e = DarEquipo();
+        Training.in(e);
 }
