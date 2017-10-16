@@ -1,25 +1,25 @@
 monitor DB
 {
         condition queue;
-        int count = 0;
+        int count = 5;
 
         procedure in(int i)
         {
-                if (count > 5) {
+                if (!count) {
                         wait(queue);
-                } else {
-                        count++;
                 }
+                
+                count--;
         }
 
         procedure out(int i)
         {
-                count--;
+                count++;
                 signal(queue);
         }
 }
 
-Process Reader()[ i = 1..M]
+process Reader()[ int i = 1..M]
 {
         DB.in(i);
         //use DB
