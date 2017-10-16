@@ -3,6 +3,7 @@ monitor Training
         cond waittingTeam[4];
         queue teams;
         int players[4] = ([4], 5);
+        bool busy[2] = ([2], false);
         int field = 1;
 
         in(int team)
@@ -13,8 +14,9 @@ monitor Training
                                 push(teams, team);
                                 wait(waittingTeam[team]);
                         } else {
+                                busy[field++] = true;
                                 signal_all(team);
-                                signal_all(desencolar(teams);
+                                signal_all(desencolar(teams));
                         }
                 } else {
                         wait(waittingTeam[team]);
