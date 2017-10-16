@@ -1,9 +1,8 @@
-bool attended[N] = ([N], false);
-
 monitor Bank
 {
         cond queue;
         queue clients;
+        bool attended[N] = ([N], false);
 
         wait(int i)
         {
