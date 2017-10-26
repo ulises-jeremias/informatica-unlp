@@ -18,6 +18,36 @@ Al PDU asociado a esta capa se lo conoce como `datagrama`.
 
 El dispositivo que solo es considerado de la capa de red es el router (que en realidad es un conmutador de paquetes, como el switch, pero este último se basa en la cabecera de la capa de enlace ya que pertenece a esta). El router no implementa las capas superiores a la capa de red.
 
----
+### 2.  ¿Cuántas redes clase A, B y C hay? ¿Cuántos hosts como máximo pueden tener cada una?
 
+Los tipos de redes utilizados normalmente son A, B y C aunque existen los de tipo D y E que están destinados a otros usos que de momento no trataremos así que nosotros vamos a ver los res primeros que son los de tipo A, B y C.
 
+**Redes de clase A**
+
+Las redes de clase A tienen como número en su primer segmento uno comprendido entre el 1 y el 126 ambos incluidos, vamos con unos ejemplos:
+
+* La dirección Ip 80.85.23.164 es de clase A
+* La dirección Ip 186.23.54.69 no es de clase A
+* La dirección Ip 126.36.76.65 es de clase A
+
+Y por último queda la identificación por su máscara de subred que va a ser 255.0.0.0. Esto se puede comprobar accediendo a www.miip.es donde se ve como la dirección Ip es de clase A y va relacionada con las redes WAN (Wide Area Network).
+
+**Redes de clase B**
+
+Las redes de clase B tienen en su primer segmento números comprendidos entre el 128 y el 191 ambos incluidos vamos a verlo:
+
+* La dirección Ip 149.34.127.143 es de clase B
+* La dirección Ip 42.169.221.86 no es de clase B
+* La dirección Ip 129.3.45.131 es de clase B
+
+En este caso la máscara de subred va a ser 255.255.0.0. Este tipo de direcciones Ip o esta clase de red se puede asociar con las redes MAN (Metropolitan Area Network) no tan conocidas pero bueno…
+
+**Redes de clase C**
+
+Y para terminar las de clase C, vamos las que trabajamos nosotros y en las que su primer segmento se encuentra entre el 192 y el 223 ambos inlcuidos y vamos a verlo con unos ejemplos:
+
+* La dirección Ip 192.78.91.97 es de clase C
+* La dirección Ip 97.142.174.162 no es de clase C
+* La dirección Ip 201.121.41.63 es de clase C
+
+Bueno, esta es la más conocida como sabemos la máscara de subred es la conocida 255.255.255.0 y es para redes de tipo LAN (Local Area Network).
