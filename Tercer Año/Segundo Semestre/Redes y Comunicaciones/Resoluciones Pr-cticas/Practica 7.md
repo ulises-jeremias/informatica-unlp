@@ -51,3 +51,53 @@ Y para terminar las de clase C, vamos las que trabajamos nosotros y en las que s
 * La dirección Ip 201.121.41.63 es de clase C
 
 Bueno, esta es la más conocida como sabemos la máscara de subred es la conocida 255.255.255.0 y es para redes de tipo LAN (Local Area Network).
+
+### 3. ¿Qué son las subredes? ¿Por qué es importante siempre especificar la máscara de subred asociada?
+
+En redes de computadoras, una subred es un rango de direcciones lógicas. Cuando una red de computadoras se vuelve muy grande, conviene dividirla en subredes, por los siguientes motivos:
+
+* Reducir el tamaño de los dominios de broadcast.
+* Hacer la red más manejable, administrativamente. Entre otros, se puede controlar el tráfico entre diferentes subredes mediante ACLs.
+
+Existen diversas técnicas para conectar diferentes subredes entre sí. Se pueden conectar:
+
+* a nivel físico *(capa 1 OSI)* mediante repetidores o concentradores (hubs),
+* a nivel de enlace *(capa 2 OSI)* mediante puentes o conmutadores (switches),
+* a nivel de red *(capa 3 OSI)* mediante routers,
+* a nivel de transporte *(capa 4 OSI)*,
+* aplicación *(capa 7 OSI)* mediante pasarelas.
+
+También se pueden emplear técnicas de encapsulación *(tunneling)*.
+
+En el caso más simple, se puede dividir una red en subredes de tamaño fijo (todas las subredes tienen el mismo tamaño). Sin embargo, por la escasez de direcciones IP, hoy en día frecuentemente se usan subredes de tamaño variable.
+
+**Máscara de una subred**
+
+La máscara de subred o subneting señala qué bytes (o qué porción) de su dirección es el identificador de la red. La máscara consiste en una secuencia de unos seguidos de una secuencia de ceros con el mismo tamaño que una dirección IP (32 bits, o lo que es lo mismo 4 bytes), por ejemplo, una máscara de 20 bits se escribiría 255.255.240.0, es decir como una dirección IP con 20 bits en 1 seguidos por 12 bits en 0, pero para facilitar su lectura se escribe separando bloques de 8 bits (1 byte) con puntos y escribiéndolos en decimal. La máscara determina todos los parámetros de una subred: dirección de red, dirección de difusión (broadcast) y direcciones asignables a nodos de red (hosts).
+
+Los routers constituyen los límites entre las subredes. La comunicación desde y hasta otras subredes es hecha mediante un puerto específico de un router específico, por lo menos momentáneamente.
+
+Una subred típica es una red física hecha con un router, por ejemplo: una Red Ethernet o una “red de área local virtual” (Virtual Local Area Network, VLAN). Sin embargo, las subredes permiten a la red ser dividida lógicamente a pesar del diseño físico de la misma, por cuanto es posible dividir una red física en varias subredes configurando diferentes computadores host que utilicen diferentes routers. La dirección de todos los nodos en una subred comienzan con la misma secuencia binaria, que es su ID de red e ID de subred. En IPv4, las subredes deben ser identificadas por la base de la dirección y una máscara de subred.
+
+Las subredes simplifican el enrutamiento, ya que cada subred típicamente es representada como una fila en las tablas de ruteo en cada router conectado. Las subredes fueron utilizadas antes de la introducción de las direcciones IPv4, para permitir a una red grande tener un número importante de redes más pequeñas dentro, controladas por varios routers. Las subredes permiten el enrutamiento entre dominios sin clases (CIDR). Para que las computadoras puedan comunicarse con una red, es necesario contar con números IP propios, pero si tenemos dos o más redes, es fácil dividir una dirección IP entre todos los hosts de la red. De esta forma se pueden partir redes grandes en redes más pequeñas.
+
+Es necesario para el funcionamiento de una subred calcular los bits de una IP y quitarle los bits de host, y agregárselos a los bits de network mediante el uso de una operación lógica.
+
+### 4. Describa qué es y para qué sirve el protocolo ICMP.
+
+El 'Protocolo de Mensajes de Control de Internet' o ICMP (por sus siglas en inglés de Internet Control Message Protocol) es el sub protocolo de control y notificación de errores del Protocolo de Internet (IP). Como tal, se usa para enviar mensajes de error, indicando por ejemplo que un router o host no puede ser localizado. También puede ser utilizado para transmitir mensajes ICMP Query.
+
+ICMP difiere del propósito de TCP y UDP ya que generalmente no se utiliza directamente por las aplicaciones de usuario en la red. La única excepción es la herramienta ping y traceroute, que envían mensajes de petición Echo ICMP (y recibe mensajes de respuesta Echo) para determinar si un host está disponible, el tiempo que le toma a los paquetes en ir y regresar a ese host y cantidad de hosts por los que pasa.
+
+#### a. Analice cómo funciona el comando ping.
+
+**i. Indique el tipo y código ICMP que usa el ping.**
+**ii. Indique el tipo y código ICMP que usa la respuesta de un ping.**
+
+Como programa, **ping** es una utilidad diagnóstica1 en redes de computadoras que comprueba el estado de la comunicación del host local con uno o varios equipos remotos de una red IP por medio del envío de paquetes ICMP de solicitud (ICMP tipo 8 Echo Request codigo 0) y de respuesta (ICMP tipo 0 Echo Reply codigo 0). Mediante esta utilidad puede diagnosticarse el estado, velocidad y calidad de una red determinada.
+
+#### b. Analice cómo funciona el comando traceroute (tracert en Windows) y cómo manipula el campo TTL de los paquetes IP.
+
+**Traceroute** es una consola de diagnóstico que permite seguir la pista de los paquetes que vienen desde un host (punto de red). Se obtiene además una estadística del RTT o latencia de red de esos paquetes, lo que viene a ser una estimación de la distancia a la que están los extremos de la comunicación.
+
+Tracert utiliza el campo **Time To Live** (TTL) de la cabecera IP. Este campo sirve para que un paquete no permanezca en la red de forma indefinida (por ejemplo, debido a la existencia en la red de un bucle cerrado en la ruta). El campo TTL es un número entero que es decrementado por cada nodo por el que pasa el paquete. De esta forma, cuando el campo TTL llega al valor 0 ya no se reenviará más, sino que el nodo que lo esté manejando en ese momento lo descartará. Lo que hace tracert es mandar paquetes a la red de forma que el primer paquete lleve un valor TTL=1, el segundo un TTL=2, etc. De esta forma, el primer paquete será eliminado por el primer nodo al que llegue (ya que éste nodo decrementará el valor TTL, llegando a cero). Cuando un nodo elimina un paquete, envía al emisor un mensaje de control especial indicando una incidencia. Tracert usa esta respuesta para averiguar la dirección IP del nodo que desechó el paquete, que será el primer nodo de la red. La segunda vez que se manda un paquete, el TTL vale 2, por lo que pasará el primer nodo y llegará al segundo, donde será descartado, devolviendo de nuevo un mensaje de control. Esto se hace de forma sucesiva hasta que el paquete llega a su destino.
