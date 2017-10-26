@@ -30,7 +30,7 @@ Las redes de clase A tienen como número en su primer segmento uno comprendido e
 * La dirección Ip 186.23.54.69 no es de clase A
 * La dirección Ip 126.36.76.65 es de clase A
 
-Y por último queda la identificación por su máscara de subred que va a ser 255.0.0.0. Esto se puede comprobar accediendo a www.miip.es donde se ve como la dirección Ip es de clase A y va relacionada con las redes WAN (Wide Area Network).
+Y por último queda la identificación por su máscara de subred que va a ser 255.0.0.0. Va relacionada con las redes WAN (Wide Area Network).
 
 **Redes de clase B**
 
