@@ -105,3 +105,24 @@ Tracert utiliza el campo **Time To Live** (TTL) de la cabecera IP. Este campo si
 #### c. Indique la cantidad de saltos realizados desde su computadora hasta el sitio info.unlp.edu.ar. En algunos de los saltos ¿muestra el nombre del dominio asociado al salto y su ip? Detalle los encontrados.
 
 #### d. Verifique el recorrido a dos de los servidores de mail de gmail.com y compare los saltos realizados. ¿Realizaron la misma cantidad de saltos, hicieron el mismo camino?
+
+### 5. ¿Para que se usa el bloque 127.0.0.0/8? ¿Qué PC responde a los siguientes comandos?
+
+El dispositivo de red loopback es una interfaz de red virtual. Las direcciones del rango '127.0.0.0/8' son direcciones de loopback, de las cuales se utiliza, de forma mayoritaria, la '127.0.0.1' por ser la primera de dicho rango, añadiendo '::1' para el caso de IPv6 ('127.0.0.1::1'). Las direcciones de loopback pueden ser redefinidas en los dispositivos, incluso con direcciones IP públicas, una práctica común en los routers. y son usualmente utilizadas para probar la capacidad de la tarjeta interna si se están enviando datos BGP.
+
+Esta dirección se suele utilizar cuando una transmisión de datos tiene como destino el propio host. También se suele usar en tareas de diagnóstico de conectividad y validez del protocolo de comunicación.
+
+La dirección de loopback es una dirección especial que los hosts utilizan para dirigir el tráfico hacia ellos mismos. La dirección de loopback crea un método de acceso directo para las aplicaciones y servicios TCP/IP que se ejecutan en el mismo dispositivo para comunicarse entre sí. Al utilizar la dirección de loopback, en lugar de la dirección host IPv4 asignada, dos servicios en el mismo host pueden desviar las capas inferiores del stack de TCP/IP. También es posible hacer ping a la dirección de loopback para probar la configuración de TCP/IP en el host local.
+
+A pesar de que sólo se usa la dirección única '127.0.0.1', se reservan las direcciones desde la '127.0.0.0' hasta la '127.255.255.255'. Cualquier dirección dentro de este bloque producirá un loopback dentro del host local. Las direcciones dentro de este bloque no deben figurar en ninguna red.
+
+### 6. Investigue para qué sirven los comandos ifconfig y route. ¿Qué comandos podría utilizar en su reemplazo? Inicie una topología con CORE, cree una máquina y utilice en ella los comandos anteriores para practicar sus diferentes opciones, mínimamente:
+
+#### Configurar y quitar una dirección IP en una interfaz.
+#### Ver la tabla de ruteo de la máquina.
+
+**ifconfig** («configuración de interfaz») es un programa disponible en varias versiones del sistema operativo UNIX, que permite configurar o desplegar numerosos parámetros de las interfaces de red residentes en el núcleo, como la dirección IP (dinámica o estática), o la máscara de red. Si se llama sin argumentos suele mostrar la configuración vigente de las interfaces de red activas, con detalles como la dirección MAC o el tráfico que ha circulado por las mismas hasta el momento. Las interfaces de red en Linux se suelen denominar eth (eth0, eth1, etc.).
+
+Como reemplazo a este comando podemos utilizar **ip**. [ifconfig vs ip](https://www.tecmint.com/ifconfig-vs-ip-command-comparing-network-configuration/)
+
+**route** es una herramienta de línea de comandos disponible tanto en Microsoft Windows como en GNU/Linux. Nos permite manipular las tablas de enrutamiento de nuestro sistema.
