@@ -123,6 +123,32 @@ A pesar de que sólo se usa la dirección única '127.0.0.1', se reservan las di
 
 **ifconfig** («configuración de interfaz») es un programa disponible en varias versiones del sistema operativo UNIX, que permite configurar o desplegar numerosos parámetros de las interfaces de red residentes en el núcleo, como la dirección IP (dinámica o estática), o la máscara de red. Si se llama sin argumentos suele mostrar la configuración vigente de las interfaces de red activas, con detalles como la dirección MAC o el tráfico que ha circulado por las mismas hasta el momento. Las interfaces de red en Linux se suelen denominar eth (eth0, eth1, etc.).
 
-Como reemplazo a este comando podemos utilizar **ip**. [ifconfig vs ip](https://www.tecmint.com/ifconfig-vs-ip-command-comparing-network-configuration/)
+Como reemplazo a este comando podemos utilizar **ip**. Ver [ifconfig vs ip](https://www.tecmint.com/ifconfig-vs-ip-command-comparing-network-configuration/)
 
 **route** es una herramienta de línea de comandos disponible tanto en Microsoft Windows como en GNU/Linux. Nos permite manipular las tablas de enrutamiento de nuestro sistema.
+
+### 7. Para cada una de las siguientes direcciones IP (172.16.58.223/26, 163.10.5.49/27, 128.10.1.0/23, 10.1.0.0/24, 8.40.11.179/12) determine:
+
+#### a. ¿De qué clase de red es la dirección dada (Clase A, B o C)?
+
+* 172.16.58.223/26 Clase B
+* 163.10.5.49/27 Clase B
+* 128.10.1.0/23 Clase B
+* 10.1.0.0/24 Clase A
+* 8.40.11.179/12 Clase A
+
+#### b. ¿Cuál es la dirección de subred?\
+* 172.16.58.223/26
+
+01010110 00001000 00111010 11011111
+11111111 11111111 11111111 11000000
+
+* 163.10.5.49/27
+
+10100011 
+
+ 
+
+#### c. ¿Cuál es la cantidad máxima de hosts que pueden estar en esa subred?
+#### d. ¿Cuál es la dirección de broadcast de esa subred?
+#### e. ¿Cuál es el rango de direcciones IP válidas dentro de la subred?
