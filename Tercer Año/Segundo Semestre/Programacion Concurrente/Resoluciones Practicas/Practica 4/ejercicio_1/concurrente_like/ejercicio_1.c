@@ -5,7 +5,7 @@ chan request_n(int*);
 chan request_c(int*);
 chan request_a(int*);
 
-chan renturn_request(char);
+chan renturn_request(char*);
 
 chan response_n[1..N](char*);
 chan response_c[1..N](char*);
@@ -16,16 +16,21 @@ Process Abuela
         int c = 10, n = 15;
         int child;
         while (true) {
-                if (!empty(request_c) && c) -> {
+                if (!empty(request_c) && c--) -> {
                         recive request_c(&child);
                         send response_c[child]("C");
-                } [](!empty(request_n) && n) -> {
+                } [](!empty(request_n) && n--) -> {
                         recive request_n(&child);
                         send response_n[child]("N");
                 } [](!empty(request_a) && (c + n)) -> {
                         char pencil = get_any_pencil();
                         recive request_a(&child);
                         send response_a[child](&char);
+                        pencil == 'C' ? c-- : n--;
+                } [](!empty(return_request)) -> {
+                        char pencil;
+                        recive return_request(&pencil);
+                        pencil == 'C' ? c-- : n--;
                 }
         }
 }
@@ -59,6 +64,6 @@ Process Child_A[i = 1..N]
                 send request_a(i);
                 recieve response_a[i](&pencil);
                 delay(TIME * 60);
-                renturn_request(pencil);
+                renturn_request(&pencil);
         }
 }
