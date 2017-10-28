@@ -41,7 +41,7 @@ Process Child_N[i = 1..N]
 {
         char pencil;
         while (true) {
-                send request_n(i);
+                send request_n(&i);
                 recieve response_n[i](&pencil);
                 delay(TIME * 60);
                 renturn_request(pencil);
@@ -52,7 +52,7 @@ Process Child_C[i = 1..N]
 {
         char pencil;
         while (true) {
-                send request_c(i);
+                send request_c(&i);
                 recieve response_c[i](&pencil);
                 delay(TIME * 60);
                 renturn_request(pencil);
@@ -63,7 +63,7 @@ Process Child_A[i = 1..N]
 {
         char pencil;
         while (true) {
-                send request_a(i);
+                send request_a(&i);
                 recieve response_a[i](&pencil);
                 delay(TIME * 60);
                 renturn_request(&pencil);
