@@ -24,9 +24,9 @@ Process Abuela
                         send response_n[child]("N");
                 } [](!empty(request_a) && (c + n)) -> {
                         recive request_a(&child);
-                        if (!empty(request_n) && n--) -> {
+                        if (empty(request_n) && n--) -> {
                               send request_a[child]("N");
-                        } [](!empty(request_c) && c--) -> {
+                        } [](empty(request_c) && c--) -> {
                               send request_c[child]("C");
                         }
                 } [](!empty(return_request)) -> {
