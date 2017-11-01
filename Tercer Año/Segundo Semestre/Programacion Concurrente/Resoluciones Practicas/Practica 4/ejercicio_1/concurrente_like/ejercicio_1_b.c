@@ -17,13 +17,13 @@ Process Abuela
         int child;
         while (true) {
                 if (!empty(request_c) && c--) -> {
-                        recive request_c(&child);
+                        receive request_c(&child);
                         send response_c[child]("C");
                 } [](!empty(request_n) && n--) -> {
-                        recive request_n(&child);
+                        receive request_n(&child);
                         send response_n[child]("N");
                 } [](!empty(request_a) && (c + n)) -> {
-                        recive request_a(&child);
+                        receive request_a(&child);
                         if (empty(request_n) && n--) -> {
                               send request_a[child]("N");
                         } [](empty(request_c) && c--) -> {
@@ -31,7 +31,7 @@ Process Abuela
                         }
                 } [](!empty(return_request)) -> {
                         char pencil;
-                        recive return_request(&pencil);
+                        receive return_request(&pencil);
                         pencil == 'C' ? c-- : n--;
                 }
         }

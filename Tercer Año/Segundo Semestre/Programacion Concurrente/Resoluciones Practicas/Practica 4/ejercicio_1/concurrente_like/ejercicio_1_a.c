@@ -17,19 +17,19 @@ Process Abuela
         int child;
         while (true) {
                 if (!empty(request_c) && c--) -> {
-                        recive request_c(&child);
+                        receive request_c(&child);
                         send response_c[child]("C");
                 } [](!empty(request_n) && n--) -> {
-                        recive request_n(&child);
+                        receive request_n(&child);
                         send response_n[child]("N");
                 } [](!empty(request_a) && (c + n)) -> {
                         char pencil = get_any_pencil();
-                        recive request_a(&child);
+                        receive request_a(&child);
                         send response_a[child](&char);
                         pencil == 'C' ? c-- : n--;
                 } [](!empty(return_request)) -> {
                         char pencil;
-                        recive return_request(&pencil);
+                        receive return_request(&pencil);
                         pencil == 'C' ? c-- : n--;
                 }
         }
