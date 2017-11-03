@@ -5,7 +5,7 @@
 ### 1. ¿Qué servicios presta la capa de red? ¿Cuál es la PDU en esta capa? ¿Qué dispositivo es considerado sólo de la capa de red?
 
 La función de la capa de red es tremendamente simple: transporta paquetes desde un host emisor a un host receptor. En la realización de esta tarea podemos identificar dos importantes funciones de la capa de red:
- 
+
 * Reenvío (forwarding). Cuando un paquete llega al enlace de entrada de un router, éste tiene que pasar el paquete al enlace de salida apropiado.
 
 * Enrutamiento (routing). La capa de red tiene que determinar la ruta o camino que deben seguir los paquetes a medida que fluyen de un emisor a un receptor. Los algoritmos que calculan estas rutas se conocen como algoritmos de enrutamiento.
@@ -137,17 +137,50 @@ Como reemplazo a este comando podemos utilizar **ip**. Ver [ifconfig vs ip](http
 * 10.1.0.0/24 Clase A
 * 8.40.11.179/12 Clase A
 
-#### b. ¿Cuál es la dirección de subred?\
+#### b. ¿Cuál es la dirección de subred?
+
+La dirección de la subred se obtiene aplicando un “AND” lógico entra la IP y la máscara de subred.
+
 * 172.16.58.223/26
 
-01010110 00001000 00111010 11011111
-11111111 11111111 11111111 11000000
+01010110 00001000 00111010 11011111 AND 11111111 11111111 11111111 11000000
+
+01010110 00001000 00111010 11000000
+
+172.16.58.192
 
 * 163.10.5.49/27
 
-10100011 
+10100011 00001010 00000101 00110001 AND 11111111 11111111 11111111 11100000
 
- 
+10100011 00001010 00000101 00100000
+
+163.10.5.32
+
+* 128.10.1.0/23
+
+10000000 00001010 00000001 00000000 AND 11111111 11111111 11111110 00000000
+
+10000000 00001010 00000000 00000000
+
+128.10.0.0
+
+* 10.1.0.0/24
+
+10000000 00000001 00000000 00000000 AND 11111111 11111111 11111111 00000000
+
+10000000 00000001 00000000 00000000
+
+10.1.0.0
+
+* 8.40.11.179/12
+
+00001000 00101000 00001001 10110011 AND 11111111 11110000 00000000 00000000
+
+00001000 00100000 00000000 00000000
+
+8.32.0.0
+
 
 #### c. ¿Cuál es la cantidad máxima de hosts que pueden estar en esa subred?
 #### d. ¿Cuál es la dirección de broadcast de esa subred?
