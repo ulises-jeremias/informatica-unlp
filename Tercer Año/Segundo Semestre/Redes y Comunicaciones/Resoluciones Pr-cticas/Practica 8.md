@@ -1,6 +1,7 @@
 # Practica 9
 
 ## En las redes IP el ruteo puede configurarse en forma estática o en forma dinámica. Indique ventajas y
+
 desventajas de cada método.
 
 El enrutamiento estático se da cuando el encargado de la red configura manualmente la ruta de envios de paquetes a la red de destino, es decir, cuando se carga manualmente la informacion en la tabla de enrutamiento. El mantenimineto debe ser realizado manualmente. Es viable en redes de dimension manejable por ser humano, donde no hay mucha fluctuacion de hosts en la red.
@@ -12,17 +13,28 @@ Hay que interactuar con ls sistemas de red autonomos para coordinar actualizacio
 **Ventajas**
 
 Estatico
+
 - Bajo consumo de recursos en el router
--Facil de configurar
+- Facil de configurar
 - Facil de comprender
 
-Dinamico 
--Menos intervenciones del encargado de la red para el manetimient de las rutas 
+Dinamico -Menos intervenciones del encargado de la red para el manetimient de las rutas
+
 - La configuracion es menos propensa a errores
 - El crecimiento de la red es mucho mas sencillo
-0Los protocolos reaccionan a los cambios automaticamente
+- Los protocolos reaccionan a los cambios automaticamente
 
 Desventajas
 
 Estatico
-- Configuracion y
+
+- Configuración y mantenimiento manual.
+- Complicado de configurar en redes grandes.
+- Es imprescindible tener a un encargado de la red para la actualización de rutas.
+- Se torna inoperante en redes en crecimiento porque se complica su mantenimiento.
+- Se requiere un conocimiento vasto de la red.
+
+Dinamico:
+
+- Se utilizan grandes recursos en el router.
+- Requiere mayores conocimientos para la configuración, verificación y solución de problemas
