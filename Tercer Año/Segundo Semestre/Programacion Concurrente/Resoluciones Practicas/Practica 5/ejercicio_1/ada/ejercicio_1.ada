@@ -41,7 +41,7 @@ PROCEDURE puente_unidireccional IS
         END LOOP;
     END Puente;
 
-    TASK  BODY Auto IS
+    TASK BODY Auto IS
         BEGIN
             Puente.auto_pide_puente;
             pasar();
@@ -49,7 +49,7 @@ PROCEDURE puente_unidireccional IS
         END
     END Auto;
 
-    TASK  BODY Camioneta IS
+    TASK BODY Camioneta IS
         BEGIN
             Puente.camioneta_pide_puente;
             pasar();
@@ -57,7 +57,7 @@ PROCEDURE puente_unidireccional IS
         END
     END Camioneta;
 
-    TASK  BODY Camion IS
+    TASK BODY Camion IS
         BEGIN
             Puente.camion_pide_puente;
             pasar();
