@@ -1,15 +1,3 @@
-### 5. Se dispone de un sistema compuesto por 1 central y 2 procesos.
-Los procesos envían señales a la central. La central comienza su ejecución tomando
-una señal del proceso 1, luego toma aleatoriamente señales de cualquiera de los
-dos indefinidamente. Al recibir una señal de proceso 2, recibe señales del mismo
-proceso durante 3 minutos.
-
-### El proceso 1 envía una señal que es considerada vieja (se deshecha) si en 2
-minutos no fue recibida.
-
-### El proceso 2 envía una señal, si no es recibida en ese instante espera 1 minuto
-y vuelve a mandarla (no se deshecha)
-
 procedure Señales is
     task type Process1;
     task type Process2;
