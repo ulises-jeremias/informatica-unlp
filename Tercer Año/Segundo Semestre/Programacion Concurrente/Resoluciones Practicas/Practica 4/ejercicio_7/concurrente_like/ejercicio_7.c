@@ -15,7 +15,7 @@ process Buffer
         string datos;
 
         while (true) {
-                if (Radar?enviarDatos(datos)) -> {
+                if (Radar[*]?enviarDatos(datos)) -> {
                         encolar(cola, datos);
                 } [](!empty(cola); Unidad?recibirDatos()) -> {
                         Unidad!enviarDatos(desencolar(cola));
