@@ -15,20 +15,20 @@ PROCEDURE puente_unidireccional IS
         END Puente
 
     TASK Puente BODY IS
-        cantVehiculos: Integer;
+        cantVehiculos: Integer := 0;
 
         BEGIN
             LOOP
                   SELECT WHEN (cantVehiculos + 6 <= 6) =>
-                      ACCEPT camion_pide_puente IS
+                      ACCEPT camion_pide_puente DO
                           cantVehiculos += 6;
                       END camion_pide_puente;
                   OR WHEN (cantVehiculos + 3 <= 6) =>
-                      ACCEPT camioneta_pide_puente IS
+                      ACCEPT camioneta_pide_puente DO
                           cantVehiculos += 3;
                       END camioneta_pide_puente;
                   OR WHEN (cantVehiculos + 2 <= 6) =>
-                      ACCEPT auto_pide_puente IS
+                      ACCEPT auto_pide_puente DO
                           cantVehiculos += 2;
                       END auto_pide_puente;
                   OR
@@ -40,7 +40,7 @@ PROCEDURE puente_unidireccional IS
                   OR
                       ACCEPT camion_sale;
                       cantVehiculos -= 6;
-            END LOOP
+                  END LOOP;
         END Puente
 
     TASK BODY Auto IS
@@ -64,4 +64,6 @@ PROCEDURE puente_unidireccional IS
             Puente.camion_sale;
         END Camion
 
+BEGIN
+  null;
 END puente_unidireccional;

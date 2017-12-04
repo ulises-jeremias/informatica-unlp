@@ -1,12 +1,12 @@
 Procedure Buscador IS
 
-    TASK Contador IS
+    TASK TYPE Contador IS
         ENTRY numeroABuscar(numero: IN Integer);
-    END Contador
+    END Contador;
 
     TASK Administrador IS
-        ENTRY cantidadEncontrada(cantidad: IN Integer)
-    END Administrador
+        ENTRY cantidadEncontrada(cantidad: IN Integer);
+    END Administrador;
 
     TYPE Contadores IS ARRAY (1..N) OF Contador;
 
@@ -23,8 +23,8 @@ Procedure Buscador IS
             FOR I IN 1..C LOOP
                 IF (mi_parte(i) = numeroABuscar) THEN
                     coincidencias := coincidencias + 1;
-                END IF
-            END LOOP
+                END IF;
+            END LOOP;
 
             Administrador.cantidadEncontrada(coincidencias);
         END Contador
@@ -33,7 +33,7 @@ Procedure Buscador IS
         numeroABuscar: Integer;
 
         BEGIN
-            numeroABuscar:= random();
+            numeroABuscar := random();
             FOR I IN 1..N LOOP
                 Contadores(I).numeroABuscar(numeroABuscar);
             END LOOP
@@ -42,6 +42,6 @@ Procedure Buscador IS
                 ACCEPT cantidadEncontrada(cantidad) DO
                     total := total + cantidad;
                 END cantidadEncontrada;
-            END LOOP
+            END LOOP;
         END Administrador
 END Buscador;

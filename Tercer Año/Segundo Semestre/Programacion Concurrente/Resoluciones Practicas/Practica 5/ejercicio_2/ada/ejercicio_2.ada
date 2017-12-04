@@ -9,18 +9,20 @@ PROCEDURE Banco IS
     TASK BODY Empleado IS
     BEGIN
         LOOP
-            ACCEPT cliente_solicita_atencion IS
+            ACCEPT cliente_solicita_atencion DO
                 atender();
             END cliente_solicita_atencion;
-        END LOOP
+        END LOOP;
     END Empleado;
 
     TASK BODY Cliente IS
     BEGIN
         SELECT Empleado.cliente_solicita_atencion;
-        OR DELAY 10*60;
-        END SELECT
+        OR DELAY 10.0*60;
+        END SELECT;
         irse();
     END Cliente;
 
+BEGIN
+    null;
 END Banco;
