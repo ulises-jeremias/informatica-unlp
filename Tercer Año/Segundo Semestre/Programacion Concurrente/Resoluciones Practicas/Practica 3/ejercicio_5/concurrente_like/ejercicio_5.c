@@ -1,7 +1,7 @@
 monitor Business
 {
         int group[10] = ([10], 5);
-        cond wattingGroup;
+        cond waittingGroup;
         int actual = 0;
 
         arrive(int i)
@@ -9,9 +9,9 @@ monitor Business
                 group[actual]--;
                 if (!group[actual]) {
                         actual++;
-                        signal_all(wattingGroup);
+                        signal_all(waittingGroup);
                 } else {
-                        wait(cond|);
+                        wait(waittingGroup);
                 }
         }
 }
