@@ -44,6 +44,8 @@ monitor TimerMonitor
                 if (s[i] == false) {
                         wait(pos[i]);
                 }
+
+                s[i] = false;
         }
 
 }
