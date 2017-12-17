@@ -28,7 +28,7 @@ monitor Bank
         }
 }
 
-monitor TimerMonitor
+monitor TimerMonitor[1..N]
 {
         cond pos;
         bool s = false;
