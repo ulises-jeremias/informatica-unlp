@@ -11,10 +11,12 @@ procedure Estadistica is
         total: Integer := 0;
         cant: Integer;
         begin
-            for I in 1..15 loop
+            loop
                 e := ElegirEnfermedad();
-                Sedes(I).calcularCantidad(e, cant);
-                total += cant;
+                for I in 1..15 loop
+                    Sedes(I).calcularCantidad(e, cant);
+                    total += cant;
+                end loop;
             end loop;
         end;
 
