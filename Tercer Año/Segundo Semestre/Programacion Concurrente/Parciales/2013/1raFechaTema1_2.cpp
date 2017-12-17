@@ -2,9 +2,9 @@ process Servidor
 {
         int cantidad = 10;
 
-        do (cantidad; Usuario[*]?solicitarEntrar()) {
+        do (cantidad; Usuario[*]?solicitarEntrar()) -> {
                 cantidad--;
-        } [](Usuario[*]?finalizar()) {
+        } [](Usuario[*]?finalizar()) -> {
                 cantidad++;
         }
 }
