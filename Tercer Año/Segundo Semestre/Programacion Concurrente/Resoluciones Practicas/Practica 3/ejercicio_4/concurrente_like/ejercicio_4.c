@@ -30,22 +30,22 @@ monitor Bank
 
 monitor TimerMonitor
 {
-        cond pos[N];
-        bool s[N] = ([N], false);
+        cond pos;
+        bool s = false;
 
-        v(int i)
+        v()
         {
-                s[i] = true;
-                signal(pos[i]);
+                s = true;
+                signal(pos);
         }
 
-        p(int i)
+        p()
         {
-                if (s[i] == false) {
-                        wait(pos[i]);
+                if (s == false) {
+                        wait(pos);
                 }
 
-                s[i] = false;
+                s = false;
         }
 
 }
@@ -59,13 +59,13 @@ process Employee[ i = 1..2 ]
 
 process Person[ i = 1..N ]
 {
-        TimerMonitor.v(i);
+        TimerMonitor[i].v();
         Bank.wait(i);
 }
 
 process Timer[ i = 1..N]
 {
-        TimerMonitor.p(i);
+        TimerMonitor[i].p();
         delay(15);
         Bank.go(i);
 }
