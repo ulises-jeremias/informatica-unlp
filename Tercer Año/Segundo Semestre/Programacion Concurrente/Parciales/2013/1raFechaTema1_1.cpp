@@ -12,7 +12,7 @@ process Central
         }
 
         while (true) {
-                e = TrabajarEnServidor();
+                e = TrabajaProcesoCentral();
                 v(trabajar[e]);
                 p(finalizado[e]);
                 printf("%d\n", resultado);
