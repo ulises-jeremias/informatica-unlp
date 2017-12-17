@@ -1,11 +1,14 @@
 procedure Estadistica is
     task type Sede is
-        entry calcularCantidad(e: IN String, cant: OUT Integer);
+        entry calcularCantidadParaEnfermedad(e: IN String);
     end Sede;
 
     type Sedes is array(1..15) of Sede;
 
-    task Central;
+    task Central is
+        entry enviarCantidad(cant: IN Integer);
+    end Central;
+
     task Central is
         e: String;
         total: Integer := 0;
@@ -14,17 +17,25 @@ procedure Estadistica is
             loop
                 e := ElegirEnfermedad();
                 for I in 1..15 loop
-                    Sedes(I).calcularCantidad(e, cant);
-                    total += cant;
+                    Sedes(I).calcularCantidadParaEnfermedad(e);
+                end loop;
+
+                for I in 1..15 loop
+                    accept enviarCantidad(cant: IN Integer) is
+                        total += cantidad;
+                    end;
                 end loop;
             end loop;
         end;
 
     task Sede is
+        cant: Integer;
         begin
-            accept calcularCantidad(e: IN String, cant: OUT Integer) is
-                cant = ElegirEnfermos(e);
-            end;
+            loop
+                accept calcularCantidadParaEnfermedad(e: IN String);
+                cant := ElegirEnfermedad(e);
+                Central.enviarCantidad(cant);
+            end loop;
         end;
 begin -- ${1/([a-zA-Z0-9_]*).*$/Estadistica/}
     null;
