@@ -158,3 +158,27 @@ El procesamiento paralelo lleva a los conceptos de **speedup** y **eficiencia**.
 
   - Por memoria compartida
   - Por pasaje de mensajes
+
+--------------------------------------------------------------------------------
+
+#### Memoria Compartida
+
+Los procesos intercambian información sobre la memoria compartida o actúan coordinadamente sobre datos residentes en ella.
+
+Lógicamente no pueden operar simultáneamente sobre la memoria compartida, lo que obliga a bloquear y liberar el acceso a la memoria (ej: semáforos).
+
+#### Pasaje de Mensajes
+
+Es necesario establecer un canal (lógico o físico) para transmitir información entre procesos.
+
+También el lenguaje debe proveer un protocolo adecuado.
+
+Para que la comunicación sea efectiva los procesos deben "saber" cuándo tienen mensajes para leer y cuando deben trasmitir mensajes.
+
+--------------------------------------------------------------------------------
+
+#### Sincronización
+
+Los procesos se SINCRONIZAN por exclusión mutua en el acceso a secciones críticas de código para no ejecutar simultáneamente, y por condición.
+
+La sincronización permite posesión de información acerca de otro proceso para coordinar actividades.
