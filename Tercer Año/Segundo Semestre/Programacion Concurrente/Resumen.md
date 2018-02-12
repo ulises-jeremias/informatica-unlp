@@ -182,3 +182,78 @@ Para que la comunicación sea efectiva los procesos deben "saber" cuándo tienen
 Los procesos se SINCRONIZAN por exclusión mutua en el acceso a secciones críticas de código para no ejecutar simultáneamente, y por condición.
 
 La sincronización permite posesión de información acerca de otro proceso para coordinar actividades.
+
+## Clase 2
+
+Conceptos básicos de la PC
+
+### Prioridad
+
+Un proceso que tiene mayor **prioridad** puede causar la suspensión (pre-emption) de otro proceso concurrente.
+
+Análogamente puede tomar un recurso compartido, obligando a retirarse a otro proceso que lo tenga en un instante dado.
+
+### Elección de la Granularidad
+
+Para una dada aplicación, significa optimizar la relación entre el número de procesadores y el tamaño de memoria total.
+
+- Grano fino
+- Grano grueso
+
+Puede verse también como la relación entre cómputo y comunicación.
+
+### Manejo de los recursos
+
+Uno de los temas principales de la programación concurrente es la **administración de recursos compartidos**.
+
+Esto incluye la asignación de recursos compartidos, métodos de acceso a los recursos, bloqueo y liberación de recursos, seguridad y consistencia.
+
+Una propiedad deseable en sistemas concurrentes es el equilibrio en el acceso a recursos compartidos por todos los procesos (fairness).
+
+Dos situaciones NO deseadas en los programas concurrentes son la inanición de un proceso (no logra acceder a los recursos compartidos) y el overloading de un proceso (la carga asignada excede su capacidad de procesamiento).
+
+### El problema del Deadlock
+
+Dos (o más procesos) pueden entrar en **deadlock**, si por error de programación ambos se quedan esperando que el otro libere un recurso compartido.
+
+La ausencia de deadlock es una propiedad necesaria en los procesos concurrentes.
+
+4 propiedades necesarias y suficientes para que exista deadlock:
+
+-Recursos reusables serialmente
+
+- Los procesos comparten recursos que pueden usar con EM
+
+  - Adquisición incremental
+
+- Los procesos mantienen los recursos que poseen mientras esperar adquirir recursos adicionales
+
+  - No-preemption
+
+- Una vez que son adquiridos por un proceso, los recursos no pueden quitarse de manera forzada sino que sólo son liberados voluntariamente
+
+  - Espera cíclica
+
+- Existe una cadena circular (ciclo) de procesos t.q. cada uno tiene un recurso que su sucesor en el ciclo está esperando adquirir
+
+### Requerimientos del Lenguaje Concurrente
+
+Independientemente del mecanismo de comunicación / sincronización entre procesos, los lenguajes de programación concurrente deberán proveer primitivas adecuadas para la especificación e implementación de las mismas.
+
+De un lenguaje de programación concurrente se requiere:
+
+- Indicar las tareas o procesos que pueden ejecutarse concurrentemente.
+- Mecanismos de sincronización
+- Mecanismos de comunicación entre los procesos.
+
+### Resumen de Conceptos
+
+La Concurrencia es un concepto de software (propiedad del programa)
+
+La Programación Paralela se asocia con la ejecución concurrente en múltiples procesadores que pueden tener memoria compartida, y con un objetivo de incrementar performance (propiedad de la máquina).
+
+La Programación Distribuida es un "caso" de concurrencia con múltiples procesadores y sin memoria compartida.
+
+En Programación Concurrente la organización de **procesos y procesadores** constituyen la arquitectura del sistema concurrente.
+
+**Especificar la concurrencia es esencialmente especificar los procesos concurrentes, su comunicación y sincronización.**
