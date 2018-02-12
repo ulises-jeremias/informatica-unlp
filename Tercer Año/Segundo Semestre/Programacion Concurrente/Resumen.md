@@ -299,3 +299,49 @@ Los servidores son procesos que esperan pedidos de servicios de múltiples clien
 Mecanismos de invocación variados (rendezvous y RPC x ej en MD, monitores x ej en MC).
 
 El soporte distribuido puede ser simple (LAN) o extendido a la WEB.
+
+#### Pares que interactúan
+
+En los esquemas de **pares que interactúan** los procesos (que forman parte de un programa distribuido) resuelven partes del problema (normalmente mediante código idéntico) e intercambian mensajes para avanzar en la tarea y completar el objetivo.
+
+Permite mayor grado de asincronismo que C/S
+
+Configuraciones posibles: grilla, pipe circular, uno a uno, arbitraria
+
+### Arquitecturas paralelas
+
+Podemos identificar diferentes enfoques para clasificar las arquitecturas paralelas
+
+- por la organización del espacio de direcciones (memoria compartida / memoria distribuida)
+- por el mecanismo de control
+- por la granularidad
+- por la red de interconexión
+
+--------------------------------------------------------------------------------
+
+#### Clasificación por la organización del espacio de direcciones
+
+- Multiprocesadores de memoria compartida.
+
+  - Interacción modificando datos en la memoria compartida.
+  - Problema de consistencia.
+
+- Multiprocesadores con memoria distribuida.
+
+  - Memoria local (no hay problemas de consistencia).
+  - Interacción es sólo por pasaje de mensajes.
+
+#### Clasificación por mecanismo de control
+
+Propuesta por Flynn ("Some computer organizations and their effectiveness", 1972).
+
+Se basa en la manera en que las instrucciones son ejecutadas sobre los datos.
+
+4 clases:
+
+- SISD (Single Instruction Single Data)
+- SIMD (Single Instruction Multiple Data)
+- MISD (Multiple Instruction Single Data)
+- MIMD (Multiple Instruction Multiple Data)
+
+`Leer de la teoria`
