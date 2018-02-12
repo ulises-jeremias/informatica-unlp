@@ -257,3 +257,45 @@ La Programación Distribuida es un "caso" de concurrencia con múltiples procesa
 En Programación Concurrente la organización de **procesos y procesadores** constituyen la arquitectura del sistema concurrente.
 
 **Especificar la concurrencia es esencialmente especificar los procesos concurrentes, su comunicación y sincronización.**
+
+### Paradigmas de resolución de Programas concurrentes
+
+Si bien el número de aplicaciones es muy grande, en general los "patrones" de resolución concurrentes son pocos:
+
+- Paralelismo iterativo
+- Paralelismo recursivo
+- Productores y consumidores (pipelines o workflows)
+- Clientes y servidores
+- Pares que interactúan (interacting peers)
+
+#### Paralelismo iterativo
+
+En el **paralelismo iterativo** un programa consta de un conjunto de procesos (posiblemente idénticos) c/u de los cuales tiene 1 o más loops ⇒ cada proceso es un programa iterativo.
+
+Los procesos **cooperan** para resolver un único problema (x ej un sistema de ecuaciones), pueden trabajar independientemente, y comunicarse y sincronizar por memoria compartida o MP.
+
+Generalmente, el dominio de datos se divide entre los procesos siguiendo diferentes patrones
+
+#### Paralelismo recursivo
+
+En el paralelismo recursivo el problema general (programa) puede descomponerse en procesos recursivos que trabajan sobre partes del conjunto total de datos (Dividir y conquistar).
+
+Ejemplos clásicos son el sorting by merging, el cálculo de raíces en funciones continuas, problema del viajante, juegos (tipo ajedrez).
+
+#### Productores y consumidores
+
+Los esquemas **productor-consumidor** muestran procesos que se comunican.
+
+Es habitual que estos procesos se organicen en pipes a través de los cuales fluye la información.
+
+Cada proceso en el pipe es un filtro que consume la salida de su proceso predecesor y produce una salida para el proceso siguiente.
+
+#### Clientes y servidores
+
+**Cliente-servidor** es el esquema dominante en las aplicaciones de procesamiento distribuido.
+
+Los servidores son procesos que esperan pedidos de servicios de múltiples clientes. Unos y otros pueden ejecutarse en procesadores diferentes. Comunicación bidireccional. Atención de a un cliente o con multithreading a varios.
+
+Mecanismos de invocación variados (rendezvous y RPC x ej en MD, monitores x ej en MC).
+
+El soporte distribuido puede ser simple (LAN) o extendido a la WEB.
