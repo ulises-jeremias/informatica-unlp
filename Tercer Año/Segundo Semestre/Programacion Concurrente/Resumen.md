@@ -183,6 +183,26 @@ Los procesos se SINCRONIZAN por exclusión mutua en el acceso a secciones críti
 
 La sincronización permite posesión de información acerca de otro proceso para coordinar actividades.
 
+Historia (trace) de un programa concurrente: es una ejecución dada por un intercalado (interleaving) particular de acciones individuales de los procesos. 
+
+Algunas historias son válidas y otras no.
+
+Se debe asegurar un orden temporal entre las acciones que ejecutan los procesos. Las tareas se intercalan en el tiempo ⇒ deben fijarse restricciones.
+
+El objetivo de la sincronización es restringir las historias de un programa concurrente sólo a las permitidas.
+
+##### Sincronización por exclusión mutua
+
+Asegurar que sólo un proceso tenga acceso a un recurso compartido en un instante de tiempo.
+
+Si el programa tiene secciones críticas que pueden compartir más de un proceso, EM evita que dos o más procesos puedan encontrarse en la misma sección crítica al mismo tiempo.
+
+##### Sincronización por condición
+
+Permite bloquear la ejecución de un proceso hasta que se cumpla una condición dada.
+
+Ejemplo de los dos mecanismos de sincronización en un problema de utilización de un área de memoria compartida (buffer limitado con productores y consumidores).
+
 ## Clase 2
 
 Conceptos básicos de la PC
