@@ -1,5 +1,60 @@
 # Concurrente
 
+## Contenido
+
+- [**Clase 1**](#clase-1)
+
+  - [¿Qué es la concurrencia?](#qué-es-la-concurrencia)
+
+    - [Concurrencia "Natural"](#concurrencia-natural)
+    - [¿Por qué es necesaria la Programación Concurrente?](#por-qué-es-necesaria-la-programación-concurrente)
+
+      - Aplicaciones con estructura mas natural
+      - Mejora en la respuesta
+      - Sistemas distribuidos
+
+  - [Objetivos de los Sistemas Concurrentes](#objetivos-de-los-sistemas-concurrentes)
+
+    - Ajustar el Modelo
+    - Incrementa la performance
+    - Ventajas
+
+  - [Concurrencia a Nivel de Hardware](#concurrencia-a-nivel-de-hardware)
+  - [¿Qué es un proceso?](#qué-es-un-proceso)
+
+    - [Posibles comportamientos de los procesos](#posibles-comportamientos-de-los-procesos)
+
+      - Compiten
+
+        - Deadlock
+        - Starvation
+
+      - Cooperan
+
+        - Sincronización
+
+  - [Procesamiento secuencial, concurrente y paralelo](#procesamiento-secuencial-concurrente-y-paralelo)
+  - [Concurrencia](#concurrencia)
+  - [Programa Concurrente](#programa-concurrente)
+  - [Clase de Aplicaciones](#clase-de-aplicaciones)
+  - [Conceptos básicos de concurrencia](#conceptos-básicos-de-concurrencia)
+
+    - Ejecución
+    - Comunicación
+
+      - [Por memoria compartida](#memoria-compartida)
+      - [Por pasaje de mensajes](#pasaje-de-mensajes)
+
+  - [Sincronización](#sincronización)
+
+- [**Clase 2**](#clase-2)
+
+  - [Prioridad](#prioridad)
+  - [Elección de la Granularidad](#elección-de-la-granularidad)
+  - [Manejo de los recursos](#manejo-de-los-recursos)
+  - [El problema del Deadlock](#el-problema-del-deadlock)
+  - [Requerimientos del Lenguaje Concurrente](#requerimientos-del-lenguaje-concurrente)
+
 ## Clase 1
 
 ### ¿Qué es la concurrencia?
@@ -37,7 +92,7 @@ Obliga a establecer un orden en la actualización de cada objeto a la nueva posi
 
 - **Ajustar el Modelo** de arquitectura de hardware y software al problema del mundo real a resolver. El mundo real ES CONCURRENTE.
 - **Incrementa la Performance**, mejorando los tiempos de respuesta de los sistemas de procesamiento de datos, a través de un enfoque diferente de la arquitectura física y lógica de las soluciones.
-- **Ventajas** La velocidad de ejecución que se puede alcanzar, mejor utilización de la CPU de cada procesador, y explotación de la concurrencia inherente a la mayoría de los problemas reales.
+- **Ventajas**, La velocidad de ejecución que se puede alcanzar, mejor utilización de la CPU de cada procesador, y explotación de la concurrencia inherente a la mayoría de los problemas reales.
 
 ### Concurrencia a nivel de Hardware
 
@@ -183,7 +238,7 @@ Los procesos se SINCRONIZAN por exclusión mutua en el acceso a secciones críti
 
 La sincronización permite posesión de información acerca de otro proceso para coordinar actividades.
 
-Historia (trace) de un programa concurrente: es una ejecución dada por un intercalado (interleaving) particular de acciones individuales de los procesos. 
+Historia (trace) de un programa concurrente: es una ejecución dada por un intercalado (interleaving) particular de acciones individuales de los procesos.
 
 Algunas historias son válidas y otras no.
 
