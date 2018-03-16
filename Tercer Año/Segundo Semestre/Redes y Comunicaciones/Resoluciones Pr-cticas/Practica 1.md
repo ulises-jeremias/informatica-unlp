@@ -1,38 +1,40 @@
 # Práctica 1 - Introducción
 
+* * *
+
 ### ¿Qué es una red? ¿Cuál es el principal objetivo para construir una red?
 
 Definimos una red como un conjunto de Computadores u otros dispositivos, con placa de red y su correspondiente software, interconectados por medio de dispositivos físicos con el objetivo de compartir recursos tales como archivos, dispositivos, servicios, etc.
- 
----- 
- 
+
+* * *
+
 ### ¿Qué es internet? Describa los principales componentes que permiten su funcionamiento.
 
 Internet es un conjunto descentralizado de redes de comunicación, en otras palabras una red de redes de computadoras, las cuales, interconectadas mediante la familia de protocolos TCP/IP logran formar una red lógica de alcance mundial y publico.
 
 El hecho de que internet sea descentralizado y publico refiere a que su filosofía es la de una red que no dependa de servidores controlados por empresas privadas, gobiernos, etc.
 
-----
+* * *
 
 ### ¿Qué son las RFCs?
 
 **Request For Comment** (mas conocido como RFC _o Petición De Comentarios, en español_) son una familia de publicaciones realizadas por el grupo de trabajo de ingeniería de internet que describen diversos aspectos del funcionamiento de internet y otras rede de computadoras, como protocolos, procedimientos, etc. Además cuentan con comentarios o ideas sobre los mismos.
 
-Cada RFC constituye un monográfico _ó memorando_ que ingenieros, o expertos en la materia, han enviado al IETF (consorcio de colaboración técnica mas importante de internet) para que el mismo sea evaluado y valorado por el resto de la comunidad. 
+Cada RFC constituye un monográfico _ó memorando_ que ingenieros, o expertos en la materia, han enviado al IETF (consorcio de colaboración técnica mas importante de internet) para que el mismo sea evaluado y valorado por el resto de la comunidad.
 
-----
+* * *
 
 ### ¿Qué es un protocolo?
 
 Un protocolo es un conjunto de conductas y normas a conocer, respetar y cumplir no solo en el medio oficial ya establecido sino también en el medio social, laboral...
-	
+
 Define el formato y orden de los mensajes enviados y acciones a realizar.
 
-Un **Protocolo de Red** es un conjunto de reglas las cuales permiten que dos o mas dispositivos, que dispongan de una placa de red y el software necesario, se comuniquen entre si para transmitir información por medio de cualquier tipo de variación de una magnitud física. Se trata de las reglas o el estándar que define la sintaxis, semántica, y sincronización de la comunicación, así como los posibles métodos de recuperación de errores. 
+Un **Protocolo de Red** es un conjunto de reglas las cuales permiten que dos o mas dispositivos, que dispongan de una placa de red y el software necesario, se comuniquen entre si para transmitir información por medio de cualquier tipo de variación de una magnitud física. Se trata de las reglas o el estándar que define la sintaxis, semántica, y sincronización de la comunicación, así como los posibles métodos de recuperación de errores.
 
 Cabe aclarar que estos protocolos pueden estar implementados tanto mediante Hardware, Software o ambos y que los mismos protocolos pueden ser combinables.
 
-----
+* * *
 
 ### ¿Por qué dos máquinas con distintos sistemas operativos pueden formar parte de una misma red?
 
@@ -40,39 +42,39 @@ A principios de los 80', las compañías comenzaron a implementar redes propias 
 
 El hecho de que dos o mas dispositivos con distintos sistemas operativos puedan formar parte de una misma red es debido a que estos sistemas operativos respetan los mismos protocolos (tanto de Hardware como de Software) y saben comunicarse mediante ellos independientemente de como funcione el resto del sistema.
 
-----
+* * *
 
 ### ¿Cuáles son las 2 categorías en las que pueden clasificarse a los sistemas finales o End Systems? Dé un ejemplo del rol de cada uno en alguna aplicación distribuida que corra sobre Internet.
 
 Las dos categorías son: cliente y servidor. Un ejemplo del rol del lado del servidor es: un servidor Web y del lado del cliente un browser.
 
-----
+* * *
 
 ### 7. ¿Cuál es la diferencia entre una red conmutada de paquetes de una red conmutada de circuitos?
 
 La conmutación se considera la acción de establecer una vía o camino de extremo a extremo entre dos puntos. Un emisor y un receptor, a través de nodos o equipos de transmisión. La conmutación permite la entrega de la señal desde el origen hasta el destino requerido.
 
-* Conmutación de circuitos: Los equipos de conmutación deben establecer un camino físico entre los medios de comunicación previo a la conexión entre usuarios. Este camino permanece activo durante la comunicación entre los usuarios, liberándose al terminar. ej: llamada telefónica. Son ideales para cuando se requiere que los datos sean transmitidos en tiempo real.
+-   Conmutación de circuitos: Los equipos de conmutación deben establecer un camino físico entre los medios de comunicación previo a la conexión entre usuarios. Este camino permanece activo durante la comunicación entre los usuarios, liberándose al terminar. ej: llamada telefónica. Son ideales para cuando se requiere que los datos sean transmitidos en tiempo real.
 
-* Conmutación de paquetes: El emisor divide los mensajes a enviar en un número arbitrario de paquetes del mismo tamaño, donde adjunta una cabecera, dirección de origen y dirección de destino, así como datos de control que luego serán transmitidos por diferentes medios de conexión entre nodos temporales hasta llegar a su destino donde los paquetes son re ensamblados. Este método de comunicación es el que más se utiliza en las redes de computadoras actuales.
+-   Conmutación de paquetes: El emisor divide los mensajes a enviar en un número arbitrario de paquetes del mismo tamaño, donde adjunta una cabecera, dirección de origen y dirección de destino, así como datos de control que luego serán transmitidos por diferentes medios de conexión entre nodos temporales hasta llegar a su destino donde los paquetes son re ensamblados. Este método de comunicación es el que más se utiliza en las redes de computadoras actuales.
 
 Mientras que la conmutación de circuitos asigna un canal único para cada sesión, en los sistemas de conmutación de paquetes el canal es compartido por muchos usuarios simultáneamente. La conmutación de paquetes es más eficiente y robusta para datos que pueden ser enviados con retraso en la transmisión (no en tiempo real), tales como el correo electrónico, paginas web, etc.
 En el caso de aplicaciones como voz o video, la conmutación de paquetes no es muy recomendable a menos que se garantice un ancho de banda adecuado para enviar la información. Pero el canal que se establece no garantiza esto, debido a que puede existir tráfico y nodos caídos durante el recorrido de los paquetes.
 
----
+* * *
 
 ### 8. Analice qué tipo de red es una red de telefonía y qué tipo de red es Internet
 
-* Red telefónica: Red conmutada de circuitos.
-* Internet: Red conmutada de paquetes.
+-   Red telefónica: Red conmutada de circuitos.
+-   Internet: Red conmutada de paquetes.
 
----
+* * *
 
 ### 9. Describa brevemente las distintas alternativas que conoce para acceder a Internet en su hogar.
 
 Para poder tener acceso a Internet desde un hogar lo que se suele hacer es contratar un servicio de Internet a una empresa conocida como ISP (Internet service provider), la cual nos garantiza una conexión a nuestro hogar a través de diferentes tipos de conexiones. Éstas pueden ser por cable coaxial, fibra óptica, ADSL, etc. Normalmente se suele instalar un módem que convertirá las señales digitales en analógicas y viceversa. Éste permite así la comunicación entre las computadoras a través de las distintas conexiones. Finalmente los dispositivos para poder tener acceso a Internet, se deben conectar al módem ya sea de forma directa por Ethernet, o utilizando un router o distintos dispositivos que permiten la conexión a éste (ya sea de manera cableada o wireless).
 
----
+* * *
 
 ### 10. ¿Qué ventajas tiene una implementación basada en capas o niveles?
 
@@ -80,31 +82,31 @@ La cantidad de componentes de red a interactuar genera complejidad, se requiere 
 
 Un modelo en capas divide la complejidad en componentes reusables. Algunas de las ventajas que estos modelos proveen son:
 
-* Reduce complejidad en componente más pequeñas.
-* Las capas de abajo ocultan la complejidad a las de arriba, abstracción.
-* Las capas de arriba utilizan servicios de las de abajo:
-Interfaces, similar a APIs.
-* Los cambios en una capa no deberían afectar a las demás
-si la interfaz se mantiene.
-* Facilita el desarrollo, evolución de las componentes de red
-asegurando interoperabilidad.
-* Facilita aprendizaje, diseño y administración de las redes.
+-   Reduce complejidad en componente más pequeñas.
+-   Las capas de abajo ocultan la complejidad a las de arriba, abstracción.
+-   Las capas de arriba utilizan servicios de las de abajo:
+    Interfaces, similar a APIs.
+-   Los cambios en una capa no deberían afectar a las demás
+    si la interfaz se mantiene.
+-   Facilita el desarrollo, evolución de las componentes de red
+    asegurando interoperabilidad.
+-   Facilita aprendizaje, diseño y administración de las redes.
 
----
+* * *
 
 ### 11. ¿Cómo se llama la PDU de cada una de las siguientes capas: Aplicación, Transporte, Red y Enlace?
 
 Cada capa define su PDU: Protocol Data Unit.
 
-| Capa | PDU |
-| ------------- | ------------- |
-| Aplicación | Datos |
+| Capa       | PDU      |
+| ---------- | -------- |
+| Aplicación | Datos    |
 | Transporte | Segmento |
-| Red | Paquete |
-| Enlace | Trama |
-| Física | Bit |
+| Red        | Paquete  |
+| Enlace     | Trama    |
+| Física     | Bit      |
 
----
+* * *
 
 ### 12. . ¿Qué es la encapsulación? Si una capa realiza la encapsulación de datos, ¿qué capa del nodo receptor realizará el proceso inverso?
 
@@ -114,17 +116,17 @@ En cada capa, un paquete está formado por dos tipos de campos: un campo de cabe
 
 Si una capa X realiza el encapsulamiento en el nodo emisor. La misma capa X será la encargada de hacer el proceso inverso en el nodo receptor.
 
----
+* * *
 
 ### 13. Describa cuáles son las funciones de cada una de las capas del stack TCP/IP o protocolo de Internet.
 
 Capas del stack TCP/IP o protocolo de Internet:
 
-* Capa de Aplicación
-* Capa de Transporte
-* Capa de Red
-* Capa de Enlace
-* Capa Física
+-   Capa de Aplicación
+-   Capa de Transporte
+-   Capa de Red
+-   Capa de Enlace
+-   Capa Física
 
 **Capa de Aplicación**
 
@@ -152,19 +154,19 @@ Los servicios provistos por la capa de enlace dependen en el protocolo especific
 
 Mientras que el trabajo de la capa de enlace es mover frames enteros de un elemento de red a otro adyacente, el trabajo de la capa física es mover los bits individuales que están dentro del frame de un nodo al próximo. Los protocolos en esta capa son dependientes al enlace y por ende también del medio actual de transición del enlace (por ejemplo cable de cobre, fibra óptica, etc). Por ejemplo, Ethernet tiene muchos protocolos de la capa física: uno para cables de cobre, otro para cable coaxial, otro para fibra óptica, etc. En cada caso, un bit es movido a través del enlace de una manera distinta.
 
----
+* * *
 
 ### 14. Compare el modelo OSI con la implementación TCP/IP.
 
 El modelo OSI se compone de 7 capas:
 
-* Capa de Aplicación
-* Capa de Presentación
-* Capa de Sesión
-* Capa de Transporte
-* Capa de Red
-* Capa de Enlace de Datos
-* Capa Física
+-   Capa de Aplicación
+-   Capa de Presentación
+-   Capa de Sesión
+-   Capa de Transporte
+-   Capa de Red
+-   Capa de Enlace de Datos
+-   Capa Física
 
 La funcionalidad de cinco de estas capas es aproximadamente la misma que las que se ven en el stack TCP/IP. El rol de la capa de presentación es proveer servicios que permiten a aplicaciones de comunicación interpretar el significado de datos intercambiados. Estos servicios incluyen compresión, encriptación y descripción de datos. La capa de sesión proporciona los mecanismos para controlar el diálogo entre las aplicaciones de los sistemas finales. En muchos casos, los servicios de la capa de sesión son parcialmente, o incluso, totalmente prescindibles.
 
