@@ -81,7 +81,7 @@ La cantidad de componentes de red a interactuar genera complejidad, se requiere 
 Un modelo en capas divide la complejidad en componentes reusables. Algunas de las ventajas que estos modelos proveen son:
 
 * Reduce complejidad en componente más pequeñas.
-* Las capas de abajo ocultan la complejidad a las de arriba abstracción.
+* Las capas de abajo ocultan la complejidad a las de arriba, abstracción.
 * Las capas de arriba utilizan servicios de las de abajo:
 Interfaces, similar a APIs.
 * Los cambios en una capa no deberían afectar a las demás
