@@ -237,3 +237,61 @@ La diferencia entre ambos es que el primero discretización por intervalos
 (bins) iguales, es decir dividiendo el rango en partes iguales, mientras que el
 segundo operador permite discretizar por frecuencia, es decir, dividiendo la
 cantidad de ejemplos en partes iguales.
+
+## Punto 9
+
+En el siguiente link encontrará información referida al uso de bicicletas que el Gobierno de la
+Ciudad de Buenos Aires pone a disposición de la población en forma gratuita como medio de
+transporte:
+
+[recorrido-bicis-2016.csv](https://recursos-data.buenosaires.gob.ar/ckan2/bicicletas-publicas/recorrido-bicis-2016.csv)
+
+Estas bicicletas están ubicadas en distintos puntos de la ciudad y se encuentran disponibles las
+24 horas del día durante todo el año. En el archivo encontrará información referida a las
+estaciones de origen y destino, la hora de partida y la duración de los viajes realizados por las
+bicicletas durante el año 2016.
+
+1.  A partir del atributo FECHA_HORA_RETIRO genere un atributo nuevo que contenga
+    únicamente el horario en el cual la bicicleta fue retirada. Luego, utilizando el diagrama de
+    caja visto en clase, informe si hay horarios inusuales (fuera de rango) de retiro de
+    bicicletas. Justifique su respuesta indicando los valores de los cuartiles y el criterio
+    utilizado para decidir qué es un horario inusual.
+
+Para generar el nuevo atributo **HORA** utilicé el operador **GenerateAttribute**
+con la siguiente función:
+
+HORA_RETIRO &lt;= `parse(date_str_custom(date_parse_custom(FECHA_HORA_RETIRO, "dd/MM/yyyy HH:mm"), "HH"))`
+
+Se pueden observar los horarios inusuales, dado que estos estan fuera del
+rango que alcanzan los _bigotes_ en el gráfico de cajas.
+
+2.  Indique el valor de verdad de la siguiente proposición: “Se obtendrán los mismos
+    resultados si se discretiza por rango el atributo generado en a) utilizando 4 intervalos que
+    si se lo discretiza por frecuencia utilizando 4 intervalos”. Justifique su respuesta.
+
+Para aplicar los operadores, la función `parse()` mencionada anteriormente debe
+ser utilizada, para pasar de tipo de dato **Nominal** a **Integer**. Como era
+de esperarse, los resultados obtenidos no fueron los mismos, y esto es porque
+la discretización generará intervalos distintos en ambos casos.
+
+3.  A partir del atributo FECHA_HORA_RETIRO genere un segundo atributo con el número de
+    mes en el cual la bicicleta fue retirada. Grafique manualmente el histograma
+    correspondiente a este atributo utilizando 3 intervalos.
+
+MES_RETIRO &lt;= `parse(date_str_custom(date_parse_custom(FECHA_HORA_RETIRO, "dd/MM/yyyy HH:mm"), "MM"))`
+
+## Punto 10
+
+Analice la información del archivo **Sopas.xls** cuyo contenido se encuentra descripto en “Caso
+de Estudio 2: Sopas.pdf”.
+
+1.  Indique qué tipo de gráfica puede construir con los atributos. Ejemplifique cada caso.
+
+2.  Utilizando distintas representaciones gráficas, describa la distribución de los atributos, e
+    indique si observa relaciones entre los mismos.
+
+3.  La Minería de Datos permite extraer dos tipos de conocimiento: descriptivo y predictivo.
+    Ejemplifíquelos para el caso de las Sopas.
+
+4.  Calcule el coeficiente de correlación lineal entre los atributos numéricos. Relacione los
+    valores obtenidos con los diagramas de dispersión de cada par de atributos
