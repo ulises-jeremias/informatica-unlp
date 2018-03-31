@@ -89,7 +89,11 @@ verticalmente.
 
 ## Punto 2
 
-En la Figura 1 se pueden ver los diagramas de clase correspondientes al atributo Practica separando los alumnos que aprobaron el curso de los que no lo hicieron (atributo Calificacion). Utilícelos, en caso de ser posible, para indicar el valor de verdad de las siguientes afirmaciones. Si no es posible, justifique:
+En la Figura 1 se pueden ver los diagramas de clase correspondientes al atributo
+**Practica** separando los alumnos que aprobaron el curso de los que no
+lo hicieron (atributo **Calificacion**). Utilícelos, en caso de ser posible,
+para indicar el valor de verdad de las siguientes afirmaciones.
+Si no es posible, justifique:
 
 Un diagrama de cajas es un gráfico que suministra información sobre
 los valores mínimo y máximo, los cuartiles Q1, Q2 o mediana y Q3, y
@@ -109,23 +113,23 @@ pero si puede extraerse a partir de los valores atípicos (información la
 cual provee este tipo de gráficos). Entonces podríamos decir que este gráfico
 en cuestion permite concluir esto.
 
-3.  Al menos el 50% de los alumnos que aprobaron el curso obtuvo una nota de Practica
+3.  Al menos el 50% de los alumnos que aprobaron el curso obtuvo una nota de **Practica**
     superior a 6 puntos.
 
 Claramente, dado que la mediana se encuentra por encima de esa nota, podemos
 saber eso a partir del gráfico.
 
-4.  Al menos el 50% de los desaprobados obtuvo una nota de Practica inferior a 4 puntos.
+4.  Al menos el 50% de los desaprobados obtuvo una nota de **Practica** inferior a 4 puntos.
 
 Claramente, dado que la mediana se encuentra por debajo de esa nota, podemos
 saber eso a partir del gráfico.
 
-5.  Todos los alumnos que obtuvieron 8 o más como nota de Practica aprobaron el curso.
+5.  Todos los alumnos que obtuvieron 8 o más como nota de **Practica** aprobaron el curso.
 
 Esto es falso, y lo podemos determinar a partir de los valores atípicos que
 nos muestra el gráfico.
 
-6.  Es raro que un alumno que aprobó el curso obtenga una nota de Practica inferior a 1
+6.  Es raro que un alumno que aprobó el curso obtenga una nota de **Practica** inferior a 1
     punto.
 
 Lo podemos determinar dados los valores atípicos que aparecen en la gráfica,
@@ -134,7 +138,7 @@ dos mediciones que se muestran.
 
 ## Punto 3
 
-Abra el archivo Curso.xls y visualice los metadatos.
+Abra el archivo **Curso.xls** y visualice los metadatos.
 
 1.  Indique cuáles son los atributos que presentan datos faltantes.
 
@@ -181,38 +185,38 @@ causan el problema.
 -   Utilizar el valor de la media u otra medida de centralidad de los objetos que pertenecen la misma clase.
 -   Utilizar alguna herramienta de Minería de Datos para calcular el valor más probable.
 
-4.  Utilice el operador ReplaceMissingValues para completar los datos faltantes utilizando las
-    opciones por defecto para todos los atributos salvo Activ_Distancia que deber
+4.  Utilice el operador **ReplaceMissingValues** para completar los datos faltantes utilizando las
+    opciones por defecto para todos los atributos salvo **Activ_Distancia** que deber
     completarse con el valor mínimo. Ejecute el proceso y verifique que ya no quedan datos
     faltantes. Indique cuales han sido los valores utilizados para completar cada atributo.
 
 ## Punto 4
 
-El atributo Activ_Presencial debe contener valores entre 0 y 1 indicando
+El atributo **Activ_Presencial** debe contener valores entre 0 y 1 indicando
 la proporción entre la cantidad de clases a las que asistió el alumno y
 el total de clases del curso. Ej: un valor 0.1 indica que el alumno
 asistió al 10% de las clases. Utilice un diagrama de caja para verificar
-que existen valores excesivamente fuera de rango en el atributo Activ_Presencial.
-Utilice el operador GenerateAttribute para generar un nuevo atributo
-llamado ASISTENCIA que posea los mismos valores que Activ_Presencial cuando
-éste posea un valor menor o igual a 1 y Activ_Presencial/100 cuando supera 1.
-Rehaga el diagrama de caja para el atributo ASISTENCIA y verifique que no
+que existen valores excesivamente fuera de rango en el atributo **Activ_Presencial**.
+Utilice el operador **GenerateAttribute** para generar un nuevo atributo
+llamado **ASISTENCIA** que posea los mismos valores que **Activ_Presencial** cuando
+éste posea un valor menor o igual a 1 y **Activ_Presencial/100** cuando supera 1.
+Rehaga el diagrama de caja para el atributo **ASISTENCIA** y verifique que no
 existen valores fuera de rango extremos.
 
 ## Punto 5
 
-El atributo Trabaja presenta errores en su codificación. Utilice el operador Map
+El atributo **Trabaja** presenta errores en su codificación. Utilice el operador **Map**
 para convertir los valores “S” en “si” y “N” en “no”.
 
 ## Punto 6
 
-Utilice un mismo operador DiscretizeByUserSpecification para discretizar los valores de los
-atributos ASISTENCIA y Activ_Distancia asignando la etiqueta BAJA o ALTA según si el valor del
+Utilice un mismo operador **DiscretizeByUserSpecification** para discretizar los valores de los
+atributos **ASISTENCIA** y **Activ_Distancia** asignando la etiqueta BAJA o ALTA según si el valor del
 atributo es menor o igual a 0.5 o no respectivamente.
 
 ## Punto 7
 
-Utilice otro operador DiscretizeByBinning para discretizar los valores del atributo Practica
+Utilice otro operador **DiscretizeByBinning** para discretizar los valores del atributo **Practica**
 dividiendo su rango en tres intervalos. Observe los metadatos e indique como quedaron
 formados los intervalos y cuántos alumnos hay en cada uno de ellos.
 
@@ -221,3 +225,15 @@ formados los intervalos y cuántos alumnos hay en cada uno de ellos.
 | range2 [3.337 - 6.668] | 104            | 0.52     |
 | range1 [-∞ - 3.337]    | 55             | 0.275    |
 | range3 [6.668 - ∞]     | 41             | 0.205    |
+
+## Punto 8
+
+¿Qué diferencia hay entre una discretización por intervalos **_(DiscretizeByBinning)_** y una
+discretización por frecuencia **_(DiscretizeByFrecuency)_**?
+
+Ejemplifique nuevamente su respuesta utilizando la información del archivo Curso.xls
+
+La diferencia entre ambos es que el primero discretización por intervalos
+(bins) iguales, es decir dividiendo el rango en partes iguales, mientras que el
+segundo operador permite discretizar por frecuencia, es decir, dividiendo la
+cantidad de ejemplos en partes iguales.
