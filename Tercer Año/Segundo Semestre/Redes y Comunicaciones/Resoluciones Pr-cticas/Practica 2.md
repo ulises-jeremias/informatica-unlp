@@ -52,10 +52,10 @@ HTTP (Hyper Text Transfer Protocol) es un protocolo de la capa de aplicación de
 
 Curl es una herramienta para transferir datos desde o hacia un servidor, usando uno de los protocolos soportados (FTP, FTPS, HTTP, HTTPS, SFTP, SMTP, TELNET, etc). El comando está diseñado para funcionar sin interacción del usuario.
 
-* -I, --head: Recupera únicamente el header de HTTP en el request.
-* -H, --header: Sirve para agregar información al header del request que se va a realizar (además sirve para reemplazar los valores por defecto que utilizará curl, de esta forma también se pueden limpiar algunos valores predeterminados. Ej. –H “Host:” ; así se limpia el dato Host del header).
-* -X, --request: Especifica un método de request específico para usar en la comunicación (el default es GET).
-* -s, --silent: Modo silencio. No muestra los mensajes de error.
+-   \-I, --head: Recupera únicamente el header de HTTP en el request.
+-   \-H, --header: Sirve para agregar información al header del request que se va a realizar (además sirve para reemplazar los valores por defecto que utilizará curl, de esta forma también se pueden limpiar algunos valores predeterminados. Ej. –H “Host:” ; así se limpia el dato Host del header).
+-   \-X, --request: Especifica un método de request específico para usar en la comunicación (el default es GET).
+-   \-s, --silent: Modo silencio. No muestra los mensajes de error.
 
 * * *
 
@@ -67,14 +67,14 @@ Se realizó un único request y se recibió el contenido HTML de la página soli
 
 #### b. ¿Cómo funcionan los atributos href de los tags link e img en html?
 
-* La etiqueta `<link>` define una relación entre un documento y un recurso externo.
+-   La etiqueta `<link>` define una relación entre un documento y un recurso externo.
 
-* La etiqueta `<img>` define una imagen en una página HTML.
+-   La etiqueta `<img>` define una imagen en una página HTML.
 
 El atributo `href` del elemento link especifica la URL del recurso en cuestión.
 El atributo `src` del elemento img especifica la URL de la imagen.
 
-La mayoría de los navegadores cuando encuentran estos elementos en el documento HTML realizan una *solicitud automática al servidor* para obtenerlos.
+La mayoría de los navegadores cuando encuentran estos elementos en el documento HTML realizan una _solicitud automática al servidor_ para obtenerlos.
 
 #### c. Para visualizar la página completa con imágenes como en un navegador, ¿alcanza con realizar un único requerimiento?
 
@@ -102,21 +102,21 @@ Si en el primer comando se quita la redirección a /dev/null lo que sucederá es
 
 Cabeceras del request:
 
-* User-Agent
-* Host
-* Accept
+-   User-Agent
+-   Host
+-   Accept
 
 Cabeceras del response:
 
-* Date
-* Server
-* Last-Modified
-* ETag
-* Accept-Ranges
-* Content-Length
-* Content-Type
+-   Date
+-   Server
+-   Last-Modified
+-   ETag
+-   Accept-Ranges
+-   Content-Length
+-   Content-Type
 
----
+* * *
 
 ### 10. Ejecute una vez más el comando curl www.redes.unlp.edu.ar pero sólo muestre los encabezados y luego responda:
 
@@ -131,7 +131,7 @@ Si, es posible saber esto observando el header `Server`, el cual en este caso to
 El código de respuesta que devolvió el servidor es el 200.
 
 | Código | Significado          |
-|--------|----------------------|
+| ------ | -------------------- |
 | 2XX    | Peticiones correctas |
 | 3XX    | Redirecciones        |
 | 4XX    | Errores del cliente  |
@@ -145,9 +145,9 @@ Esto se puede observar en el header `Last-Modified`, el cual en este caso toma e
 
 Se puede realizar de las siguientes dos formas:
 
-- `curl -I -H 'If-Modified-Since: Wed, 17 Sep 2017' www.redes.unlp.edu.ar`
+-   `curl -I -H 'If-Modified-Since: Wed, 17 Sep 2017' www.redes.unlp.edu.ar`
 
-- `curl –z 'Wed, 17 Sep 2017' www.redes.unlp.edu.ar`
+-   `curl –z 'Wed, 17 Sep 2017' www.redes.unlp.edu.ar`
 
 Como era de esperar no se obtuvo resultado alguno.
 
@@ -161,7 +161,7 @@ Un cache web, también denominada como servidor proxy, en una entidad de red que
 
 Estos encabezados sirven para implementar el GET condicional, y de esta forma da lugar a la incorporación de un cache web.
 
----
+* * *
 
 ### 12. En base a lo obtenido en el ejercicio anterior, responda
 
@@ -183,18 +183,18 @@ HTTP 1.1 permite tener conexiones persistentes, lo cual significa que se puede r
 
 En cambio en HTTP 1.0 se debe abrir una nueva conexión por cada request. Y luego de cada respuesta la conexión debería ser cerrada. Esto claramente lleva a claros problemas de eficiencia.
 
----
+* * *
 
----
+* * *
 
 ### 13. La página www.redes.unlp.edu.ar/http/idioma.php tiene soporte para visualizarse en inglés y en español. Manipule los encabezados de HTTP para visualizar la página en los diferentes idiomas.
 
-* Español:
+-   Español:
 
 `curl -H "Accept-Language: es" www.redes.unlp.edu.ar/http/idioma.php`
 
-* Inglés:
+-   Inglés:
 
 `curl -H "Accept-Language: en" www.redes.unlp.edu.ar/http/idioma.php`
 
----
+* * *
