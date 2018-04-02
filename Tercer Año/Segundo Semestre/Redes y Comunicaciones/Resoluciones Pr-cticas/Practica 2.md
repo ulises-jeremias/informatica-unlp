@@ -79,3 +79,122 @@ La mayoría de los navegadores cuando encuentran estos elementos en el documento
 #### c. Para visualizar la página completa con imágenes como en un navegador, ¿alcanza con realizar un único requerimiento?
 
 No, no alcanza. Será necesario hacer cada una de las request correspondientes a los recursos necesarios.
+
+### 9. Ejecute a continuación los siguientes comandos:
+
+`curl -v -s www.redes.unlp.edu.ar > /dev/null`
+
+`curl -I -v -s www.redes.unlp.edu.ar`
+
+#### a. ¿Qué diferencias nota entre cada uno?
+
+El primer comando esta haciendo un request a la URL con los atributos de verbose y silent, y luego está redireccionando la respuesta de la petición a /dev/null.
+
+El segundo comando hace un request a la misma URL con los mismoas atributos, ademas del ´-I´ el cual hara que solamente se muestren los headers.
+
+Es por esto que ambos comandos devuelven salidas muy parecidas.
+
+#### b. ¿Qué ocurre si en el primer comando quita la redirección a /dev/null? ¿Por qué no es necesaria en el segundo comando?
+
+Si en el primer comando se quita la redirección a /dev/null lo que sucederá es que se mostrará en la consola el contenido de la respuesta obtenida luego de realizar el request. En el segundo comando no es necesaria esta redirección ya que el parámetro ´-I´ hace que curl devuelva solamente los headers.
+
+#### c. ¿Cuántas cabeceras viajaron en el requerimiento? ¿Y en la respuesta?
+
+Cabeceras del request:
+
+* User-Agent
+* Host
+* Accept
+
+Cabeceras del response:
+
+* Date
+* Server
+* Last-Modified
+* ETag
+* Accept-Ranges
+* Content-Length
+* Content-Type
+
+---
+
+### 10. Ejecute una vez más el comando curl www.redes.unlp.edu.ar pero sólo muestre los encabezados y luego responda:
+
+Ejecutamos `curl -I www.redes.unlp.edu.ar`
+
+#### a. ¿Es posible determinar qué servidor web se utiliza para servir la página?
+
+Si, es posible saber esto observando el header `Server`, el cual en este caso toma el valor `Apache/2.4.7 (Ubuntu)`.
+
+#### b. ¿Cuál es el código de respuesta que devolvió el servidor? ¿Qué otros códigos existen y qué significan? Investigue genéricamente los tipos de error 2XX, 3XX, 4XX y 5XX.
+
+El código de respuesta que devolvió el servidor es el 200.
+
+| Código | Significado          |
+|--------|----------------------|
+| 2XX    | Peticiones correctas |
+| 3XX    | Redirecciones        |
+| 4XX    | Errores del cliente  |
+| 5XX    | Errores del servidor |
+
+#### c. ¿Cuándo fue la última vez que se modificó la página?
+
+Esto se puede observar en el header `Last-Modified`, el cual en este caso toma el valor `Wed, 16 Mar 2016 20:41:34 GTM`.
+
+#### d. Solicite la página nuevamente con curl usando GET, pero esta vez indique que quiere obtenerla sólo si la misma fue modificada en una fecha posterior a la que efectivamente fue modificada. ¿Cómo lo hace? ¿Qué resultado obtuvo? ¿Puede explicar por qué y para qué sirve?
+
+Se puede realizar de las siguientes dos formas:
+
+- `curl -I -H 'If-Modified-Since: Wed, 17 Sep 2017' www.redes.unlp.edu.ar`
+
+- `curl –z 'Wed, 17 Sep 2017' www.redes.unlp.edu.ar`
+
+Como era de esperar no se obtuvo resultado alguno.
+
+#### e. ¿Qué significa el encabezado ETag?
+
+Es uno de los varios mecanismos que HTTP proporciona para la validación de caché web, y que permite a un cliente realizar peticiones condicionales. Esto permite que las cachés sean más eficientes y ahorra ancho de banda, puesto que un servidor web no necesita enviar una respuesta completa si el contenido no ha cambiado. Los ETags también pueden ser usados para el control de concurrencia optimista, como una manera de ayudar a prevenir que actualizaciones simultáneas de un recurso se sobrescriban entre sí.
+
+#### f. Investigue el encabezado If-Modified-Since. ¿Para qué cree que pueden servir los tres encabezados anteriores?
+
+Un cache web, también denominada como servidor proxy, en una entidad de red que satisface solicitudes HTTP en nombre de un servidor web de origen. La caché web dispone de su propio almacenamiento en disco y mantiene en él copias de los objetos solicitados recientemente. La cache web es un servidor y un cliente. Esto permite reducir el tráfico y el trabajo del servidor web. Típicamente es un ISP quien adquiere e instala un cache web.
+
+Estos encabezados sirven para implementar el GET condicional, y de esta forma da lugar a la incorporación de un cache web.
+
+---
+
+### 12. En base a lo obtenido en el ejercicio anterior, responda
+
+#### a. ¿Qué está haciendo al ejecutar el comando telnet?
+
+El comando Telnet es una interfaz de usuario para el protocolo Telnet. Este comando es usado para comunicarse interactivamente con otro host, usando el protocolo Telnet. Comienza en modo comando, donde se imprime un prompt Telnet. Si telnet es invocado con un host de argumento, se realiza un comando open de manera implícita.
+
+#### b. ¿Qué comando HTTP utilizó? ¿Qué recurso solicitó?
+
+Se utilizó el comando `GET`, y se solicitó el recurso `/http/HTTP-1.x/`.
+
+#### c. ¿Qué diferencias notó entre los dos casos? ¿Puede explicar por qué?
+
+Al hacer el request utilizando el protocolo HTTP 1.0, luego de obtener la respuesta, la conexión se cerró inmediatamente, en cambio al utilizar HTTP 1.1, luego de obtener la respuesta, la conexión se mantiene abierta por un momento, dando lugar así a realizar nuevas consultas.
+
+#### d. ¿Cuál de los dos casos le parece más eficiente? Piense en el ejercicio donde analizó la cantidad de requerimientos necesarios para obtener una página con estilos, javascripts e imágenes. El caso elegido, ¿puede traer asociado algún problema?
+
+HTTP 1.1 permite tener conexiones persistentes, lo cual significa que se puede realizar mas de un request en la misma conexión TCP.
+
+En cambio en HTTP 1.0 se debe abrir una nueva conexión por cada request. Y luego de cada respuesta la conexión debería ser cerrada. Esto claramente lleva a claros problemas de eficiencia.
+
+---
+
+---
+
+### 13. La página www.redes.unlp.edu.ar/http/idioma.php tiene soporte para visualizarse en inglés y en español. Manipule los encabezados de HTTP para visualizar la página en los diferentes idiomas.
+
+* Español:
+
+`curl -H "Accept-Language: es" www.redes.unlp.edu.ar/http/idioma.php`
+
+* Inglés:
+
+`curl -H "Accept-Language: en" www.redes.unlp.edu.ar/http/idioma.php`
+
+---
