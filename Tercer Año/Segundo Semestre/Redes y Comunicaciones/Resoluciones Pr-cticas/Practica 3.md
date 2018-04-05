@@ -1,6 +1,6 @@
 # Práctica 3
 
-### Investigue y describa cómo funciona el DNS. ¿Cuál es su objetivo?
+### 1. Investigue y describa cómo funciona el DNS. ¿Cuál es su objetivo?
 
 El sistema de nombres de dominio (DNS, por sus siglas en inglés, Domain Name System) es un sistema de nomenclatura jerárquico descentralizado para dispositivos conectados a redes IP como Internet o una red privada. Este sistema asocia información variada con nombre de dominio asignado a cada uno de los participantes. Su función más importante es "traducir" nombres inteligibles para las personas en identificadores binarios asociados con los equipos conectados a la red, esto con el propósito de poder localizar y direccionar estos equipos mundialmente.
 
