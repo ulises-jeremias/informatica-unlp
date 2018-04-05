@@ -24,8 +24,8 @@ int main(int argc,char*argv[]){
         B=(double*)malloc(sizeof(double)*N*N);
         C=(double*)malloc(sizeof(double)*N*N);
         D=(double*)malloc(sizeof(double)*N*N);
-        ab=(double*)malloc(sizeof(double)*N*N);
-        cd=(double*)malloc(sizeof(double)*N*N);
+        ab=(double*)calloc(N*N, sizeof(double));
+        cd=(double*)calloc(N*N, sizeof(double));
         tot=(double*)malloc(sizeof(double)*N*N);
 
 
@@ -44,26 +44,12 @@ int main(int argc,char*argv[]){
         //Realiza la multiplicacion
         for(i=0; i<N; i++) {
                 for(j=0; j<N; j++) {
-                        ab[i*N+j]=0;
                         for(k=0; k<N; k++) {
                                 ab[i*N+j]= ab[i*N+j] + A[i*N+k]*B[k+j*N];
-                        }
-                }
-        }
-        for(i=0; i<N; i++) {
-                for(j=0; j<N; j++) {
-                        cd[i*N+j]=0;
-                        for(k=0; k<N; k++) {
                                 cd[i*N+j]= cd[i*N+j] + C[i*N+k]*D[k+j*N];
                         }
-                }
-        }
-
-        for(i=0; i<N; i++) {
-                for(j=0; j<N; j++) {
                         tot[i*N+j]= cd[i*N+j]+ ab[i*N+j];
                 }
-
         }
 
         printf("Tiempo en segundos %f \n", dwalltime() - timetick);

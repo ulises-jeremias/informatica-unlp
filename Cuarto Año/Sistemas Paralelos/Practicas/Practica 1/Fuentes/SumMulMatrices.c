@@ -49,7 +49,6 @@ int main(int argc,char*argv[]){
                                 ab[i*N+j]= ab[i*N+j] + A[i*N+k]*B[k+j*N];
                                 cd[i*N+j]= cd[i*N+j] + C[i*N+k]*D[k+j*N];
                                 tot[i*N+j]= cd[i*N+j]+ ab[i*N+j];
-
                         }
                 }
         }
