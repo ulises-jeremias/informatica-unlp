@@ -124,11 +124,11 @@ DNS también se emplea para la distribución de carga entre los servidores repli
 
 #### a. Cantidad de servidores que aceptan correos para el dominio gmail.com.
 
-* `alt2.gmail-smtp-in.l.google.com.`
-* `alt1.gmail-smtp-in.l.google.com.`
-* `gmail-smtp-in.l.google.com.`
-* `alt3.gmail-smtp-in.l.google.com.`
-* `alt4.gmail-smtp-in.l.google.com.`
+-   `alt2.gmail-smtp-in.l.google.com.`
+-   `alt1.gmail-smtp-in.l.google.com.`
+-   `gmail-smtp-in.l.google.com.`
+-   `alt3.gmail-smtp-in.l.google.com.`
+-   `alt4.gmail-smtp-in.l.google.com.`
 
 Por lo tanto hay 5 servidores.
 
@@ -142,9 +142,9 @@ Los servidores SMTP intentarán con el servidor de mail de segunda prioridad má
 
 #### d. Cantidad de servidores de DNS del dominio unlp.edu.ar
 
-* `unlp.unlp.edu.ar.`
-* `ns1.riu.edu.ar.`
-* `anubis.unlp.edu.ar.`
+-   `unlp.unlp.edu.ar.`
+-   `ns1.riu.edu.ar.`
+-   `anubis.unlp.edu.ar.`
 
 Por lo tanto hay 3 servidores.
 
@@ -162,32 +162,24 @@ El comando host se usa para encontrar la dirección IP del dominio dado y tambi�
 
 #### a. Dirección IP de www.redes.unlp.edu.ar
 
-* nslookup www.redes.unlp.edu.ar
-* host www.redes.unlp.edu.ar
+-   nslookup www.redes.unlp.edu.ar
+-   host www.redes.unlp.edu.ar
 
 #### b. Servidores de correo del dominio redes.unlp.edu.ar.
 
-```
-nslookup
-set ty=MX
-redes.unlp.edu.ar
-```
+    nslookup
+    set ty=MX
+    redes.unlp.edu.ar
 
-```
-host -t MX redes.unlp.edu.ar
-```
+    host -t MX redes.unlp.edu.ar
 
 #### c. Servidores de DNS del dominio redes.unlp.edu.ar.
 
-```
-nslookup
-set ty=NS
-redes.unlp.edu.ar
-```
+    nslookup
+    set ty=NS
+    redes.unlp.edu.ar
 
-```
-host -t NS redes.unlp.edu.ar
-```
+    host -t NS redes.unlp.edu.ar
 
 * * *
 
