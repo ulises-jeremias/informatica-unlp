@@ -186,3 +186,60 @@ El comando host se usa para encontrar la dirección IP del dominio dado y tambi�
 ### 12. ¿Qué función cumple en Linux/Unix el archivo /etc/hosts o en Windows el archivo \\WINDOWS\\system32\\drivers\\etc\\hosts?
 
 El archivo hosts de un ordenador es usado por el sistema operativo para guardar la correspondencia entre dominios de Internet y direcciones IP. Este es uno de los diferentes métodos que usa el sistema operativo para resolver nombres de dominios. Antiguamente cuando no había servidores DNS que resolvieran los dominios, el archivo hosts era el único encargado de hacerlo, pero dejó de utilizarse cuando Internet empezó a crecer en nombres de dominio, pasando a usar servidores de resolución de DNS. En muchos sistemas operativos este método es usado preferentemente respecto a otros como el DNS. En la actualidad también es usado para bloquear contenidos de Internet como la publicidad web.
+
+* * *
+
+### 14. Dada la siguiente situación: “Una PC en una red determinada, con acceso a Internet, utiliza los servicios de DNS de un servidor de la red”. Analice:
+
+#### a. ¿Qué tipo de consultas (iterativas o recursivas) realiza la PC a su servidor de DNS?
+
+La PC realiza consultas recursivas al servidor DNS, por lo cual este le responderá al resolver ya sea con la respuesta esperada o con un error. Si en cambio la consulta fuese iterativa, el servidor DNS responderá de la mejor manera posible para que el cliente pueda seguir buscando.
+
+#### b. ¿Qué tipo de consultas (iterativas o recursivas) realiza el servidor de DNS para resolver requerimientos de usuario como el anterior? ¿A quién le realiza estas consultas?
+
+El servidor DNS que intenta resolver la consulta recursiva, realizará una serie de consultas iterativas a los distintos servidores DNS que sean necesarios hasta llegar al servidor DNS autoritativo para el dominio solicitado. Todo esto es considerando que ningún servidor cacheó dicho dominio.
+
+* * *
+
+### 15. Relacione DNS con HTTP. ¿Se puede navegar si no hay servicio de DNS?
+
+Como sabemos, HTTP permite trabajar con recursos compartidos (documentos, servicios, etc.) entre dos o más sistemas terminales (hosts). Para esto los hosts deben ser identificables unívocamente, y así poder direccionar a un host y un recurso particular (URI). Los hosts se identifican en la red mediante una dirección IP (4 bytes separados por punto). El servicio DNS permite mapear (y consultar) direcciones IP con nombres nemotécnicos, que pueden perdurar en el tiempo, tener varios alias y pueden ser recordados fácilmente por las personas. HTTP permite referenciar recursos con nombres de dominio, como con direcciones IP. Pero lógicamente, navegar en internet se complicaría muchísimo sin servicio de DNS, ya que deberíamos:
+* Tener localmente el mapeo entre los nombres de host y las IPs (archivo host). Oconocer previamente las IP de los host que deseamos acceder.
+* Referenciar todos los recursos de internet mediante la IP.
+* Mantener todas las IP estáticas (ya que sino los documentos y archivos dejarían de servir).
+
+Sin servicio de DNS, Internet, tal cual lo conocemos, sería inviable.
+
+* * *
+
+### 16. Observar el siguiente gráfico y contestar:
+
+### Si desde PC-A se desea obtener la IP de www.unlp.edu.ar, cuáles serían, y en qué orden, los pasos que se ejecutarán para obtener la respuesta. ¿Dónde es recursiva la consulta? ¿Y dónde iterativa?
+
+* El resolver de PC-A hace una consulta DNS recursiva al servidor DNS 192.168.10 por el dominio www.unlp.edu.ar.
+
+* El DNS server 192.168.10.2 hace una consulta iterativa a a.root-server, el cual responderá con la dirección del TLD a.dns.ar el cual es el servidor dns autoritativo para el dominio ar.
+
+* El DNS server hace una consulta iterativa a a.dns.ar, el cual responde con la direccion de ns1.riu.edu.ar el cual es el servidor dns autoritativo para el dominio edu.ar.
+
+* El DNS server hace una consulta iterativa a s1.riu.edu.ar el cual responde con la direccion unlp.unlp.edu.ar el cual es el servidor autoritativo para el dominio unlp.edu.ar.
+
+* El DNS server hace una consulta iterativa a unlp.unlp.edu.ar el cual es el servidor autoritativo de unlp.edu.ar, este finalmente devuelve la dirección ip buscada, ya que posee los registros necesarios para proveer esta información.
+
+* * *
+
+### 17. ¿A quién debería consultar para que la respuesta sobre www.google.com sea autoritativa?
+
+Para que una consulta DNS a www.google.com sea autoritativa debo hacerla a un nameserver del dominio www.google.com el cual lo podemos obtener consultando por los registros NS. Por lo tanto un ejemplo para obtener una respuesta autoritativa sería:
+
+```
+dig @ns3.google.com. www.google.com.
+```
+
+* * *
+
+### 18. ¿Qué sucede si al servidor elegido en el paso anterior se lo consulta por www.info.unlp.edu.ar? ¿Y si la consulta es al servidor 8.8.8.8?
+
+Si se realiza una consulta DNS al servidor ns3.google.com. por el dominio www.info.unlp.edu.ar, no habrá respuesta alguna debido a que este nameserver no tiene registros asociados a para este dominio.
+
+En cambio, si la consulta la hago sobre el nameserver 8.8.8.8, se obtendrá la respuesta esperada. Esto se debe a que 8.8.8.8 referencia a el servicio Google Public DNS, el cual es un servicio de DNS gratuito.
