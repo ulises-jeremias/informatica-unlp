@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <sys/time.h>
 
+//Dimension por defecto de las matrices
+int N=100;
+
 //Para calcular tiempo
 double dwalltime()
 {
