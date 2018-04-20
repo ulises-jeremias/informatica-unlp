@@ -1,11 +1,16 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <sys/time.h>
 #include <pthread.h>
 
 int NUM_THREADS = 4;
 int N = 100;
-double *A, *B, *C;
+int X = 0;
+int occurences = 0;
+
+double *A;
+
+pthread_mutex_t occurences_mutex;
 
 double
 dwalltime()
@@ -41,50 +46,44 @@ barrier(pthread_t *threads, pthread_attr_t *attr)
 void *
 initialize(void *threadid)
 {
-        long i, j, tid;
+        long i, tid;
         tid = (long) threadid;
         printf("Hello World! It's me, thread #%ld!\n", tid);
 
         long limit = (1 + tid)*(N/NUM_THREADS);
         for (i = tid*(N/NUM_THREADS); i < limit; i++)
         {
-                for (j = 0; j < N; j++)
-                {
-                        A[i*N + j] = 1.0;
-                        B[i + j*N] = 1.0;
-                }
+                A[i] = tid % 2;
         }
 }
 
 void *
-product(void *threadid)
+calc_occurences(void *threadid)
 {
-        long i, j, k, tid;
+        long i, tid;
+        int local_occurences = 0;
         tid = (long) threadid;
-        double acc;
-        printf("Hi sir! It's me, thread #%ld again! :D\n", tid);
+
+        printf("Hello World! It's me, thread #%ld again! :D\n", tid);
 
         long limit = (1 + tid)*(N/NUM_THREADS);
+
         for (i = tid*(N/NUM_THREADS); i < limit; i++)
         {
-                for (j = 0; j < N; j++)
-                {
-                        acc = 0.0;
-
-                        for(k = 0; k < N; k++)
-                        {
-                                acc += (A[k*N+j] * B[j+k*N]);
-                        }
-
-                        C[i*N+j] = acc;
+                if (A[i] == X) {
+                        local_occurences++;
                 }
         }
+
+        pthread_mutex_lock(&occurences_mutex);
+        occurences += local_occurences;
+        pthread_mutex_unlock(&occurences_mutex);
 }
 
 int
 main(int argc, const char *argv[])
 {
-        long i, j;
+        long i;
         int check = 1;
         double timetick;
 
@@ -94,12 +93,11 @@ main(int argc, const char *argv[])
                 exit(1);
         }
 
-        A = (double*) malloc(sizeof(double)*N*N);
-        B = (double*) malloc(sizeof(double)*N*N);
-        C = (double*) calloc(N*N, sizeof(double));
+        A = (double*) malloc(sizeof(double)*N);
 
         int rc;
 
+        pthread_mutex_init(&occurences_mutex, NULL);
         pthread_t threads[NUM_THREADS];
         pthread_attr_t attr;
         pthread_attr_init(&attr);
@@ -118,7 +116,7 @@ main(int argc, const char *argv[])
         for (i = 0; i < NUM_THREADS; i++)
         {
                 printf("In main: executing thread %ld\n", i);
-                rc = pthread_create(&threads[i], &attr, product, (void *)i);
+                rc = pthread_create(&threads[i], &attr, calc_occurences, (void *)i);
         }
 
         barrier(threads, &attr);
@@ -127,10 +125,7 @@ main(int argc, const char *argv[])
 
         for (i = 0; i < N; i++)
         {
-                for (j=0; j<N; j++)
-                {
-                        check = check && (C[i*N + j]==N);
-                }
+                check += (A[i]==X);
         }
 
         if (check)
@@ -143,8 +138,6 @@ main(int argc, const char *argv[])
         }
 
         free(A);
-        free(B);
-        free(C);
 
         pthread_exit(NULL);
 
