@@ -12,6 +12,8 @@
 
 ## Punto 2
 
+**a)**
+
 #### OneR
 
 ###### Regla
@@ -68,3 +70,14 @@ Sop(X => Y) = 14/16 = 0.875
         -   Sop(X) = 4/16 = 0.25
         -   Sop(Y) = 10/16 = 0.625
         -   Interes(X => Y) = Sop(X => Y)/(Sop(X) * Sop(Y)) = 0.25/(0.25*0.625) = 1.6
+
+**b)**
+
+Podemos determinar una respuesta para estas preguntas mirando aquellas reglas
+que resulten interesantes, es decir, aquellas cuyo **_interes sea mayor a 1_**.
+A partir de lass reglas formadas, podemos saber que los globos que no se inflan
+ni con niños ni con adultos son aquellos que no se estiran, por lo tanto
+esos globos no debieron ser comprados.
+
+Al mismos tiempo, podemos saber que los globos de color rojo pueden ser
+inflados solo por adultos, al igual que aquellos que se estiran.
