@@ -18,7 +18,7 @@
 
 -   Se estira? : Si	-> Si | No	-> No
 
-Soporte = 14/16 = 0.875
+Sop(X => Y) = 14/16 = 0.875
 
 #### PRISM
 
@@ -26,24 +26,45 @@ Soporte = 14/16 = 0.875
 
 -   If Se estira? = Si and Color = Amarillo then Si
 
-    -   Soporte = 4/16 = 0.25
-    -   Cobertura = 4/16 = 0.25
-    -   Confianza = 4/4 = 1
+    -   Sop(X => Y) = 4/16 = 0.25
+    -   Cob(X => Y) = 4/16 = 0.25
+    -   Conf(X => Y) = 4/4 = 1
+    -   Interes(X => Y) = ?
+
+        -   Sop(X) = 4/16 = 0.25
+        -   Sop(Y) = 6/16 = 0.375
+        -   Interes(X => Y) = Sop(X => Y)/(Sop(X) * Sop(Y)) = 0.25/(0.25*0.375) = 2.66
+
 
 -   If Se estira? = Si and Edad = Adulto then Si
 
-    -   Soporte = 4/16 = 0.25
-    -   Cobertura = 4/16 = 0.25
-    -   Confianza = 4/4 = 1
+    -   Sop(X => Y) = 4/16 = 0.25
+    -   Cob(X => Y) = 4/16 = 0.25
+    -   Conf(X => Y) = 4/4 = 1
+    -   Interes(X => Y) = ?
+
+        -   Sop(X) = 4/16 = 0.25
+        -   Sop(Y) = 6/16 = 0.375
+        -   Interes(X => Y) = Sop(X => Y)/(Sop(X) * Sop(Y)) = 0.25/(0.25*0.375) = 2.66
 
 -   If Se estira? = No then No
 
-    -   Soporte = 8/16 = 0.5
-    -   Cobertura = 8/16 = 0.5
-    -   Confianza = 8/8 = 1
+    -   Sop(X => Y) = 8/16 = 0.5
+    -   Cob(X => Y) = 8/16 = 0.5
+    -   Conf(X => Y) = 8/8 = 1
+    -   Interes(X => Y) = ?
+
+        -   Sop(X) = 8/16 = 0.5
+        -   Sop(Y) = 10/16 = 0.625
+        -   Interes(X => Y) = Sop(X => Y)/(Sop(X) * Sop(Y)) = 0.5/(0.5*0.625) = 1.6
 
 -   If Color = Rojo and Edad = Niño then No
 
-    -   Soporte = 4/16 = 0.25
-    -   Cobertura = 4/16 = 0.25
-    -   Confianza = 4/4 = 1
+    -   Sop(X => Y) = 4/16 = 0.25
+    -   Cob(X => Y) = 4/16 = 0.25
+    -   Conf(X => Y) = 4/4 = 1
+    -   Interes(X => Y) = ?
+
+        -   Sop(X) = 4/16 = 0.25
+        -   Sop(Y) = 10/16 = 0.625
+        -   Interes(X => Y) = Sop(X => Y)/(Sop(X) * Sop(Y)) = 0.25/(0.25*0.625) = 1.6
