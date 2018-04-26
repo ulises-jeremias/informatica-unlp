@@ -2,7 +2,7 @@
 
 ### 1. ¿Cuál es la función de la capa de transporte?
 
-Un protocolo de la capa de transporte proporciona una comunicación lógica entre procesos de aplicación que se ejecutan en hosts diferentes. Por comunicación lógica queremos decir que, desde la perspectiva de la aplicación, es como si los hosts que ejecutan los procesos estuvieran conectados directamente.
+Un **protocolo de la capa de transporte proporciona una comunicación lógica entre procesos de aplicación que se ejecutan en hosts diferentes**. Por comunicación lógica queremos decir que, desde la perspectiva de la aplicación, es como si los hosts que ejecutan los procesos estuvieran conectados directamente.
 
 Internet tiene dos protocolos: TCP y UDP. Cada uno de estos protocolos proporciona un conjunto diferente de servicios para la capa de transporte a la aplicación que lo haya invocado.
 
@@ -161,3 +161,101 @@ Supongamos que hay un proceso en ejecución en un host (cliente) que desea inici
 Una vez completados estos tres pasos, los hosts cliente y servidor pueden enviarse segmentos que contengan datos el uno al otro. En cada uno de estos segmentos futuros, el valor del bit SYN será cero.
 
 * * *
+
+### 7. Utilice el comando ss (reemplazo de netstat) para obtener la siguiente información de su PC:
+
+#### a. Para listar las comunicaciones TCP establecidas.
+
+`ss -t`
+
+#### b. Para listar las comunicaciones UDP establecidas.
+
+`ss -u`
+
+#### c. Obtener sólo los servicios TCP que están esperando comunicaciones.
+
+`ss -t -l`
+
+#### d. Obtener sólo los servicios UDP que están esperando comunicaciones.
+
+`ss -u -l`
+
+#### e. Repetir los anteriores para visualizar el proceso del sistema asociado a la conexión.
+
+ej: `ss -t -l -p`
+
+#### f. Obtenga la misma información planteada en los items anteriores usando el comando netstat.
+
+  a. `netstat -t -p`
+
+  b. `netstat -u -p`
+
+  c. `netstat -t -l -p`
+
+  d. `netstat -u -l -p`
+
+* * *
+
+### 8. ¿Qué sucede si llega un segmento TCP a un host que no tiene ningún proceso esperando en el puerto destino de dicho segmento (es decir, que dicho puerto no está en estado LISTEN)?
+
+Consideremos lo que ocurre cuando un host recibe un segmento TCP cuyo número de puerto o cuya dirección IP de origen no se corresponde con ninguno de los sockets activos en el host. Por ejemplo, suponiendo que un host recibe un paquete TCP SYN cuyo puerto de destino es el número 80, pero el host no está aceptando conexiones en dicho puerto (es decir, no está ejecutando un servidor web en el puerto 80). Entonces, el host enviará al origen un segmento especial de reinicio. Este segmento TCP tiene el bit indicador RST puesto a 1. Por tanto, cuando un host envía un segmento de reinicio, le está diciendo al emisor “No tengo un socket para ese segmento. Por favor, no reenvies el segmento.” Cuando un host recibe un paquete UDP en el que el número de puerto de destino no se corresponde con un socket UDP activo, el host envía un datagrama ICMP especial.
+
+#### a. Utilice hping3 para enviar paquetes TCP al puerto destino 22 de la máquina virtual con el flag SYN activado.
+
+`hping3 -p 22 -S localhost`
+
+#### b. Utilice hping3 para enviar paquetes TCP al puerto destino 40 de la máquina virtual con el flag SYN activado.
+
+`hping3 -p 40 -S localhost`
+
+#### c. ¿Qué diferencias nota en las respuestas obtenidas en los dos casos anteriores? ¿Puede explicar a qué se debe? (Ayuda: utilice el comando ss visto anteriormente).
+
+La diferencia está en los flags de las respuestas, para el primer comando se recibe `SA` mientras que el segundo `RA`. Esto se debe a que un flag SA quiere decir que corresponde con SYN/ACK, es decir, que la comunicación ha sido aceptada, o lo que es lo mismo, que el puerto está abierto. De lo contrario, si el valor es RA corresponde a RST/ACK o lo que es lo mismo, que la comunicación no se ha realizado correctamente porque el puerto está cerrado o filtrado.
+
+Al utilizar el comando `ss` podemos ver que hay un socket escuchando en el puerto 22, y no el en 44.
+
+* * *
+
+### 9. ¿Qué sucede si llega un datagrama UDP a un host que no tiene a ningún proceso esperando en el puerto destino de dicho datagrama (es decir, que dicho puerto no está en estado LISTEN)?
+
+Cuando un host recibe un paquete UDP en el que el número de puerto de destino no se corresponde con un socket UDP activo, el host envía un datagrama ICMP especial.
+
+#### a. Utilice hping3 para enviar datagramas UDP al puerto destino 68 de la máquina virtual.
+
+`hping3 -2 -p 68 -S localhost`
+
+#### b. Utilice hping3 para enviar datagramas UDP al puerto destino 40 de la máquina virtual.
+
+`hping3 -2 -p 40 -S localhost`
+
+#### c. ¿Qué diferencias nota en las respuestas obtenidas en los dos casos anteriores? ¿Puede explicar a qué se debe? (Ayuda: utilice el comando ss visto anteriormente).
+
+La diferencia es que como hay un socket escuchando en el puerto 68, no se recibe respuesta alguna debido a que UDP no manda segmentos ACK. En cambio como no hay socket escuchando en el puerto 40, se recibe el paquete ICMP.
+
+* * *
+
+### 10. Investigue qué es multicast. ¿Sobre cuál de los protocolos de capa de transporte funciona? ¿Se podría adaptar para que funcione sobre el otro protocolo de capa de transporte? ¿Por qué?
+
+Múlticast es un tipo de comunicación donde la transmición de datos es enviada a un grupo de computadoras destino simultaneamente. Funciona sobre el protocolo UDP, ya que este no es orientado a la conexión (lo que constituye una conexión punto a punto), y no ejecuta los controles de flujo y congestión.
+
+No se podría utilizar bajo el protocolo TCP ya que éste es un protocolo para comunicación entre exactamente dos puntos. Comparado con UDP, TCP realiza un transporte fiable, lo que significa que los paquetes no son solamente enviados sino que se espera además por los paquetes de reconocimiento. Debido a que Multicast solamente envía pero nunca recibe datos, la fiabilidad de TCP no puede ser implementada sobre este protocolo.
+
+* * *
+
+### 11. Use CORE para armar una topología como la siguiente, sobre la cual deberá realizar:
+
+#### d. Iniciar otra conexión desde CLIENTE1 de la misma manera que la anterior y verificar el estado de las conexiones. ¿De qué manera puede identificar cada conexión?
+
+La conexión se identifica con la 4-tupla (source port, dest port, dource ip, dest ip).
+
+#### e. En base a lo observado en el item anterior, ¿es posible iniciar más de una conexión desde el cliente al servidor en el mismo puerto destino? ¿Por qué? ¿Cómo se garantiza que los datos de una conexión no se mezclarán con los de la otra?
+
+Es posible iniciar mas de una conexión desde el cliente al servidor en el mismo puerto destino ya que estas conexiones se diferenciarán por el puerto fuente del cliente. Así de esta manera no se "mezclarán" los datos de una conexión con los de la otra.
+
+#### f. Cerrar la última conexión establecida desde CLIENTE1 y ver los estados de las conexiones en ambos equipos.
+
+La conexión del lado del cliente quedará en `TIME-WAIT` y luego de un tiempo se cerrará, y del lado del servidor se cerrará.
+
+#### g. Cortar el servicio de ncat en el servidor (Ctrl+C) y ver los estados de las conexiones en ambos equipos. Luego, cerrar la conexión en el cliente y verificar nuevamente los estados de las conexiones.
+
+Al cortar el servicio en el servidor, este se quedará esperando en `FIN-WAIT-2`, es decir hasta que el cliente cierre su aplicación, lo cual se representa por el estado `CLOSE-WAIT`. Luego de cerrar la aplicacion del cliente, se terminarán de cerrar ambas conexiones.
