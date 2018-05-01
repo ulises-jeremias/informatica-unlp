@@ -259,3 +259,7 @@ La conexión del lado del cliente quedará en `TIME-WAIT` y luego de un tiempo s
 #### g. Cortar el servicio de ncat en el servidor (Ctrl+C) y ver los estados de las conexiones en ambos equipos. Luego, cerrar la conexión en el cliente y verificar nuevamente los estados de las conexiones.
 
 Al cortar el servicio en el servidor, este se quedará esperando en `FIN-WAIT-2`, es decir hasta que el cliente cierre su aplicación, lo cual se representa por el estado `CLOSE-WAIT`. Luego de cerrar la aplicacion del cliente, se terminarán de cerrar ambas conexiones.
+
+* * *
+
+### 12. De acuerdo a la captura de la siguiente figura, indique los valores de los campos borroneados.
