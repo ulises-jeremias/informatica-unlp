@@ -34,20 +34,11 @@ main(int argc, char const *argv[])
 
         cl = clock();
 
-        #pragma omp parallel default(none) private(i, thread_cl, tid, local_count) shared(A, N, p)
+
+        #pragma omp parallel for private(i) reduction(+:p)
+        for (i = 0; i < N; i++)
         {
-                thread_cl = clock();
-                tid = omp_get_thread_num();
-                local_count = 0;
-
-                #pragma omp for private(i) schedule(dynamic) nowait
-                for (i = 0; i < N; i++)
-                {
-                        local_count += !(A[i] % 2);
-                }
-
-                p += local_count;
-                printf("Time in seconds for thread %d: %Lf\n", tid, PRINTABLE_TIME(thread_cl));
+                p += !(A[i] % 2);
         }
 
         printf("Time: %Lfs\n", PRINTABLE_TIME(cl));

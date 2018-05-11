@@ -13,7 +13,9 @@ initialize(void *thread_id)
 {
         size_t i, t_id;
         t_id = (size_t) thread_id;
+        #ifdef DEBUG
         printf("Hello World! It's me, thread #%ld!\n", t_id);
+        #endif
 
         size_t limit = (1 + t_id)*(N/NUM_THREADS);
         for (i = t_id*(N/NUM_THREADS); i < limit; i++)
@@ -30,7 +32,9 @@ counter(void * thread_id)
         size_t i, t_id, limit, local_count = 0;
         t_id = (size_t) thread_id;
 
+        #ifdef DEBUG
         printf("Hello World! It's me, thread #%ld again! :D\n", t_id);
+        #endif
 
         limit = (1 + t_id)*(N/NUM_THREADS);
 
@@ -77,7 +81,9 @@ main(int argc, char const *argv[])
         for (i = 0; i < NUM_THREADS; i++)
         {
                 rc = pthread_join(threads[i], NULL);
+                #ifdef DEBUG
                 printf("join() is %ld\n", threads[i]);
+                #endif
 
                 if (rc)
                 {
@@ -97,7 +103,9 @@ main(int argc, char const *argv[])
         for (i = 0; i < NUM_THREADS; i++)
         {
                 rc = pthread_join(threads[i], NULL);
+                #ifdef DEBUG
                 printf("join() is %ld\n", threads[i]);
+                #endif
 
                 if (rc)
                 {
@@ -119,5 +127,6 @@ main(int argc, char const *argv[])
         }
 
         printf("Success!\n");
+
         return 0;
 }
