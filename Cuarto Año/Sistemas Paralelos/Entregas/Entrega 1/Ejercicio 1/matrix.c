@@ -44,16 +44,9 @@ matrix_init(double *S)
 __EXTERN_INLINE void
 matrix_triangular_init(double *S)
 {
-        size_t i, j, N = r*n;
+        size_t i, j, N = n*r, M = N*(N+1.)/2.;
 
-        for (i = 0; i < N; i++)
-        {
-                for (j = 0; j < N; j++)
-                {
-
-                        S[i*N + j] = (double) (i >= j);
-                }
-        }
+        for (i = 0; i < M; i++) S[i] = 1.;
 }
 
 __EXTERN_INLINE void
@@ -61,7 +54,7 @@ matrix_printf(double *S)
 {
         size_t i, j, N = r*n;
 
-        printf("Matrix content: \n ");
+        printf("\nMatrix content: \n ");
 
         for (i = 0; i < N; i++)
         {
@@ -69,6 +62,33 @@ matrix_printf(double *S)
                 {
 
                         printf("%f ", S[i*N + j]);
+                }
+
+                printf("\n ");
+        }
+
+        printf("\n");
+}
+
+__EXTERN_INLINE void
+matrix_triangular_printf(double *S)
+{
+        size_t i, j, N = r*n, gauss;
+
+        printf("Matrix content: \n ");
+
+        for (i = 0; i < N; i++)
+        {
+                gauss = i*(i+1)/2;
+
+                for (j = 0; j < i + 1; j++)
+                {
+
+                        printf("%f ", S[gauss + j]);
+                }
+
+                for (; j < N; j++) {
+                        printf("%f ", 0.);
                 }
 
                 printf("\n ");

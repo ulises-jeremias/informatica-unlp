@@ -6,7 +6,7 @@
 
 #define PRINTABLE_TIME(_x) ((long double) (clock() - _x)/CLOCKS_PER_SEC)
 
-size_t n, NUM_THREADS = 4, r, N, matrix_size, block_size;
+size_t n, NUM_THREADS = 4, r, N, matrix_size, matrix_tri_size, block_size;
 
 double *A, *B, *C, *D, *L, *R, *AB, *BD, *ABC;
 double b = 0.0, l = 0.0;
@@ -23,11 +23,12 @@ main(int argc, char const *argv[])
         pthread_t threads[NUM_THREADS];
         size_t i, j, tids[NUM_THREADS];
         clock_t cl;
+        double expected, result;
         long rc;
 
         if (argc < 4)
         {
-                printf("\n Falta un parametro ");
+                printf("\n Faltan parametros ");
                 printf("\n 1. Cantidad de bloques por dimension ");
                 printf("\n 2. Dimension de cada bloque ");
                 printf("\n 3. Numero de hilos");
@@ -40,6 +41,7 @@ main(int argc, char const *argv[])
 
         N = n*r;
         matrix_size = N*N;
+        matrix_tri_size = N*(N+1)/2;
         block_size = r*r;
 
         pthread_mutex_init(&mutex_l, NULL);
@@ -49,13 +51,12 @@ main(int argc, char const *argv[])
         matrix_set_blocks_count(n);
         matrix_set_block_size(r);
 
-        A = (double *) malloc(sizeof(double)*matrix_size);
-        B = (double *) malloc(sizeof(double)*matrix_size);
-        C = (double *) malloc(sizeof(double)*matrix_size);
-        D = (double *) malloc(sizeof(double)*matrix_size);
-        L = (double *) malloc(sizeof(double)*matrix_size);
-        R = (double *) malloc(sizeof(double)*matrix_size);
-
+        A = (double *) malloc(matrix_size*sizeof(double));
+        B = (double *) malloc(matrix_size*sizeof(double));
+        C = (double *) malloc(matrix_size*sizeof(double));
+        D = (double *) malloc(matrix_size*sizeof(double));
+        R = (double *) malloc(matrix_size*sizeof(double));
+        L = (double *) malloc(matrix_tri_size*sizeof(double));
         AB = (double *) calloc(matrix_size, sizeof(double));
         BD = (double *) calloc(matrix_size, sizeof(double));
         ABC = (double *) calloc(matrix_size, sizeof(double));
@@ -71,7 +72,7 @@ main(int argc, char const *argv[])
         matrix_printf(B);
         matrix_printf(C);
         matrix_printf(D);
-        matrix_printf(L);
+        matrix_triangular_printf(L);
         #endif
 
         cl = clock();
@@ -96,17 +97,28 @@ main(int argc, char const *argv[])
 
         printf("TIME: %Lf\n", PRINTABLE_TIME(cl));
 
+        expected = matrix_size*(l + 1);
+        result = R[matrix_size - 1];
+
         #ifdef DEBUG
         matrix_printf(AB);
         matrix_printf(BD);
         matrix_printf(ABC);
         matrix_printf(R);
+
+        printf("Results: \n\n");
+        printf("  B average: %f\n", b);
+        printf("  L average: %f\n", l);
+        printf("  Expected result: %f\n", expected);
+        printf("  Matrix result: %f\n", result);
         #endif
 
-        printf("Matrix result: %f\n", R[matrix_size - 1]);
-        printf("Expected result: %f\n", matrix_size*(l + 1));
-        printf("B average: %f\n", b);
-        printf("L average: %f\n", l);
+        if (expected != result) {
+                printf("\nFailure\n");
+                exit(-1);
+        }
+
+        printf("\nSuccess!\n");
 
         free(A);
         free(B);
@@ -126,14 +138,15 @@ process(void * argv)
         size_t tid = *(size_t *) argv;
         size_t n_base = tid*N/NUM_THREADS, n_limit = (N/NUM_THREADS)*(tid + 1);
         size_t m_base = tid*matrix_size/NUM_THREADS, m_limit = (matrix_size/NUM_THREADS)*(tid + 1);
+        size_t mt_base = tid*matrix_tri_size/NUM_THREADS, mt_limit = (matrix_tri_size/NUM_THREADS)*(tid + 1);
         size_t b_base = tid*n/NUM_THREADS, b_limit = (n/NUM_THREADS)*(tid + 1);
         size_t I, J, K, i, j, k;
-        size_t desp1, desp2, desp3, desp, tmp1, tmp2;
+        size_t desp1, desp2, desp3, desp, tmp1, tmp2, gauss;
         double local_l = 0.0, local_b = 0.0;
 
 
         for (i = m_base; i < m_limit; i++) local_b += B[i];
-        for (i = m_base; i < m_limit; i++) local_l += L[i];
+        for (i = mt_base; i < mt_limit; i++) local_l += L[i];
 
         pthread_mutex_lock(&mutex_b);
         b += local_b;
@@ -226,11 +239,12 @@ process(void * argv)
         pthread_barrier_wait(&barrier);
 
         for (i = m_base; i < m_limit; i++) ABC[i] *= l;
-        for (i = m_base; i < m_limit; i++) if (L[i]) L[i] *= b;
+        for (i = mt_base; i < mt_limit; i++) L[i] *= b;
 
         for(i = n_base; i < n_limit; i++)
         {
                 tmp2 = i + 1;
+                gauss = i*(i+1)/2;
 
                 for(j = 0; j < N; j++)
                 {
@@ -238,7 +252,7 @@ process(void * argv)
 
                         for(k = 0; k < tmp2; k++)
                         {
-                                tmp1 += L[i*N+k]*BD[k+j*N];
+                                tmp1 += L[gauss + k]*BD[k + j*N];
                         }
 
                         R[i*N + j] += tmp1;

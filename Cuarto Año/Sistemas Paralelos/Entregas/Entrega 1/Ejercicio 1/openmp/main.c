@@ -9,9 +9,10 @@
 int
 main(int argc, char const *argv[])
 {
-        size_t I, J, K, k, N, r, n, matrix_size, block_size, NUM_THREADS;
-        size_t desp1, desp2, desp3, desp, tmp1, tmp2;
+        size_t I, J, K, k, N, r, n, matrix_size, matrix_tri_size, block_size, NUM_THREADS;
+        size_t desp1, desp2, desp3, desp, tmp1, tmp2, gauss;
         double l = 0.0, b = 0.0, *A, *B, *C, *D, *L, *AB, *BD, *ABC, *R;
+        double expected, result;
         clock_t cl;
 
         if (argc < 4)
@@ -31,6 +32,7 @@ main(int argc, char const *argv[])
 
         N = n*r;
         matrix_size = N*N;
+        matrix_tri_size = N*(N+1)/2;
         block_size = r*r;
 
         matrix_set_blocks_count(n);
@@ -58,7 +60,7 @@ main(int argc, char const *argv[])
         matrix_printf(B);
         matrix_printf(C);
         matrix_printf(D);
-        matrix_printf(L);
+        matrix_triangular_printf(L);
         #endif
 
         cl = clock();
@@ -71,7 +73,7 @@ main(int argc, char const *argv[])
                 for (i = 0; i < matrix_size; i++) b += B[i];
 
                 #pragma omp for reduction(+:l)
-                for (i = 0; i < matrix_size; i++) l += L[i];
+                for (i = 0; i < matrix_tri_size; i++) l += L[i];
 
                 #pragma omp single
                 {
@@ -149,18 +151,19 @@ main(int argc, char const *argv[])
                 for (i = 0; i < matrix_size; i++) ABC[i] *= l;
 
                 #pragma omp for
-                for (i = 0; i < matrix_size; i++) if (L[i]) L[i] *= b;
+                for (i = 0; i < matrix_tri_size; i++) L[i] *= b;
 
                 #pragma omp for private(j, k, tmp1) schedule(dynamic)
                 for(i = 0; i < N; i++)
                 {
                         tmp1 = i + 1;
+                        gauss = i*(i+1)/2;
 
                         for(j = 0; j < N; j++)
                         {
                                 for(k = 0; k < tmp1; k++)
                                 {
-                                        R[i*N + j] += L[i*N+k]*BD[k+j*N];
+                                        R[i*N + j] += L[gauss + k]*BD[k + j*N];
                                 }
                         }
                 }
@@ -171,17 +174,28 @@ main(int argc, char const *argv[])
 
         printf("TIME: %Lf\n", PRINTABLE_TIME(cl));
 
+        expected = matrix_size*(l + 1);
+        result = R[matrix_size - 1];
+
         #ifdef DEBUG
         matrix_printf(AB);
         matrix_printf(BD);
         matrix_printf(ABC);
         matrix_printf(R);
+
+        printf("Results: \n\n");
+        printf("  B average: %f\n", b);
+        printf("  L average: %f\n", l);
+        printf("  Expected result: %f\n", expected);
+        printf("  Matrix result: %f\n", result);
         #endif
 
-        printf("Matrix result: %f\n", R[matrix_size - 1]);
-        printf("Expected result: %f\n", matrix_size*(l + 1));
-        printf("B average: %f\n", b);
-        printf("L average: %f\n", l);
+        if (expected != result) {
+                printf("\nFailure\n");
+                exit(-1);
+        }
+
+        printf("\nSuccess!\n");
 
         free(A);
         free(B);

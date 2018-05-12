@@ -36,5 +36,6 @@ void matrix_set_block_size(size_t size);
 void matrix_init(double *S);
 void matrix_printf(double *S);
 void matrix_triangular_init(double *S);
+void matrix_triangular_printf(double *S);
 
 #endif
