@@ -58,7 +58,6 @@ main(int argc, char const *argv[])
 
         clock_t cl;
         pthread_t threads[NUM_THREADS];
-        pthread_attr_t attr;
 
         if (argc < 3)
         {
@@ -70,14 +69,10 @@ main(int argc, char const *argv[])
         NUM_THREADS = atoi(argv[2]);
         A = (size_t*) malloc(sizeof(size_t) * N);
 
-        pthread_attr_init(&attr);
-        pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
-
         for (i = 0; i < NUM_THREADS; i++) {
-                pthread_create(&threads[i], &attr, initialize, (void *)i);
+                pthread_create(&threads[i], NULL, initialize, (void *)i);
         }
 
-        pthread_attr_destroy(&attr);
         for (i = 0; i < NUM_THREADS; i++)
         {
                 rc = pthread_join(threads[i], NULL);
@@ -96,10 +91,9 @@ main(int argc, char const *argv[])
 
         for (i = 0; i < NUM_THREADS; i++)
         {
-                pthread_create(&threads[i], &attr, counter, (void *)i);
+                pthread_create(&threads[i], NULL, counter, (void *)i);
         }
 
-        pthread_attr_destroy(&attr);
         for (i = 0; i < NUM_THREADS; i++)
         {
                 rc = pthread_join(threads[i], NULL);
