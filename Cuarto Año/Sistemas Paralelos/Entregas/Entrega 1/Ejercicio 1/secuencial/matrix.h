@@ -35,13 +35,6 @@ void matrix_get_block_size(size_t *size);
 void matrix_set_block_size(size_t size);
 void matrix_init(double *S);
 void matrix_printf(double *S);
-void matrix_block_mult(double *A, double *B, double *C);
-void vector_sum(double *S, double *sum);
-void vector_avg(double *S, double *avg);
-void vector_printf(double *S);
 void matrix_triangular_init(double *S);
-void matrix_triangular_mult(double *A, double *B, double *C);
-void matrix_mult_scalar(double *A, double a, double *B);
-void matrix_add(double *A, double *B, double *C);
 
 #endif
