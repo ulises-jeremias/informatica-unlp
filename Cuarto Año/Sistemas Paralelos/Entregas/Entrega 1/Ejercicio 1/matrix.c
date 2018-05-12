@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include <secuencial/matrix.h>
+#include <matrix.h>
 
 static size_t n = 4;
 static size_t r = 4;
