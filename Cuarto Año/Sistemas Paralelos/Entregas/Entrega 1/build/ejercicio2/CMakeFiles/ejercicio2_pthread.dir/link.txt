@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wextra -Wall -Wundef -Wpointer-arith -Werror -Wcast-qual -Wcast-align -Wno-missing-braces -Wtrampolines -Wunsafe-loop-optimizations -fopenmp  -rdynamic CMakeFiles/ejercicio2_pthread.dir/pthread.c.o  -o ejercicio2_pthread 
