@@ -1,0 +1,7 @@
+ejercicio1_secuencial 1 21.8866
+ejercicio1_pthread 1 12.068
+ejercicio1_openmp 1 7.97281
+ejercicio2_secuencial 1 0.000966072
+ejercicio2_pthread 1 0.00102115
+ejercicio2_openmp 1 0.000885963
+---

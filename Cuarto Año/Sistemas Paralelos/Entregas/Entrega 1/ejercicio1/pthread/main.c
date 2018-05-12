@@ -21,7 +21,7 @@ int
 main(int argc, char const *argv[])
 {
         pthread_t threads[NUM_THREADS];
-        size_t i, j, tids[NUM_THREADS];
+        size_t i, tids[NUM_THREADS];
         clock_t cl;
         double expected, result;
         long rc;

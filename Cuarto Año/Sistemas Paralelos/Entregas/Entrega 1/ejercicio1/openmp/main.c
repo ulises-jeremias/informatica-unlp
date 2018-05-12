@@ -10,7 +10,7 @@ int
 main(int argc, char const *argv[])
 {
         size_t I, J, K, k, N, r, n, matrix_size, matrix_tri_size, block_size, NUM_THREADS;
-        size_t desp1, desp2, desp3, desp, tmp1, tmp2, gauss;
+        size_t desp1, desp2, desp3, desp, tmp1, gauss;
         double l = 0.0, b = 0.0, *A, *B, *C, *D, *L, *AB, *BD, *ABC, *R;
         double expected, result;
         clock_t cl;

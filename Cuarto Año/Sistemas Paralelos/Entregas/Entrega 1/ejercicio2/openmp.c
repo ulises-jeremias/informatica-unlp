@@ -8,11 +8,9 @@
 int
 main(int argc, char const *argv[])
 {
-        int tid;
-        long rc;
-        size_t N, NUM_THREADS, i, sec_p = 0, p = 0, local_count, *A;
+        size_t N, NUM_THREADS, i, sec_p = 0, p = 0, *A;
 
-        clock_t cl, thread_cl;
+        clock_t cl;
 
         if (argc < 3)
         {

@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wextra -Wall -Wundef -Wpointer-arith -Werror -Wcast-qual -Wcast-align -Wno-missing-braces -Wtrampolines -Wunsafe-loop-optimizations -fopenmp  -rdynamic CMakeFiles/ejercicio1_openmp.dir/matrix.c.o CMakeFiles/ejercicio1_openmp.dir/openmp/main.c.o  -o ejercicio1_openmp -lpthread 

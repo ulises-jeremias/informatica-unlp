@@ -44,7 +44,7 @@ matrix_init(double *S)
 __EXTERN_INLINE void
 matrix_triangular_init(double *S)
 {
-        size_t i, j, N = n*r, M = N*(N+1.)/2.;
+        size_t i, N = n*r, M = N*(N+1.)/2.;
 
         for (i = 0; i < M; i++) S[i] = 1.;
 }
