@@ -1,0 +1,2 @@
+postgrado11 slots=4
+postgrado12 slots=4
