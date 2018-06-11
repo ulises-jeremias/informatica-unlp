@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_excel" compatibility="8.1.001" expanded="true" height="68" name="Train" width="90" x="45" y="136">
+        <parameter key="excel_file" value="/home/ulises-jeremias/Mineria de datos/practica2/preingreso.xlsx"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="1"/>
+        <parameter key="imported_cell_range" value="A1:F17"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="Colegio_UNLP.true.polynominal.attribute"/>
+          <parameter key="1" value="Activ_WebUNLP.true.polynominal.attribute"/>
+          <parameter key="2" value="Asistencia.true.integer.attribute"/>
+          <parameter key="3" value="Entregas_Completas.true.integer.attribute"/>
+          <parameter key="4" value="TRABAJA.true.polynominal.attribute"/>
+          <parameter key="5" value="Examen_Final.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="discretize_by_bins" compatibility="8.1.001" expanded="true" height="103" name="Discretize" width="90" x="246" y="34">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Entregas_Completas|Asistencia"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="number_of_bins" value="3"/>
+        <parameter key="define_boundaries" value="false"/>
+        <parameter key="range_name_type" value="long"/>
+        <parameter key="automatic_number_of_digits" value="true"/>
+        <parameter key="number_of_digits" value="3"/>
+      </operator>
+      <operator activated="true" class="discretize_by_user_specification" compatibility="8.1.001" expanded="true" height="103" name="Discretize (2)" width="90" x="246" y="238">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="single"/>
+        <parameter key="attribute" value="Asistencia"/>
+        <parameter key="attributes" value="Entregas_Completas|Asistencia"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <list key="classes">
+          <parameter key="Baja" value="3.0"/>
+          <parameter key="Media" value="6.0"/>
+          <parameter key="Alta" value="10.0"/>
+        </list>
+      </operator>
+      <operator activated="true" class="discretize_by_user_specification" compatibility="8.1.001" expanded="true" height="103" name="Discretize (3)" width="90" x="246" y="442">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="single"/>
+        <parameter key="attribute" value="Entregas_Completas"/>
+        <parameter key="attributes" value="Entregas_Completas|Asistencia"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <list key="classes">
+          <parameter key="Pocas" value="4.0"/>
+          <parameter key="Suficientes" value="7.0"/>
+          <parameter key="Muchas" value="10.0"/>
+        </list>
+      </operator>
+      <connect from_op="Train" from_port="output" to_op="Discretize" to_port="example set input"/>
+      <connect from_op="Discretize" from_port="example set output" to_port="result 1"/>
+      <connect from_op="Discretize" from_port="original" to_op="Discretize (2)" to_port="example set input"/>
+      <connect from_op="Discretize (2)" from_port="example set output" to_op="Discretize (3)" to_port="example set input"/>
+      <connect from_op="Discretize (3)" from_port="example set output" to_port="result 2"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+    </process>
+  </operator>
+</process>

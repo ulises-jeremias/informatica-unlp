@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_excel" compatibility="8.1.001" expanded="true" height="68" name="Read Excel" width="90" x="112" y="34">
+        <parameter key="excel_file" value="/home/ulises-jeremias/Descargas/Golf.xls"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="1"/>
+        <parameter key="imported_cell_range" value="A1:F15"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="N�.false.integer.attribute"/>
+          <parameter key="1" value="Ambiente.true.polynominal.attribute"/>
+          <parameter key="2" value="Temperatura.true.polynominal.attribute"/>
+          <parameter key="3" value="Humedad.true.polynominal.attribute"/>
+          <parameter key="4" value="Viento.true.polynominal.attribute"/>
+          <parameter key="5" value="Juega.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="id3" compatibility="8.1.001" expanded="true" height="82" name="ID3" width="90" x="313" y="34">
+        <parameter key="criterion" value="gain_ratio"/>
+        <parameter key="minimal_size_for_split" value="4"/>
+        <parameter key="minimal_leaf_size" value="2"/>
+        <parameter key="minimal_gain" value="0.1"/>
+      </operator>
+      <connect from_op="Read Excel" from_port="output" to_op="ID3" to_port="training set"/>
+      <connect from_op="ID3" from_port="model" to_port="result 1"/>
+      <connect from_op="ID3" from_port="exampleSet" to_port="result 2"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+    </process>
+  </operator>
+</process>

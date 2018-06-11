@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="8.1.001" expanded="true" height="68" name="Read CSV" width="90" x="45" y="85">
+        <parameter key="csv_file" value="/home/ulises-jeremias/Descargas/recorrido-bicis-2016.csv"/>
+        <parameter key="column_separators" value=";"/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="date_format" value="dd/MM/yyyy HH:mm"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="UTF-8"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="PERIODO.true.integer.attribute"/>
+          <parameter key="1" value="ID_USUARIO.false.integer.attribute"/>
+          <parameter key="2" value="FECHA_HORA_RETIRO.true.date_time.attribute"/>
+          <parameter key="3" value="ORIGEN_ESTACION.true.integer.attribute"/>
+          <parameter key="4" value="NOMBRE_ORIGEN.false.polynominal.attribute"/>
+          <parameter key="5" value="DESTINO_ESTACION.true.integer.attribute"/>
+          <parameter key="6" value="NOMBRE_DESTINO.true.polynominal.attribute"/>
+          <parameter key="7" value="TIEMPO_USO.true.polynominal.attribute"/>
+          <parameter key="8" value="FECHA_CREACION.true.polynominal.attribute"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="generate_attributes" compatibility="8.1.001" expanded="true" height="82" name="Generate Attributes" width="90" x="179" y="289">
+        <list key="function_descriptions">
+          <parameter key="HORA" value="date_str_custom(FECHA_HORA_RETIRO, &quot;HH:mm:ss&quot;)"/>
+        </list>
+        <parameter key="keep_all" value="true"/>
+      </operator>
+      <operator activated="true" class="generate_attributes" compatibility="8.1.001" expanded="true" height="82" name="Generate Attributes (2)" width="90" x="447" y="289">
+        <list key="function_descriptions">
+          <parameter key="MES" value="date_str_custom(FECHA_HORA_RETIRO, &quot;MM&quot;)"/>
+        </list>
+        <parameter key="keep_all" value="true"/>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Generate Attributes" to_port="example set input"/>
+      <connect from_op="Generate Attributes" from_port="example set output" to_op="Generate Attributes (2)" to_port="example set input"/>
+      <connect from_op="Generate Attributes (2)" from_port="example set output" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>

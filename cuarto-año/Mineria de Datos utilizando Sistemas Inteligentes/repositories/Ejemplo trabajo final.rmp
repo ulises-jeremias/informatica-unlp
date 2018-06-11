@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="8.1.001" expanded="true" height="68" name="Read CSV" width="90" x="45" y="34">
+        <parameter key="csv_file" value="/home/ulises-jeremias/Mineria de datos/trabajo final/KDDcup_data_muestra.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="UTF-8"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="duration.true.integer.attribute"/>
+          <parameter key="1" value="protocol_type.true.polynominal.attribute"/>
+          <parameter key="2" value="service.true.polynominal.attribute"/>
+          <parameter key="3" value="flag.true.polynominal.attribute"/>
+          <parameter key="4" value="src_bytes.true.integer.attribute"/>
+          <parameter key="5" value="dst_bytes.true.integer.attribute"/>
+          <parameter key="6" value="land.true.integer.attribute"/>
+          <parameter key="7" value="wrong_fragment.true.integer.attribute"/>
+          <parameter key="8" value="urgent.false.integer.attribute"/>
+          <parameter key="9" value="hot.true.integer.attribute"/>
+          <parameter key="10" value="num_failed_logins.true.integer.attribute"/>
+          <parameter key="11" value="logged_in.true.integer.attribute"/>
+          <parameter key="12" value="num_compromised.true.integer.attribute"/>
+          <parameter key="13" value="root_shell.true.integer.attribute"/>
+          <parameter key="14" value="su_attempted.false.integer.attribute"/>
+          <parameter key="15" value="num_root.true.integer.attribute"/>
+          <parameter key="16" value="num_file_creations.true.integer.attribute"/>
+          <parameter key="17" value="num_shells.true.integer.attribute"/>
+          <parameter key="18" value="num_access_files.true.integer.attribute"/>
+          <parameter key="19" value="num_outbound_cmds.false.integer.attribute"/>
+          <parameter key="20" value="is_host_login.false.integer.attribute"/>
+          <parameter key="21" value="is_guest_login.true.integer.attribute"/>
+          <parameter key="22" value="count.true.integer.attribute"/>
+          <parameter key="23" value="srv_count.true.integer.attribute"/>
+          <parameter key="24" value="serror_rate.true.real.attribute"/>
+          <parameter key="25" value="srv_serror_rate.true.real.attribute"/>
+          <parameter key="26" value="rerror_rate.true.real.attribute"/>
+          <parameter key="27" value="srv_rerror_rate.true.real.attribute"/>
+          <parameter key="28" value="same_srv_rate.true.real.attribute"/>
+          <parameter key="29" value="diff_srv_rate.true.real.attribute"/>
+          <parameter key="30" value="srv_diff_host_rate.true.real.attribute"/>
+          <parameter key="31" value="dst_host_count.true.integer.attribute"/>
+          <parameter key="32" value="dst_host_srv_count.true.integer.attribute"/>
+          <parameter key="33" value="dst_host_same_srv_rate.true.real.attribute"/>
+          <parameter key="34" value="dst_host_diff_srv_rate.true.real.attribute"/>
+          <parameter key="35" value="dst_host_same_src_port_rate.true.real.attribute"/>
+          <parameter key="36" value="dst_host_srv_diff_host_rate.true.real.attribute"/>
+          <parameter key="37" value="dst_host_serror_rate.true.real.attribute"/>
+          <parameter key="38" value="dst_host_srv_serror_rate.true.real.attribute"/>
+          <parameter key="39" value="dst_host_rerror_rate.true.real.attribute"/>
+          <parameter key="40" value="dst_host_srv_rerror_rate.true.real.attribute"/>
+          <parameter key="41" value="Class.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="filter_examples" compatibility="8.1.001" expanded="true" height="103" name="Filter Examples" width="90" x="179" y="34">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="duration.lt.12000"/>
+        </list>
+        <parameter key="filters_logic_and" value="true"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="weight_by_information_gain_ratio" compatibility="8.1.001" expanded="true" height="82" name="Weight by Information Gain Ratio" width="90" x="246" y="187">
+        <parameter key="normalize_weights" value="false"/>
+        <parameter key="sort_weights" value="true"/>
+        <parameter key="sort_direction" value="ascending"/>
+      </operator>
+      <operator activated="true" class="select_by_weights" compatibility="8.1.001" expanded="true" height="103" name="Select by Weights" width="90" x="380" y="187">
+        <parameter key="weight_relation" value="greater equals"/>
+        <parameter key="weight" value="0.3"/>
+        <parameter key="k" value="10"/>
+        <parameter key="p" value="0.5"/>
+        <parameter key="deselect_unknown" value="true"/>
+        <parameter key="use_absolute_weights" value="true"/>
+      </operator>
+      <operator activated="false" class="map" compatibility="8.1.001" expanded="true" height="82" name="Map Clase" width="90" x="112" y="340">
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <list key="value_mappings"/>
+        <parameter key="replace_by" value="OTRA"/>
+        <parameter key="consider_regular_expressions" value="true"/>
+        <parameter key="add_default_mapping" value="false"/>
+      </operator>
+      <operator activated="false" class="map" compatibility="8.1.001" expanded="true" height="82" name="Map Flag" width="90" x="246" y="391">
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <list key="value_mappings"/>
+        <parameter key="replace_by" value="OTRA"/>
+        <parameter key="consider_regular_expressions" value="true"/>
+        <parameter key="add_default_mapping" value="false"/>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Filter Examples" to_port="example set input"/>
+      <connect from_op="Filter Examples" from_port="example set output" to_op="Weight by Information Gain Ratio" to_port="example set"/>
+      <connect from_op="Weight by Information Gain Ratio" from_port="weights" to_op="Select by Weights" to_port="weights"/>
+      <connect from_op="Weight by Information Gain Ratio" from_port="example set" to_op="Select by Weights" to_port="example set input"/>
+      <connect from_op="Select by Weights" from_port="example set output" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>

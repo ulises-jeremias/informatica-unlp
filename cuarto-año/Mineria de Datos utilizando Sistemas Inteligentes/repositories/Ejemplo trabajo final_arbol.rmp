@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="productivity:execute_process" compatibility="8.1.001" expanded="true" height="68" name="Execute Ejemplo trabajo final" width="90" x="45" y="34">
+        <parameter key="process_location" value="Ejemplo trabajo final"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="8.1.001" expanded="true" height="103" name="Split Data" width="90" x="246" y="187">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.8"/>
+          <parameter key="ratio" value="0.2"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="weka:W-J48" compatibility="7.3.000" expanded="true" height="82" name="W-J48" width="90" x="380" y="34">
+        <parameter key="U" value="false"/>
+        <parameter key="C" value="0.25"/>
+        <parameter key="M" value="2.0"/>
+        <parameter key="R" value="false"/>
+        <parameter key="B" value="false"/>
+        <parameter key="S" value="false"/>
+        <parameter key="L" value="false"/>
+        <parameter key="A" value="false"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="8.1.001" expanded="true" height="82" name="Apply Model" width="90" x="514" y="289">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance" compatibility="8.1.001" expanded="true" height="82" name="Performance" width="90" x="581" y="34">
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <operator activated="false" class="concurrency:cross_validation" compatibility="8.1.001" expanded="true" height="145" name="Cross Validation" width="90" x="179" y="442">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="10"/>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="weka:W-J48" compatibility="7.3.000" expanded="true" height="82" name="W-J48 (2)" width="90" x="112" y="34">
+            <parameter key="U" value="false"/>
+            <parameter key="C" value="0.25"/>
+            <parameter key="M" value="2.0"/>
+            <parameter key="R" value="false"/>
+            <parameter key="B" value="false"/>
+            <parameter key="S" value="false"/>
+            <parameter key="L" value="false"/>
+            <parameter key="A" value="false"/>
+          </operator>
+          <connect from_port="training set" to_op="W-J48 (2)" to_port="training set"/>
+          <connect from_op="W-J48 (2)" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="8.1.001" expanded="true" height="82" name="Apply Model (2)" width="90" x="112" y="136">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance" compatibility="8.1.001" expanded="true" height="82" name="Performance (2)" width="90" x="246" y="34">
+            <parameter key="use_example_weights" value="true"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (2)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (2)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Performance (2)" to_port="labelled data"/>
+          <connect from_op="Performance (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <connect from_op="Execute Ejemplo trabajo final" from_port="result 1" to_op="Split Data" to_port="example set"/>
+      <connect from_op="Split Data" from_port="partition 1" to_op="W-J48" to_port="training set"/>
+      <connect from_op="Split Data" from_port="partition 2" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="W-J48" from_port="model" to_op="Apply Model" to_port="model"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+      <connect from_op="Apply Model" from_port="model" to_port="result 2"/>
+      <connect from_op="Performance" from_port="performance" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+    </process>
+  </operator>
+</process>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.003">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.003" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_excel" compatibility="8.1.003" expanded="true" height="68" name="Sonar.xls" width="90" x="45" y="34">
+        <parameter key="excel_file" value="/home/ulises-jeremias/Mineria de datos/datos/sonar.xls"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="1"/>
+        <parameter key="imported_cell_range" value="A1:BI209"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="Atrib_1.true.real.attribute"/>
+          <parameter key="1" value="Atrib_2.true.real.attribute"/>
+          <parameter key="2" value="Atrib_3.true.real.attribute"/>
+          <parameter key="3" value="Atrib_4.true.real.attribute"/>
+          <parameter key="4" value="Atrib_5.true.real.attribute"/>
+          <parameter key="5" value="Atrib_6.true.real.attribute"/>
+          <parameter key="6" value="Atrib_7.true.real.attribute"/>
+          <parameter key="7" value="Atrib_8.true.real.attribute"/>
+          <parameter key="8" value="Atrib_9.true.real.attribute"/>
+          <parameter key="9" value="Atrib_10.true.real.attribute"/>
+          <parameter key="10" value="Atrib_11.true.real.attribute"/>
+          <parameter key="11" value="Atrib_12.true.real.attribute"/>
+          <parameter key="12" value="Atrib_13.true.real.attribute"/>
+          <parameter key="13" value="Atrib_14.true.real.attribute"/>
+          <parameter key="14" value="Atrib_15.true.numeric.attribute"/>
+          <parameter key="15" value="Atrib_16.true.real.attribute"/>
+          <parameter key="16" value="Atrib_17.true.numeric.attribute"/>
+          <parameter key="17" value="Atrib_18.true.numeric.attribute"/>
+          <parameter key="18" value="Atrib_19.true.numeric.attribute"/>
+          <parameter key="19" value="Atrib_20.true.numeric.attribute"/>
+          <parameter key="20" value="Atrib_21.true.numeric.attribute"/>
+          <parameter key="21" value="Atrib_22.true.numeric.attribute"/>
+          <parameter key="22" value="Atrib_23.true.numeric.attribute"/>
+          <parameter key="23" value="Atrib_24.true.numeric.attribute"/>
+          <parameter key="24" value="Atrib_25.true.numeric.attribute"/>
+          <parameter key="25" value="Atrib_26.true.numeric.attribute"/>
+          <parameter key="26" value="Atrib_27.true.numeric.attribute"/>
+          <parameter key="27" value="Atrib_28.true.numeric.attribute"/>
+          <parameter key="28" value="Atrib_29.true.numeric.attribute"/>
+          <parameter key="29" value="Atrib_30.true.numeric.attribute"/>
+          <parameter key="30" value="Atrib_31.true.real.attribute"/>
+          <parameter key="31" value="Atrib_32.true.real.attribute"/>
+          <parameter key="32" value="Atrib_33.true.real.attribute"/>
+          <parameter key="33" value="Atrib_34.true.real.attribute"/>
+          <parameter key="34" value="Atrib_35.true.numeric.attribute"/>
+          <parameter key="35" value="Atrib_36.true.numeric.attribute"/>
+          <parameter key="36" value="Atrib_37.true.real.attribute"/>
+          <parameter key="37" value="Atrib_38.true.numeric.attribute"/>
+          <parameter key="38" value="Atrib_39.true.real.attribute"/>
+          <parameter key="39" value="Atrib_40.true.real.attribute"/>
+          <parameter key="40" value="Atrib_41.true.real.attribute"/>
+          <parameter key="41" value="Atrib_42.true.real.attribute"/>
+          <parameter key="42" value="Atrib_43.true.numeric.attribute"/>
+          <parameter key="43" value="Atrib_44.true.numeric.attribute"/>
+          <parameter key="44" value="Atrib_45.true.numeric.attribute"/>
+          <parameter key="45" value="Atrib_46.true.numeric.attribute"/>
+          <parameter key="46" value="Atrib_47.true.numeric.attribute"/>
+          <parameter key="47" value="Atrib_48.true.numeric.attribute"/>
+          <parameter key="48" value="Atrib_49.true.numeric.attribute"/>
+          <parameter key="49" value="Atrib_50.true.numeric.attribute"/>
+          <parameter key="50" value="Atrib_51.true.numeric.attribute"/>
+          <parameter key="51" value="Atrib_52.true.real.attribute"/>
+          <parameter key="52" value="Atrib_53.true.real.attribute"/>
+          <parameter key="53" value="Atrib_54.true.real.attribute"/>
+          <parameter key="54" value="Atrib_55.true.real.attribute"/>
+          <parameter key="55" value="Atrib_56.true.real.attribute"/>
+          <parameter key="56" value="Atrib_57.true.real.attribute"/>
+          <parameter key="57" value="Atrib_58.true.real.attribute"/>
+          <parameter key="58" value="Atrib_59.true.real.attribute"/>
+          <parameter key="59" value="Atrib_60.true.real.attribute"/>
+          <parameter key="60" value="class.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="8.1.003" expanded="true" height="82" name="Multiply" width="90" x="179" y="34"/>
+      <operator activated="true" class="concurrency:cross_validation" compatibility="8.1.003" expanded="true" height="145" name="Cross Validation con deep learning" width="90" x="313" y="442">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="10"/>
+        <parameter key="sampling_type" value="shuffled sampling"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="h2o:deep_learning" compatibility="7.6.001" expanded="true" height="82" name="Deep Learning" width="90" x="112" y="34">
+            <parameter key="activation" value="Tanh"/>
+            <enumeration key="hidden_layer_sizes">
+              <parameter key="hidden_layer_sizes" value="50"/>
+              <parameter key="hidden_layer_sizes" value="50"/>
+            </enumeration>
+            <enumeration key="hidden_dropout_ratios"/>
+            <parameter key="reproducible_(uses_1_thread)" value="false"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <parameter key="epochs" value="100.0"/>
+            <parameter key="compute_variable_importances" value="false"/>
+            <parameter key="train_samples_per_iteration" value="-2"/>
+            <parameter key="adaptive_rate" value="true"/>
+            <parameter key="epsilon" value="1.0E-8"/>
+            <parameter key="rho" value="0.99"/>
+            <parameter key="learning_rate" value="0.005"/>
+            <parameter key="learning_rate_annealing" value="1.0E-6"/>
+            <parameter key="learning_rate_decay" value="1.0"/>
+            <parameter key="momentum_start" value="0.0"/>
+            <parameter key="momentum_ramp" value="1000000.0"/>
+            <parameter key="momentum_stable" value="0.0"/>
+            <parameter key="nesterov_accelerated_gradient" value="true"/>
+            <parameter key="standardize" value="true"/>
+            <parameter key="L1" value="1.0E-5"/>
+            <parameter key="L2" value="0.0"/>
+            <parameter key="max_w2" value="10.0"/>
+            <parameter key="loss_function" value="Automatic"/>
+            <parameter key="distribution_function" value="AUTO"/>
+            <parameter key="early_stopping" value="false"/>
+            <parameter key="stopping_rounds" value="1"/>
+            <parameter key="stopping_metric" value="AUTO"/>
+            <parameter key="stopping_tolerance" value="0.001"/>
+            <parameter key="missing_values_handling" value="MeanImputation"/>
+            <parameter key="max_runtime_seconds" value="0"/>
+            <list key="expert_parameters"/>
+            <list key="expert_parameters_"/>
+          </operator>
+          <connect from_port="training set" to_op="Deep Learning" to_port="training set"/>
+          <connect from_op="Deep Learning" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="8.1.003" expanded="true" height="82" name="Apply Model (3)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance" compatibility="8.1.003" expanded="true" height="82" name="Performance (3)" width="90" x="246" y="34">
+            <parameter key="use_example_weights" value="true"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (3)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (3)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (3)" from_port="labelled data" to_op="Performance (3)" to_port="labelled data"/>
+          <connect from_op="Performance (3)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="false" class="concurrency:cross_validation" compatibility="8.1.003" expanded="true" height="145" name="Cross Validation con red neuronal" width="90" x="313" y="238">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="10"/>
+        <parameter key="sampling_type" value="shuffled sampling"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="neural_net" compatibility="8.1.003" expanded="true" height="82" name="Neural Net" width="90" x="179" y="34">
+            <list key="hidden_layers"/>
+            <parameter key="training_cycles" value="1000"/>
+            <parameter key="learning_rate" value="0.3"/>
+            <parameter key="momentum" value="0.2"/>
+            <parameter key="decay" value="false"/>
+            <parameter key="shuffle" value="true"/>
+            <parameter key="normalize" value="true"/>
+            <parameter key="error_epsilon" value="1.0E-5"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+          </operator>
+          <connect from_port="training set" to_op="Neural Net" to_port="training set"/>
+          <connect from_op="Neural Net" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+          <description align="center" color="yellow" colored="false" height="125" resized="false" width="180" x="141" y="145">Ojo con la cantidad de vueltas de la red neuronal. Con 5000 tarda aproximadamente 5 minutos con este CrossValidation&lt;br/&gt;</description>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="8.1.003" expanded="true" height="82" name="Apply Model (2)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance" compatibility="8.1.003" expanded="true" height="82" name="Performance (2)" width="90" x="246" y="34">
+            <parameter key="use_example_weights" value="true"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (2)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (2)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Performance (2)" to_port="labelled data"/>
+          <connect from_op="Performance (2)" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="false" class="concurrency:cross_validation" compatibility="8.1.003" expanded="true" height="145" name="Cross Validation con arbol w-j48" width="90" x="313" y="34">
+        <parameter key="split_on_batch_attribute" value="false"/>
+        <parameter key="leave_one_out" value="false"/>
+        <parameter key="number_of_folds" value="10"/>
+        <parameter key="sampling_type" value="shuffled sampling"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="weka:W-J48" compatibility="7.3.000" expanded="true" height="82" name="W-J48" width="90" x="112" y="34">
+            <parameter key="U" value="false"/>
+            <parameter key="C" value="0.25"/>
+            <parameter key="M" value="2.0"/>
+            <parameter key="R" value="false"/>
+            <parameter key="B" value="false"/>
+            <parameter key="S" value="false"/>
+            <parameter key="L" value="false"/>
+            <parameter key="A" value="false"/>
+          </operator>
+          <connect from_port="training set" to_op="W-J48" to_port="training set"/>
+          <connect from_op="W-J48" from_port="model" to_port="model"/>
+          <portSpacing port="source_training set" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="8.1.003" expanded="true" height="82" name="Apply Model" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance" compatibility="8.1.003" expanded="true" height="82" name="Performance" width="90" x="246" y="34">
+            <parameter key="use_example_weights" value="true"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model" to_port="unlabelled data"/>
+          <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+          <connect from_op="Performance" from_port="performance" to_port="performance 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="sink_test set results" spacing="0"/>
+          <portSpacing port="sink_performance 1" spacing="0"/>
+          <portSpacing port="sink_performance 2" spacing="0"/>
+        </process>
+      </operator>
+      <connect from_op="Sonar.xls" from_port="output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Cross Validation con deep learning" to_port="example set"/>
+      <connect from_op="Cross Validation con deep learning" from_port="performance 1" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>

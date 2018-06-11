@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.003">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.003" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_excel" compatibility="8.1.003" expanded="true" height="68" name="Sonar.xls" width="90" x="45" y="34">
+        <parameter key="excel_file" value="/home/ulises-jeremias/Mineria de datos/datos/sonar.xls"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="1"/>
+        <parameter key="imported_cell_range" value="A1:BI209"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="Atrib_1.true.real.attribute"/>
+          <parameter key="1" value="Atrib_2.true.real.attribute"/>
+          <parameter key="2" value="Atrib_3.true.real.attribute"/>
+          <parameter key="3" value="Atrib_4.true.real.attribute"/>
+          <parameter key="4" value="Atrib_5.true.real.attribute"/>
+          <parameter key="5" value="Atrib_6.true.real.attribute"/>
+          <parameter key="6" value="Atrib_7.true.real.attribute"/>
+          <parameter key="7" value="Atrib_8.true.real.attribute"/>
+          <parameter key="8" value="Atrib_9.true.real.attribute"/>
+          <parameter key="9" value="Atrib_10.true.real.attribute"/>
+          <parameter key="10" value="Atrib_11.true.real.attribute"/>
+          <parameter key="11" value="Atrib_12.true.real.attribute"/>
+          <parameter key="12" value="Atrib_13.true.real.attribute"/>
+          <parameter key="13" value="Atrib_14.true.real.attribute"/>
+          <parameter key="14" value="Atrib_15.true.numeric.attribute"/>
+          <parameter key="15" value="Atrib_16.true.real.attribute"/>
+          <parameter key="16" value="Atrib_17.true.numeric.attribute"/>
+          <parameter key="17" value="Atrib_18.true.numeric.attribute"/>
+          <parameter key="18" value="Atrib_19.true.numeric.attribute"/>
+          <parameter key="19" value="Atrib_20.true.numeric.attribute"/>
+          <parameter key="20" value="Atrib_21.true.numeric.attribute"/>
+          <parameter key="21" value="Atrib_22.true.numeric.attribute"/>
+          <parameter key="22" value="Atrib_23.true.numeric.attribute"/>
+          <parameter key="23" value="Atrib_24.true.numeric.attribute"/>
+          <parameter key="24" value="Atrib_25.true.numeric.attribute"/>
+          <parameter key="25" value="Atrib_26.true.numeric.attribute"/>
+          <parameter key="26" value="Atrib_27.true.numeric.attribute"/>
+          <parameter key="27" value="Atrib_28.true.numeric.attribute"/>
+          <parameter key="28" value="Atrib_29.true.numeric.attribute"/>
+          <parameter key="29" value="Atrib_30.true.numeric.attribute"/>
+          <parameter key="30" value="Atrib_31.true.real.attribute"/>
+          <parameter key="31" value="Atrib_32.true.real.attribute"/>
+          <parameter key="32" value="Atrib_33.true.real.attribute"/>
+          <parameter key="33" value="Atrib_34.true.real.attribute"/>
+          <parameter key="34" value="Atrib_35.true.numeric.attribute"/>
+          <parameter key="35" value="Atrib_36.true.numeric.attribute"/>
+          <parameter key="36" value="Atrib_37.true.real.attribute"/>
+          <parameter key="37" value="Atrib_38.true.numeric.attribute"/>
+          <parameter key="38" value="Atrib_39.true.real.attribute"/>
+          <parameter key="39" value="Atrib_40.true.real.attribute"/>
+          <parameter key="40" value="Atrib_41.true.real.attribute"/>
+          <parameter key="41" value="Atrib_42.true.real.attribute"/>
+          <parameter key="42" value="Atrib_43.true.numeric.attribute"/>
+          <parameter key="43" value="Atrib_44.true.numeric.attribute"/>
+          <parameter key="44" value="Atrib_45.true.numeric.attribute"/>
+          <parameter key="45" value="Atrib_46.true.numeric.attribute"/>
+          <parameter key="46" value="Atrib_47.true.numeric.attribute"/>
+          <parameter key="47" value="Atrib_48.true.numeric.attribute"/>
+          <parameter key="48" value="Atrib_49.true.numeric.attribute"/>
+          <parameter key="49" value="Atrib_50.true.numeric.attribute"/>
+          <parameter key="50" value="Atrib_51.true.numeric.attribute"/>
+          <parameter key="51" value="Atrib_52.true.real.attribute"/>
+          <parameter key="52" value="Atrib_53.true.real.attribute"/>
+          <parameter key="53" value="Atrib_54.true.real.attribute"/>
+          <parameter key="54" value="Atrib_55.true.real.attribute"/>
+          <parameter key="55" value="Atrib_56.true.real.attribute"/>
+          <parameter key="56" value="Atrib_57.true.real.attribute"/>
+          <parameter key="57" value="Atrib_58.true.real.attribute"/>
+          <parameter key="58" value="Atrib_59.true.real.attribute"/>
+          <parameter key="59" value="Atrib_60.true.real.attribute"/>
+          <parameter key="60" value="class.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="generate_id" compatibility="8.1.003" expanded="true" height="82" name="Generate ID (para notar split sampling type)" width="90" x="246" y="34">
+        <parameter key="create_nominal_ids" value="false"/>
+        <parameter key="offset" value="0"/>
+      </operator>
+      <operator activated="true" class="split_data" compatibility="8.1.003" expanded="true" height="103" name="Split Data" width="90" x="380" y="238">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.9"/>
+          <parameter key="ratio" value="0.1"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="weight_by_information_gain_ratio" compatibility="8.1.003" expanded="true" height="82" name="Weight by Information Gain Ratio" width="90" x="514" y="136">
+        <parameter key="normalize_weights" value="false"/>
+        <parameter key="sort_weights" value="true"/>
+        <parameter key="sort_direction" value="ascending"/>
+      </operator>
+      <operator activated="true" class="weka:W-J48" compatibility="7.3.000" expanded="true" height="82" name="W-J48" width="90" x="648" y="34">
+        <parameter key="U" value="false"/>
+        <parameter key="C" value="0.25"/>
+        <parameter key="M" value="2.0"/>
+        <parameter key="R" value="false"/>
+        <parameter key="B" value="false"/>
+        <parameter key="S" value="false"/>
+        <parameter key="L" value="false"/>
+        <parameter key="A" value="false"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="8.1.003" expanded="true" height="82" name="Apply Model" width="90" x="782" y="289">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance" compatibility="8.1.003" expanded="true" height="82" name="Performance" width="90" x="849" y="34">
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <connect from_op="Sonar.xls" from_port="output" to_op="Generate ID (para notar split sampling type)" to_port="example set input"/>
+      <connect from_op="Generate ID (para notar split sampling type)" from_port="example set output" to_op="Split Data" to_port="example set"/>
+      <connect from_op="Split Data" from_port="partition 1" to_op="Weight by Information Gain Ratio" to_port="example set"/>
+      <connect from_op="Split Data" from_port="partition 2" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="Weight by Information Gain Ratio" from_port="weights" to_port="result 3"/>
+      <connect from_op="Weight by Information Gain Ratio" from_port="example set" to_op="W-J48" to_port="training set"/>
+      <connect from_op="W-J48" from_port="model" to_op="Apply Model" to_port="model"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+      <connect from_op="Apply Model" from_port="model" to_port="result 2"/>
+      <connect from_op="Performance" from_port="performance" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+    </process>
+  </operator>
+</process>

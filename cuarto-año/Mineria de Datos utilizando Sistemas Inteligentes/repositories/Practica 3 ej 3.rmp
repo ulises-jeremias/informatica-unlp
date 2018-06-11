@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.003">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.003" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_excel" compatibility="8.1.003" expanded="true" height="68" name="Read Excel" width="90" x="45" y="289">
+        <parameter key="excel_file" value="/home/ulises-jeremias/Mineria de datos/practica3/Drug5.xls"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="1"/>
+        <parameter key="imported_cell_range" value="A1:G201"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="Age.true.integer.attribute"/>
+          <parameter key="1" value="Sex.true.polynominal.attribute"/>
+          <parameter key="2" value="BP.true.polynominal.attribute"/>
+          <parameter key="3" value="Cholesterol.true.polynominal.attribute"/>
+          <parameter key="4" value="Na.true.real.attribute"/>
+          <parameter key="5" value="K.true.real.attribute"/>
+          <parameter key="6" value="Drug.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="8.1.003" expanded="true" height="124" name="Multiply" width="90" x="179" y="289"/>
+      <operator activated="true" class="discretize_by_bins" compatibility="8.1.003" expanded="true" height="103" name="Discretize de 10" width="90" x="380" y="442">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="number_of_bins" value="10"/>
+        <parameter key="define_boundaries" value="false"/>
+        <parameter key="range_name_type" value="long"/>
+        <parameter key="automatic_number_of_digits" value="true"/>
+        <parameter key="number_of_digits" value="3"/>
+      </operator>
+      <operator activated="true" class="discretize_by_bins" compatibility="8.1.003" expanded="true" height="103" name="Discretize de 5" width="90" x="380" y="289">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="number_of_bins" value="5"/>
+        <parameter key="define_boundaries" value="false"/>
+        <parameter key="range_name_type" value="long"/>
+        <parameter key="automatic_number_of_digits" value="true"/>
+        <parameter key="number_of_digits" value="3"/>
+      </operator>
+      <operator activated="true" class="weka:W-Prism" compatibility="7.3.000" expanded="true" height="82" name="W-Prism (2)" width="90" x="648" y="289">
+        <parameter key="D" value="false"/>
+      </operator>
+      <operator activated="true" class="discretize_by_bins" compatibility="8.1.003" expanded="true" height="103" name="Discretize de 2" width="90" x="380" y="136">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="number_of_bins" value="2"/>
+        <parameter key="define_boundaries" value="false"/>
+        <parameter key="range_name_type" value="long"/>
+        <parameter key="automatic_number_of_digits" value="true"/>
+        <parameter key="number_of_digits" value="3"/>
+      </operator>
+      <operator activated="true" class="weka:W-Prism" compatibility="7.3.000" expanded="true" height="82" name="W-Prism" width="90" x="648" y="136">
+        <parameter key="D" value="false"/>
+      </operator>
+      <operator activated="true" class="weka:W-Prism" compatibility="7.3.000" expanded="true" height="82" name="W-Prism (3)" width="90" x="648" y="442">
+        <parameter key="D" value="false"/>
+      </operator>
+      <connect from_op="Read Excel" from_port="output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Discretize de 2" to_port="example set input"/>
+      <connect from_op="Multiply" from_port="output 2" to_op="Discretize de 5" to_port="example set input"/>
+      <connect from_op="Multiply" from_port="output 3" to_op="Discretize de 10" to_port="example set input"/>
+      <connect from_op="Discretize de 10" from_port="example set output" to_op="W-Prism (3)" to_port="training set"/>
+      <connect from_op="Discretize de 5" from_port="example set output" to_op="W-Prism (2)" to_port="training set"/>
+      <connect from_op="W-Prism (2)" from_port="model" to_port="result 2"/>
+      <connect from_op="Discretize de 2" from_port="example set output" to_op="W-Prism" to_port="training set"/>
+      <connect from_op="W-Prism" from_port="model" to_port="result 1"/>
+      <connect from_op="W-Prism (3)" from_port="model" to_port="result 3"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+    </process>
+  </operator>
+</process>

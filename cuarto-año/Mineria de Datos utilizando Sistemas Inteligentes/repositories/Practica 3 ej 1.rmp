@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.003">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.003" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_excel" compatibility="8.1.003" expanded="true" height="68" name="Read Excel" width="90" x="45" y="136">
+        <parameter key="excel_file" value="/home/ulises-jeremias/Mineria de datos/practica3/Curso1erAnio.xls"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="2"/>
+        <parameter key="imported_cell_range" value="A1:F17"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="Orden.false.integer.attribute"/>
+          <parameter key="1" value="ASISTENCIA.true.integer.attribute"/>
+          <parameter key="2" value="TRABAJA.true.integer.attribute"/>
+          <parameter key="3" value="INGRESO.true.polynominal.attribute"/>
+          <parameter key="4" value="FORO.true.polynominal.attribute"/>
+          <parameter key="5" value="RESULTADO.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="discretize_by_user_specification" compatibility="8.1.003" expanded="true" height="103" name="Discretize" width="90" x="179" y="136">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="single"/>
+        <parameter key="attribute" value="TRABAJA"/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <list key="classes">
+          <parameter key="NO TRABAJA" value="0.0"/>
+          <parameter key="TRABAJA &lt;= 25" value="25.0"/>
+          <parameter key="TRABAJA &gt; 25" value="Infinity"/>
+        </list>
+      </operator>
+      <operator activated="true" class="discretize_by_user_specification" compatibility="8.1.003" expanded="true" height="103" name="Discretize (2)" width="90" x="313" y="136">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="single"/>
+        <parameter key="attribute" value="ASISTENCIA"/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <list key="classes">
+          <parameter key="&lt; 50" value="50.0"/>
+          <parameter key="&gt; 50" value="Infinity"/>
+        </list>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="8.1.003" expanded="true" height="166" name="Multiply" width="90" x="447" y="136"/>
+      <operator activated="true" class="weka:W-Prism" compatibility="7.3.000" expanded="true" height="82" name="W-Prism" width="90" x="581" y="289">
+        <parameter key="D" value="false"/>
+      </operator>
+      <operator activated="true" class="weka:W-OneR" compatibility="7.3.000" expanded="true" height="82" name="W-OneR" width="90" x="849" y="187">
+        <parameter key="B" value="6.0"/>
+      </operator>
+      <operator activated="true" class="weka:W-ZeroR" compatibility="7.3.000" expanded="true" height="82" name="W-ZeroR" width="90" x="648" y="34">
+        <parameter key="D" value="false"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="8.1.003" expanded="true" height="82" name="Apply Model" width="90" x="782" y="85">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance" compatibility="8.1.003" expanded="true" height="82" name="Performance" width="90" x="916" y="34">
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <operator activated="true" class="read_excel" compatibility="8.1.003" expanded="true" height="68" name="Read Excel (2)" width="90" x="581" y="493">
+        <parameter key="excel_file" value="/home/ulises-jeremias/Mineria de datos/practica3/Curso1erAnio.xls"/>
+        <parameter key="sheet_selection" value="sheet number"/>
+        <parameter key="sheet_number" value="3"/>
+        <parameter key="imported_cell_range" value="A1:F5"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="date_format" value=""/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="Orden.false.integer.attribute"/>
+          <parameter key="1" value="ASISTENCIA.true.integer.attribute"/>
+          <parameter key="2" value="TRABAJA.true.integer.attribute"/>
+          <parameter key="3" value="INGRESO.true.polynominal.attribute"/>
+          <parameter key="4" value="FORO.true.polynominal.attribute"/>
+          <parameter key="5" value="RESULTADO.true.polynominal.label"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="8.1.003" expanded="true" height="124" name="Multiply (2)" width="90" x="782" y="289"/>
+      <operator activated="true" class="apply_model" compatibility="8.1.003" expanded="true" height="82" name="Apply Model (2)" width="90" x="916" y="493">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="8.1.003" expanded="true" height="82" name="Apply Model (3)" width="90" x="983" y="391">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance" compatibility="8.1.003" expanded="true" height="82" name="Performance (3)" width="90" x="1050" y="238">
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <connect from_op="Read Excel" from_port="output" to_op="Discretize" to_port="example set input"/>
+      <connect from_op="Discretize" from_port="example set output" to_op="Discretize (2)" to_port="example set input"/>
+      <connect from_op="Discretize (2)" from_port="example set output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="W-ZeroR" to_port="training set"/>
+      <connect from_op="Multiply" from_port="output 2" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="Multiply" from_port="output 3" to_op="W-OneR" to_port="training set"/>
+      <connect from_op="Multiply" from_port="output 4" to_op="W-Prism" to_port="training set"/>
+      <connect from_op="Multiply" from_port="output 5" to_op="Apply Model (3)" to_port="unlabelled data"/>
+      <connect from_op="W-Prism" from_port="model" to_op="Multiply (2)" to_port="input"/>
+      <connect from_op="W-OneR" from_port="model" to_port="result 2"/>
+      <connect from_op="W-ZeroR" from_port="model" to_op="Apply Model" to_port="model"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+      <connect from_op="Performance" from_port="performance" to_port="result 1"/>
+      <connect from_op="Read Excel (2)" from_port="output" to_op="Apply Model (2)" to_port="unlabelled data"/>
+      <connect from_op="Multiply (2)" from_port="output 1" to_op="Apply Model (3)" to_port="model"/>
+      <connect from_op="Multiply (2)" from_port="output 2" to_op="Apply Model (2)" to_port="model"/>
+      <connect from_op="Multiply (2)" from_port="output 3" to_port="result 5"/>
+      <connect from_op="Apply Model (2)" from_port="labelled data" to_port="result 4"/>
+      <connect from_op="Apply Model (3)" from_port="labelled data" to_op="Performance (3)" to_port="labelled data"/>
+      <connect from_op="Performance (3)" from_port="performance" to_port="result 3"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+      <portSpacing port="sink_result 6" spacing="0"/>
+    </process>
+  </operator>
+</process>
