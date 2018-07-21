@@ -267,6 +267,7 @@ Utilizaria 4 bits (podria definir hasta 16).
 
 xxxxxxxx xxxxxxxx xxxxxxxx sssshhhh
 
+```
 00000000 => 195.200.45.0/28
 00010000 => 195.200.45.16/28
 00100000 => 195.200.45.32/28
@@ -276,6 +277,7 @@ xxxxxxxx xxxxxxxx xxxxxxxx sssshhhh
 01100000 => 195.200.45.96/28
 01110000 => 195.200.45.112/28
 10000000 => 195.200.45.128/28
+```
 
 -   c. Seleccione una e indique dirección de broadcast y rango de direcciones asignables en esa subred.
 
@@ -329,10 +331,12 @@ CIDR consiste básicamente en permitir máscaras de subred de longitud variable 
 
 misma mascara, redes contiguas
 
+```
 0000001 00000000/24
 0000000 00000000/24
 0000011 00000000/24
 0000010 00000000/24
+```
 
 todas las combinaciones estan en los bits xx:
 
