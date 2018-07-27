@@ -12,28 +12,28 @@ principio end-to- end del protocolo IP.
 
 Problemas de IPv4:
 
-* Direcciones IPv4 no disponibles, uso de NAT.
-* Tablas de ruteo muy grandes en el backbone de Internet.
-* Congestión en los routers, demasiado procesamiento.
+-   Direcciones IPv4 no disponibles, uso de NAT.
+-   Tablas de ruteo muy grandes en el backbone de Internet.
+-   Congestión en los routers, demasiado procesamiento.
 
 Otras cuestiones no contempladas desde el inicio:
 
-* Seguridad a nivel L3, IP.
-* Extensiones al modelo de Calidad de Servicio (QoS).
-* Fácil auto-configuración y re-numeración de direcciones.
-* Movilidad a nivel de red no contemplada en el diseño del protocolo.
+-   Seguridad a nivel L3, IP.
+-   Extensiones al modelo de Calidad de Servicio (QoS).
+-   Fácil auto-configuración y re-numeración de direcciones.
+-   Movilidad a nivel de red no contemplada en el diseño del protocolo.
 
 Es importante decir que IPv4 e IPv6 no son versiones del mismo protocolo, sino que son protocolos diferentes.
 
-* Mayor espacio de direcciones
-* 128 bits: 340.282.366.920.938.463.463.374.607.431.768.211.456 direcciones.
-* Formato de cabecera simplificado. Menor overhead de procesamiento.
-* Ordenar las tablas de enrutamiento.
-* Conectar todo, usar auto-configuración de direcciones (plug and play).
-* Arquitectura de red jerárquica para un ruteo eficiente.
-* Seguridad a nivel IP (IPSec obligatorio).
-* Jumbogramas, size(datagrama) > 64KB.
-* Movilidad y más direcciones de multicast.
+-   Mayor espacio de direcciones
+-   128 bits: 340.282.366.920.938.463.463.374.607.431.768.211.456 direcciones.
+-   Formato de cabecera simplificado. Menor overhead de procesamiento.
+-   Ordenar las tablas de enrutamiento.
+-   Conectar todo, usar auto-configuración de direcciones (plug and play).
+-   Arquitectura de red jerárquica para un ruteo eficiente.
+-   Seguridad a nivel IP (IPSec obligatorio).
+-   Jumbogramas, size(datagrama) > 64KB.
+-   Movilidad y más direcciones de multicast.
 
 * * *
 
@@ -58,32 +58,66 @@ En el documento RFC 4443 se ha definido una nueva versión de ICMP para IPv6. Ad
 
 Resuelve:
 
-* Multicast Listener Discovery (MLD), reemplazo de IGMP.
-* Neighbor Discovery Protocol (NDP), reemplazo de ARP y mensajes Router Discovery, Redirect.
-* Mensajes de control de ICMP: informativos (ping), errores.
+-   Multicast Listener Discovery (MLD), reemplazo de IGMP.
+-   Neighbor Discovery Protocol (NDP), reemplazo de ARP y mensajes Router Discovery, Redirect.
+-   Mensajes de control de ICMP: informativos (ping), errores.
 
 * * *
 
 ### 5. Transforme las siguientes direcciones MACs en Identificadores de Interfaces de 64 bits.
 
-*   00:1b:77:b1:49:a1 --> fe80::21b:77ff:feb1:49a1
-*   e8:1c:23:a3:21:f4 --> fe80::ea1c:23ff:fea3:21f4
+-   00:1b:77:b1:49:a1 --> fe80::21b:77ff:feb1:49a1
+-   e8:1c:23:a3:21:f4 --> fe80::ea1c:23ff:fea3:21f4
 
 * * *
 
 ### 6. ¿Cuál de las siguientes direcciones IPv6 no son válidas?
 
-*   2001:0:1019:afde::1 --> `si`
-*   2001::1871::4 --> `no`
-*   3ffg:8712:0:1:0000:aede:aaaa:1211 --> `no`
-*   3::1 --> `si`
-*   :: --> `si`
-*   2001:: --> `si`
-*   3ffe:1080:1212:56ed:75da:43ff:fe90:affe --> `si`
-*   3ffe:1080:1212:56ed:75da:43ff:fe90:affe:1001 --> `no`
+-   2001:0:1019:afde::1 --> `si`
+-   2001::1871::4 --> `no`
+-   3ffg:8712:0:1:0000:aede:aaaa:1211 --> `no`
+-   3::1 --> `si`
+-   :: --> `si`
+-   2001:: --> `si`
+-   3ffe:1080:1212:56ed:75da:43ff:fe90:affe --> `si`
+-   3ffe:1080:1212:56ed:75da:43ff:fe90:affe:1001 --> `no`
 
 * * *
 
 ### 7. ¿Cuál sería una abreviatura correcta de 3f80:0000:0000:0a00:0000:0000:0000:0845?
 
 `3f80:0:0:a00::845`
+
+* * *
+
+### 8. Si quisiese que IPv6 soporte una nueva funcionalidad, ¿cómo lo haría?
+
+Habría que basarse las cabeceras opcionales (campo Next Header, que indica el tipo del siguiente header) para extender el protocolo IPv6. Pero previamente, habría que desarrollar un RFC y que este se apruebe como estándar (para que lo implementen todos los dispositivos que soportan IPv6). O implementarlo dentro de todos los dispositivos del sistema autónomo (pero solo funcionaría dentro de este).
+
+* * *
+
+### 9. Indique si las siguientes direcciones son de link-local, global-address, multicast, etc.
+
+-   fe80::1/64 --> `link-local`
+-   3ffe:4543:2:100:4398::1/64 --> `6Bone`
+-   :: --> `Any (direccion indefinida)`
+-   ::1 --> `Loopback/Localhost`
+-   ff02::2 --> `multicast`
+-   2818:edbc:43e1::8721:122 --> `GLOBAL-ADDRESS, UNICAST`
+-   ff02::9 --> `multicast`
+
+* * *
+
+### 10. Dado el siguiente diagrama, ¿qué direcciones IPv6 será capaz de autoconfigurar el nodo A en cada una de sus interfaces?
+
+-   Primero genera la fe80::021b:77ff:feb1:49a1 /64 (LINK-LOCAL)
+    Manda el router solicitation a la dirección de multicast ff02::2
+    Recibe los prefijos de red y arma: 3ffe:8070:1011:100:021b:77ff:feb1:49a1 /64 (GLOBAL)
+    El router le puede mandar más de un prefijo.
+
+-   Primero genera la fe80::c225:eeff:feba:93e1 /64 (LINK-LOCAL)
+    Manda el router solicitation a la dirección de multicast ff02::2
+    Recibe los prefijos de red y arma: 2818:4fde:5100::c225:eeff:feba:93e1 /64 (GLOBAL)
+    El router le puede mandar más de un prefijo.
+
+* * *
