@@ -1,0 +1,169 @@
+% This is lnbip.tex the demonstration file of the LaTeX macro package for
+% Lecture Notes in Business Information Processing from Springer-Verlag.
+% It serves as a template for authors as well.
+% version 1.0 for LaTeX2e
+%
+\documentclass[lnbip]{svmultln}
+
+\usepackage[utf8]{inputenc}
+\usepackage{multicol} 
+%
+\usepackage{makeidx}  % allows for indexgeneration
+% \makeindex          % be prepared for an author index
+%
+\begin{document}
+%
+\mainmatter              % start of the contribution
+%
+\title{Teoría de la Computación y Verificación de Programas}
+%
+\titlerunning{Teoría de la Computación y Verificación de Programas - Segunda Entrega}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Ulises J. Cornejo Fandos\inst{1}, Lucas Di Cunzolo\inst{2}}
+%
+\authorrunning{Cornejo Fandos, Di Cunzolo}   % abbreviated author list (for running head)
+%
+
+%
+\institute{13566/6, Licenciatura en Informática, Facultad de Informática, UNLP
+\and
+13572/5, Licenciatura en Informática, Facultad de Informática, UNLP, \\
+}
+
+\maketitle              % typeset the title of the contribution
+% \index{Ekeland, Ivar} % entries for the author index
+% \index{Temam, Roger}  % of the whole volume
+% \index{Dean, Jeffrey}
+%
+
+\section{Ejercicio 1}
+
+\textit{Probar que el lenguaje $L_u = \{(<M>,w) |$ M acepta w $\}$ pertenece a la clase RE. Ayuda: la prueba es similar a la desarrollada en la clase 3 para demostrar que $D = \{ w_i | M_i$ acepta $w_i \} \in RE$.} \\
+
+La siguiente MT $M_{L_u}$ acepta el lenguaje $L_u$. Dado un input de la forma $(<M>, w)$, la MT $M_{L_u}$ hace lo siguiente:
+
+\begin{enumerate}
+    \item Toma la MT $<M>$ y la ejecuta con el input $w$
+    \item La MT $M_{L_u}$ acepta si y solo si $<M>$ acepta $w$. De lo contrario, la misma rechaza o entra en estado de \textit{loop}.
+\end{enumerate}
+
+Luego, el mismo está en RE. A su vez, suponer que $L_u \in R$ es ilógico dado que eso significaría que $D = \{ w : M$ acepta $w \} \in R$, el cual ya se demostró pertenece a $RE - R$, entonces sería un absurdo. Por lo tanto, se demuestra que $L_u \in RE - R$.
+
+\section{Ejercicio 2}
+
+\textit{Explicar informal pero claramente cómo trabajaría una MT que genera la n-ésima fórmula booleana satisfactible (es decir que existe una asignación de valores de verdad que la hace verdadera), cuya sintaxis contiene variables de la forma $x_i$, los operadores lógicos del conjunto $\{ \neg,\land ,\lor \}$ y paréntesis.} \\
+
+Se construye una MT M que dado un input $n$,
+
+\begin{enumerate}
+    \item Genera el primer $w_i$ en orden canónico.
+    \item Ejecuta una MT que compruebe que la fórmula booleana sea satisfacible.
+    
+    \begin{itemize}
+        \item Si es satisfacible entonces aumenta un contador m. Si m=n entonces acepta.
+    \end{itemize}
+    
+    \item Genera el siguiente $w_i$ en orden canónico y vuelve al paso 2.
+\end{enumerate}
+
+\section{Ejercicio 3}
+
+\textit{Justificar informal pero claramente cada uno de los incisos siguientes} \\
+
+\begin{enumerate}
+    \item \textit{Se puede decidir si una MT M, a partir de la cadena vacía $\lambda$, escribe alguna vez un símbolo no blanco. Ayuda: ¿Cuántos pasos puede hacer M antes de entrar en loop?} \\
+    
+    Sea L = \{M : M, a partir de la cadena vacía $\lambda$, escribe alguna vez un símbolo no blanco\} y dada una MT $M_L$, la misma reconoce L, es decir $L(M_{L}) = L$, de la siguiente forma. Dado una MT $<M>$, se ejecuta M con $\lambda$ como input acotando la cantidad de pasos que esta puede hacer. Para acotar la cantidad de pasos, se tiene en cuenta que la maquina no debería escribir en la cinta y a su vez, no debería pasar por el mismo estado dos veces. Luego, teniendo en cuenta que en la cinta solo habrá blancos, decimos que la cantidad de pasos posibles antes de entrar en loop no debería exceder la cantidad de estados, $|Q|$. Durante la ejecución de M, $M_L$ observa si la maquina M escribe o no en la cinta. Si la misma escribe, $M_L$ para en su estado $q_a$. Si la misma, excede la cantidad de pasos, planteada anteriormente, $M_L$ para en estado $q_r$. Luego, dado que $M_L$ nunca loopea, $L \in R$.  \\
+    
+    \item \textit{Se puede decidir si a partir de un input w, una MT M que sólo se mueve a la derecha para. Ayuda: ¿Cuántos pasos puede hacer M antes de entrar en loop?} \\
+    
+    Sea L = \{M : M, a partir de un input $w$, M se mueve solamente a la derecha\} y dada una MT $M_L$, la misma reconoce L, es decir $L(M_{L}) = L$, de la siguiente forma. Dado una MT $<M>$, se ejecuta M con $w$ como input acotando la cantidad de pasos que esta puede hacer. Para acotar la cantidad de pasos, se tiene en cuenta que la maquina no debería exceder una cantidad de pasos $N = |w|$ si solo se mueve hacia la derecha. Durante la ejecución de M, $M_L$ observa si la maquina M excede, o no, esta cantidad de pasos. Si la misma no excede, $M_L$ para en su estado $q_a$. En caso contrario, para en $q_r$. De igual forma, $M_L$ para siempre, por lo que $L \in R$. \\
+    
+    \item \textit{Se puede decidir, dada una MT M, si existe un input w a partir del cual M para en a lo sumo 10 pasos. Ayuda: ¿Hasta qué tamaño de cadenas hay que chequear?} \\
+    
+    Sea L = \{M : M, a partir de un input $w$, M para en a lo sumo 10 pasos\} y dada una MT $M_L$, la misma reconoce L, es decir $L(M_{L}) = L$, de la siguiente forma. Dado una MT $<M>$, se ejecuta M con $w$ como input observando la ejecución del mismo. Para acotar la cantidad de pasos, se tiene en cuenta que la maquina no debería exceder una cantidad de pasos $N = |w|.|Q| < 10$. Durante la ejecución de M, $M_L$ observa si la maquina M para o no. En caso contrario, $M_L$ evalúa por cada paso de M si la misma paró o no. Si la misma para, $M_L$ para en su estado $q_a$. Si M hizo más de $N$ pasos, $M_L$ para en estado $q_r$. Luego, es decidible y no loopea, entonces L es un lenguaje recursivo, es decir, $L \in R$.
+\end{enumerate}
+
+\section{Ejercicio 4}
+
+\textit{Considerando la reducción de HP a $L_U$ descripta en clase, responder:}
+
+\begin{enumerate}
+    \item Para hacer una reducción de HP a $L_u$, es decir, $HP \alpha L_u$, debería utilizarse un función $f$ computable en la cual al ejecutar un input $w$ sobre una MT $M$, la misma pare siempre pero nunca en un estado $q_r$. Por otro lado, las tuplas que componen HP están dadas por MT M y un input w tales que M para siempre sobre w, pero no necesariamente acepta. \\
+    
+    El problema de aplicar la función identidad es que no me garantiza que la MT M pare siempre en estado de aceptación por lo que no sería una reducción válida de $HP$ a $L_u$. \\
+    
+    \item La MT M' loopea, o para en estado $q_a$, pero nunca rechaza dada la definición de $f$. En la misma, dado un input de la forma $(M, w)$, la función modifica M cambiando todos los estado $q_r$ por $q_a$. Luego, M' resulta en una maquina donde $q_r$ no pertenece al conjunto de estados finales, por lo que M' nunca para en $q_r$ para cualquier input w. \\
+    
+    \item La función de reducción planteada sirve para hallar $HP^{c} \alpha L_u^{c}$ dado que existe una propiedad de reducción en la cual se enuncia que $\exists L_{1} \alpha L_{2} \leftrightarrow \exists L_{1}^c \alpha L_{2}^c$ aplicando la mismo función computable. Luego, como existe $HP \alpha L_u$ se cumple que existe $HP^c \alpha L_{u}^c$ y en ambos casos es la misma. \\
+    
+    \item La función de transición planteada no sirve para hallar la reducción $L_u \alpha HP$, y esto se debe a que la misma hace que una MT M' pare en $q_a$ cuando M para en $q_r$. Ahora, necesitamos que dado un input $w$ la maquina M' no se detenga cuando M para en $q_r$. Es por esto que la reducción no serviría para este caso. \\
+    
+    \item Esto se debe a que la reducción iría de fuera de HP a dentro de $L_u$. Ya que el v no tiene forma $(<M>,w)$, entonces no pertenece a HP, si le cambiamos la forma a $(<M\Sigma *>, v)$, el mismos pertenece a $L_u$ ya que $M\Sigma *$ acepta todas las cadenas. \\
+    
+    \item Es incorrecto, ya que si M rechaza w, entonces $(<M>,w)$ pertenece a HP, pero con la función dada, se genera el output 1, por lo que $v \notin L_u$, lo que la vuelve una función de reducción invalida. \\
+\end{enumerate}
+
+\section{Ejercicio 5}
+
+\textit{Considerando la reducción de $L_u$ a $L_{\Sigma \*}$ descripta en clase, responder:} \\
+
+\begin{enumerate}
+    \item \textit{Explicar por qué no sirve como función de reducción la función siguiente: a todo input le asigna como output el código $<M \Sigma \*>$.} \\
+
+    No funciona ya que, dado un input $(<M>,w)$, M no acepta w entonces $(<M>,w) \notin L_u$, pero al realizar la función de reducción $M \Sigma \*$ pertenece a $L_{\Sigma \*}$, lo que resulta absurdo. \\
+    
+    \item \textit{Explicar por qué la reducción descrita en clase no sirve para probar que $L_{\Sigma \*} \notin RE$.} \\
+    
+    No sirve ya que $LU \in RE$, y al reducir decimos que es tan o más difícil, por lo que $L_{\Sigma \*}$ sería tan o más difícil que LU, lo cual no sirve para probar $L_{\Sigma \*} \notin RE$, para eso deberíamos reducir $L_1 \alpha L_{\Sigma \*}$ con $L1 \notin RE$.
+\end{enumerate}
+
+
+\section{Ejercicio 6}
+
+\textit{Probar formalmente que las funciones de reducción gozan de la propiedad transitiva. Ayuda: revisar la idea general comentada en clase.}
+
+Sean $L_a, L_b, L_c$ lenguajes, $(\forall a, b) : (a \in L_{a}, b \in L_{b})$ y, sean $f_a, f_b$ dos funciones tales que $f_{a}(a) \in L_b, f_{b}(b) \in L_c$. Se prueba la propiedad transitiva de la reducción de lenguajes.
+
+\begin{itemize}
+    \item $(\forall a \in L_{a})(\forall f_a)$ se cumple que $f_a: L_a \rightarrow L_b \leftrightarrow f_a(a) \in L_b$, por definición de reducción.
+    
+    \item $(\forall b \in L_{b})(\forall f_b)$ se cumple que $f_b: L_b \rightarrow L_c \leftrightarrow f_b(b) \in L_c$, por definición de reducción.
+    
+    \item Luego, sea $h$ una función tal que $h(a) = f_{b}(f_{a}(a))$, tenemos por definición de composición que $h$ es una función de la forma $h: L_a \rightarrow L_c$. Esto quiere decir que $\forall a \in L_{a}, h(a) \in L_{c}$
+\end{itemize}
+
+\section{Ejercicio 7}
+
+\textit{Sea el lenguaje $D_{HP} = \{w_i | M_i$ para desde $w_{i}$, según el orden canónico$\}$. Encontrar una reducción de $D_{HP}$ a $HP$.} \\
+
+La idea es que la funcion de reduccion recibe un input y genera un output. No tiene la nocion de aceptar o rechazar. El output, de ser valido, deberia pertenecer a HP, es decir, ser de la forma $(M, w)$. Se define a continuación la función de reducción.
+
+\begin{itemize}
+    \item Dado un input inválido, retorna algun caracter simbolizando un error como por ejemplo "1".
+    \item Dado un input válido y sea una MT M, $f(w_{i}) = (<M_{i}>, w_{i})$, retorna una tupla perteneciente a HP donde $M_i$ es una maquina generada la cual para con $w_i$.
+\end{itemize}
+
+\section{Ejercicio 8}
+
+\textit{Sean VAL y UNSAT los lenguajes de las fórmulas booleanas válidas e insatisfactibles (todas y ninguna asignación de valores de verdad las hace verdaderas, respectivamente). Encontrar una reducción de VAL a UNSAT.} \\
+
+Dado un input $\gamma$, se define a continuación la función de reducción.
+
+\begin{itemize}
+    \item Dado un $\gamma$, se define que $f(\gamma) = \gamma '$, donde $\gamma '$ es una formula booleana de la forma $\neg (\gamma)$. Luego, 
+    
+    \begin{itemize}
+        \item Si $\gamma$ es una fórmula booleana valida (todas las asignaciones de verdad la hacen verdadera) al negarla todas las asignaciones de verdad darían falso.
+        
+        \item Si $\gamma$ no es una formula booleana valida, entonces al negarla existiría una asignación de valores de verdad que no daría \textit{false}, por lo que $\gamma '$ no estaría en UNSAT.
+    \end{itemize}
+\end{itemize}
+
+
+
+
+
+\end{document}

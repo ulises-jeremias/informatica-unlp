@@ -8,7 +8,7 @@ A principios de la década de 1990, el Internet Engineering Task Force comenzó 
 
 Este agotamiento de direcciones IPv4 generó un conjunto de mecanismos para poder seguir
 agregando subredes a la Internet. Por ejempo, NAT y NAPT, con los cuales se perdía el
-principio end-to- end del protocolo IP.
+principio end-to-end del protocolo IP.
 
 Problemas de IPv4:
 
