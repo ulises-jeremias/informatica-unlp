@@ -12,8 +12,17 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="productivity:execute_process" compatibility="8.2.001" expanded="true" height="68" name="Execute hyphotyroid_read_normalized" width="90" x="45" y="34">
+      <operator activated="false" class="productivity:execute_process" compatibility="8.2.001" expanded="true" height="68" name="Execute hyphotyroid_read_normalized" width="90" x="112" y="340">
         <parameter key="process_location" value="hyphotyroid_read_normalized"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="8.2.001" expanded="true" height="82" name="Execute hypothyroid_read" width="90" x="45" y="34">
+        <parameter key="process_location" value="hypothyroid_read"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
         <parameter key="propagate_metadata_recursively" value="true"/>
@@ -40,7 +49,7 @@
       <operator activated="true" class="performance" compatibility="8.2.001" expanded="true" height="82" name="Performance" width="90" x="581" y="34">
         <parameter key="use_example_weights" value="true"/>
       </operator>
-      <connect from_op="Execute hyphotyroid_read_normalized" from_port="result 1" to_op="Split Data" to_port="example set"/>
+      <connect from_op="Execute hypothyroid_read" from_port="result 1" to_op="Split Data" to_port="example set"/>
       <connect from_op="Split Data" from_port="partition 1" to_op="W-OneR" to_port="training set"/>
       <connect from_op="Split Data" from_port="partition 2" to_op="Apply Model" to_port="unlabelled data"/>
       <connect from_op="W-OneR" from_port="model" to_op="Apply Model" to_port="model"/>
