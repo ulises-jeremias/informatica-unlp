@@ -1,0 +1,228 @@
+% SVMult DOCUMENT CLASS OPTION LNBIP -- layout changes for the LNBIP series
+%
+% This is an enhancement for the
+% LaTeX document class for Springer contributed books (SVMULT)
+%
+%%
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+\ProvidesFile{svlnbip.clo}
+              [2007/07/07 v1.0
+      SVMult class option for the Springer LNBIP series]
+%
+\AtEndOfClass{%
+% inform user
+\typeout{%
+^^J++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^J+ svlnbip.clo 2007/07/07 v1.0 SVMono/SVMult class option +
+^^J+ to establish the layout for Springer LNBIP volumes \space\space\space\space+
+^^J++++++++++++++++++++++++++++++++++++++++++++++++++++++++++^^J}%
+\setlength{\textwidth}{12.2cm}%
+\setlength{\textheight}{19.3cm}%
+%
+\def\@part[#1]#2{\ifnum \c@secnumdepth >-2\relax
+        \refstepcounter{part}%
+        \addcontentsline{toc}{part}{\partname\
+        \thepart\thechapterend\hskip\betweenumberspace
+        #1}\else
+        \addcontentsline{toc}{part}{#1}\fi
+   \markboth{}{}%
+   {\raggedleft
+    \ifnum \c@secnumdepth >-2\relax
+      \normalfont\partsize\partname\ \thepart
+    \par
+    \vskip 103.3\p@ \fi
+    \partstyle
+    #2\par}\@endpart}%
+%
+\if@sechang
+   \def\sec@hangfrom#1{\setbox\@tempboxa\hbox{#1}%
+         \hangindent\wd\@tempboxa\noindent\box\@tempboxa}%
+   \def\chap@hangfrom#1{\setbox\@tempboxa\hbox{#1}%
+         \hangindent\wd\@tempboxa\noindent\box\@tempboxa}%
+\else
+   \def\sec@hangfrom#1{\setbox\@tempboxa\hbox{#1}%
+         \hangindent\z@\noindent\box\@tempboxa}%
+   \def\chap@hangfrom#1{\setbox\@tempboxa\hbox{#1}%
+         \hangindent\z@\noindent\box\@tempboxa}%
+\fi
+%
+\def\@makechapterhead#1{{\parindent\z@\raggedright\normalfont
+  \hyphenpenalty \@M
+  \interlinepenalty\@M
+  \chapsize\chapstyle
+  \chap@hangfrom{\thechapter\thechapterend\hskip\betweenumberspace}%!!!
+  \ignorespaces#1\par\nobreak
+  \csname processchapstarthook\endcsname
+  \ifdim\pagetotal>118\p@
+     \vskip 11\p@
+  \else
+     \@tempdima=118\p@\advance\@tempdima by-\pagetotal
+     \vskip\@tempdima
+  \fi}}%
+%
+\def\@makeschapterhead#1{{\parindent \z@ \raggedright\normalfont
+  \hyphenpenalty \@M
+  \interlinepenalty\@M
+  \chapsize\chapstyle
+  \ignorespaces#1\par\nobreak
+  \csname processchapstarthook\endcsname
+  \ifdim\pagetotal>118\p@
+     \vskip 11\p@
+  \else
+     \@tempdima=118\p@\advance\@tempdima by-\pagetotal
+     \vskip\@tempdima
+  \fi}}%
+%
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                       {-10\p@ \@plus -4\p@ \@minus -4\p@}%
+                       {-0.5em \@plus -0.22em \@minus -0.1em}%
+                       {\normalfont\normalsize\subsecstyle}}%
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                       {-10\p@ \@plus -4\p@ \@minus -4\p@}%
+                       {-0.5em \@plus -0.22em \@minus -0.1em}%
+                       {\normalfont\normalsize\itshape}}%
+%
+\let\labelitemi=\labelitemii
+\renewcommand\labelitemiii{\textbullet}%
+%
+\newdimen\svitemindent \setlength{\svitemindent}{10\p@}%
+%
+\def\@idxitem{\par\hangindent 10\p@}%
+%
+\def\subitem{\par\setbox0=\hbox{--\enspace}% second order
+                \noindent\hangindent\wd0\box0\relax}% index entry
+%
+\def\subsubitem{\par\setbox0=\hbox{--\,--\enspace}% third
+                \noindent\hangindent\wd0\box0\relax}% order index entry
+%
+\providecommand{\toctitlestyle}{\bfseries}
+}%
+%
+\def\lnbip@maketitle{\newpage
+ \markboth{}{}%
+ \def\lastand{\ifnum\value{@inst}=2\relax
+                 \unskip{} \andname\
+              \else
+                 \unskip \lastandname\
+              \fi}%
+ \def\and{\stepcounter{@auth}\relax
+          \ifnum\value{@auth}=\value{@inst}%
+             \lastand
+          \else
+             \unskip,
+          \fi}%
+ \begin{center}%
+ \let\newline\\
+ {\Large \bfseries\boldmath
+  \pretolerance=10000
+  \@title \par}\vskip .8cm
+\if!\@subtitle!\else {\large \bfseries\boldmath
+  \vskip -.65cm
+  \pretolerance=10000
+  \@subtitle \par}\vskip .8cm\fi
+ \setbox0=\vbox{\setcounter{@auth}{1}\def\and{\stepcounter{@auth}}%
+ \def\thanks##1{}\@author}%
+ \global\value{@inst}=\value{@auth}%
+ \global\value{auco}=\value{@auth}%
+ \setcounter{@auth}{1}%
+{\lineskip .5em
+\noindent\ignorespaces
+\@author\vskip.35cm}
+ {\small\institutename}
+ \end{center}%
+\addvspace{20pt}%
+ }
+%
+\def\lnbip@title#1#2{\addpenalty{-\@highpenalty}
+ \addvspace{8\p@ \@plus \p@}
+ \@tempdima \z@
+ \tocchpnum \z@ \calctocindent
+ \begingroup
+ \parindent \z@ \rightskip \@tocrmarg
+ \advance\rightskip by \z@ \@plus 2cm
+ \parfillskip -\rightskip \pretolerance=10000
+ \leavevmode \advance\leftskip\@tempdima \hskip -\leftskip
+ {\toctitlestyle#1}\nobreak
+ \leaders\hbox{$\m@th \mkern \@dotsep mu.\mkern
+ \@dotsep mu$}\hfill
+ \nobreak\hbox to\@pnumwidth{\hss #2}\par
+ \penalty\@highpenalty \endgroup}
+%
+\def\lnbip@author#1#2{\addpenalty{\@highpenalty}
+ \@tempdima=15\p@ %\z@
+ \begingroup
+ \parindent \z@ \rightskip \@tocrmarg
+ \advance\rightskip by 0pt plus 2cm
+ \pretolerance=10000
+ \leavevmode \advance\leftskip\@tempdima %\hskip -\leftskip
+ {\tocauthorstyle#1}\par
+ \penalty\@highpenalty
+ \addvspace{\tocaftauthskip}\endgroup}
+%
+\def\lnbip@institutename{\par
+ \begingroup
+ \parskip=\z@
+ \parindent=\z@
+ \setcounter{@inst}{1}%
+ \def\and{\par\stepcounter{@inst}%
+ \noindent$^{\the@inst}$\enspace\ignorespaces}%
+ \setbox0=\vbox{\def\thanks##1{}\@institute}%
+ \ifnum\c@@inst=1\relax
+   \gdef\fnnstart{0}%
+ \else
+   \xdef\fnnstart{\c@@inst}%
+   \setcounter{@inst}{1}%
+   \noindent$^{\the@inst}$\enspace
+ \fi
+ \ignorespaces
+ \@institute\par
+ \endgroup}
+%
+\AtBeginDocument{%
+\@ifpackageloaded{url}{}{\RequirePackage{url}}%
+\let\email=\url
+%
+\let\l@author=\lnbip@author
+\let\l@title=\lnbip@title
+\let\@maketitle=\lnbip@maketitle
+\let\institutename=\lnbip@institutename
+%
+\def\abstractname{Abstract.}%
+%
+\renewenvironment{abstract}{%
+      \list{}{\advance\topsep by0.35cm\relax\small
+      \leftmargin=1cm
+      \labelwidth=\z@
+      \listparindent=\z@
+      \itemindent\listparindent
+      \rightmargin\leftmargin}\item[\hskip\labelsep
+                                    \bfseries\abstractname]}
+    {\endlist}
+%
+\renewcommand\footnoterule{%
+  \kern-3\p@
+  \hrule\@width 2truecm
+  \kern2.6\p@}
+%
+\def\title{\@ifstar\s@title\s@title}%
+\renewcommand{\toctitlestyle}{\normalfont\rmfamily}
+}
+%
+\endinput
+%%
+%% End of file `svlnbip.clo'.

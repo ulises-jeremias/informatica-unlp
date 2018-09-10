@@ -1,0 +1,213 @@
+% This is lnbip.tex the demonstration file of the LaTeX macro package for
+% Lecture Notes in Business Information Processing from Springer-Verlag.
+% It serves as a template for authors as well.
+% version 1.0 for LaTeX2e
+%
+\documentclass[lnbip]{svmultln}
+
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+%
+\usepackage{makeidx}  % allows for indexgeneration
+% \makeindex          % be prepared for an author index
+%
+\begin{document}
+%
+\mainmatter              % start of the contribution
+%
+\title{Lógica e Inteligencia Artificial}
+%
+\titlerunning{Lógica e Inteligencia Artificial - Primer Entrega}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Ulises J. Cornejo Fandos\inst{1}, Lucas Di Cunzolo\inst{2}}
+%
+\authorrunning{Cornejo Fandos, Di Cunzolo}   % abbreviated author list (for running head)
+%
+
+%
+\institute{13566/6, Licenciatura en Informática, Facultad de Informática, UNLP
+\and
+13572/5, Licenciatura en Informática, Facultad de Informática, UNLP, \\
+}
+
+\maketitle              % typeset the title of the contribution
+% \index{Ekeland, Ivar} % entries for the author index
+% \index{Temam, Roger}  % of the whole volume
+% \index{Dean, Jeffrey}
+%
+
+\section{Ejercicio 1}
+
+\textbf{Traduzca al lenguaje simbólico los siguientes enunciados:} \\
+
+\begin{itemize}
+  \item \textit{Juan necesita un matemático o un informático.} \\
+
+  Sean $p$ y $q$ enunciados tales que $p$: Juan necesita un matemático, $q$: Juan necesita un informático. \\
+
+  $p \vee q$ \\
+
+  \item \textit{Si Juan necesita un informático entonces necesita un matemático.} \\
+
+  Sean $p$ y $q$ enunciados tales que $p$: Juan necesita un matemático, $q$: Juan necesita un informático. \\
+
+  $p \rightarrow q$ \\
+
+  \item \textit{Si Juan no necesita un matemático entonces necesita un informático.} \\
+
+  Sean $p$ y $q$ enunciados tales que $p$: Juan necesita un matemático, $q$: Juan necesita un informático. \\
+
+  $\neg p \rightarrow q$ \\
+
+  \item \textit{Si Juan contrata un informático entonces el proyecto tendrá éxito.} \\
+
+  Sean $p$ y $q$ enunciados tales que $p$: Juan contrata un informático, $q$: El proyecto tiene exito. \\
+
+  $p \rightarrow q$ \\
+
+  \item \textit{Si el proyecto no tiene éxito entonces Juan no ha contratado un informático.} \\
+
+  Sean $p$ y $q$ enunciados tales que $p$: El proyecto tiene éxito, $q$: Juan ha contratado un informático. \\
+
+  $\neg p \rightarrow \neg q$ \\
+
+  \item \textit{El proyecto tendrá éxito si y sólo si Juan contrata un informático.} \\
+
+  Sean $p$ y $q$ enunciados tales que $p$: El proyecto tiene éxito, $q$: Juan contrata un informático. \\
+
+  $p \leftrightarrow q$ \\
+
+  \item \textit{Para aprobar Lógica, el alumno debe asistir a clase, desarrollar un cuaderno
+de prácticas aceptable y demostrar que dicho cuaderno ha sido desarrollado
+por él; o desarrollar un cuaderno de prácticas aceptable y aprobar
+el examen final.} \\
+
+  Sean $p$, $q$, $r$, $t$, $w$ tales que:
+
+  \begin{itemize}
+    \item $p$: El alumno asiste a clase
+    \item $q$: El alumno desarrolla un cuaderno de prácticas aceptable
+    \item $r$: El alumno demuestra que el cuaderno de prácticas ha sido desarrollado por él
+    \item $t$: El alumno aprueba el examen final
+    \item $w$: El alumno aprueba Lógica \\
+  \end{itemize}
+
+  $(p \wedge q \wedge r) \vee (q \wedge t) \rightarrow w$ \\
+
+  \item \textit{El alumno puede asistir a clase u optar por un examen libre.}
+
+  Sean $p$ y $q$ tales que $p$: El alumno asiste a clases, $q$: El alumno opta por un examen final. \\
+
+  $p \vee q$ \\
+
+  \item \textit{Si x es un número racional e y es un entero, entonces z no es real.} \\
+
+  Sean $p$, $q$ y $r$ tales que $p$: x es un número racional, $q$: x es un número entero, $r$: z es un número real. \\
+
+  $(p \wedge q) \rightarrow r$ \\
+
+  \item \textit{La suma de dos números es par si y sólo si los dos números son pares o
+los dos números son impares.} \\
+
+  Sean $p$, $q$, $r$ tales que $p$: La suma de dos números es par, $q$: Los dos números son pares, $r$: Los dos números son impares. \\
+
+  $p \leftrightarrow (q \vee r)$ \\
+
+\end{itemize}
+
+\section{Ejercicio 2}
+
+\textbf{Dada la siguiente información:} \\
+
+\textit{Si el unicornio es mítico, entonces es inmortal, pero si no es mítico, entonces
+es un mamífero mortal. Si el unicornio es o inmortal o un mamífero, entonces
+tiene un cuerno. El unicornio es mágico si tiene un cuerno.} \\
+
+Simbolizarla en el Cálculo de Enunciados. \\
+
+\begin{itemize}
+  \item $p$: El unicornio es mítico.
+  \item $q$: El unicornio es mortal.
+  \item $r$: El unicornio es un mamífero.
+  \item $s$: El unicornio tiene un cuerno.
+  \item $t$: El unicornio es mágico.
+\end{itemize}
+
+\begin{itemize}
+  \item $p \rightarrow \neg q$
+  \item $\neg p \rightarrow (r \wedge q)$
+  \item $(\neg q \vee r) \rightarrow s$
+  \item $s \rightarrow t$ \\
+\end{itemize}
+
+Responder: \\
+
+\textbf{(a) El unicornio es mítico?. Fundamentar.}
+
+p = F, el resto V. no es mitico.
+
+\textbf{El unicornio es mágico?. Fundamentar.}
+
+p = V, q = V, r = F, s = F, t = F
+
+F -> F, da tautologia, y es magico
+
+\section{Ejercicio 3}
+
+\textbf{Se sabe que:}
+
+\textit{La página web tiene un error o el examen de álgebra no es el 2 de julio.
+Si el examen de álgebra es el 2 de julio entonces la página web tiene un error.
+El examen de álgebra es el 14 de julio si y sólo si la página web tiene un error
+y el período de exámenes no termina el 10 de julio}
+
+\begin{itemize}
+  \item $p$: La pagina web tiene un error.
+  \item $q$: El examen de álgebra es el 2 de julio.
+  \item $r$: El examen de álgebra es el 14 de julio.
+  \item $w$: El período de exámenes termina el 10 de julio.
+\end{itemize}
+
+\begin{itemize}
+  \item $p \vee \neg q$
+  \item $q \rightarrow p$
+  \item $r \leftrightarrow (p \wedge \neg w)$
+\end{itemize}
+
+(a) no es el 2 de julio. p = v, q = F, r = F, w = V
+
+(b) siempre verdadero si p = V
+
+(c) (p -> r)
+
+no se cumple ya que si p -> q es F, existe una config en la que el resto es V.
+
+p = V, r = F, w = V
+
+\section{Ejercicio 4}
+
+\textit{Se tienen las siguientes premisas:
+Si Juan tiene suerte y llueve entonces estudia.
+Juan aprobará si y sólo si estudia o tiene suerte.
+Si Juan no tiene suerte entonces no llueve.}
+
+\begin{itemize}
+  \item $p$: Juan tiene suerte
+  \item $q$: Llueve
+  \item $r$: Juan estudia
+  \item $w$: Juan aprueba
+\end{itemize}
+
+\begin{itemize}
+  \item $(p \wedge q) \rightarrow r$
+  \item $w \leftrightarrow (r \vee p)$
+  \item $\neg p \rightarrow \neg q$
+\end{itemize}
+
+(a) p = V, q = V, w = F, r = V. Juan no aprueba
+
+(b) Tiene suerte porque llueve
+
+\end{document}
