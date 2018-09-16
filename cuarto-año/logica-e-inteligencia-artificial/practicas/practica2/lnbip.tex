@@ -28,7 +28,7 @@
 
 %
 \institute{
-13566/6, Licenciatura en Informática, Facultad de Informática, UNLP
+13566/7, Licenciatura en Informática, Facultad de Informática, UNLP
 \and
 13572/5, Licenciatura en Informática, Facultad de Informática, UNLP
 \and
@@ -118,6 +118,184 @@ Un argumento válido pero sin solidez podría ser o no falso. El argumento de ej
 
 \section{Ejercicio 3}
 
+\textit{Sea $A$ una fbf donde aparecen sólo los conectivos $\wedge, \vee, \neg$ . Sea $A'$ la fbf que se obtiene a partir de $A$ reemplazando cada $\wedge$ por $\vee$ y cada $\vee$ por $\wedge$. ¿Si A es una tautología, $A'$ también lo es? Justificar. Ejemplificar con algunos ejemplos escritos en lenguaje natural.} \\
+
+
+\section{Ejercicio 5}
+
+\textit{¿Es cierto que en el Cálculo de Enunciados pueden escribirse dos fbfs que tengan diferentes letras de proposición y aún así ambas fbfs sean lógicamente equivalentes?. Fundar.} \\
+
+Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enunciados, se ignora en cierta forma la composición interna de las mismas siendo que lo único relevante será siempre el valor de verdad resultante de cada una.
+
+\newpage
+
+\section{Ejercicio 6}
+
+\textit{Determinar cuáles de las siguientes fbfs son lógicamente implicadas por la fbf $(A \wedge B)$. Fundamentar. Def. de implicación lógica, ver def. 1.7 del Hamilton.} \\
+
+\begin{enumerate}
+  \item $A$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|c}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $A)$ \\
+      $V$ & $V$ & $V$ & $V$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $V$ \\
+      $F$ & $F$ & $V$ & $V$ & $F$ \\
+      $F$ & $F$ & $F$ & $V$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $A$. \\
+  
+  \item $B$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|c}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $B)$ \\
+      $V$ & $V$ & $V$ & $V$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $F$ \\
+      $F$ & $F$ & $V$ & $V$ & $V$ \\
+      $F$ & $F$ & $F$ & $V$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $B$. \\
+  
+  \item $A \vee B$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|ccc}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $(A$ & $\vee$ & $B))$ \\
+      $V$ & $V$ & $V$ & $V$ & $V$ & $V$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $V$ & $V$ & $F$ \\
+      $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ \\
+      $F$ & $F$ & $F$ & $V$ & $F$ & $F$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $A \vee B$. \\
+  
+  \item $\neg A \vee B$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|cccc}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $((\neg$ & $A)$ & $\vee$ & $B))$ \\
+      $V$ & $V$ & $V$ & $V$ & $F$ & $V$ & $V$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $F$ & $V$ & $F$ & $F$ \\
+      $F$ & $F$ & $V$ & $V$ & $V$ & $F$ & $V$ & $V$ \\
+      $F$ & $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $\neg A \vee B$. \\
+  
+  \item $\neg B \rightarrow A$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|cccc}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $((\neg$ & $B)$ & $\rightarrow$ & $A))$ \\
+      $V$ & $V$ & $V$ & $V$ & $F$ & $V$ & $V$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ & $V$ \\
+      $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ & $F$ \\
+      $F$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $\neg B \rightarrow A$. \\
+  
+  \item $A \leftrightarrow B$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|ccc}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $(A$ & $\leftrightarrow$ & $B)$ \\
+      $V$ & $V$ & $V$ & $V$ & $V$ & $V$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ \\
+      $F$ & $F$ & $V$ & $V$ & $F$ & $F$ & $V$ \\
+      $F$ & $F$ & $F$ & $V$ & $F$ & $V$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $A \leftrightarrow B$. \\
+  
+  \item $A \rightarrow B$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|ccc}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $(A$ & $\rightarrow$ & $B)$ \\
+      $V$ & $V$ & $V$ & $V$ & $V$ & $V$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ \\
+      $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ \\
+      $F$ & $F$ & $F$ & $V$ & $F$ & $V$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $A \rightarrow B$. \\
+  
+  \item $\neg B \rightarrow \neg A$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|ccccc}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $((\neg$ & $A)$ & $\rightarrow$ & $(\neg$ & $B))$ \\
+      $V$ & $V$ & $V$ & $V$ & $F$ & $V$ & $V$ & $F$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ & $F$ & $V$ \\
+      $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ & $V$ & $F$ \\
+      $F$ & $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $\neg B \rightarrow \neg A$. \\
+  
+  \item $B \rightarrow \neg A$
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|cccc}
+      $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $(B$ & $\rightarrow$ & $(\neg$ & $A)))$ \\
+      $V$ & $V$ & $V$ & $F$ & $V$ & $F$ & $F$ & $V$ \\
+      $V$ & $F$ & $F$ & $V$ & $F$ & $V$ & $F$ & $V$ \\
+      $F$ & $F$ & $V$ & $V$ & $V$ & $V$ & $V$ & $F$ \\
+      $F$ & $F$ & $F$ & $V$ & $F$ & $V$ & $V$ & $F$
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que la implicación no es una tautología, $(A \wedge B)$ no implica logicamente a $B \rightarrow \neg A$. \\
+\end{enumerate}
+
+\section{Ejercicio 8}
+
+\textit{Sea A una fbf donde aparecen sólo los conectivos $\wedge$, $\neg$. Sea $A'$ la fbf que se obtiene a partir de A reemplazando cada $\wedge$ por $\vee$ y cada letra de proposición por su negación (o sea, cada $p$ por $\neg p$, cada $q$ por $\neg q$, etc.). ¿Es cierto que $A'$ es lógicamente equivalente a $\neg A$? Fundamentar. Ejemplificar con algunos ejemplos concretos escritos en lenguaje natural.} \\
+
+Sean $p_1, p_2, \ldots, p_n$ variables de enunciado, y sean $A = ((\neg p_1) \wedge (\neg p_2) \wedge \ldots \wedge (\neg p_n))$ y $A' = ((p_1) \vee (p_2) \vee \ldots \vee (p_n))$. Se cumple que 
+
+\begin{equation}
+  \left(\bigwedge_{i=1}^{n}{(\neg p_i)}\right)  
+\end{equation}
+
+es logicamente equivalente a 
+
+\begin{equation}
+  \left(\neg \left(\bigvee_{i=1}^{n}{p_i}\right)\right)
+\end{equation}
+
+, pues el mismo es un caso especial de la proposición 1.15 y se plantea en el corolario 1.16. El mismo se cumple siempre independientemente del valor de verdad de las variables de enunciado. \\
 
 
 \end{document}
