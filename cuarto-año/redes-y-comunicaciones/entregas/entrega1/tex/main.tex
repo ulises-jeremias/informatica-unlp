@@ -31,8 +31,13 @@
 \title{Redes y Comunicaciones}
 
 \author{Ulises Jeremias Cornejo Fandos}
-\affiliation{Licenciatura en Informatica - 13566/7, Facultad de Informatica, UNLP}
+\affiliation{13566/7, Licenciatura en Informatica, Facultad de Informatica, UNLP}
 
+\author{Federico Ramón Gasquez}
+\affiliation{13598/6, Licenciatura en Informatica, Facultad de Informatica, UNLP}
+
+\author{Lihuel Tierni Amoroso}
+\affiliation{12345/0, Analista en TIC, Facultad de Derecho y Ciencias Juridicas, UNLP}
 
 %%\begin{abstract}
 %%\end{abstract}
@@ -95,7 +100,7 @@ Analizar consultas DNS realizadas por el servidor SMTP origen.
 
   \item ¿Alguna de las respuestas es de tipo autoritativa? \\
 
-  Mirando el flag \textit{Authoritative} de las respuestas a cada una de las consultas podemos ver que ninguna de ellas son de tipo autoritativo.
+  Mirando el flag \textit{Authoritative} de las respuestas a cada una de las consultas podemos ver que ninguna de ellas son de tipo autoritativo. \\
 \end{enumerate}
 
 \section{Ejercicio 4}
@@ -109,12 +114,12 @@ Análisis de SMTP
 
   \item ¿Cuántas comunicaciones SMTP se observan en la captura? \\
 
-  Se observan dos comunicaciones SMTP.
+  Se observan dos comunicaciones SMTP. \\
 \end{enumerate}
 
 \section{Ejercicio 5}
 
-Sobre el primer correo electrónico
+Sobre el primer correo electrónico \\
 
 \begin{enumerate}[a)]
   \item ¿A qué corresponde la información enviada por el servidor destino como respuesta al comando EHLO? Elija dos de las opciones del listado e investigue la funcionalidad de la misma. \\
@@ -135,13 +140,34 @@ Sobre el primer correo electrónico
     \item DSN
     \item SMTPUTF8
   \end{itemize}
-  
+
   \item ¿Por qué el contenido del primer mail no puede ser leído? \\
-  
-  Se envia el mail de forma segura utilizando TLS.
+
+  Se envia el mail de forma segura utilizando TLS. \\
 \end{enumerate}
 
 \section{Ejercicio 6}
+
+Con respecto al segundo correo electrónico \\
+
+\begin{enumerate}[a)]
+  \item ¿Cuál es el nombre del servidor de correo origen? \\
+
+  El primer comando que necesitamos enviar al servidor de correo es EHLO o HELO. Este es un saludo básico que inicia la comunicación entre el cliente de telnet y el servidor SMTP. También se pasa el DNS PTR para la dirección IP desde la que nos conectamos, como se determinó previamente. \\
+
+  Luego, el nombre del servidor de correo origen es `mail.linti.unlp.edu.ar` y lo sabemos dado que se envia como parámetro del comando EHLO. \\
+
+  \item ¿Cuál es el MESSAGE-ID del correo enviado? ¿Quién asigna dicho valor? \\
+
+  En la fila 20 de los datos filtrados para el protocolo SMTP, paquete nro. 113 del total de los paquetes del .pcap, se puede ver en el campo Internet Message Format el MESSAGE-ID del mail enviado y este es:
+  
+  \textit{$<$94c3492a-4bf1-c0c8-c059-c2cb2216d2f8@linti.unlp.edu.ar$>$} \\
+  
+  \item ¿Cuál es el producto que implementa el servidor de correo origen y cuál el destino? \\
+  
+  
+
+\end{enumerate}
 
 
 
