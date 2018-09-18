@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1537288326 "main.aux" "main.bbl" "main" 1537288347
+["bibtex main"] 1537290832 "main.aux" "main.bbl" "main" 1537291731
   "/usr/share/texmf-dist/bibtex/bst/revtex/apsrev4-1.bst" 1536124397 71518 fec93f06df0c073f83d2330456bd19c2 ""
-  "main.aux" 1537288333 844 786bd879018f8c8c3c77674893a9cb28 ""
-  "mainNotes.bib" 1537288333 103 48ad29797468f16e2853d8797278d7af ""
+  "main.aux" 1537291731 995 426e6af9d4fca9ee73a1a6e7f7e81ac1 ""
+  "mainNotes.bib" 1537291731 103 48ad29797468f16e2853d8797278d7af ""
   (generated)
-  "main.bbl"
   "main.blg"
-["pdflatex"] 1537288326 "main.tex" "main.pdf" "main" 1537288347
+  "main.bbl"
+["pdflatex"] 1537291731 "main.tex" "main.pdf" "main" 1537291731
   "/dev/null" 1537280741 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1536122179 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1536122179 1004 54797486969f23fa377b128694d548df ""
@@ -116,14 +116,14 @@
   "/usr/share/texmf/tex/latex/minted/minted.sty" 1504428290 47165 6a3e43a8d03bd86910a1dbf68d6c3645 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1536352023 334286 7d54d57af850f32d2e4cd0d3222731c3 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1536352016 7908118 17a8e57bac24e421302528f00d16db9a ""
-  "main.aux" 1537288333 844 786bd879018f8c8c3c77674893a9cb28 ""
-  "main.bbl" 1537288326 1983 c789b8b2e2ff60989c671635ad8473c2 "bibtex main"
-  "main.tex" 1537288346 13954 1114f2b3577c8310bcdcd51c3a8e5c76 ""
+  "main.aux" 1537291731 995 426e6af9d4fca9ee73a1a6e7f7e81ac1 ""
+  "main.bbl" 1537290832 1983 c789b8b2e2ff60989c671635ad8473c2 "bibtex main"
+  "main.tex" 1537291729 15670 14bbcaa66afe9c144dbe33d8e20cc8de ""
   "osajnl10pt4-1.rtx" 1537288095 4381 02e12b3ec51e6ef93f59a1bd4ddc5bc7 ""
   "osajnl4-1.rtx" 1537288095 19410 c42e8aef28ea4a81d41f96fa5a079d5c ""
   (generated)
   "main.pyg"
-  "main.log"
   "main.pdf"
   "main.aux"
+  "main.log"
   "mainNotes.bib"

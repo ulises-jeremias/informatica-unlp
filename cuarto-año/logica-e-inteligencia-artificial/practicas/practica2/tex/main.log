@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.7)  18 SEP 2018 13:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.7)  18 SEP 2018 14:28
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -570,37 +570,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--128
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
+
+ []
+
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
  
  []
 
@@ -608,7 +618,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--222
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
  
  []
 
@@ -616,39 +626,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 237--238
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
  
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
- 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
 
  []
 
-(./main.bbl) [4] (./main.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
+ 
+ []
+
+(./main.bbl) [6] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 7698 strings out of 492642
- 119036 string characters out of 6135567
- 275583 words of memory out of 5000000
- 11444 multiletter control sequences out of 15000+600000
+ 7699 strings out of 492642
+ 119047 string characters out of 6135567
+ 275580 words of memory out of 5000000
+ 11445 multiletter control sequences out of 15000+600000
  15474 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,8n,35p,576b,301s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,8n,35p,576b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10
 .pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sha
@@ -665,10 +695,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 9.pfb>
-Output written on main.pdf (4 pages, 185571 bytes).
+Output written on main.pdf (6 pages, 190086 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -21,7 +21,7 @@
 \usepackage{amsmath,amssymb,graphicx,float,enumerate}
 \usepackage[cache=false]{minted}
 \usepackage[utf8]{inputenc}
-\graphicspath{ {../images/} }
+\graphicspath{ {images/} }
 
 \usepackage{silence}
 \WarningFilter{revtex4-1}{Repair the float}
@@ -126,6 +126,9 @@ Un argumento válido pero sin solidez podría ser o no falso. El argumento de ej
 
 \textit{Sea $A$ una fbf donde aparecen sólo los conectivos $\wedge, \vee, \neg$ . Sea $A'$ la fbf que se obtiene a partir de $A$ reemplazando cada $\wedge$ por $\vee$ y cada $\vee$ por $\wedge$. ¿Si A es una tautología, $A'$ también lo es? Justificar. Ejemplificar con algunos ejemplos escritos en lenguaje natural.} \\
 
+Sea $p$ una variables enunciativa cualquiera y sea $A = p \vee \neg p$, luego $A$ es tautología. \\
+
+Luego, sea $A' = p \wedge \neg p$, por definición de $A'$, la misma no es tautología sino una contradicción. Luego, podemos ver que no para todo $A$ que sea una tautología se cumple que $A'$ tambien lo sea, por lo que es falso. \\
 
 \section{Ejercicio 5}
 
@@ -139,7 +142,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
 
 \textit{Determinar cuáles de las siguientes fbfs son lógicamente implicadas por la fbf $(A \wedge B)$. Fundamentar. Def. de implicación lógica, ver def. 1.7 del Hamilton.} \\
 
-\begin{enumerate}
+\begin{enumerate}[i-]
   \item $A$
 
   \begin{table}[h!]
@@ -147,6 +150,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|c}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $A)$ \\
+      \hline
       $V$ & $V$ & $V$ & $V$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $V$ \\
       $F$ & $F$ & $V$ & $V$ & $F$ \\
@@ -163,6 +167,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|c}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $B)$ \\
+      \hline
       $V$ & $V$ & $V$ & $V$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $F$ \\
       $F$ & $F$ & $V$ & $V$ & $V$ \\
@@ -179,6 +184,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|ccc}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $(A$ & $\vee$ & $B))$ \\
+      \hline
       $V$ & $V$ & $V$ & $V$ & $V$ & $V$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $V$ & $V$ & $F$ \\
       $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ \\
@@ -195,6 +201,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|cccc}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $((\neg$ & $A)$ & $\vee$ & $B))$ \\
+      \hline
       $V$ & $V$ & $V$ & $V$ & $F$ & $V$ & $V$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $F$ & $V$ & $F$ & $F$ \\
       $F$ & $F$ & $V$ & $V$ & $V$ & $F$ & $V$ & $V$ \\
@@ -211,6 +218,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|cccc}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $((\neg$ & $B)$ & $\rightarrow$ & $A))$ \\
+      \hline
       $V$ & $V$ & $V$ & $V$ & $F$ & $V$ & $V$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ & $V$ \\
       $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ & $F$ \\
@@ -227,6 +235,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|ccc}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $(A$ & $\leftrightarrow$ & $B)$ \\
+      \hline
       $V$ & $V$ & $V$ & $V$ & $V$ & $V$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ \\
       $F$ & $F$ & $V$ & $V$ & $F$ & $F$ & $V$ \\
@@ -243,6 +252,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|ccc}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $(A$ & $\rightarrow$ & $B)$ \\
+      \hline
       $V$ & $V$ & $V$ & $V$ & $V$ & $V$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ \\
       $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ \\
@@ -259,6 +269,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|ccccc}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $((\neg$ & $A)$ & $\rightarrow$ & $(\neg$ & $B))$ \\
+      \hline
       $V$ & $V$ & $V$ & $V$ & $F$ & $V$ & $V$ & $F$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ & $F$ & $V$ \\
       $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ & $V$ & $F$ \\
@@ -275,6 +286,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
     \centering
     \begin{tabular}{ccc|c|cccc}
       $((A$ & $\wedge$ & $B)$ & $\rightarrow$ & $(B$ & $\rightarrow$ & $(\neg$ & $A)))$ \\
+      \hline
       $V$ & $V$ & $V$ & $F$ & $V$ & $F$ & $F$ & $V$ \\
       $V$ & $F$ & $F$ & $V$ & $F$ & $V$ & $F$ & $V$ \\
       $F$ & $F$ & $V$ & $V$ & $V$ & $V$ & $V$ & $F$ \\
@@ -302,5 +314,53 @@ es logicamente equivalente a
 \end{equation}
 
 , pues el mismo es un caso especial de la proposición 1.15 y se plantea en el corolario 1.16. El mismo se cumple siempre independientemente del valor de verdad de las variables de enunciado. \\
+
+\section{Ejercicio 9}
+
+Sea \# el operador binario definido como $p\#q {=}_{def} (p \wedge \neg q) \vee (\neg p \wedge q)$. Def. de implicación lógica, ver def. 1.7 del Hamilton. \\
+
+\section{Ejercicio 10}
+
+Demostrar que las siguientes fórmulas son lógicamente equivalentes. \\
+
+\begin{enumerate}[i-]
+  \item $(p \rightarrow q)$ es lógicamente equivalente a $(\neg p \vee q)$ \\
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|cccc}
+      $((p$ & $\rightarrow$ & $q)$ & $\leftrightarrow$ & $((\neg$ & $p)$ & $\vee$ & $q))$ \\
+      \hline
+      V & V & V & V & F & V & V & V \\
+      V & F & F & F & V & V & V & F \\
+      F & V & V & V & F & F & V & V \\
+      F & V & F & V & V & F & V & F
+    \end{tabular}
+  \end{table}
+  
+  \item $(p \leftrightarrow q)$ es lógicamente equivalente a $((p \rightarrow q) \wedge (q \rightarrow p))$ \\
+  
+  \begin{table}[h!]
+    \setlength{\tabcolsep}{1.0em}
+    \centering
+    \begin{tabular}{ccc|c|ccccccc}
+      $((p$ & $\leftrightarrow$ & $q)$ & $\leftrightarrow$ & $((p$ & $\rightarrow$ & $q)$ & $\wedge$ & $(p$ & $\rightarrow$ & $q)))$ \\
+      \hline
+      V & V & V & V & V & V & V & V & V & V & V \\
+      V & F & F & V & V & F & F & F & F & V & V \\
+      F & F & V & V & F & V & V & F & V & F & F \\
+      F & V & F & V & F & V & F & V & F & V & F
+    \end{tabular}
+  \end{table}
+  
+  Luego, dado que es tautologia, son logicamente equivalentes. \\
+  
+  \item $\neg (p \wedge q)$ es logicamente equivalente a $(\neg p \vee \neg q)$ \\
+  
+  \begin{table}
+    
+  \end{table}
+\end{enumerate}
 
 \end{document}
