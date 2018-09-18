@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+curl \PYGZhy{}H \PYG{l+s+s2}{\PYGZdq{}x\PYGZhy{}custom\PYGZhy{}redes2018: value\PYGZdq{}} http://redes.catedras.linti.unlp.edu.ar/smtp/smtp.pcap \PYGZhy{}\PYGZhy{}output smtp.pcap
+\end{Verbatim}

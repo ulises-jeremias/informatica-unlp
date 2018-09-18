@@ -1,45 +1,51 @@
-% This is lnbip.tex the demonstration file of the LaTeX macro package for
-% Lecture Notes in Business Information Processing from Springer-Verlag.
-% It serves as a template for authors as well.
-% version 1.0 for LaTeX2e
-%
-\documentclass[lnbip]{svmultln}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         File: osa-revtex4-1.tex                             %
+%                        Date: April 15, 2013                                 %
+%                                                                             %
+%                              BETA VERSION!                                  %
+%                   JOSA A, JOSA B, Applied Optics, Optics Letters            %
+%                                                                             %
+%            This file requires the substyle file osajnl4-1.rtx,              %
+%                   running under REVTeX 4.1 and LaTeX 2e                     %
+%                                                                             %
+%                   USE THE FOLLOWING REVTeX 4-1 OPTIONS:                     %
+% \documentclass[osajnl,twocolumn,showpacs,superscriptaddress,10pt]{revtex4-1}%
+%                    %% Use 11pt for Applied Optics                           %
+%                                                                             %
+%               (c) 2013 The Optical Society of America                       %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\documentclass[osajnl,twocolumn,showpacs,superscriptaddress,10pt]{revtex4-1} %% use 10pt for Applied Optics
+%%\documentclass[osajnl,preprint,showpacs,superscriptaddress,12pt]{revtex4-1} %% use 12pt for preprint option
+\usepackage{amsmath,amssymb,graphicx,float,enumerate}
+\usepackage[cache=false]{minted}
 \usepackage[utf8]{inputenc}
-\usepackage{multicol}
-%
-\usepackage{makeidx}  % allows for indexgeneration
-% \makeindex          % be prepared for an author index
-%
+\graphicspath{ {../images/} }
+
+\usepackage{silence}
+\WarningFilter{revtex4-1}{Repair the float}
+
 \begin{document}
-%
-\mainmatter              % start of the contribution
-%
-\title{Lógica e Inteligencia Artificial}
-%
-\titlerunning{Lógica e Inteligencia Artificial - Segunda Entrega}  % abbreviated title (for running head)
-%                                     also used for the TOC unless
-%                                     \toctitle is used
-%
-\author{Ulises J. Cornejo Fandos\inst{1}, Lucas Di Cunzolo\inst{2}, Federico Ramón Gasquez\inst{3}}
-%
-\authorrunning{Cornejo Fandos, Di Cunzolo, Gasquez}   % abbreviated author list (for running head)
-%
 
-%
-\institute{
-13566/7, Licenciatura en Informática, Facultad de Informática, UNLP
-\and
-13572/5, Licenciatura en Informática, Facultad de Informática, UNLP
-\and
-13598/6, Licenciatura en Informática, Facultad de Informática, UNLP
-}
+\title{Logica e Inteligencia Artificial}
 
-\maketitle              % typeset the title of the contribution
-% \index{Ekeland, Ivar} % entries for the author index
-% \index{Temam, Roger}  % of the whole volume
-% \index{Dean, Jeffrey}
-%
+\author{Ulises Jeremias Cornejo Fandos}
+\affiliation{13566/7, Licenciatura en Informatica, Facultad de Informatica, UNLP}
+
+\author{Lucas Di Cunzolo}
+\affiliation{13572/5, Licenciatura en Informatica, Facultad de Informatica, UNLP}
+
+\author{Federico Ramón Gasquez}
+\affiliation{13598/6, Licenciatura en Informatica, Facultad de Informatica, UNLP}
+
+
+%%\begin{abstract}
+%%\end{abstract}
+
+\maketitle %% required
+
+\onecolumngrid
 
 \section{Ejercicio 1}
 
@@ -47,53 +53,53 @@
 
 \begin{enumerate}
   \item $((\neg (A \rightarrow B)) \rightarrow C)$ \\
-  
+
   Sean las variables de enunciados $p$ y $q$, sabemos que
-  
+
   \begin{equation}
     (\neg p \vee q) \leftrightarrow (p \rightarrow q)
   \end{equation}
-  
+
   es tautología. De la proposición \textit{1.10} se deduce que para formas enunciativas cualesquiera $A, B$,\
-  
+
   \begin{equation}
     (\neg A \vee B) \leftrightarrow (A \rightarrow B)
   \end{equation}
-  
+
   es tambien una tautología. Por lo tanto, $(\neg A \vee B)$ es logicamente equivalente a $(A \rightarrow B)$ y, reemplazando en el enunciado original, queda la siguiente formula:
-  
+
   \begin{equation}
     ((\neg (\neg A \vee B)) \rightarrow C
     \label{eq:ejer1-1}
   \end{equation}
-  
+
   Luego, sabemos por hipótesis que $(\neg A \vee B)$ es siempre verdadero para todo par de enunciados $A, B$, pues es una tautología. Entonces, dado que el antecedente del enunciado \ref{eq:ejer1-1}, sabemos que el mismo será \textit{falso} para todo par de enunciados $A, B$. Finalmente, independientemente del valor de verdad de la fbf $C$, sabemos que el enunciado completo será siempre verdadero, pues la unica configuración posible que permite que una implicación sea falsa es cuando el antecedente es verdadero y el consecuente falso. \\
-  
+
   Por lo tanto, la fbf $((\neg (A \rightarrow B)) \rightarrow C)$ es una tautología. \\
-  
+
   \item $(C \rightarrow ((\neg A) \vee B))$ \\
-  
+
   Sean $A, B$ fbfs, sabemos que $((\neg A) \vee B)$ es una tautología por hipotesis. Luego, dado el enunciado
-  
+
   \begin{equation}
     (C \rightarrow ((\neg A) \vee B))
   \end{equation}
-  
+
   sabemos que el consecuente de la implicación que lo define será siempre verdadero, pues como meciona anteriormente, el mismo es una tautología. Finalmente, independientemente del valor de verdad de la fbf $C$, la implicación será siempre verdadera, pues la unica configuración posible que permite que una implicación sea falsa es cuando el antecedente es verdadero y el consecuente falso. Dado que esta configuración no tiene lugar en el enunciado, el valor de verdad es siempre verdadero. \\
-  
+
   Por lo tanto, la fbf $(C \rightarrow ((\neg A) \vee B))$ es una tautología. \\
-  
+
   \item $((\neg A) \rightarrow B)$ \\
-  
+
   Sean $A, B$ fbfs, sabemos que $((\neg A) \vee B)$ es una tautología por hipotesis. Luego, dado el enunciado
-  
+
   \begin{equation}
     ((\neg A) \rightarrow B)
     \label{eq:ejer1-3}
   \end{equation}
-  
+
   comparamos el valor de verdad del enunciado $((\neg A) \rightarrow B) \leftrightarrow ((\neg A) \vee B)$ para verificar que se mantenga el valor de verdad. Si el mismo da una tautología, entonces el enunciado \ref{eq:ejer1-3} será una tautología. \\
-  
+
   \textbf{HACERRRRRRRRRRRRRRRRRRRRRRRRRRRRR!} \\
 \end{enumerate}
 
@@ -101,12 +107,12 @@
 
 \textit{¿Es cierto que dadas $A$ y $B$ fbfs cualesquiera, siempre ocurre que si $A$ y $A \rightarrow B$ son tautologías entonces $B$ también lo es? Fundamentar. Ejemplificar con algunos ejemplos concretos escritos en lenguaje natural.} \\
 
-La forma de argumentación planteada se compone de dos premisas. Dadas dos fbfs cualquiera, $A, B$, la primer premisa será de la forma $A \rightarrow B$ y la segunda será $A$. Luego, siendo las premisas tautologías, 
+La forma de argumentación planteada se compone de dos premisas. Dadas dos fbfs cualquiera, $A, B$, la primer premisa será de la forma $A \rightarrow B$ y la segunda será $A$. Luego, siendo las premisas tautologías,
 evaluamos los casos en los que la implicación que define a la primer premisa sea verdadera. Es decir, siendo $A$ una tautología, nos quedamos con el caso en el que $B$ no haga del valor de la implicación una falsedad. \\
 
 Por lo tanto, siendo $A$ una fbf siempre verdadera, $B$ debe ser verdadera para que $A \rightarrow B$ siga siendo una tautología y mantenga su valor de verdad. \\
 
-Es por esto que, dadas las premisas $A$ y $A \rightarrow B$, si las mismas son tautologías, $B$ también lo es. \\ 
+Es por esto que, dadas las premisas $A$ y $A \rightarrow B$, si las mismas son tautologías, $B$ también lo es. \\
 
 \textbf{\textit{Ejemplo}} \\
 
@@ -135,7 +141,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
 
 \begin{enumerate}
   \item $A$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -147,11 +153,11 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $A$. \\
-  
+
   \item $B$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -163,11 +169,11 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $B$. \\
-  
+
   \item $A \vee B$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -179,11 +185,11 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $F$ & $F$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $A \vee B$. \\
-  
+
   \item $\neg A \vee B$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -195,11 +201,11 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $\neg A \vee B$. \\
-  
+
   \item $\neg B \rightarrow A$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -211,11 +217,11 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $V$ & $F$ & $F$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $\neg B \rightarrow A$. \\
-  
+
   \item $A \leftrightarrow B$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -227,11 +233,11 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $F$ & $V$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $A \leftrightarrow B$. \\
-  
+
   \item $A \rightarrow B$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -243,11 +249,11 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $F$ & $V$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $A \rightarrow B$. \\
-  
+
   \item $\neg B \rightarrow \neg A$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -259,11 +265,11 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $V$ & $F$ & $V$ & $V$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación es una tautología, $(A \wedge B)$ implica logicamente a $\neg B \rightarrow \neg A$. \\
-  
+
   \item $B \rightarrow \neg A$
-  
+
   \begin{table}[h!]
     \setlength{\tabcolsep}{1.0em}
     \centering
@@ -275,7 +281,7 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
       $F$ & $F$ & $F$ & $V$ & $F$ & $V$ & $V$ & $F$
     \end{tabular}
   \end{table}
-  
+
   Luego, dado que la implicación no es una tautología, $(A \wedge B)$ no implica logicamente a $B \rightarrow \neg A$. \\
 \end{enumerate}
 
@@ -283,9 +289,18 @@ Al momento de evaluar la equivalencia lógica de dos fbfs, en el cálculo de enu
 
 \textit{Sea A una fbf donde aparecen sólo los conectivos $\wedge$, $\neg$. Sea $A'$ la fbf que se obtiene a partir de A reemplazando cada $\wedge$ por $\vee$ y cada letra de proposición por su negación (o sea, cada $p$ por $\neg p$, cada $q$ por $\neg q$, etc.). ¿Es cierto que $A'$ es lógicamente equivalente a $\neg A$? Fundamentar. Ejemplificar con algunos ejemplos concretos escritos en lenguaje natural.} \\
 
-Sean $p_1, p_2, \ldots, p_n$ variables de enunciado, y sean $A = ((\neg p_1) \wedge (\neg p_2) \wedge \ldots \wedge (\neg p_n))$ y $A' = ((p_1) \vee (p_2) \vee \ldots \vee (p_n))$. Se cumple que 
+Sean $p_1, p_2, \ldots, p_n$ variables de enunciado, y sean $A = ((\neg p_1) \wedge (\neg p_2) \wedge \ldots \wedge (\neg p_n))$ y $A' = ((p_1) \vee (p_2) \vee \ldots \vee (p_n))$. Se cumple que
 
-$\left(\bigwedge_{i=1}^{n}{(\neg p_i)}\right)$ es logicamente equivalente a $\left(\neg \bigvee_{i=1}^{n}{p_i}\right)$, pues el mismo es un caso especial de la proposición 1.15 y se plantea en el corolario 1.16. El mismo se cumple siempre independiente
+\begin{equation}
+  \left(\bigwedge_{i=1}^{n}{(\neg p_i)}\right)
+\end{equation}
 
+es logicamente equivalente a
+
+\begin{equation}
+  \left(\neg \left(\bigvee_{i=1}^{n}{p_i}\right)\right)
+\end{equation}
+
+, pues el mismo es un caso especial de la proposición 1.15 y se plantea en el corolario 1.16. El mismo se cumple siempre independientemente del valor de verdad de las variables de enunciado. \\
 
 \end{document}
