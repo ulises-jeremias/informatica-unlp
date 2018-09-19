@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex main"] 1537278042 "main.aux" "main.bbl" "main" 1537287862
+["bibtex main"] 1537278042 "main.aux" "main.bbl" "main" 1537317477
   "/usr/share/texmf-dist/bibtex/bst/revtex/apsrev4-1.bst" 1536124397 71518 fec93f06df0c073f83d2330456bd19c2 ""
-  "main.aux" 1537279445 1028 a5f050edd6cdad02937867e44f0e1f4e ""
-  "mainNotes.bib" 1537279445 103 48ad29797468f16e2853d8797278d7af ""
+  "main.aux" 1537317476 1028 a5f050edd6cdad02937867e44f0e1f4e ""
+  "mainNotes.bib" 1537317476 103 48ad29797468f16e2853d8797278d7af ""
   (generated)
-  "main.bbl"
   "main.blg"
-["pdflatex"] 1537279444 "main.tex" "main.pdf" "main" 1537287862
+  "main.bbl"
+["pdflatex"] 1537317449 "main.tex" "main.pdf" "main" 1537317477
   "../images/dns.png" 1537142415 66261 936b9e55f16a557d6f542cdd299147be ""
   "../images/download.jpeg" 1537271160 34581 481a1ec1cc0a487051afcb7b969be8ec ""
-  "/dev/null" 1537280741 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "/dev/null" 1537317284 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1536122179 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1536122179 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1536122179 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -112,14 +112,14 @@
   "/usr/share/texmf/tex/latex/minted/minted.sty" 1504428290 47165 6a3e43a8d03bd86910a1dbf68d6c3645 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1536352023 334286 7d54d57af850f32d2e4cd0d3222731c3 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1536352016 7908118 17a8e57bac24e421302528f00d16db9a ""
-  "main.aux" 1537279445 1028 a5f050edd6cdad02937867e44f0e1f4e ""
+  "main.aux" 1537317476 1028 a5f050edd6cdad02937867e44f0e1f4e ""
   "main.bbl" 1537278042 1983 c789b8b2e2ff60989c671635ad8473c2 "bibtex main"
-  "main.tex" 1537287861 13598 b28ea1ed27ae17026631998814b157b2 ""
+  "main.tex" 1537317438 13706 6eaad8e98ae3fbe390cf09e22f37db79 ""
   "osajnl10pt4-1.rtx" 1537143160 4381 02e12b3ec51e6ef93f59a1bd4ddc5bc7 ""
   "osajnl4-1.rtx" 1537143160 19410 c42e8aef28ea4a81d41f96fa5a079d5c ""
   (generated)
-  "main.aux"
   "mainNotes.bib"
   "main.pdf"
+  "main.aux"
   "main.log"
   "main.pyg"

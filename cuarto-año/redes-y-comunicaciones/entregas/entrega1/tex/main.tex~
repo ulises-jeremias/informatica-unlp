@@ -61,6 +61,8 @@ Para descargar el archivo \textit{.pcap} se utiliza el comando curl ejecutando l
 
 Extraiga de la consulta .pcap descargada las consultas DNS y los datos correspondientes a SMTP. \\
 
+Se adjuntan con la entrega los .pcap asociados a los datos filtrados. \\
+
 \section{Ejercicio 3}
 
 Analizar consultas DNS realizadas por el servidor SMTP origen.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.7)  18 SEP 2018 11:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.7)  18 SEP 2018 21:37
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -497,16 +497,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
 <../images/dns.png, id=1, 1368.11125pt x 219.82124pt>
 File: ../images/dns.png Graphic file (type png)
 <use ../images/dns.png>
-Package pdftex.def Info: ../images/dns.png  used on input line 70.
+Package pdftex.def Info: ../images/dns.png  used on input line 72.
 (pdftex.def)             Requested size: 510.0pt x 81.94304pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
- 
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 77--78
  
@@ -518,28 +518,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--80
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
+ 
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 88--89
  []\OT1/cmr/m/n/10 En la re-spuesta de la misma se ob-tienen los datos de dos s
 ervi-dores de mail. Los mis-mos son
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
- 
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../images/dns.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 92--93
  
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../images/dns.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
  
  []
 
@@ -549,7 +549,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--99
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
  
  []
 
@@ -559,78 +559,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--104
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 130.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 132.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 130.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 132.
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
- 
- []
-
-[3]
 Underfull \hbox (badness 10000) in paragraph at lines 198--199
  
  []
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 200--201
  
  []
@@ -666,29 +666,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 212--213
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--217
+Underfull \hbox (badness 10000) in paragraph at lines 214--215
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
+ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
  
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
  
  []
 
 <../images/download.jpeg, id=30, 158.994pt x 108.6459pt>
 File: ../images/download.jpeg Graphic file (type jpg)
 <use ../images/download.jpeg>
-Package pdftex.def Info: ../images/download.jpeg  used on input line 243.
+Package pdftex.def Info: ../images/download.jpeg  used on input line 245.
 (pdftex.def)             Requested size: 255.0pt x 174.25969pt.
 (./main.bbl)
 runsystem(rm main.pyg)...executed.
@@ -715,7 +720,7 @@ onts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx
 hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (5 pages, 248276 bytes).
+Output written on main.pdf (5 pages, 248842 bytes).
 PDF statistics:
  72 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream
