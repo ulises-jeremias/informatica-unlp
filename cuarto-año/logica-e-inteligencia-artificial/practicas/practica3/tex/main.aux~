@@ -1,0 +1,17 @@
+\relax 
+\newlabel{FirstPage}{{}{1}{}{}{}}
+\@writefile{toc}{\contentsline {title}{\relax \fontsize  {17.28}{22pt}\selectfont  \sf  \bfseries  \selectfont  SGEMM GPU kernel performance Data Set}{1}{}}
+\bibdata{mainNotes}
+\bibstyle{apsrev4-1}
+\citation{REVTEX41Control}
+\citation{apsrev41Control}
+\gdef\minted@oldcachelist{,
+  default-pyg-prefix.pygstyle,
+  default.pygstyle,
+  AFF0462F7133292405617AC9F33F3D0EEED0F18233776CBE5B53FF396AA7B09D.pygtex}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Ejercicio 1}{2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Ejercicio 2}{2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Ejercicio 3}{2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Consultas DNS realizadas por el servidor SMTP origen.}}{2}{}}
+\newlabel{figure:dns\_requests}{{1}{2}{}{}{}}
+\newlabel{LastPage}{{}{2}{}{}{}}

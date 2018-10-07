@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         File: osa-revtex4-1.tex                             %
+%                        Date: April 15, 2013                                 %
+%                                                                             %
+%                              BETA VERSION!                                  %
+%                   JOSA A, JOSA B, Applied Optics, Optics Letters            %
+%                                                                             %
+%            This file requires the substyle file osajnl4-1.rtx,              %
+%                   running under REVTeX 4.1 and LaTeX 2e                     %
+%                                                                             %
+%                   USE THE FOLLOWING REVTeX 4-1 OPTIONS:                     %
+% \documentclass[osajnl,twocolumn,showpacs,superscriptaddress,10pt]{revtex4-1}%
+%                    %% Use 11pt for Applied Optics                           %
+%                                                                             %
+%               (c) 2013 The Optical Society of America                       %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[osajnl,twocolumn,showpacs,superscriptaddress,10pt]{revtex4-1} %% use 10pt for Applied Optics
+%%\documentclass[osajnl,preprint,showpacs,superscriptaddress,12pt]{revtex4-1} %% use 12pt for preprint option
+\usepackage{amsmath,amssymb,graphicx,float,enumerate}
+\usepackage[cache=false]{minted}
+\usepackage[utf8]{inputenc}
+\graphicspath{ {images/} }
+
+\usepackage{silence}
+\WarningFilter{revtex4-1}{Repair the float}
+
+\begin{document}
+
+\title{Logica e Inteligencia Artificial}
+
+\author{Ulises Jeremias Cornejo Fandos}
+\affiliation{13566/7, Licenciatura en Informatica, Facultad de Informatica, UNLP}
+
+\author{Lucas Di Cunzolo}
+\affiliation{13572/5, Licenciatura en Informatica, Facultad de Informatica, UNLP}
+
+\author{Federico Ramón Gasquez}
+\affiliation{13598/6, Licenciatura en Informatica, Facultad de Informatica, UNLP}
+
+
+%%\begin{abstract}
+%%\end{abstract}
+
+\maketitle %% required
+
+\onecolumngrid
+
+\section{Ejercicio 1}
+
+
+
+\end{document}
