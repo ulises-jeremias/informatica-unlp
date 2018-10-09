@@ -136,7 +136,7 @@ Estos son 1739843789, 2541530315, 1739843790.
 Las opciones que se negocian son las siguientes:
 
 \begin{itemize}
-    \item Maximun Segment Size: 1460 bytes \\
+    \item \textbf{Maximun Segment Size: 1460 bytes} \\
 
     El \textbf{Tamaño de segmento máximo} se utiliza para definir el segmento máximo que se utilizará durante una conexión entre dos hosts. 
     Como tal, solo debería ver esta opción utilizada durante la fase SYN y SYN / ACK del handshake de 3 vías. La opción MSS TCP 
@@ -161,7 +161,7 @@ Las opciones que se negocian son las siguientes:
     valor de MSS posible para su red, ya que el rendimiento de su red podría ser extremadamente bajo si este valor es 
     demasiado grande o demasiado pequeño. \\
 
-    \item Sack permited \\
+    \item \textbf{Sack permited} \\
 
     \textbf{Selective Acknowledgments}.
     
@@ -174,7 +174,7 @@ Las opciones que se negocian son las siguientes:
     "He recibido todo hasta el byte 20". El remitente debe reconocer que algo salió mal y continuar enviando desde ese 
     punto en adelante (byte 20). \\
 
-    \item Timestamps: TSval 245971, TSecr 245952 \\
+    \item \textbf{Timestamps: TSval 245971, TSecr 245952} \\
 
     Otro aspecto de los servicios de confiabilidad y control de flujo de TCP son los tiempos de entrega de ida y vuelta que 
     está experimentando un circuito virtual. El tiempo de entrega de ida y vuelta determinará con precisión cuánto tiempo 
@@ -196,7 +196,7 @@ Las opciones que se negocian son las siguientes:
     El campo Timestamp consta de un campo Timestamp Echo y Timestamp Reply, los cuales el remitente siempre pone a cero el campo de 
     respuesta y el receptor lo completa, luego de lo cual se envía de vuelta al remitente original. \\
 
-    \item No-Operation (NOP) \\
+    \item \textbf{No-Operation (NOP)} \\
 
     La opción nop TCP significa "Sin opción" y se utiliza para separar las diferentes opciones utilizadas dentro del campo Opción TCP. 
     La implementación del campo nop depende del sistema operativo utilizado. Por ejemplo, si se usan las opciones MSS y SACK, 
@@ -210,12 +210,18 @@ Las opciones que se negocian son las siguientes:
     cuenta que la opción nop ocupa 1 byte. En nuestro ejemplo al principio de la página, ocuparía 2 bytes ya que se usa dos veces. También 
     debe tener en cuenta que los hackers suelen comprobar este campo cuando intentan determinar el sistema operativo del host remoto. \\
 
-    \item Window scale: 4 \\
+    \item \textbf{Window scale: 4} \\
 
     La Windows Scale se define en RFC 1072, que permite que un sistema anuncie valores de tamaño de ventana de 30 bits 
     (16 de la ventana original + 14 de las opciones de TCP), con un tamaño máximo de búfer de 1 GB. Esta opción se ha aclarado 
     y redefinido en RFC 1323, que es la especificación que emplean todas las implementaciones en la actualidad.
 \end{itemize}
+
+Luego, como se menciona anteriormente, podemos obtener la MTU sabiendo que,
+MTU = IP Header length + TCP Header Length + Data length, [bytes]. \\
+
+En este caso el tamaño del encabezado IP es 20 bytes, el tamaño del encabezado TCP es 40 bytes y el MSS es 1460 bytes, 
+por lo tanto $MTU = 20 bytes + 40 bytes + 1460 bytes = 1520 bytes$.
 
 \section{Ejercicio 7}
 
@@ -259,7 +265,7 @@ origen: 10.0.1.10, destino: 10.0.3.10, tiempo: 13.892556, fila: 10, número de s
 \begin{enumerate}[a)]
     \item Se activa en algún momento el mecanismo de control de lujo?
 
-    Si, se activa. 
+    Si, se activa. En los siguientes incisos se explica como y porque.
    
     \item Indicar donde (tiempo, número de fila y número de secuencia TCP) y a que se debe?
 
@@ -280,6 +286,27 @@ origen: 10.0.1.10, destino: 10.0.3.10, tiempo: 13.892556, fila: 10, número de s
 \end{enumerate}
 
 \section{Ejercicio 10}
+
+\textit{Control de Congestión:}
+
+\begin{enumerate}[a)]
+    \item Se encuentra en la red indicios de congestión?
+
+    Si.
+
+    \item Cómo se detectan?, Indicar un número de segmento perdido.
+
+    En el momento en que uno de los segmentos se pierde, dado que hay mas de 3 segmentos perdidos, es que se produce congestion. Un segmento perdido es
+    el segmento con numero de fila 752.
+
+    \item En que momento se ve la primera retransmisión (tiempo y número en el analizador)?
+
+    A partir del paquete 988, time 41.147415 se empiezan a dar las retransmisiones correspondientes a los segmentos.
+
+    \item Cuántos segmentos se re-transmiten?
+
+    Se pueden observar 28 segmentos de retransmisiones.
+\end{enumerate}
 
 \section{Ejercicio 11}
 
@@ -302,5 +329,22 @@ El Round Trip Time (ó RTT) toma valores con una cota mínima de 0 ms y un máxi
     \caption{Round Trip Time.}
     \label{rtt}
 \end{figure}
+
+\section{Ejercicio 13}
+
+\textit{El BW digital alcanzado, cual parece ser?} \\
+
+En la figura (\ref{bw}) se puede observar que el BW digital alcanzado es de $270000 \frac{bits}{s}$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{bw.png}
+    \caption{Ancho de banda.}
+    \label{bw}
+\end{figure}
+
+\section{Ejercicio 14}
+
+\textit{Qué otros datos puede obtener de la captura sobre el flujo analizado?}
 
 \end{document}
