@@ -129,6 +129,8 @@ Estos son 1739843789, 2541530315, 1739843790.
     \label{3-ways-handshake}
 \end{figure}
 
+\newpage
+
 \section{Ejercicio 6}
 
 \textit{Qué opciones se negocian. Qué significa c/u? Cuál es el MTU negociado?} \\
@@ -229,6 +231,8 @@ por lo tanto $MTU = 20 bytes + 40 bytes + 1460 bytes = 1520 bytes$.
 
 El host que envía la mayor cantidad de datos es el cliente, es decir, el host de IP 10.0.1.10.
 
+\newpage
+
 \section{Ejercicio 8}
 
 \textit{Identificar primer segmento de datos (origen, destino, tiempo, número de fila y número de secuencia TCP).} \\
@@ -283,6 +287,21 @@ origen: 10.0.1.10, destino: 10.0.3.10, tiempo: 13.892556, fila: 10, número de s
     el control de flujo ya que no se pueden transmitir paquetes al receptor dado que este no puede recibirlos en su buffer.
 
     \item Qué otros datos se pueden obtener?
+
+    Otro dato que podemos ver es como evoluciona el tamaño de la ventana a lo largo del tiempo.
+
+    El gráfico indica qué tan bien el receptor puede manejar los datos recibidos. Una "línea plana" significa que el receptor no ajustó el tamaño de la ventana, 
+    por lo tanto, no tuvo ningún problema para manejar los bytes entrantes lo suficientemente rápido. Un gráfico 'oscilante' significa: el receptor anunciaba un 
+    tamaño de ventana más pequeño, ya que no podía manejar el tráfico entrante lo suficientemente rápido, por lo que el búfer se llenó. Al reducir el tamaño de 
+    la ventana, le informa al remitente sobre este hecho. El remitente puede o no tomar acción en ese caso. Sin duda, sería inteligente enviar menos datos a la vez. 
+    Sin embargo, a menudo no verá ninguna reacción en los escenarios del mundo real. Depende del sistema operativo y de las aplicaciones en uso. \\
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.65\textwidth]{window.png}
+        \caption{Tamaño de la ventana a lo largo del tiempo.}
+        \label{window}
+    \end{figure}
 \end{enumerate}
 
 \section{Ejercicio 10}
@@ -292,7 +311,7 @@ origen: 10.0.1.10, destino: 10.0.3.10, tiempo: 13.892556, fila: 10, número de s
 \begin{enumerate}[a)]
     \item Se encuentra en la red indicios de congestión?
 
-    Si.
+    Si, se encuentran indicios de congestion.
 
     \item Cómo se detectan?, Indicar un número de segmento perdido.
 
@@ -317,6 +336,8 @@ segmento de tiempo 48.330648, número de secuencia 1740891638 y número de fila 
 
 Cabe destacar que los flags enviados en el segmento son el flag FIN, PSH y ACK, pero solo el flag FIN nos indica el pedido de cierre de conexión. \\
 
+\newpage
+
 \section{Ejercicio 12}
 
 \textit{El RTT entre que valores oscila?} \\
@@ -325,7 +346,7 @@ El Round Trip Time (ó RTT) toma valores con una cota mínima de 0 ms y un máxi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{rtt.png}
+    \includegraphics[width=0.65\textwidth]{rtt.png}
     \caption{Round Trip Time.}
     \label{rtt}
 \end{figure}
@@ -338,13 +359,39 @@ En la figura (\ref{bw}) se puede observar que el BW digital alcanzado es de $270
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{bw.png}
+    \includegraphics[width=0.65\textwidth]{bw.png}
     \caption{Ancho de banda.}
     \label{bw}
 \end{figure}
 
+\newpage
+
 \section{Ejercicio 14}
 
-\textit{Qué otros datos puede obtener de la captura sobre el flujo analizado?}
+\textit{Qué otros datos puede obtener de la captura sobre el flujo analizado?} \\
+
+Otros datos que se pueden obtener son los siguientes: \\
+
+Por un lado tenemos el gráfico de \textbf{Time Sequence (Stevens)}. Este es un gráfico 
+simple que permite ver la evolución del número de secuencia TCP a lo largo del tiempo, 
+similar a los utilizados en la serie de libros "Ilustrados TCP / IP" de Richard Stevens. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{stevens.png}
+    \caption{Gráfico de Número de secuencia TCP vs tiempo utilizando stevens.}
+    \label{stevens}
+\end{figure}
+
+Por otro lado tenemos la gráfica de \textbf{Time Sequence (tcptrace)}. Este gráfico muestra métricas de TCP 
+similares a la utilidad tcptrace, que incluyen segmentos hacia adelante, acuses de recibo, 
+acuses de recibo selectivos, tamaños de ventana inversa y cero ventanas. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{tcptrace.png}
+    \caption{Gráfico de Número de secuencia TCP vs tiempo utilizando tcptrace.}
+    \label{tcptrace}
+\end{figure}
 
 \end{document}
