@@ -19,7 +19,7 @@
 \documentclass[osajnl,twocolumn,showpacs,superscriptaddress,10pt,leqno]{revtex4-1} %% use 10pt for Applied Optics
 %%\documentclass[osajnl,preprint,showpacs,superscriptaddress,12pt]{revtex4-1} %% use 12pt for preprint option
 \usepackage{amsmath,amssymb,graphicx,float,enumerate}
-\usepackage[cache=false]{minted}
+%\usepackage[cache=false]{minted}
 \usepackage[utf8]{inputenc}
 \graphicspath{ {images/} }
 
@@ -103,9 +103,23 @@
     \begin{align}
         ((A \rightarrow B) \rightarrow C) && hipótesis \\
         B && hipótesis \\
-        A && hipótesis \\
-        ...
+        A && hipótesis
     \end{align}
 \end{enumerate}
+
+\section{Ejercicio 3}
+
+\textit{Sea $\Gamma = \{A_1,\ldots, A_n\}$, $n > 0$, un conjunto de fbfs del C. de Enunciados. Se sabe que $\Gamma \vdash_L A$. ¿Es cierto que si $\Gamma$ es satisfactible entonces $\vdash_L A$?. Fundar.} \\
+
+\section{Ejercicio 4}
+
+\textit{Sea $\Gamma$ un conjunto de fbfs del C. de Enunciados. Se sabe que $\Gamma \vdash_L A$. ¿Es cierto que para todo $\Gamma_i$ tal que $\Gamma_i \subset \Gamma$, $\Gamma_i \vdash_L A$?. Fundar.} \\
+
+El enunciado es falso. Supongamos un conjunto de fbfs $\Gamma = \{ C, B, C \rightarrow A \}$,
+luego sabemos que, siendo $\{ C, C \rightarrow A \} \subset \Gamma$, podemos afirmar que se puede deducir
+$A$ a partir de ambos, es decir, que $\{ C, C \rightarrow A \} \vdash_L A$. \\
+
+Sin embargo, no podemos afirmar lo mismo de $\{ B \}$, incluso cuando $\{ B \} \subset \Gamma$. Es decir,
+no se cumple que $\{ B \} \vdash_L A$. Por lo tanto es falso.
 
 \end{document}
