@@ -111,6 +111,12 @@
 
 \textit{Sea $\Gamma = \{A_1,\ldots, A_n\}$, $n > 0$, un conjunto de fbfs del C. de Enunciados. Se sabe que $\Gamma \vdash_L A$. ¿Es cierto que si $\Gamma$ es satisfactible entonces $\vdash_L A$?. Fundar.} \\
 
+El enunciado es falso. Sabemos a partir del mismo que $\Gamma$ es un conjunto de fbfs tal que $\Gamma \vdash_L A$. Luego, que $\Gamma$ sea satisfactible, no nos dice nada respecto de $A$. Es decir, que $A$ podría ser tranquilamente
+una contingencia deducible a partir de $\Gamma$, y en ese caso no sería válido decir que $\vdash_L A$ para cualquier $A$. \\
+
+Por ejemplo, nosotros podríamos tener el siguiente conjunto de fbfs, $\Gamma = \{ C, B, C \rightarrow A \}$. Luego, $A$ es una contingencia deducible a partir de $\Gamma$,
+pero no necesariamente se cumple que $\vdash_L A$.
+
 \section{Ejercicio 4}
 
 \textit{Sea $\Gamma$ un conjunto de fbfs del C. de Enunciados. Se sabe que $\Gamma \vdash_L A$. ¿Es cierto que para todo $\Gamma_i$ tal que $\Gamma_i \subset \Gamma$, $\Gamma_i \vdash_L A$?. Fundar.} \\
@@ -121,5 +127,11 @@ $A$ a partir de ambos, es decir, que $\{ C, C \rightarrow A \} \vdash_L A$. \\
 
 Sin embargo, no podemos afirmar lo mismo de $\{ B \}$, incluso cuando $\{ B \} \subset \Gamma$. Es decir,
 no se cumple que $\{ B \} \vdash_L A$. Por lo tanto es falso.
+
+\section{Ejercicio 5}
+
+\textit{Sean $\Gamma$ y $\Gamma_0$ conjuntos de fbfs del C. de Enunciados. ¿Es cierto que para todo $\Gamma$ existe algún $\Gamma_0 \subseteq \Gamma$ tal que si $\Gamma \vdash_L A$ entonces $\Gamma_0 \vdash_L A$?. Fundar. Nota: relacionar con ejercicio 10.} \\
+
+
 
 \end{document}
