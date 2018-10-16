@@ -21,7 +21,7 @@
 \usepackage{amsmath,amssymb,graphicx,float,enumerate}
 %\usepackage[cache=false]{minted}
 \usepackage[utf8]{inputenc}
-\graphicspath{ {images/} }
+%\graphicspath{ {images/} }
 
 \usepackage{silence}
 \WarningFilter{revtex4-1}{Repair the float}
@@ -90,7 +90,8 @@
 
     \item $\vdash_L ((A \rightarrow B) \rightarrow (\neg B \rightarrow \neg A))$
 
-    El enunciado tiene la forma sintáctica del axioma $L_{3}$.
+    El enunciado tiene la forma sintáctica del axioma $L_{3}$. Luego, alcanza con instanciar una
+    única vez el axioma para dar una demostración sintáctica del teorema.
 \end{enumerate}
 
 \section{Ejercicio 2}
@@ -132,6 +133,25 @@ no se cumple que $\{ B \} \vdash_L A$. Por lo tanto es falso.
 
 \textit{Sean $\Gamma$ y $\Gamma_0$ conjuntos de fbfs del C. de Enunciados. ¿Es cierto que para todo $\Gamma$ existe algún $\Gamma_0 \subseteq \Gamma$ tal que si $\Gamma \vdash_L A$ entonces $\Gamma_0 \vdash_L A$?. Fundar. Nota: relacionar con ejercicio 10.} \\
 
+Sabemos a partir del enunciado que, $\Gamma \vdash_L A$. Luego, podemos afirmar que existe un $\Gamma_0 \subseteq \Gamma$ tal que $\Gamma_0 \vdash_L A$, y es por ejemplo, cuando $\Gamma_0 = \Gamma$. \\
 
+Luego, podemos afirmar que dado una $\Gamma_0$ que cumpla la condición establecida, $Con_L(\Gamma_0) = Con_L(\Gamma)$.
+
+\section{Ejercicio 9}
+
+\textit{¿Es posible que para algún $\Gamma$ dado, en algún sistema formal $F$, $Con_F(\Gamma)$ sea
+infinito?. Ejemplificar.} \\
+
+Si, esto puedo darse cuando el conjunto de enunciados $\Gamma$ permite deducir una contradicción. Luego, $\Gamma$ podría deducir
+cualquier fbf del sistema formal $F$ y podría darse entonces que $Con_F(\Gamma)$ sea infinito. Un ejemplo de esto es el propuesto en el ejercicio 10.
+
+\section{Ejercicio 10}
+
+\textit{Sea $\Gamma = \{r, \neg s, s \vee \neg r\}$. Calcular $Con_L(\Gamma)$} \\
+
+Sabemos por definición que $Con_L(\Gamma) = \{A / \Gamma \vdash_L A\}$, es decir, $Con_L(\Gamma) = \{A / \{r, \neg s, s \vee \neg r\} \vdash_L A\}$. \\
+
+Podemos demostrar facilmente que a partir de dicho conjunto $\Gamma$ se puede llegar a una contradicción. Luego, sabemos que a partir de $\Gamma$ se puede deducir cualquier cosa. Finalmente,
+$Con_L(\Gamma)$ es el conjunto de todas las fbfs de $L$. 
 
 \end{document}
