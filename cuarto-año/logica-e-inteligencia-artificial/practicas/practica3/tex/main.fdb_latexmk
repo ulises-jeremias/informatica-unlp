@@ -2,12 +2,12 @@
 ["bibtex main"] 0 "main.aux" "main.bbl" "main" 0
   "/usr/share/texmf-dist/bibtex/bst/revtex/apsrev4-1.bst" 1536124397 71518 fec93f06df0c073f83d2330456bd19c2 ""
   "main.aux" 0 -1 0 ""
-  "mainNotes.bib" 1539635928 103 48ad29797468f16e2853d8797278d7af ""
+  "mainNotes.bib" 1539656997 103 48ad29797468f16e2853d8797278d7af ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1539635928 "/home/ulisesjcf/Documents/Projects/Github/Facultad-de-Informatica/cuarto-año/logica-e-inteligencia-artificial/practicas/practica3/tex/main.tex" "main.pdf" "main" 1539635928
-  "/home/ulisesjcf/Documents/Projects/Github/Facultad-de-Informatica/cuarto-año/logica-e-inteligencia-artificial/practicas/practica3/tex/main.tex" 1539635927 7175 3e43311d4219b31264ec211cd65fc271 ""
+["pdflatex"] 1539656997 "/home/ulisesjcf/Documents/Projects/Github/Facultad-de-Informatica/cuarto-año/logica-e-inteligencia-artificial/practicas/practica3/tex/main.tex" "main.pdf" "main" 1539656997
+  "/home/ulisesjcf/Documents/Projects/Github/Facultad-de-Informatica/cuarto-año/logica-e-inteligencia-artificial/practicas/practica3/tex/main.tex" 1539656997 7171 26e60a2db1ff111329ad3b180bcf1fa6 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1536122179 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1536122179 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1536122179 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -92,13 +92,13 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1536122179 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1536352023 334286 7d54d57af850f32d2e4cd0d3222731c3 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1536352016 7908118 17a8e57bac24e421302528f00d16db9a ""
-  "main.aux" 1539635928 8 a94a2480d3289e625eea47cd1b285758 ""
+  "main.aux" 1539656997 8 a94a2480d3289e625eea47cd1b285758 ""
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.tex" 1539635927 7175 3e43311d4219b31264ec211cd65fc271 ""
+  "main.tex" 1539656997 7171 26e60a2db1ff111329ad3b180bcf1fa6 ""
   "osajnl10pt4-1.rtx" 1538788777 4381 02e12b3ec51e6ef93f59a1bd4ddc5bc7 ""
   "osajnl4-1.rtx" 1538788777 19410 c42e8aef28ea4a81d41f96fa5a079d5c ""
   (generated)
+  "main.log"
+  "mainNotes.bib"
   "main.pdf"
   "main.aux"
-  "mainNotes.bib"
-  "main.log"
