@@ -30,7 +30,7 @@ Process Abuela
                 } [](!empty(return_request)) -> {
                         char pencil;
                         receive return_request(&pencil);
-                        pencil == 'C' ? c-- : n--;
+                        pencil == 'C' ? c++ : n++
                 }
         }
 }
@@ -42,7 +42,7 @@ Process Child_N[i = 1..N]
                 send request_n(&i);
                 recieve response_n[i](&pencil);
                 delay(TIME * 60);
-                renturn_request(pencil);
+                return_request(pencil);
         }
 }
 
@@ -53,7 +53,7 @@ Process Child_C[i = 1..N]
                 send request_c(&i);
                 recieve response_c[i](&pencil);
                 delay(TIME * 60);
-                renturn_request(pencil);
+                return_request(pencil);
         }
 }
 
@@ -64,6 +64,6 @@ Process Child_A[i = 1..N]
                 send request_a(&i);
                 recieve response_a[i](&pencil);
                 delay(TIME * 60);
-                renturn_request(&pencil);
+                return_request(&pencil);
         }
 }
