@@ -96,11 +96,11 @@ De esta forma, el host de origen obtiene el número y la identidad de los router
 
 #### c. Indique la cantidad de saltos realizados desde su computadora hasta el sitio info.unlp.edu.ar. En algunos de los saltos ¿muestra el nombre del dominio asociado al salto y su ip? Detalle los encontrados.
 
-\-- inc --
+_inc_
 
 #### d. Verifique el recorrido a dos de los servidores de mail de gmail.com y compare los saltos realizados.  ¿Realizaron la misma cantidad de saltos, hicieron el mismo camino?
 
-\-- inc --
+_inc_
 
 * * *
 
