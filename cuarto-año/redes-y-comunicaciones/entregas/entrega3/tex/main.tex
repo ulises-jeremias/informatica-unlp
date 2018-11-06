@@ -19,7 +19,7 @@
 \documentclass[osajnl,twocolumn,showpacs,superscriptaddress,10pt]{revtex4-1} %% use 10pt for Applied Optics
 %%\documentclass[osajnl,preprint,showpacs,superscriptaddress,12pt]{revtex4-1} %% use 12pt for preprint option
 \usepackage{amsmath,amssymb,graphicx,float,enumerate}
-% \usepackage[cache=false]{minted}
+\usepackage[cache=false]{minted}
 \usepackage[utf8]{inputenc}
 \graphicspath{ {../images/} }
 
@@ -56,6 +56,33 @@
 
 \textit{Utilizando topología topologia-IP.imn y dado el bloque IPv6: 2001:db8:1234::/48.}
 
+\begin{enumerate}[a)]
+    \item Arme el plan de direccionamiento IPv6 teniendo en cuenta las siguientes restricciones:
+    
+    \begin{itemize}
+        \item La red A tiene 70 hosts y se espera un crecimiento máximo de 20 hosts.
+        \item La red X tiene 150 hosts.
+        \item La red B cuenta con 20 hosts
+        \item La red Y tiene 35 hosts y se espera un crecimiento máximo de 30 hosts.
+        \item Los bloques IP asignados en los enlaces entre routers podrán ajustarse a desperdiciar pocas direcciones.
+        \item Es importante utilizar VLSM?
+        
+        Para armar el plan de direccionamiento IPv6 de esta topologia no es necesario utilizar VLSM dado que
+        la cantidad de host a asignar por red nunca llegan a ser tantas como para que no alcanse la cantidad
+        de IPs asignables.
+    \end{itemize}
+
+    \item Asigne direcciones IP en los equipos de la topología según el plan anterior.
+    
+    \item Configure las tablas de rutas teniendo en cuenta las siguientes restricciones:
+    
+    \item n1 deberá optar por el enlace verde solamente para rutear el tráfico dirigido a la Red X.
+    
+    \item Utilizando la herramienta ping6(8), verifique conectividad entre los hosts pertenecientes  a las diferentes redes de usuarios.
+    
+
+\end{enumerate}
+
 \section{Ejercicio 2}
 
 \textit{TTL (Adjunte capturas de tráfico para cada uno de los incisos).}
@@ -70,7 +97,7 @@
     \item \textit{Realice un ping entre n8 y n5 y determine el valor inicial del
     campo TTL capturando tráfico en la interfaz eth0 del host n8.}
 
-    Para este inciso, se ejecuta en la terminal correspondiente al host n8 un ping entre este host y n5
+    Para este inciso, se ejecuta en la terminal correspondiente al host n8 un ping entre este host y n7
     utilizando el comando \textit{ping6}. \\
 
     Capturando el tráfico con el wireshark se busca determinar el valor del campo TTL en
@@ -84,7 +111,7 @@
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.95\textwidth]{ttl.png}
-        \caption{Captura del tráfico del ping entre n8 y n5 en el que se observa el valor inicial del campo Hop Limit.}
+        \caption{Captura del tráfico del ping entre n8 y n7 en el que se observa el valor inicial del campo Hop Limit.}
         \label{image:ttl}
     \end{figure}
 
@@ -96,6 +123,47 @@
     \item \textit{Utilizando la herramienta para enviar mensajes ICMP con la opción
     -t desde n8 envíe un datagrama a n7 con TTL=1. ¿Qué mensaje recibe? ¿Por qué?}
 
+    Para enviar mensajes ICMP se utiliza el comando ping(6) ejecutando, en la 
+    terminal del nodo n8, el siguiente comando,
+
+    \begin{minted}{bash}
+    $ ping6 -t 2001:db8:1234:4::2
+    \end{minted}
+
+    siendo 2001:db8:1234:4::2 la IPv6 del nodo n7. \\
+
+    A la par que se envía el datagrama, se captura el tráfico utilizando wireshark
+    como se observa en la figura (\ref{image:ttl1}). El mensaje que se recibe tanto en la
+    salida del comando ejecutado (figura \ref{image:ttl1ping}) como en los paquetes
+    capturados por el wireshark es \textit{Time exceeded: Hop Limit}.
+
+    \textbf{TERMINARRRRRRRRR}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\textwidth]{ttl1.png}
+        \caption{Captura del tráfico del ping entre n8 y n7.}
+        \label{image:ttl1}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{ttl1ping.png}
+        \caption{Salida del comando ping.}
+        \label{image:ttl1ping}
+    \end{figure}
+\end{enumerate}
+
+\section{Ejercicio 3}
+
+\textit{Dual Stack}
+
+\begin{enumerate}[a)]
+    \item Configure en la parte “X” y en “B” la red en IPv4 e IPv6 en modo Dual Stack.
+    
+    \item Genere tráfico IPv6 e IPv4 y compare.
+    
+    \item Investigue mecanismos para llevar el tráfico IPv4 de la red “X” a la red “B” pasando por redes. Vea cómo puede implementarse en la topología.
 
 \end{enumerate}
 
