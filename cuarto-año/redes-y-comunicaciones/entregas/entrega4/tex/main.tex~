@@ -73,6 +73,10 @@ dispone de una IP asignada a simple vista. Sin embargo, luego de iniciar la topo
 se ejecuta el comando \textit{ifconfig} sobre cada uno de los hosts
 viendo así las IPs asignadas a cada uno. En ambos casos se observan dos IPs asignadas, una de alcance local al enlace y otra de alcance global. \\
 
+Es importante tener en cuenta que la IPv6 de alcance de Link Local no debe ser única a nivel Global,
+sino solo en la red donde está contenida, y la misma comenzará en general con \textbf{ff80},
+estando en el rango \textit{[fe80, febf]}. \\
+
 Concretamente las IPs asignadas, con su correspondiente alcance, son:
 
 \begin{itemize}
@@ -126,15 +130,12 @@ de la interfaz del host que envía el mensaje de Router Solicitation. \\
     \label{image:router-solicitation-advertisement}
 \end{figure}
 
-\section{Router solicitation}
-
-La dirección IP destino es la ff02::02  y la origen es la fe80::200:ff:feaa:1.
-Cuando la interfaz perteneciente a uno de los nodos de la red, es desactivada y reactivada, éste nodo genera un router solicitation, pidiéndole a todos los routers que se anuncien( router advertisement) 
+\subsection{Router solicitation} 
 
 \begin{itemize}
     \item ¿Cuál es el tipo y el código del mensaje?
     
-    El mensaje es de tipo Router Solicitation (133) con código 0.
+    El mensaje es de tipo Router Solicitation con código 133.
 
     \item ¿Cuál es la MAC origen y la MAC destino?
     
@@ -142,11 +143,12 @@ Cuando la interfaz perteneciente a uno de los nodos de la red, es desactivada y 
         \item ¿Qué tipo de MAC es la MAC destino?
     \end{itemize}
 
-    Se puede observar en la figura () que la MAC origen es 00:00:00:aa:00:01 y el valor del header \textit{Dest.} de Ethernet
-    es \textbf{IPv6mcast\_02 (33:33:00:00:00:02)}. A partir de la definición provista en \ref{superuser-ref} se determina que
-    las MAC destino son todas las direcciones asociadas a los routers de la red que, al ser en este caso único, es 00:00:00:aa:00:02. \\
+    Se puede observar en la figura (\ref{image:router-solicitation-details}) que la MAC origen es 00:00:00:aa:00:01 y el valor del header \textit{Dst.} de Ethernet
+    es \textbf{IPv6mcast\_02 (33:33:00:00:00:02)}. A partir de la definición provista en (\ref{superuser-ref}) se determina que
+    las MAC destino son todas las direcciones asociadas a los routers de la red que, al ser en este caso único, es 00:00:00:aa:00:02.
     
-    En la \href{https://tools.ietf.org/html/rfc2464#section-7}{RFC 2464}
+    En la \href{https://tools.ietf.org/html/rfc2464#section-7}{RFC 2464} se puede notar como obtener la MAC de una interfaz
+    específica a partir de un IPv6 multicast.
     
     \textit{Ethernet has "multicast" MAC addresses as well – any MAC address with the "group" bit set is technically a multicast address; IPv6 uses the prefix 33:33:*, while IPv4 uses 01:00:5e:*.}
     \label{superuser-ref}
@@ -157,18 +159,36 @@ Cuando la interfaz perteneciente a uno de los nodos de la red, es desactivada y 
         \item ¿Qué tipo de dirección es la IP origen y qué tipo de dirección es la IP destino?
     \end{itemize}
 
+    La IP origen es \textit{fe80::200:ff:feaa:1} de tipo \textit{Link-local unicast} y la IP destino es \textit{ff02::02} de tipo \textit{Multicast}.
+
     \item ¿Qué datos puede destacar del mensaje ICMP?
+    
+    Como se menciona en el ejercicio anterior, se puede destacar que, cuando la interfaz perteneciente a uno de los nodos de la red, es desactivada y reactivada, el mismo genera un Router Solicitation, pidiéndole a todos los routers que se anuncien, es decir, Router Advertisement.
 \end{itemize}
 
-\section{Router advertisement}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{router-solicitation-details.png}
+    \caption{Información detallada del paquete 5 de la captura mostrada en la figura \ref{image:router-solicitation-advertisement}.}
+    \label{image:router-solicitation-details}
+\end{figure}
+
+\subsection{Router advertisement}
 
 \begin{itemize}
     \item ¿Cuál es el tipo y el código del mensaje?
+    
+    El mensaje es de tipo Router Advertisement con código 134.
+
     \item ¿Cuál es la MAC origen y la MAC destino?
     
     \begin{itemize}
         \item ¿Qué tipo de MAC es la MAC destino?
     \end{itemize}
+
+    Se puede observar en la figura (\ref{image:router-advertisement-details}) que la MAC origen es 00:00:00:aa:00:02 y el valor del header \textit{Dst.} de Ethernet
+    es \textbf{IPv6mcast\_01 (33:33:00:00:00:01)}. A partir de la definición provista en (\ref{superuser-ref}) se determina que
+    las MAC destino es 00:00:00:aa:00:01.
     
     \item ¿Cuál es la IP origen y la IP destino?
     
@@ -176,8 +196,20 @@ Cuando la interfaz perteneciente a uno de los nodos de la red, es desactivada y 
         \item ¿Qué tipo de dirección es la IP origen y qué tipo de dirección es la IP destino?
     \end{itemize}
     
+    La IP origen es \textit{ff02::02} de tipo \textit{Multicast} y la IP destino es \textit{fe80::200:ff:feaa:1} de tipo \textit{Link-local unicast}.
+
     \item ¿Qué datos puede destacar del mensaje ICMP? ¿Cuál es prefijo que se anuncia?
+    
+    Este mensaje surge como respuesta a un Router Solicitation o para mantener a los nodos informados. El prefijo
+    que se sugiere es el \textit{2001::} correspondiente a \textbf{Global unicast} de IPv6.
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{router-advertisement-details.png}
+    \caption{Información detallada del paquete 6 de la captura mostrada en la figura \ref{image:router-solicitation-advertisement}.}
+    \label{image:router-advertisement-details}
+\end{figure}
 
 \section{Análisis de rutas}
 
@@ -187,52 +219,140 @@ Visualice la tabla de rutas de IPv6:
     \item ¿Cuál es el default GW de PC-A? ¿Qué alcance tiene dicha dirección?
 \end{itemize}
 
-Verifique conectividad entre PC-A y “SERVER”.
+\textit{Verifique conectividad entre PC-A y “SERVER”.} \\
+
+Para visualizar la tabla de rutas de IPv6, se ejecuta el comando \textbf{ip -6 route}, \textit{ó ip -6 route list} obteniendo
+una tabla como la que se observa en la figura (\ref{image:ip-route}). \\
+
+En la misma se puede observar que el default gateway de PC-A es \textbf{fe80:200:ff:feaa:2}, una IPv6 de alcance de Link local.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{ip-route.png}
+    \caption{Tabla de rutas de IPv6.}
+    \label{image:ip-route}
+\end{figure}
+
+Luego se hace un ping desde PC-A a la IPv6 Global de SERVER para verificar la conectividad, como
+se ve en la figura (\ref{image:ping-pca-server}). En la figura (\ref{tcpdump-server}) se observa la captura de tráfico
+en SERVER.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{ping-pca-server.png}
+    \caption{Ping desde PC-A a SERVER.}
+    \label{image:ping-pca-server}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{tcpdump-server.png}
+    \caption{Captura de tráfico en SERVER utilizando tcpdump.}
+    \label{image:tcpdump-server}
+\end{figure}
 
 \section{Neighbor discovery - Análisis}
 
 \textit{Desde PC-A haga un ping a la IPv6 global de PC-B mientras captura tráfico ICMPv6 en
-PC-B. Analice los mensajes “Neighbor Solicitation” y “Neighbor Advertisement”.}
+PC-B. Analice los mensajes “Neighbor Solicitation” y “Neighbor Advertisement”.} \\
 
-\section{Neighbor solicitation}
+Primero se obtiene la IPv6 global de PC-B utilizando el comando \textit{ifconfig} obteniendo
+la siguiente IP, \textbf{2001::200:ff:feaa:0}. \\
+
+Desde PC-A se ejecuta el comando \textbf{ping6} para hacer un ping a la IPv6 de PC-B
+mientras se capturan el tráfico ICMPv6 en PC-B. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{neighbor-solicitation-advertisement.png}
+    \caption{Captura de paquetes del ping de PC-A a IPv6 global de PC-B.}
+    \label{image:neighbor-solicitation-advertisement}
+\end{figure}
+
+\subsection{Neighbor solicitation}
 
 \begin{itemize}
     \item ¿Cuál es el tipo y el código del mensaje?
+    
+    Es un código de tipo Neighbor Solicitation de código 135.
+
     \item ¿Cuál es la MAC origen y la MAC destino?
     
     \begin{itemize}
         \item ¿Qué tipo de MAC es la MAC destino?
     \end{itemize}
+
+    Se puede observar en la figura (\ref{image:image:neighbor-solicitation-details}) que la MAC origen es 00:00:00:aa:00:01 de tipo Unicast y el valor del header \textit{Dst.} de Ethernet
+    es \textbf{IPv6mcast\_ff:aa:00:00 (33:33:ff:aa:00:00)} de tipo Multicast ya que tiene asociada la IPv6 ff02::1:ffaa:0. Se determina que la MAC destino efectiva es 00:00:00:aa:00:00 al ser un único router.
     
     \item ¿Cuál es la IP origen y la IP destino?
     
     \begin{itemize}
         \item ¿Qué tipo de IP es la IP destino?
     \end{itemize}
+
+    La IP origen es \textit{2001::200:ff:feaa:1} de tipo \textit{Global} y la IP destino es \textit{2001::200:ff:feaa:0} de tipo \textit{Global}.
     
     \item ¿Qué datos puede destacar del mensaje ICMP?
+    
+    El mensaje \textbf{Neighbor Solicitation} se utiliza determinar la dirección MAC de un nodo específico dentro de la red o para saber si éste sigue respondiendo a la dirección MAC que se encuentra almacenada en la caché.
 \end{itemize}
 
-\section{Neighbor Advertisement}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{neighbor-solicitation-details.png}
+    \caption{Información detallada del paquete 1 de la captura mostrada en la figura \ref{image:neighbor-solicitation-advertisement}.}
+    \label{image:neighbor-solicitation-details}
+\end{figure}
+
+\subsection{Neighbor Advertisement}
 
 \begin{itemize}
     \item ¿Cuál es el tipo y el código del mensaje?
+    
+    Es un mensaje del tipo Neighbor Advertisement con código 136.
+
     \item ¿Cuál es la MAC origen y la MAC destino?
+    
     
     \begin{itemize}
         \item ¿Qué tipo de MAC es la MAC destino?
     \end{itemize}
+
+    La dirección MAC origen es 00:00:00:aa:00:00 y la destino es 00:00:00:aa:00:01.
+    Al igual que en el caso del Neighbor Solicitation, la MAC es de tipo multicast.
     
     \item ¿Cuál es la IP origen y la IP destino?
     
     \begin{itemize}
         \item ¿Qué tipo de IP es la IP destino?
     \end{itemize}
+
+    La dirección IPv6 origen es 2001::200:ff:feaa:0 y la IPv6 destino es la IP 2001::200:ff:feaa:1, ambas de tipo \textit{Global}.
     
     \item ¿Qué datos puede destacar del mensaje ICMP?
+
+    Este mensaje se dispara automáticamente al recibir el mensaje anterior (neighbor solicitation) o se genera cuando se va a realizar un cambio en su dirección.
 \end{itemize}
 
-\textit{Visualice la tabla de caché de NDP de PC-A utilizando las herramientas provistas por
-iproute2.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{neighbor-advertisement-details.png}
+    \caption{Información detallada del paquete 2 de la captura mostrada en la figura \ref{image:neighbor-advertisement-advertisement}.}
+    \label{image:neighbor-advertisement-details}
+\end{figure}
+
+\textit{\textbf{Visualice la tabla de caché de NDP de PC-A utilizando las herramientas provistas por
+iproute2.}} \\
+
+Podemos observar la tabla de caché de NDP de PC-A ejecutando el comando \textit{ip neighbor show} como se ve
+en la figura (\ref{image:ndp-table}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{ndp-table.png}
+    \caption{Tabla de caché de NDP de PC-A.}
+    \label{image:ndp-table}
+\end{figure}
 
 \end{document}
