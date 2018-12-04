@@ -163,8 +163,7 @@ Destination, Gateway, Genmask, ..., Iface
 
 -   Dst: 200.30.55.96, Genmask: /28, Gtw: 10.10.10.9, Iface: eth0
 -   Dst: 200.30.55.64, Genmask: /27, Gtw: 10.10.10.9, Iface: eth0
--   Dst: 192.68.10.0, Genmask: /25, Gtw: 10.10.10.5, Iface: eth2
--   Dst: 192.68.10.128, Genmask: /25, Gtw: 10.10.10.5, Iface: eth2
+-   Dst: 192.68.10.0, Genmask: /24, Gtw: 10.10.10.5, Iface: eth2
 -   Dst: 10.10.10.16, Genmask: /29, Gtw: 10.10.10.5, Iface: eth2
 -   Dst: 10.10.10.12, Genmask: /30, Gtw: 10.10.10.5, Iface: eth2
 -   Dst: 10.10.10.0, Genmask: /30, Gtw: 10.10.10.5, Iface: eth2
