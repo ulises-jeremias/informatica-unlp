@@ -1,14 +1,25 @@
 2^0 1
+
 2^1 2
+
 2^2 4
+
 2^3 8
+
 2^4 16
+
 2^5 32
+
 2^6 64
+
 2^7 128
+
 2^8 256
+
 2^9 512
+
 2^10 1024
+
 2^11 2048
 
 RED A - 100 hosts
@@ -30,8 +41,9 @@ Entonces tomamos como bloque alguna IP con mascara menor a 25, tomamos 192.168.1
 
 192.168.10. |0|0000000 /25
 
-Rango de RED [192.168.10.0/25, 192.168.10.127/25]
-Rango de IPs asignables [192.168.10.1/25, 192.168.10.126/25]
+-   Rango de RED [192.168.10.0/25, 192.168.10.127/25]
+
+-   Rango de IPs asignables [192.168.10.1/25, 192.168.10.126/25]
 
 => **RED A - 192.168.10.0/25**
 
@@ -47,8 +59,9 @@ por lo que utilizamos la RED libre 192.168.10.128/25,
 
 => **RED B - 192.168.10.128/25**
 
-Rango de RED [192.168.10.128/25, 192.168.10.255/25]
-Rango de IPs asignables [192.168.10.129/25, 192.168.10.254/25]
+-   Rango de RED [192.168.10.128/25, 192.168.10.255/25]
+
+-   Rango de IPs asignables [192.168.10.129/25, 192.168.10.254/25]
 
 * * *
 
@@ -65,8 +78,9 @@ Vamos a buscar una IP de bloque con mascara menor a 27, por ejemplo, 200.30.55.6
 
 => **RED D - 200.30.55.64/27**
 
-Rango de RED [200.30.55.64/27, 200.30.55.95/27]
-Rango de IPs asignables [200.30.55.65/27, 200.30.55.94/27]
+-   Rango de RED [200.30.55.64/27, 200.30.55.95/27]
+
+-   Rango de IPs asignables [200.30.55.65/27, 200.30.55.94/27]
 
 Libre 200.30.55.01.96/27
 
@@ -84,8 +98,9 @@ Libre 200.30.55.01.96/27
 
 => **RED C - 200.30.55.96/28**
 
-Rango de RED [200.30.55.96/28, 200.30.55.111/28]
-Rango de IPs asignables [200.30.55.97/28, 200.30.55.110/28]
+-   Rango de RED [200.30.55.96/28, 200.30.55.111/28]
+
+-   Rango de IPs asignables [200.30.55.97/28, 200.30.55.110/28]
 
 Libre 200.30.55.112/28
 
@@ -96,18 +111,17 @@ Los enlaces entre routers deben utilizar redes privadas.
 
 Necesitamos 3 hosts, por lo que buscamos 3bh, y necesitamos una mascara menor 32 - 3 = 29,
 
-10.10.10.000 |00| 000 /29
+Utilizamos la IP de bloque 10.10.10.0/27 y el rango de 10.10.10.0 a 10.10.10.15 está utilizado
 
-=> **ENLACE ABE - 10.10.10.0/29**
+10.10.10.000 |10| 000 /29
 
-Rango de RED [10.10.10.0/29, 10.10.10.7/29]
-Rango de IPs asignables [10.10.10.1/29, 10.10.10.6/29]
+=> **ENLACE ENTRE ROUTERS ABE - 10.10.10.16/29**
 
-Libres
+-   Rango de RED [10.10.10.16/29, 10.10.10.23/29]
 
--   10.10.10.8/29
--   10.10.10.16/29
--   10.10.10.24/29
+-   Rango de IPs asignables [10.10.10.17/29, 10.10.10.22/29]
+
+Libres 10.10.10.24/29
 
 * * *
 
@@ -117,15 +131,47 @@ Los enlaces entre routers deben utilizar redes privadas.
 Necesitamos 2 hosts, por lo que nos alcanza con 2 bits teniendo en cuenta IPs de subred y broadcast,
 32 - 2 = 30, mascara
 
-Utilizamos la IP Libre 10.10.10.8/29
+Utilizamos la IP Libre 10.10.10.24/29
 
 10.10.10.00001 |0| 00/30
 
-=> **ENLACE CD - 10.10.10.8/30**
+=> **ENLACE ENTRE ROUTERS CD - 10.10.10.24/30**
 
-Rango de RED [10.10.10.8/30, 10.10.10.11/30]
-Rango de IPs asignables [10.10.10.9/30, 10.10.10.10/30]
+-   Rango de RED [10.10.10.8/30, 10.10.10.11/30]
+
+-   Rango de IPs asignables [10.10.10.9/30, 10.10.10.10/30]
 
 Libre 10.10.10.12/30
 
 * * *
+
+
+## Realice las tablas de rutas de RouterE y BORDER considerando
+
+-   Siempre se deberá tomar la ruta más corta.
+
+-   Sumarizar siempre que sea posible.
+
+-   El tráfico de Internet a la Red D y viceversa debe atravesar el RouterC.
+
+-   Todos los hosts deben poder conectarse entre sí y a Internet.
+
+
+### Border
+
+Destination, Gateway, Genmask, ..., Iface
+
+-   Dst: 200.30.55.96, Genmask: /28, Gtw: 10.10.10.9, Iface: eth0
+-   Dst: 200.30.55.64, Genmask: /27, Gtw: 10.10.10.9, Iface: eth0
+-   Dst: 192.68.10.0, Genmask: /25, Gtw: 10.10.10.5, Iface: eth2
+-   Dst: 192.68.10.128, Genmask: /25, Gtw: 10.10.10.5, Iface: eth2
+-   Dst: 10.10.10.16, Genmask: /29, Gtw: 10.10.10.5, Iface: eth2
+-   Dst: 10.10.10.12, Genmask: /30, Gtw: 10.10.10.5, Iface: eth2
+-   Dst: 10.10.10.0, Genmask: /30, Gtw: 10.10.10.5, Iface: eth2
+-   Dst: 10.10.10.24, Genmask: /30, Gtw: 10.10.10.9, Iface: eth0
+
+**Enlaces propios de la RED del Router BORDER**
+
+-   Dst: 10.10.10.4, Genmask: /30, Gtw: 0.0.0.0, Iface: eth2
+-   Dst: 10.10.10.8, Genmask: /30, Gtw: 0.0.0.0, Iface: eth0
+-   Dst: 172.16.0.0, Genmask: /24, Gtw: 0.0.0.0, Iface: eth1
