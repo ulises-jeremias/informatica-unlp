@@ -133,15 +133,15 @@ Necesitamos 2 hosts, por lo que nos alcanza con 2 bits teniendo en cuenta IPs de
 
 Utilizamos la IP Libre 10.10.10.24/29
 
-10.10.10.00001 |0| 00/30
+10.10.10.00011 |0| 00/30
 
 => **ENLACE ENTRE ROUTERS CD - 10.10.10.24/30**
 
--   Rango de RED [10.10.10.8/30, 10.10.10.11/30]
+-   Rango de RED [10.10.10.24/30, 10.10.10.27/30]
 
--   Rango de IPs asignables [10.10.10.9/30, 10.10.10.10/30]
+-   Rango de IPs asignables [10.10.10.25/30, 10.10.10.26/30]
 
-Libre 10.10.10.12/30
+Libre 10.10.10.28/30
 
 * * *
 
@@ -175,3 +175,23 @@ Destination, Gateway, Genmask, ..., Iface
 -   Dst: 10.10.10.4, Genmask: /30, Gtw: 0.0.0.0, Iface: eth2
 -   Dst: 10.10.10.8, Genmask: /30, Gtw: 0.0.0.0, Iface: eth0
 -   Dst: 172.16.0.0, Genmask: /24, Gtw: 0.0.0.0, Iface: eth1
+
+### Router E
+
+Destination, Gateway, Genmask, ..., Iface
+
+-   Dst: 172.16.0.0, Genmask: /24, Gtw: 10.10.10.6, Iface: eth3
+-   Dst: 200.30.55.96, Genmask: /28, Gtw: 10.10.10.14, Iface: eth1
+-   Dst: 200.30.55.64, Genmask: /27, Gtw: 10.10.10.2, Iface: eth2
+-   Dst: 192.68.10.0, Genmask: /25, Gtw: 10.10.10.18, Iface: eth0
+-   Dst: 192.68.10.128, Genmask: /25, Gtw: 10.10.10.17, Iface: eth0
+-   Dst: 172.16.0.0, Genmask: /24, Gtw: 10.10.10.6, Iface: eth3
+-   Dst: 10.10.10.8, Genmask: /30, Gtw: 10.10.10.6, Iface: eth3
+-   Dst: 10.10.10.24, Genmask: /30, Gtw: 10.10.10.12, Iface: eth1
+
+**Enlaces propios de la RED del Router E**
+
+-   Dst: 10.10.10.16, Genmask: /29, Gtw: 0.0.0.0, Iface: eth0
+-   Dst: 10.10.10.12, Genmask: /30, Gtw: 0.0.0.0, Iface: eth1
+-   Dst: 10.10.10.0, Genmask: /30, Gwt: 0.0.0.0, Iface: eth2
+-   Dst: 10.10.10.4, Genmask: /30, Gwt: 0.0.0.0, Iface: eth3
