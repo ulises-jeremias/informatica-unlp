@@ -17,16 +17,20 @@
 </style>
 
 <div class="title">
-<h2>Informe de Trabajo con</h2>
+<h2>Compilación de un kernel custom con</h2>
 <h1>Buildroot</h1>
 </div>
 
 ## Alumnos
 
--  Ulises Jeremias Cornejo Fandos
--  Agustin Vanzato
+-  Ulises Jeremias Cornejo Fandos - 13566/7
+-  Agustin Vanzato - 14499/8
 
-* * *
+La entrega consta del presente informe y los siguientes archivos:
+
+-  bzImage
+-  rootfs.cpio.xz
+-  rootfs.ext2
 
 # Convenciones
 
@@ -34,15 +38,19 @@ En el presente informe se muestran los pasos a seguir para compilar un kernel cu
 
 Los comandos a ejecutar en el cli personal tendrán como prefijo el signo `$`, similar al estandar de la shell `sh`. Por otro lado, con animos de diferenciarlos de la computadora personal, los comandos a ejecutar en las VM planteadas se verán con el prefijo `%`, conocido del estandar de shell `csh`. Esto no nos indica que estemos utilizando _csh_ para ejecutar los comandos sino que es solo una herramienta que utilizamos para diferenciar los contextos de ejecución de los mismos.
 
+Adicionalmente, a lo largo de la guía se supone un usario `user` el cual tiene su _home_ en el path `/home/user`.
+
 # Dependencias
 
 En esta sección se detallan algunas de las dependencias que el sistema utilizado debería tener al momento de iniciar el proceso de compilación y ejecución de las imagenes generadas.
 
--  cpio
--  gcc
--  libelf
--  make
--  qemu
+-  [cpio](https://linux.die.net/man/1/cpio)
+-  [gcc](https://gcc.gnu.org/)
+-  [libelf](https://directory.fsf.org/wiki/Libelf)
+-  [make](https://github.com/mirror/make)
+-  [qemu](https://www.qemu.org/)
+
+<div class="page"></div>
 
 # Pasos
 
@@ -61,6 +69,7 @@ Ver sección de <a href="#convenciones">convenciones</a>.
 Obtener buildroot clonando la rama `2018.08` de buildroot ejecutando el siguiente comando:
 
 ```sh
+$ cd /home/user
 $ git clone --depth=1 --branch=2018.08 git:git.busybox.net/buildroot
 $ cd buildroot # Los pasos siguientes se ejecutarán en este directorio
 ```
@@ -100,9 +109,17 @@ El mismo puede paralelizarse de las siguientes dos formas:
 $ make -j [N] # no recomendado en la documentación de buildroot
 ```
 
-o mediante variables de configuración de buildroot,
+o mediante variables de configuración de buildroot `BR2_JLEVEL[=N]`, e.g.
 
-## Preguntar a Vanza
+```sh
+$ echo "BR2_JLEVEL=2" >> .config
+```
+
+Notar que N indica la cantidad de Jobs a ejecutar.
+
+<div class="annotation">
+"You should never use make -jN with Buildroot: top-level parallel make is currently not supported. Instead, use the BR2_JLEVEL option to tell Buildroot to run the compilation of each individual package with make -jN."<br /><a href="https://buildroot.org/docs.html">Documentación de buildroot.</a>
+</div>
 
 ### Errores de compilación
 
@@ -128,7 +145,9 @@ Este problema se debe a que se utilizan referencias las cuales no existen en nin
 #include <sys/sysmacros.h>
 ```
 
-Esto podría, o no, generar errores dado que redefine sin verificación macros definidas en el header file `<sys/types.h>`. Sin embargo, alcanza con cambiar la linea  `#include <sys/types.h>` por `#include <sys/sysmacros.h>` en el archivo `.c` anteriormente mencionado para solucionar el problema.
+Esto podría, o no, generar errores dado que redefine macros definidas en el header file `<sys/types.h>` sin correcta verificación. Sin embargo, alcanza con cambiar la linea  `#include <sys/types.h>` por `#include <sys/sysmacros.h>` en el archivo `.c` anteriormente mencionado para solucionar el problema.
+
+Este problema no hubiese tenido lugar si se utilizara una versión más actual de buildroot como puede ser la presente en la rama `master` o `2019.02.x` del repositorio [github.com/buildroot/buildroot](https://github.com/buildroot/buildroot). 
 
 #### Dependencias no instaladas
 
@@ -210,15 +229,41 @@ Luego, con un editor de preferencia, e.g. nano, vi, code, ..., modificar el cont
 /bin/ln -sf /proc/self/fd /dev/fd
 /bin/ln -sf /proc/self/fd/0 /dev/stdin
 /bin/ln -sf /proc/self/fd/1 /dev/stdout
-/bin/ln -sf /proc/self/fd/2 /dev/stderr
-/bin/hostname -F /etc/hostname
+/bin/ln -sf /proc/self/fd/2 /dev/stderr/bin/hostname -F /etc/hostname
+
+# Looking for values of diff occurrencies of arg "root"
+root=$(cat /proc/cmdline | xargs | sed 's/ /\n/g' | grep root= | cut -d'=' -f2 | sed 's/ /\n/g')
+
+# root=<path/to/default/mountin/point> if -append not defined
+if [[ "$root" == "" ]]
+then
+    echo "@@ Not found root argument"
+    echo "@@ Setting \"root\" as default mounting point: \"/dev/sda\""
+    root=${root:-"/dev/sda"}
+else
+    for line in $root
+    do
+        if [ -e "$line" ]
+        then
+            root="$line"
+            break
+        fi
+    done
+fi
+
+if  [[ -e "$root" ]]
+then
+    echo "@@ Mounting $root"
+else
+    # Kernel panic when -append is defined with no valid mounting points at "root" argument
+    echo "@@ Mounting point $root not found"
+    exit 1
+fi
 
 mkdir /mnt/ext4FS
-mount /dev/sda /mnt/ext4FS
+mount "$root" /mnt/ext4FS
 echo "Mounted rootfs"
-
 mount --move /dev /mnt/ext4FS/dev
-
 cd /mnt/ext4FS
 exec switch_root . "/sbin/init" "$@"
 ```
@@ -226,7 +271,13 @@ exec switch_root . "/sbin/init" "$@"
 Luego, generamos un comprimido utilizable como _initramfs_ como sigue:
 
 ```sh
-$ sudo find . | sudo cpio -H newc -o > ../custom.cpio
+$ sudo find . | sudo cpio -H newc -o > ../rootfs.cpio
+```
+
+o generar un comprimido de la imagen con fines prácticos,
+
+```sh
+$ sudo find . | sudo cpio -H newc -o | xz --check=crc32 -v9 > ../rootfs.cpio.xz
 ```
 
 ## Probar imagen generada
@@ -234,10 +285,10 @@ $ sudo find . | sudo cpio -H newc -o > ../custom.cpio
 Una vez finalizada la etapa anterior, iniciar la VM de la siguiente forma:
 
 ```sh
-$ qemu-system-x86_64 -m 512 -kernel bzImage -initrd custom.cpio -append root="/dev/sda" rootfs.ext4
+$ qemu-system-x86_64 -m 512 -kernel bzImage -initrd rootfs.cpio.xz -append root="/dev/sda" rootfs.ext4
 ```
 
-El comando anterior inicia la VM con `custom.cpio` como _initramfs_ y luego monta `rootfs.ext4` como raíz, `/`, gracias al script `sbin/init` definido anteriormente.
+El comando anterior inicia la VM con `rootfs.cpio.xz` como _initramfs_ y luego monta `rootfs.ext4` como raíz, `/`, gracias al script `sbin/init` definido anteriormente.
 
 ## Modificar init
 
@@ -245,7 +296,7 @@ Si la ejecución de la VM es correcta, dirigirse al directorio `/etc/init.d` y c
 
 ```sh
 % cd /etc/init.d
-% echo "#!/bin/sh\necho \"Hola Ulises Jeremias Cornejo Fandos y Agustin Vanzato\"" > S60hello
+% echo "#\!/bin/sh\necho \"Hola Ulises Jeremias Cornejo Fandos y Agustin Vanzato\"" > S60hello
 % chmod +x S60hello
 ```
 

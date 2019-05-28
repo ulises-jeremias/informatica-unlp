@@ -1,0 +1,10 @@
+qemu-system-x86_64 -m 512 -kernel bzImage -initrd rootfs.cpio \
+-append "pepe=1 root=/dev/sda " # [appends] \
+rootfs.ext2
+
+
+Como mandamos varios parametros?
+Podemos mandar varios valores para el arg root?
+
+Que hacer con esos varios? Buscar el primero montable? Tirar error?
+Si no hay montables seteamos default?
