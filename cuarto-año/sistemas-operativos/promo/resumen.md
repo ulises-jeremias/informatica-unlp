@@ -74,7 +74,7 @@ cada hilo tiene su propio TCB (thread control block) y 2 pilas.
 
 9. Cuando un proceso se swapea, los hilos quedan en memoria en estado de espera.
 
-
+Falso, si un proceso se SWAPEA los hilos bajan con el proceso
 
 10. En la administración de los hilos a nivel de usuario, interviene el kernel.
 
