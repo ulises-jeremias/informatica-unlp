@@ -86,7 +86,7 @@ Correcto.
 
 12. LA suspensión de un ULT, provoca la suspensión del proceso.
 
-Si, es decir, bloquea a todos los hilos del proceso.
+Depende, aca hay que tener en cuenta si la libreria da la funcionalidad de suspender, no necesariamente el proceso tambien se suspenda. Ahora si la suspencion se da por una SysCall, se se suspenderia el proceso.
 
 13. En los KLT, el context switch entre hilos, no provoca un cambio de modo.
 
