@@ -120,7 +120,7 @@ _This design makes it faster to load the Kernel (no need to load and initialize 
 
 The `/dev` directory is the standard location for all Device files in the system but one can create Device files in other directories (e.g. in RedHat's installation process, the device files for the hard disks are created in the `/tmp` directory).
 
-### 8. ¿Para qué sirven el archivos /lib/modules//modules.dep utilizado por el comando modprobe
+### 8. ¿Para qué sirven el archivos /lib/modules/\<version\>/modules.dep utilizado por el comando modprobe
 
 **modprobe** - Add and remove modules from the Linux Kernel
 
