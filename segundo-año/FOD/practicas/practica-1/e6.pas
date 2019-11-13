@@ -19,11 +19,11 @@ procedure ReadPerson(var rec: Person);
 begin
     with rec do begin
         Write('Enter surname: ');
-        readln(surname);
+        ReadLn(surname);
         Write('Enter name: ');
-        readln(name);
+        ReadLn(name);
         Write('Enter birthdate `yyyymmdd`: ');
-        readln(birthdate);
+        ReadLn(birthdate);
         WriteLn();
     end;
 end;
@@ -137,7 +137,7 @@ BEGIN
             1: CreateAndFillFile(peopleFile);
             2: List(peopleFile);
             3: AddPeople(peopleFile);
-            4: Export(peopleFile, peopleTxt);
+            5: Export(peopleFile, peopleTxt);
         end;
         ClrScr;
     until (option = 0);
