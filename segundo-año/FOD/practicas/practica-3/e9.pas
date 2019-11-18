@@ -8,7 +8,7 @@ TYPE
         stock: Integer;
     end;
 
-    MedicinesFileT=file;
+    MedicinesFileT = file;
 
 procedure Create(var a: MedicinesFileT);
 var
