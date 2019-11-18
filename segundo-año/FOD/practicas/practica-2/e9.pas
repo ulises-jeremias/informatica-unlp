@@ -13,7 +13,7 @@ TYPE
     HourValueArrayT = array [1..15] of Real;
     EmployeesFileT = file of EmployeeT;
 
-procedure Import(var a: EmployeesFileT; var t: text);
+procedure Import(var a: EmployeesFileT; var t: Text);
 var
     rec: EmployeeT;
 begin
@@ -30,7 +30,7 @@ begin
     Close(t);
 end;
 
-procedure LoadArray(var hours: HourValueArrayT; var arrayFileText: text);
+procedure LoadArray(var hours: HourValueArrayT; var arrayFileText: Text);
 var
     i: Integer;
     value: Real;
@@ -102,7 +102,7 @@ end;
 
 VAR
     fileName: String;
-    arrayFileText, employeesFileText: text;
+    arrayFileText, employeesFileText: Text;
     employeesFile: EmployeesFileT;
     hours: HourValueArrayT;
 BEGIN

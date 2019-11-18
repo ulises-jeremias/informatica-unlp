@@ -11,7 +11,7 @@ type
     CarsFileT = file of Car;
 
 
-procedure Import(var a: CarsFileT; var t: text);
+procedure Import(var a: CarsFileT; var t: Text);
 var 
     rec: Car;
 begin
@@ -85,7 +85,7 @@ end;
 
 VAR	
 	fileName: String;
-	t: text;
+	t: Text;
 	a: CarsFileT ;
 BEGIN
 	Writeln;

@@ -90,7 +90,7 @@ begin
     Close(peopleFile);
 end;
 
-procedure Export(var peopleFile: PeopleFileT; var peopleTxt: text);
+procedure Export(var peopleFile: PeopleFileT; var peopleTxt: Text);
 var
     rec: Person;
 begin
@@ -112,7 +112,7 @@ end;
 
 VAR
     peopleFile: PeopleFileT;
-    peopleTxt:text;
+    peopleTxt: Text;
     fileName: String;
     option: Byte;
 BEGIN
