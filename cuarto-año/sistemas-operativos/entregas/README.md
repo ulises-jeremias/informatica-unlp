@@ -1,4 +1,4 @@
 # Ejercicio Entregable
 
-- [Consigna](./Trabajo práctico Buildroot - SO 2019 Redictado.pdf)
+- [Consigna](./Trabajo%20práctico%20Buildroot%20-%20SO%202019%20Redictado.pdf)
 - [Resolución](./README.pdf)
